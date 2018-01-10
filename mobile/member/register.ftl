@@ -28,17 +28,9 @@
 
 </@lay.htmlHead>
 
-<@lay.htmlBody isShowFooter=false isShowHeader=false>
+<@lay.htmlBody isShowFooter=false >
 <div class="ss-container register-main">
     <div class="ss-main">
-        <section class="ss-navber">
-            <a href="/shardersF/index.do"><img class="logo" src="/r/cms/resource/sharders/img/index/logo.png"></a>
-            <select id="language" class="ss-language-select"">
-                <option value="zh-CN">中文简体</option>
-                <option value="en">English</option>
-            </select>
-        </section>
-
         <section class="main-title">
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您注册豆匣协议</h1>
             <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/shardersF/login.do" name="sharderf-user-sign-in">登录</a></div>
@@ -48,7 +40,7 @@
                 <ul>
                     <li>
                         <label for="username"><i>*</i><span class="i18n" name="sharder-sign-in-username">用户名:</span></label>
-                        <input id="username" type="text" placeholder="用户名" vld="{rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在'}}" name="username" class="username" />
+                        <input id="username" type="text" vld="{rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在'}}" name="username" class="username" />
                     </li>
                     <li >
                         <label for="identification"><i>*</i><span class="i18n" name="sharder-user-emil">手机/邮箱:</span></label>
@@ -56,7 +48,7 @@
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="captcha"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
-                        <input id="captcha" type="text" placeholder="校验码" name="captcha" class="captcha"/>
+                        <input id="captcha" type="text"  name="captcha" class="captcha"/>
                         <input type="button"  name="校验码" onclick="registerVcode('identification',this)" value="获取验证码"/>
                     </li>
                     <li>

@@ -18,16 +18,9 @@
 </script>
 </@lay.htmlHead>
 
-<@lay.htmlBody isShowFooter=false isShowHeader=false>
+<@lay.htmlBody isShowFooter=false>
 <div class="ss-container register-main login-main">
     <div class="ss-main">
-        <section class="ss-navber">
-            <a href="/shardersF/index.do"><img class="logo" src="/r/cms/resource/sharders/img/index/logo.png"></a>
-            <select id="language" class="ss-language-select"">
-            <option value="zh-CN">中文简体</option>
-            <option value="en">English</option>
-            </select>
-        </section>
 
         <section class="main-title">
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您登录豆匣协议</h1>

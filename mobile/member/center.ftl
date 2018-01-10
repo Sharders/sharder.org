@@ -1,7 +1,6 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
-<link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/center.css">
 <@lay.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="invest">
-
+<link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/center.css">
 </@lay.htmlHead>
 
 <@lay.htmlBody>
