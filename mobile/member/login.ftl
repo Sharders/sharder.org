@@ -1,7 +1,6 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
-<@lay.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="invest">
-
-<link rel="stylesheet" href="/r/cms/resource/sharders/css/register_login.css">
+<@lay.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="">
+<link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/register_login.css">
 
 <style>
     html,body{
@@ -22,17 +21,22 @@
 <@lay.htmlBody isShowFooter=false isShowHeader=false>
 <div class="ss-container register-main login-main">
     <div class="ss-main">
-        <section class="main-title">
-            <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您登录豆匣协议</h1>
+        <section class="ss-navber">
+            <a href="/shardersF/index.do"><img class="logo" src="/r/cms/resource/sharders/img/index/logo.png"></a>
+            <select id="language" class="ss-language-select"">
+            <option value="zh-CN">中文简体</option>
+            <option value="en">English</option>
+            </select>
         </section>
 
-        <section class="register-form"><!--invest/invest.do-->
+        <section class="main-title">
+            <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您登录豆匣协议</h1>
+            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n" href="/shardersF/register.do" name="sharderf-user-sign-in">注册</a></div>
+        </section>
+
+        <section class="register-form register_login">
             <form action="${base}/login.jspx?returnUrl=/shardersF/login_success.do&failureUrl=/shardersF/login.do" method="post" class="ss-form default" id="login-form">
                 <ul>
-
-                    <li>
-                        <span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n" href="/shardersF/register.do" name="sharder-log-in-immediately">立即注册</a>
-                    </li>
                     <li>
                         <label for="username" class="i18n" name="sharder-account-number">账号:</label>
                         <input id="username" type="text" placeholder="手机号码或邮箱" name="username" class="required login-input" />

@@ -28,7 +28,7 @@
         <div class="crowd-funding-rebate">
                 <div class="crowd-funding details">
                     <p class="crowd-funding-title">
-                        <img src="#" class="crowd-funding-img">
+                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img">
                         <span class="details-title">众筹所得</span>
                     </p>
                     <p class="crowd-funding quota ">500000ss</p>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="rebate details">
                     <p class="crowd-funding-title">
-                        <img src="#" class="crowd-funding-img img">
+                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img img">
                         <span class="details-title">返点奖励</span>
                     </p>
                     <p class="rebate-quota quota">500000ss</p>

@@ -1,4 +1,4 @@
-<@layout.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题">
+<@layout.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="index">
 <link type="text/css" rel="stylesheet" href="\r\cms\resource\sharders\css\index.css">
 <script src="${resSys}/resource/sharders/js/unslider.min.js" type="text/javascript"></script>
 <style>
@@ -42,7 +42,6 @@
                     <i>SHARDER<br/>PROTOCOL</i>
                 </li>
                 <li class="network-node network-node-6">
-
                     <i></i>
                     <span>Boxer</span>
                 </li>
@@ -63,7 +62,6 @@
     <section class="ss-container sharder-network-main tail">
         <div class="ss-main">
             <div class="sharder-network">
-
                 <div class="ss-main-title ss-main-btn theme">
                     <div>
                         <span class="blank"></span>
@@ -74,28 +72,28 @@
                 <ul>
                     <li class="ss-describe ss-describe1">
                         <div class="item item1">
-                            <h4 class="ss-sub-title">简单的网络拓扑</h4>
-                            <div class="ss-content">网络中节点对等，节点只有连通与否的状态。由更高层的协议完成复杂的状态和行为控制。</div>
+                            <h4 class="ss-sub-title i18n" name="sharder.network.main.title1">简单的网络拓扑</h4>
+                            <div class="ss-content i18n" name="sharder.network.main.content1">网络中节点对等，节点只有连通与否的状态。由更高层的协议完成复杂的状态和行为控制。</div>
                         </div>
                         <div class="item item2">
-                            <h4 class="ss-sub-title">数据跨链</h4>
-                            <div class="ss-content">能够在现有的成熟公链和传统的互联网络中进行互联互通，能进行价值和数据传递和交换。</div>
+                            <h4 class="ss-sub-title i18n" name="sharder.network.main.title2">数据跨链</h4>
+                            <div class="ss-content i18n" name="sharder.network.main.content2">能够在现有的成熟公链和传统的互联网络中进行互联互通，能进行价值和数据传递和交换。</div>
                         </div>
                     </li>
                     <li class="ss-describe ss-describe2">
                         <div class="item item3">
-                            <h4 class="ss-sub-title">可扩展API</h4>
-                            <div class="ss-content">易用的 API 并可供上层应用扩展。</div>
+                            <h4 class="ss-sub-title i18n" name="sharder.network.main.title3">可扩展API</h4>
+                            <div class="ss-content i18n" name="sharder.network.main.content3">易用的 API 并可供上层应用扩展。</div>
                         </div>
                         <div class="item item4">
-                            <h4 class="ss-sub-title">可量化的贡献度</h4>
-                            <div class="ss-content">参与协议各方的贡献度都应该有相应的量化标准和可被观测的贡献度。比如采用 PoST 和 PoR 作为贡献的磁盘空间和存储时间的量化证明。</div>
+                            <h4 class="ss-sub-title i18n" name="sharder.network.main.title4">可量化的贡献度</h4>
+                            <div class="ss-content i18n" name="sharder.network.main.content4">参与协议各方的贡献度都应该有相应的量化标准和可被观测的贡献度。比如采用 PoST 和 PoR 作为贡献的磁盘空间和存储时间的量化证明。</div>
                         </div>
                     </li>
                     <li class="ss-describe ss-describe3">
                         <div class="item item5">
-                            <h4 class="ss-sub-title">所有权和隐私性</h4>
-                            <div class="ss-content">数据提供者具有数据的所有权和完全访问权，并具有绝对的隐私性。任何非所有者都需要经过所有者授权才能访问和使用数据。</div>
+                            <h4 class="ss-sub-title i18n" name="sharder.network.main.title5">所有权和隐私性</h4>
+                            <div class="ss-content i18n" name="sharder.network.main.content5">数据提供者具有数据的所有权和完全访问权，并具有绝对的隐私性。任何非所有者都需要经过所有者授权才能访问和使用数据。</div>
                         </div>
                     </li>
                 </ul>
@@ -150,7 +148,6 @@
         </div>
 
     </section>
-
     <section class="ss-container sharder-documents-main tail">
         <div class="ss-main">
             <div class="ss-main-title ss-main-btn theme">
@@ -188,7 +185,6 @@
             </ul>
         </div>
     </section>
-
     <section class="ss-container sharder-more-main tail">
         <div class="ss-main">
             <h4 class="ss-sub-title zh">代币众筹正在进行中,加入我们了解更多内容!</h4>
