@@ -4,6 +4,15 @@
 </@layout.htmlHead>
 
 <@layout.htmlBody>
+
+
+<!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+
+
 <div class="container ss-theme-background-color">
     <div class="subscribe">
         <div class="subscribe-share">
@@ -55,9 +64,18 @@
             <li><span class="user-title i18n" name="sharder-account-number">账号:</span><span class="user-value"><#if user ??>${user.realname!}</#if></span></li>
             <li><span class="user-title i18n" name="sharder-user-uid-code">UID码:</span><span class="user-value">${inviterId!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-sgin-pwd">登录密码:</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">修改密码</span></li>
-            <li><span class="user-title i18n" name="sharder-user-invitation-link">专属邀请链接:</span><span id="contents" >http://192.168.215.1:8080/shardersF/register.do?inviterId=${inviterId!}</span>
-                <span class="user-operation i18n" name="sharder-copy-invitation-code" onClick="jsCopy();" >复制邀请码</span></li>
+            <li>
+                <span class="user-title i18n" name="sharder-user-invitation-link">专属邀请链接:</span><span id="contents" >${augold!}</span>
+                <div class="jiathis_style_32x32">
+                    <a class="jiathis_button_weixin"></a>
+                    <a class="jiathis_button_cqq"></a>
+                    <a class="jiathis_button_qzone"></a>
+                </div>
+                <span class="user-operation i18n" name="sharder-copy-invitation-code" onClick="jsCopy();" >复制邀请码</span>
+            </li>
+
         </ul>
+
     </div>
     <div class="assets">
         <span class="title i18n" name="sharder-my-assets">我的资产</span>
@@ -422,16 +440,16 @@
 
 
 
-<#--<script src="/r/cms/resource/sharders/js/ZeroClipboard.js"></script>-->
-<#--<script>-->
-    <#--window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"分享到新浪微博","bdMini":"1","bdMiniList":["bdxc","tqf","douban","bdhome","sqq","thx","ibaidu","meilishuo","mogujie","diandian","huaban","duitang","hx","fx","youdao","sdo","qingbiji","people","xinhua","mail","isohu","yaolan","wealink","ty","iguba","fbook","twi","linkedin","h163","evernotecn","copy","print"],"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];-->
-<#--</script>-->
-
-
-
-<script>
-//    var g_url = window.location.href;
-//    $('.share-copy-c input').val(g_url);
-//    var clip = new ZeroClipboard( document.getElementById("btnCopy"));
+<script type="text/javascript" >
+    var jiathis_config={
+        siteNum:1,
+        sm:"ujian",
+        url:"${augold!}",
+        summary:"",
+        title:"邀请好友送警察 ##",
+        shortUrl:false,
+        hideMore:true
+    }
 </script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
 </@layout.htmlBody>

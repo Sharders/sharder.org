@@ -12,13 +12,16 @@
 
 <script type="text/javascript">
         $(function() {
-           window.register =  $("#register-form").validate({
+           /*window.register =  */$("#register-form").validate({
                 rules: {
                     protocol:"required"
                 },
                 messages: {
                     protocol:"请先同意服务条款"
-                }
+                },
+               submitHandler: function() {
+                   executeRegister();
+               }
             });
             $("#guestbookCaptcha").click();
         });
@@ -33,7 +36,7 @@
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您注册豆匣协议</h1>
         </section>
         <section class="register-form">
-            <form action="${base}/shardersF/register.do?returnUrl=/shardersF/login.do" method="post"  class="ss-form default" id="register-form">
+            <form action="" method="post"  class="ss-form default" id="register-form" onsubmit="alert('789')">
                 <ul>
                     <li>
                         <span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/shardersF/login.do" name="sharderf-user-sign-in">登录</a>
@@ -44,7 +47,7 @@
                     </li>
                     <li >
                         <label for="identification"><i>*</i><span class="i18n" name="sharder-user-emil">手机/邮箱:</span></label>
-                        <input type="text" id="identification" maxlength="30" vld="{remote:'identification.do',messages:{remote:'手机或邮箱已被使用！'}}" name="identification"  class="register-input" />
+                        <input type="text" id="identification" maxlength="30" vld="{remote:'/shardersF/user_center/is_not_exist.do',messages:{remote:'手机或邮箱已被使用！'}}" name="identification"  class="register-input" />
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="phone"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
@@ -77,7 +80,6 @@
                     </li>
                 </ul>
                 <input type="hidden" name="captchaToken" value="">
-                <input type="hidden" name="registerMethod" :value="registerType">
             </form>
         </section>
     </div>
@@ -96,5 +98,21 @@
             $("#register-protocol").load("/r/cms/resource/sharders/register-protocol.html");
         })
     })
+
+    function executeRegister() {
+
+        var _form = $("#register-form");
+        var reqeustUrl =_form .attr("action");
+        var _data = _form.serialize();
+        commAjax(reqeustUrl,"post",_data,registerResult);
+    }
+
+    function registerResult(result) {
+        if(!isTrue(result.success)){
+            alert(result.result.data.toString())
+        }else{
+            location.href="/shardersF/login.do";
+        }
+    }
 </script>
 </@layout.htmlBody>
