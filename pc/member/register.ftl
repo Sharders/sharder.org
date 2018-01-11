@@ -36,7 +36,7 @@
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您注册豆匣协议</h1>
         </section>
         <section class="register-form">
-            <form action="" method="post"  class="ss-form default" id="register-form" onsubmit="alert('789')">
+            <form action="${base}/shardersF/register_.do?returnUrl=/shardersF/login.do" method="post"  class="ss-form default" id="register-form">
                 <ul>
                     <li>
                         <span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/shardersF/login.do" name="sharderf-user-sign-in">登录</a>
@@ -86,6 +86,17 @@
 </div>
 <script>
     $().ready(function () {
+        //把邀请码存入cookie
+        var inviterId = "${inviterId!}";
+        if(inviterId != null && inviterId != ''){
+            console.log(inviterId);
+            console.log("========");
+            $.cookie('inviterId',inviterId, { expires: 30});
+        }else {
+            console.log("=====+_____-");
+            $("input[name='inviterId']").val($.cookie('inviterId'));
+        }
+
         $("#protocol").click(function(){
             layer.open({
                 type: 1,

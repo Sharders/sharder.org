@@ -65,7 +65,7 @@
             <li><span class="user-title i18n" name="sharder-user-uid-code">UID码:</span><span class="user-value">${inviterId!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-sgin-pwd">登录密码:</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">修改密码</span></li>
             <li>
-                <span class="user-title i18n" name="sharder-user-invitation-link">专属邀请链接:</span><span id="contents" >${augold!}</span>
+                <span class="user-title i18n" name="sharder-user-invitation-link">专属邀请链接:</span><span id="contents" >${invitePage!}?inviterId=${inviterId!}</span>
                 <div class="jiathis_style_32x32">
                     <a class="jiathis_button_weixin"></a>
                     <a class="jiathis_button_cqq"></a>
@@ -444,9 +444,9 @@
     var jiathis_config={
         siteNum:1,
         sm:"ujian",
-        url:"${augold!}",
+        url:"${invitePage!}?inviterId=${inviterId!}",
         summary:"",
-        title:"邀请好友送警察 ##",
+        title:"注册sharder 享受跟多礼包",
         shortUrl:false,
         hideMore:true
     }

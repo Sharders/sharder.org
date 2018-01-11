@@ -16,13 +16,13 @@
             <li class="ss-line"></li>
             <li><span class="ss-text">白名单预约</span><span class="ss-text">早鸟轮</span><span class="ss-text">众筹轮</span></li>
         </ul>
-        <button class="ss-crowd-funding-btn">立即参与获取白名单额度</button>
+        <a href="/shardersF/user_center/index.do"><button class="ss-crowd-funding-btn">立即参与获取白名单额度</button></a>
         <p class="ss-crowd-funding-text" >白名单额度在参与众筹时，可额外获得20%的豆匣币（SS）奖励。</p>
     </section>
     <section class="ss-main-plan">
         <h3 class="ss-head">代币分配</h3>
         <p class="ss-plan-text">本次众筹代币是Sharder Storage，以下简称SS,SS是一种基于以太坊实现的合约代币。Sharder总共发行XXXXXXXXX个SS,流通量XXXXXXXXXX为分配计划如下：</p>
-        <div id="distribution_ratio" style="width: 350px;height: 280px; margin: auto" ></div>
+        <div id="distribution_ratio" style="width: 320px;height: 256px; margin: auto" ></div>
         <ul class="distribution-ratio-text">
             <li class="generalTextColor"><i class="yuan1"></i><span class="i18n" name="sharder-distribution-text1">15%天使轮：分发给早期天使投資人。</span></li>
             <li class="generalTextColor"><i class="yuan2"></i><span class="i18n" name="sharder-distribution-text2">35%众筹基金：將由豆匣基金会在交易所上挂单出售和官网预售。</span></li>
@@ -41,17 +41,17 @@
         </div>
         <div class="ss-technological-process">
             <div class="technological-process-tab">
-                <button class="official-website-direct-investment">官网直投</button><button class="business-city">商城众筹</button>
+                <button class="official-website-direct-investment" v-on:click="tabBtn(1)">官网直投<div></div></button><button class="business-city" v-on:click="tabBtn(0)">商城众筹<div></div></button>
             </div>
                 <ul class="ss-technological-step">
                     <li>
                         <span>步骤一</span>
-                        <button>登录注册</button>
+                        <button>{{!crowdFunding ? "登录注册" : "进入商城"}}</button>
                         <span class="tesu">步骤四</span>
-                        <button>转账参与</button>
+                        <button>{{!crowdFunding ? "转账参与" : "购买成功"}}</button>
                         <img src="/r/cms/resource/sharders/img/left.png" class="technological-img1">
                         <span class="tesu">步骤五</span>
-                        <button>联系客服确认</button>
+                        <button>{{!crowdFunding ? "联系客服确认" : "获得积分"}}</button>
                     </li>
                     <li>
                         <img src="/r/cms/resource/sharders/img/left.png" class="technological-img2">
@@ -60,20 +60,20 @@
                     </li>
                     <li>
                         <span>步骤二</span>
-                        <button>查看众筹信息</button>
+                        <button>{{!crowdFunding ? "查看众筹信息" : "选择商品"}}</button>
                         <img src="/r/cms/resource/sharders/img/left.png" class="technological-img5">
                         <span class="tesu">步骤三</span>
-                        <button>进入众筹页面</button>
+                        <button>{{!crowdFunding ? "进入众筹页面" : "下单付款"}}</button>
                         <span class="tesu">步骤六</span>
                         <button>完成众筹</button>
                     </li>
                 </ul>
             <p class="generalText i18n" name="sharder-flow-path-text6">注:本流程仅适用于天使轮阶段。正式众筹阶段我们会通过以太坊智能合约进行代币发放。</p>
             <p class="generalText i18n" name="sharder-flow-path-text7">个人众筹信息及提币信息请登录进入个人中心查看详细说明。</p>
-            <p class="generalText i18n" name="sharder-flow-path-text8" v-if="isOfficial">商城众筹所购买商将于众筹结束后7个工作日发货。</p>
+            <p class="generalText i18n" name="sharder-flow-path-text8">商城众筹所购买商将于众筹结束后7个工作日发货。</p>
         </div>
     </section>
-    <section class="sharder-info">
+    <section class="sharder-info" style="display: none">
         <div class="sharder-line">
             <h3 class="sharder-early-bird">早鸟轮(已结束)</h3>
             <p class="sharder-line-p"></p>
@@ -114,7 +114,7 @@
                     <span class="crude">6.</span>
                     <span class="i18n" name="sharder-invset-text7">天使轮结束以后，众筹将会在官网以及XXX进行公开IEO,具体信息以官方信息为准。</span>
                 </li>
-                <li class="generalTextColor" v-if="!isCrowdFunding">
+                <li class="generalTextColor">
                     <span class="crude i18n" name="sharder-subscribe">7.白名单:</span>
                     <span  class="i18n" name="sharder-invset-text8">天使轮结束以后，众筹将会在官网以及XXX进行公开IEO,具体信息以官方信息为准。</span>
                 </li>
@@ -124,6 +124,38 @@
     </section>
 </div>
 <script src="${resSys}/resource/sharders/js/echarts-all-3.js" type="text/javascript"></script>
+<script>
+    var app = new Vue({
+        el: ".ss-main-participate",
+        data: {
+            crowdFunding:true,
+            bool:-1,
+        },
+        methods: {
+            tabBtn:function (num) {
+                if(app.bool == num){
+                    return ;
+                }else {
+                    app.bool = num;
+                }
+                $(".business-city").css("background-color","#000000");
+                $(".official-website-direct-investment").css("background-color","#000000");
+
+                $(".official-website-direct-investment div").css("display","none");
+                $(".business-city div").css("display","none");
+                if(app.crowdFunding){
+                    $(".official-website-direct-investment").css("background-color","#0ba0d1");
+                    $(".official-website-direct-investment div").css("display","block");
+                }else{
+                    $(".business-city").css("background-color","#0ba0d1");
+                    $(".business-city div").css("display","block");
+                }
+                app.crowdFunding = !app.crowdFunding;
+            }
+        }
+    });
+    app.tabBtn(1);
+</script>
 <script>
     var myEcharts = echarts.init(document.getElementById("distribution_ratio"));
     option = {

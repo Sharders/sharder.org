@@ -85,6 +85,17 @@
 </div>
 <script>
     $().ready(function () {
+
+        var inviterId = "${inviterId!}";
+        if(inviterId != null && inviterId != ''){
+            console.log(inviterId);
+            console.log("========");
+            $.cookie('inviterId',inviterId, { expires: 30});
+        }else {
+            console.log("=====+_____-");
+            $("input[name='inviterId']").val($.cookie('inviterId'));
+        }
+
         $("#protocol").click(function(){
             layer.open({
                 type: 1,

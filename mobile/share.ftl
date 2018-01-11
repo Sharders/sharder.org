@@ -6,7 +6,7 @@
     <title>邀请注册</title>
     <link rel="stylesheet"  href="/r/cms/resource/sharders/css/mobile/share.css">
 </head>
-<body>
+<body class="mhome">
 <div class="ss-share-main ss-main">
     <section class="ss-theme">
         <h1 class="ss-title">豆匣代币(SS)众筹进行中！</h1>
@@ -48,8 +48,8 @@
         </ul>
     </section>
     <section class="ss-share">
-        <button class="main-btn">前往注册享优惠</button>
-        <p class="detail">注册邀请码:XYZ00123</p>
+        <a href="${registerUrl!}"><button class="main-btn">前往注册享优惠</button></a>
+        <p class="detail">${inviterId!}</p>
     </section>
 </div>
 </body>
