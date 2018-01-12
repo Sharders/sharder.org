@@ -47,7 +47,7 @@
                     </li>
                     <li >
                         <label for="identification"><i>*</i><span class="i18n" name="sharder-user-emil">手机/邮箱:</span></label>
-                        <input type="text" id="identification" maxlength="30" vld="{remote:'/shardersF/user_center/is_not_exist.do',messages:{remote:'手机或邮箱已被使用！'}}" name="identification"  class="register-input" />
+                        <input type="text" id="identification" maxlength="30" vld="{remote:'/shardersF/user_center/is_not_exist.do',messages:{remote:'手机或邮箱已被使用！'}}" name="identification"  class="register-input identification"/>
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="phone"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>

@@ -222,9 +222,9 @@
                     <span class="en">PLAN</span>
                 </div>
             </div>
-            <#--<div class="m-timeline">-->
-                <#--<img  src="/r/cms/resource/sharders/img/mobile/index/m-timeline.png">-->
-            <#--</div>-->
+            <div class="m-timeline">
+                <img  src="/r/cms/resource/sharders/img/mobile/index/m-timeline.png">
+            </div>
         </div>
     </section>
     <section class="sharder-partner-main">

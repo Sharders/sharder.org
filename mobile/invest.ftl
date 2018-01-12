@@ -51,7 +51,7 @@
                         <button>{{!crowdFunding ? "转账参与" : "购买成功"}}</button>
                         <img src="/r/cms/resource/sharders/img/left.png" class="technological-img1">
                         <span class="tesu">步骤五</span>
-                        <button>{{!crowdFunding ? "联系客服确认" : "获得积分"}}</button>
+                        <button>{{!crowdFunding ? "联系确认" : "获得积分"}}</button>
                     </li>
                     <li>
                         <img src="/r/cms/resource/sharders/img/left.png" class="technological-img2">

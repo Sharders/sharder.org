@@ -12,7 +12,7 @@
             <li><labal class="user-title">账号:</labal><span class="user-text">${user.realname!}</span></li>
             <li><labal class="user-title">用户名:</labal><span class="user-text">${user.username!}</span></li>
             <li><labal class="user-title">推广码:</labal><span class="user-text">${inviterId!}</span></li>
-            <li><labal class="user-title">推广链接:</labal><span class="user-text augoid" id="contents">${augold!}</span></li>
+            <li><labal class="user-title">推广链接:</labal><span class="user-text augoid" id="contents">${invitePage!}?inviterId=${inviterId!}</span></li>
         </ul>
         <button class="copy-link" onclick="jsCopy()">复制推广链接</button>
         <p class="text-color">通你的专属链接/邀请码注册并成功参与众筹。</p>
@@ -59,7 +59,7 @@
             <li><span class="username-list">账户:${userName2!}</span><span>获得额度:</span><span>${subscribe2.maxSubscribe!}</span><span>ETH</span></li>
         </ul>
         <p class="subscribe-quota">
-            <span>你当前的白名单额度为:</span><span>${maxSubscribe!}ETH</span><span class="subscribe-quota-info">已经使用额度:${nowSubscribe!}ETH</a>
+            <span>你当前的白名单额度为:</span><span>${maxSubscribe!}ETH</span><span class="subscribe-quota-info">已经使用额度:${nowSubscribe!}ETH</span>
         </p>
         <div class="subscribe-info-text">
             <p  class="subscribe-info-title">白名单预约细则</p>
