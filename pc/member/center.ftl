@@ -61,7 +61,7 @@
         <ul>
             <li><span class="user-title i18n" name="sharder-sign-in-username">用户名:</span><span class="user-value"><#if user ??>${user.username!}</#if></span><span
                     class="user-operation" ></span></li>
-            <li><span class="user-title i18n" name="sharder-account-number">账号:</span><span class="user-value"><#if user ??>${user.realname!}</#if></span></li>
+            <li><span class="user-title i18n" name="sharder-account-number">账号:</span><span class="user-value">${acconut!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-uid-code">UID码:</span><span class="user-value">${inviterId!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-sgin-pwd">登录密码:</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">修改密码</span></li>
             <li>
@@ -75,8 +75,8 @@
             </li>
 
         </ul>
-
     </div>
+    <div class="remarks i18n" name="sharder-subscribe-text5">邀请注册并参与众筹可获得5%的返点奖励！</div>
     <div class="assets">
         <span class="title i18n" name="sharder-my-assets">我的资产</span>
         <div class="total-assets">
@@ -129,7 +129,7 @@
         <button class="currency-ss i18n" name="sharder-subscribe-currency">提币</button>
         <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
         <div class="poput-extract i18n" name="sharder-subscribe-text4">通过官网直投的支持者，将在公开众筹结束后开始提币，三天内自动兑换到您提供的 ETH 钱包地址（锁仓者除外）。</div>
-        <div class="remarks i18n" name="sharder-subscribe-text5">邀请注册并参与众筹可获得5%的返点奖励！</div>
+
     </div>
     <div class="rule">
         <span class="title i18n" name="sharder-explain-rebate">返点奖励解释:</span>

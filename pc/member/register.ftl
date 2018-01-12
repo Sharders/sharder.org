@@ -47,7 +47,7 @@
                     </li>
                     <li >
                         <label for="identification"><i>*</i><span class="i18n" name="sharder-user-emil">手机/邮箱:</span></label>
-                        <input type="text" id="identification" maxlength="30" vld="{remote:'/shardersF/user_center/is_not_exist.do',messages:{remote:'手机或邮箱已被使用！'}}" name="identification"  class="register-input identification"/>
+                        <input type="text" id="identification" maxlength="30" vld="{remote:'/shardersF/user_center/is_not_exist.do',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱" class="register-input identification"/>
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="phone"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
@@ -56,16 +56,16 @@
                     </li>
                     <li>
                         <label for="password"><i>*</i><span class="i18n" name="sharder-user-password">设置密码:</span></label>
-                        <input id="password" type="password" name="loginPassword" vld="{rangelength:[${site.passwordMinLen},20]}" class="passwod" autocomplete="off" disableautocomplete/>
+                        <input id="password" type="password" name="loginPassword" vld="{rangelength:[6,20]}" class="passwod" autocomplete="off" disableautocomplete/>
                     </li>
                     <li>
                         <label for="confirm_password"><i>*</i><span class="i18n" name="sharder-user-pwd">确认密码:</span></label>
 
-                        <input type="password" equalto="#password" vld="{rangelength:[${site.passwordMinLen},20]}" class="password" autocomplete="off" disableautocomplete/>
+                        <input type="password" equalto="#password" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
                     </li>
                     <li>
                         <label for="verification code"><span class="i18n" name="sharder-sign-recommend">推荐人ID(选填):</span></label>
-                        <input id="referrer" type="text" placeholder="推荐人ID(选填)" name="inviterId" class="" value="${inviterId!}"/>
+                        <input id="referrer" type="text" name="inviterId" class="" value="${inviterId!}"/>
                     </li>
                     <li class="ss-verification-code-li">
                         <label for="verification code"><i>*</i><span class="i18n" name="sharder-sign-verification-code">校验码:</span></label>
@@ -89,8 +89,7 @@
         //把邀请码存入cookie
         var inviterId = "${inviterId!}";
         if(inviterId != null && inviterId != ''){
-            console.log(inviterId);
-            console.log("========");
+            $("input[name='inviterId']").attr("disabled",true);
             $.cookie('inviterId',inviterId, { expires: 30});
         }else {
             console.log("=====+_____-");
