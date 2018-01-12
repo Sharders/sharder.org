@@ -88,11 +88,8 @@
 
         var inviterId = "${inviterId!}";
         if(inviterId != null && inviterId != ''){
-            console.log(inviterId);
-            console.log("========");
             $.cookie('inviterId',inviterId, { expires: 30});
         }else {
-            console.log("=====+_____-");
             $("input[name='inviterId']").val($.cookie('inviterId'));
         }
 
@@ -121,6 +118,8 @@
         if(!isTrue(result.success)){
             alert(result.result.data.toString())
         }else{
+            //注册成功 删除cookie
+            $.cookie('inviterId', '', { expires: -1 });
             location.href="/shardersF/login.do";
         }
     }

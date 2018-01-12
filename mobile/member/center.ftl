@@ -9,7 +9,7 @@
     <div class="user-information" >
         <h1 class="phone-center-information-title">账户信息</h1>
         <ul class="user-information-text">
-            <li><labal class="user-title">账号:</labal><span class="user-text">${user.realname!}</span></li>
+            <li><labal class="user-title">账号:</labal><span class="user-text">${acconut!}</span></li>
             <li><labal class="user-title">用户名:</labal><span class="user-text">${user.username!}</span></li>
             <li><labal class="user-title">推广码:</labal><span class="user-text">${inviterId!}</span></li>
             <li><labal class="user-title">推广链接:</labal><span class="user-text augoid" id="contents">${invitePage!}?inviterId=${inviterId!}</span></li>
@@ -51,7 +51,7 @@
     <div class="subscribe-information">
         <h1 class="phone-center-information-title">白名单额度预约</h1>
         <p class="subscribe-start-end-time">时间1月8日9:00-1月21日23.59</p>
-        <p class="subscribe-line"><span style="width: ${subscribeNumber/10!}%"></span></p>
+        <span class="subscribe-line"><span style="width: ${subscribeNumber/10!}%"></span></span>
         <p class="subscribe-line-text"><span>总份额: <span>1000</span></span><span>ETH(或等价的BTC,LTC)</span><span class="line-number">${subscribeNumber/10!}%</span></p>
         <ul class="subscribe-user-list">
             <li><span class="username-list">账户:${userName0!}</span><span>获得额度:</span><span>${subscribe0.maxSubscribe!}</span><span>ETH</span></li>
@@ -112,22 +112,9 @@
 </script>
 <script src="/r/cms/resource/sharders/layui/layui.js"></script>
 <script>
+    var laypage;
     layui.use(['laypage'], function() {
-        var laypage=layui.laypage;
-        //不显示首页尾页
-        laypage.render({
-            elem: 'page'
-            ,count: 100
-            ,first: false
-            ,last: false
-            ,jump: function(obj, first){
-                if(!first){
-                    layer.msg('第 '+ obj.curr +' 页');
-                    app.pagingQuery(obj.curr);
-                }
-            }
-        });
-
+       laypage = layui.laypage;
     });
 </script>
 <script>
@@ -152,7 +139,21 @@
             template:"",
         },
         methods:{
-            tabBtn:function (num) {
+            paging:function () {
+                laypage.render({
+                    elem: 'page'
+                    ,count: 100
+                    ,first: false
+                    ,last: false
+                    ,jump: function(obj, first){
+                        if(!first){
+                            layer.msg('第 '+ obj.curr +' 页');
+                            app.pagingQuery(obj.curr);
+                        }
+                    }
+                });
+            }
+            ,tabBtn:function (num) {
                 $(".paging-query").css("display","none");
                 $(".crowd-funding.details").css("border-bottom","0");
                 $(".rebate.details").css("border-bottom","0");
@@ -161,11 +162,13 @@
                     app.isRebate=false;
                     app.name = "fandian";
                     app.template=app.name;
+                    app.paging();
                 }else if(num == 2){
                     app.isRebate=!app.isRebate;
                     app.crowd=false;
                     app.name = "zhongchou";
                     app.template=app.name;
+                    app.paging();
                 }else {
                     window.alert("无法识别的事件！！！");
                     return;

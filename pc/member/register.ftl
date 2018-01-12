@@ -122,6 +122,7 @@
         if(!isTrue(result.success)){
             alert(result.result.data.toString())
         }else{
+            $.cookie('inviterId', '', { expires: -1 });
             location.href="/shardersF/login.do";
         }
     }

@@ -14,47 +14,48 @@
 <div class="index">
     <section class="ss-container home-page tail">
         <div class="ss-main">
-            <ul class="network">
-                <li class="network-node network-node-1">
-                    <span>Miner</span>
-                    <i></i>
-                </li>
-                <li class="network-node network-node-2">
-                    <span>Witness</span>
-                    <i></i>
-                </li>
-                <li class="network-node network-node-3">
-                    <i></i>
-                    <span>Miner</span>
-                </li>
-                <li class="network-node network-node-4">
+            <ul class="network"></ul>
+            <#--<ul class="network">-->
+                <#--<li class="network-node network-node-1">-->
+                    <#--<span>Miner</span>-->
+                    <#--<i></i>-->
+                <#--</li>-->
+                <#--<li class="network-node network-node-2">-->
+                    <#--<span>Witness</span>-->
+                    <#--<i></i>-->
+                <#--</li>-->
+                <#--<li class="network-node network-node-3">-->
+                    <#--<i></i>-->
+                    <#--<span>Miner</span>-->
+                <#--</li>-->
+                <#--<li class="network-node network-node-4">-->
 
-                    <i></i>
-                    <span>Watcher</span>
-                </li>
-                <li class="network-node network-node-5">
+                    <#--<i></i>-->
+                    <#--<span>Watcher</span>-->
+                <#--</li>-->
+                <#--<li class="network-node network-node-5">-->
 
-                    <i></i>
-                    <span>Owner</span>
-                </li>
-                <li class="network-node network-node-9">
-                    <span></span>
-                    <i>SHARDER<br/>PROTOCOL</i>
-                </li>
-                <li class="network-node network-node-6">
-                    <i></i>
-                    <span>Boxer</span>
-                </li>
-                <li class="network-node network-node-7">
-                    <i></i>
-                    <span>Owner</span>
-                </li>
-                <li class="network-node network-node-8">
+                    <#--<i></i>-->
+                    <#--<span>Owner</span>-->
+                <#--</li>-->
+                <#--<li class="network-node network-node-9">-->
+                    <#--<span></span>-->
+                    <#--<i>SHARDER<br/>PROTOCOL</i>-->
+                <#--</li>-->
+                <#--<li class="network-node network-node-6">-->
+                    <#--<i></i>-->
+                    <#--<span>Boxer</span>-->
+                <#--</li>-->
+                <#--<li class="network-node network-node-7">-->
+                    <#--<i></i>-->
+                    <#--<span>Owner</span>-->
+                <#--</li>-->
+                <#--<li class="network-node network-node-8">-->
 
-                    <i></i>
-                    <span>bean</span>
-                </li>
-            </ul>
+                    <#--<i></i>-->
+                    <#--<span>bean</span>-->
+                <#--</li>-->
+            <#--</ul>-->
             <p class="text ss-main-title zh">豆匣协议——跨链分布式存储协议</p>
             <p class="text ss-main-title en">CROSS-CHAIN DISTRIBUTED STORAGE PROTOCOL</p>
         </div>

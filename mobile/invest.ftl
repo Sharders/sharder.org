@@ -48,7 +48,7 @@
                         <span>步骤一</span>
                         <button>{{!crowdFunding ? "登录注册" : "进入商城"}}</button>
                         <span class="tesu">步骤四</span>
-                        <button>{{!crowdFunding ? "转账参与" : "购买成功"}}</button>
+                        <button>{{!crowdFunding ? "转账参与" : "成功购买"}}</button>
                         <img src="/r/cms/resource/sharders/img/left.png" class="technological-img1">
                         <span class="tesu">步骤五</span>
                         <button>{{!crowdFunding ? "联系确认" : "获得积分"}}</button>
@@ -60,10 +60,10 @@
                     </li>
                     <li>
                         <span>步骤二</span>
-                        <button>{{!crowdFunding ? "查看众筹信息" : "选择商品"}}</button>
+                        <button>{{!crowdFunding ? "查看众筹" : "选择商品"}}</button>
                         <img src="/r/cms/resource/sharders/img/left.png" class="technological-img5">
                         <span class="tesu">步骤三</span>
-                        <button>{{!crowdFunding ? "进入众筹页面" : "下单付款"}}</button>
+                        <button>{{!crowdFunding ? "进入众筹" : "下单付款"}}</button>
                         <span class="tesu">步骤六</span>
                         <button>完成众筹</button>
                     </li>
@@ -76,27 +76,26 @@
     <section class="sharder-info" style="display: none">
         <div class="sharder-line">
             <h3 class="sharder-early-bird">早鸟轮(已结束)</h3>
-            <p class="sharder-line-p"></p>
-            <p  class="sharder-early-bird-text">1月22日9:00-2月4日23:59</p>
+            <p class="sharder-line-p"><span></span></p>
         </div>
     </section>
     <section class="ss-main-early-bird">
         <div class="sharder-line">
             <h3 class="sharder-early-bird">早鸟轮</h3>
-            <p class="sharder-line-p"></p>
             <p  class="sharder-early-bird-text">1月22日9:00-2月4日23:59</p>
+            <p class="sharder-line-p"><span></span></p>
         </div>
         <ul class="ss-early-bird-text">
                 <li class="generalTextColor">
                     <span class="crude i18n" name="sharder-start-time">1.开始时间:</span>
-                    北京时间2018年{{angelOrCrowdText.time1}}，如下列任一目标达成则将立即停止天使轮。<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;A:38135593个SS全部售出。<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;B:SS售出超XX个并到达截止时间2018年2月4日。
+                    北京时间2018年2月4日23:59，如下列任一目标达成则将立即停止天使轮。<br/>
+                    &nbsp;&nbsp;A:38135593个SS全部售出。<br/>
+                    &nbsp;&nbsp;B:SS售出超XX个并到达截止时间2018年2月4日。
                 </li>
                 <li class="generalTextColor">
                     <span class="crude i18n" name="sharder-subscription-ratio">2.兑换比例:</span><span class="i18n" name="sharder-invset-text4">
                         由于虚拟货币市场价格波动性，我们会在天使轮开始时间（北京时间2018年1月22日9:00）前一周确定锁定价格和兑换数量。<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;锁定价格：以交易所“币安”（官网www.binance.com）两周内的收盘价均价确定锁定价格和兑换数量。</span>
+                        &nbsp;&nbsp;锁定价格：以交易所“币安”（官网www.binance.com）两周内的收盘价均价确定锁定价格和兑换数量。</span>
                 </li>
                 <li class="generalTextColor">
                     <span class="crude i18n" name="sharder-take-part-quota">3.参投限额:</span>

@@ -400,7 +400,7 @@
                     }
                 }
             },
-            'zhongchou':{
+            'fandian':{
                 template:'#public-information',
                 data:function(){
                     return{
@@ -408,7 +408,7 @@
                     }
                 }
             },
-            'fandian':{
+            'zhongchou':{
                 template:'#rebate-details',
                 data:function(){
                     return{

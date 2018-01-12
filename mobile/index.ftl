@@ -223,7 +223,165 @@
                 </div>
             </div>
             <div class="m-timeline">
-                <img  src="/r/cms/resource/sharders/img/mobile/index/m-timeline.png">
+                <#--<img  src="/r/cms/resource/sharders/img/mobile/index/m-timeline.png">-->
+                <ul class="items items1">
+                    <li class="item">
+                        <h6 class="sub-title title">2017年</h6>
+                        <p class="ss-content"></p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">海螺立项</h6>
+                        <p class="ss-content"></p>
+                    </li>
+
+                   <li class="item">
+                       <h6 class="sub-title title">海螺连研发</h6>
+                       <p class="ss-content"></p>
+                   </li>
+                    <li class="item">
+                        <h6 class="sub-title title">海螺测试网络</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">豆匣协议白皮书</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">豆匣链研发</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">豆匣社区</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">云存公测</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">微节点矿机</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+
+                    <li class="item">
+                        <h6 class="sub-title title">多链出块</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+                </ul>
+                <ul class="items items2">
+                    <li class="item">
+                        <h6 class="sub-title title">2017年</h6>
+                        <p class="ss-content"></p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">海螺立项</h6>
+                        <p class="ss-content"></p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">海螺连研发</h6>
+                        <p class="ss-content"></p>
+                    </li>
+                    <li class="item">
+                        <h6 class="sub-title title">海螺测试网络</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">豆匣协议白皮书</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">豆匣链研发</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">豆匣社区</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">云存公测</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+                    <li class="item">
+                        <h6 class="sub-title title">微节点矿机</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+
+
+                    <li class="item">
+                        <h6 class="sub-title title">多链出块</h6>
+                        <p class="ss-content">
+                            <span>CPOS共识出块</span>
+                            <span>多终端客户端</span>
+                            <span>海螺积分</span>
+                        </p>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
