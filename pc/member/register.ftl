@@ -56,7 +56,7 @@
                     </li>
                     <li>
                         <label for="password"><i>*</i><span class="i18n" name="sharder-user-password">设置密码:</span></label>
-                        <input id="password" type="password" name="loginPassword" vld="{rangelength:[6,20]}" class="passwod" autocomplete="off" disableautocomplete/>
+                        <input id="password" type="password" name="loginPassword" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
                     </li>
                     <li>
                         <label for="confirm_password"><i>*</i><span class="i18n" name="sharder-user-pwd">确认密码:</span></label>

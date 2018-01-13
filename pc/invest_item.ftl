@@ -8,14 +8,7 @@
         <section>
             <h1 class="ss-main-title invest-main-h1"><span class="i18n" name="sharder-angel-wheels">Sharder天使轮</span></h1>
         </section>
-
         <#include "invest_timeline.ftl" />
-        <section class="in-user-center">
-            <button class="ss-main-btn"><span class="i18n" name="sharder-timeline-text1">你当前白名单额度为</span>:${maxSubscribe!} <span class="i18n" name="sharder-timeline-text2">ETH或等价数字货币</span></button>
-            <p class="i18n" name="sharder-invest-item-text1">白名单所获得的额度在天使轮购买豆匣币（SS）时，可额外获得20%的豆匣币（SS）奖励。</p>
-        </section>
-
-
         <section class="invest-item">
             <h3 class="ss-sub-title i18n" name="sharder-angel-wheel">天使轮</h3>
             <p class="i18n" name="sharder-invest-time-start-end">1月22日9:00-2月4日23:59</p>
