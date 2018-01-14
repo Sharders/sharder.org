@@ -3,7 +3,7 @@
 <script src="${resSys}/resource/sharders/js/unslider.min.js" type="text/javascript"></script>
 <link rel="stylesheet"href="${resSys}/resource/sharders/css/mobile/index.css">
 
-<script src="/r/cms/resource/sharders/js/lightslider.js"></script>
+<#--<script src="/r/cms/resource/sharders/js/swiper-3.4.2.jquery.min.js"></script>-->
 </@lay.htmlHead>
 <@lay.htmlBody>
 <div class="index">
@@ -451,7 +451,7 @@
 //        $('.team-banner').on('swipeleft', function(e) {data04["next"]();});
 //        $('.team-banner').on('swiperight', function(e) {data04["prev"]();});
 
-
+//        var swiper = new Swiper('.swiper-container');
     });
 
 

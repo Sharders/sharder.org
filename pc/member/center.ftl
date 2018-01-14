@@ -91,21 +91,23 @@
                 <span class="currency">ETH</span>
                 <span class="quota used">${maxSubscribe!}</span>
                 <span class="alreadyUsed"><span class="i18n" name="sharder-user-already-quota">已使用额度 :</span> ${nowSubscribe!}ETH</span>
-                <span class="details"v-on:click="isLuck(1)">{{isOff1 ? "查看详情" : "关闭详情"}}</span>
+                <span class="details" v-on:click="isLuck(1)">{{isOff1 ? "查看详情" : "关闭详情"}}</span>
             </div>
             <div class="personal crowd-funding">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-income">众筹所得</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
                     <div class="popup-crowd-funding i18n" name="sharder-subscribe-text2">参与不同阶段所获得的豆匣币（SS）数量。</div></span>
                 <span class="currency i18n" name="sharder-SS">豆匣币(SS)</span>
                 <span class="quota">0</span>
-                <span class="details"v-on:click="isLuck(2)">{{isOff2 ? "查看详情" : "关闭详情"}}</span>
+                <#--<span class="details" v-on:click="isLuck(2)">{{isOff2 ? "查看详情" : "关闭详情"}}</span>-->
+                <span class="details" >{{isOff2 ? "查看详情" : "关闭详情"}}</span>
             </div>
             <div class="personal rebate">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">返点奖励</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
                     <div class="poput-invitation i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其投资获得豆匣币（SS）总额的5%作为返点奖励。</div></span>
                 <span class="currency">豆匣币 ( SS )</span>
                 <span class="quota">0</span>
-                <span class="details" v-on:click="isLuck(3)">{{isOff3 ? "查看详情" : "关闭详情"}}</span>
+                <span class="details" >{{isOff3 ? "查看详情" : "关闭详情"}}</span>
+                <#--<span class="details" v-on:click="isLuck(3)">{{isOff3 ? "查看详情" : "关闭详情"}}</span>-->
             </div>
         </div>
         <div class="subscribe-list">

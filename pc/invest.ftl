@@ -11,13 +11,13 @@
         <#include "invest_timeline.ftl" />
         <section class="distribution-program">
             <div class="price-conversion">
-                <span>白名单阶段:1ETH=9999SS</span>
-                <span>早鸟轮阶段:1ETH=9999SS</span>
-                <span>众筹轮(前三天):1ETH=9999SS</span>
-                <span>众筹轮阶段:1ETH=9999SS</span>
+                <span>白名单阶段:1ETH=待定</span>
+                <span>早鸟轮阶段:1ETH=待定</span>
+                <span>众筹轮(前三天):1ETH=待定</span>
+                <span>众筹轮阶段:1ETH=待定</span>
             </div>
             <h3 class="ss-sub-title i18n" name="sharder-distribution">Sharder代币分配计划</h3>
-            <p class="generalTextColor i18n" name="sharder-invest-text3">本次众筹代币是Sharder Storage，以下简称SS,SS是一种基于以太坊实现的合约代币。Sharder总共发行XXXXXXXXXXSS,流通量为分配计划如下：</p>
+            <p class="generalTextColor i18n" name="sharder-invest-text3">本次众筹代币是Sharder Storage，以下简称SS,SS是一种基于以太坊实现的合约代币。Sharder总共发行50000,0000SS,流通量60%为分配计划如下：</p>
             <div class="distribution-ratio">
                 <div id="distribution_ratio" style="width: 350px;height: 280px;" class="distribution-ratio-img"></div>
                 <ul class="distribution-ratio-text">
@@ -105,8 +105,7 @@
 
     </div>
 </div>
-
-<script src="${resSys}/resource/sharders/js/echarts-all-3.js" type="text/javascript"></script>
+<script src="http://oss.sharder.org/sharder/js/echarts-all-3.js?v=${version!}" type="text/javascript"></script>
 <script>
     var pc = new Vue({
         el: ".invest",
@@ -149,7 +148,7 @@
                     }
                     $(".invest-item-tab img").css("transform","rotateY(180deg)");
                     $(".invest-item").css("padding-right","110px");
-                    pc.angelOrCrowdText={time1:"1月22日9:30",time2:"2月4日23:59"};
+                    pc.angelOrCrowdText={time1:"1月29日9:30",time2:"2月11日23:59"};
                 }
 
             },

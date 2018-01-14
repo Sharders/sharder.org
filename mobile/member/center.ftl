@@ -32,7 +32,8 @@
                         <span class="details-title">众筹所得</span>
                     </p>
                     <p class="crowd-funding quota ">0SS</p>
-                    <p class="details-colse" v-on:click="tabBtn(1)">{{crowd ? "关闭详情" : "查看详情"}}</p>
+                    <p class="details-colse" >{{crowd ? "关闭详情" : "查看详情"}}</p>
+                    <#--<p class="details-colse" v-on:click="tabBtn(1)">{{crowd ? "关闭详情" : "查看详情"}}</p>-->
                 </div>
                 <div class="rebate details">
                     <p class="crowd-funding-title">
@@ -40,7 +41,8 @@
                         <span class="details-title">返点奖励</span>
                     </p>
                     <p class="rebate-quota quota">0SS</p>
-                    <p class="details-colse" v-on:click="tabBtn(2)">{{isRebate ? "关闭详情" : "查看详情"}}</p>
+                    <p class="details-colse" >{{isRebate ? "关闭详情" : "查看详情"}}</p>
+                    <#--<p class="details-colse" v-on:click="tabBtn(2)">{{isRebate ? "关闭详情" : "查看详情"}}</p>-->
                 </div>
         </div>
         <div class="paging-query">

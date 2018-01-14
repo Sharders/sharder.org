@@ -1,7 +1,7 @@
 <section>
     <ul class="ss-row-timeline invest-timeline">
         <li class="ss-row-timeline-item">
-            <h4 class="ss-sub-title up-title i18n" name="sharder-time-start-end">1月8日-1月21日开启白名单预约</h4>
+            <h4 class="ss-sub-title up-title i18n" name="sharder-time-start-end">1月8日-1月21日</h4>
             <p class="content i18n" name="sharder-subscribe-reserve">白名单预约</p>
             <a href="/user_center/index.ss"><button class="content-over subscribe-over ss-hover-effect" >参与白名单</button></a>
         </li>
