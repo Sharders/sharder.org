@@ -1,4 +1,4 @@
-<@layout.htmlHead title="白名单列表" keywords="我就是标题" description="我就是标题">
+<@layout.htmlHead title="白名单列表"  >
 <link rel="stylesheet" href="/r/cms/resource/sharders/admin/css/subscribe_list.css" />
 </@layout.htmlHead>
 <@layout.htmlBody>
@@ -84,7 +84,7 @@
         laytpl = layui.laytpl;
         //启动方法
         function start(){
-            var url="/shardersF/subscribe/querys.do";
+            var url="/subscribe/querys.ss";
             AsynchronousRequest("GET",url,"",callback);
         }
 
@@ -179,7 +179,7 @@
             myData=data;
         });
         layui.select = function() {
-            var url = "/shardersF/subscribe/conditional_query.do";
+            var url = "/subscribe/conditional_query.ss";
             var _data = $("form.layui-form").serialize();
             AsynchronousRequest("POST",url,_data,callback);
         };

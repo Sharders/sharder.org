@@ -34,17 +34,17 @@
                 });
             }
             [/#if]
-            location="${base}/logout.jspx?returnUrl=/shardersF/index.do";
+            location="${base}/logout.jspx?returnUrl=/index.ss";
         });
     });
 </script>
 [#if user??]
 <div class="login-user">
-    <div>欢迎您 <span class="username">${user.username}</span><a href="${base}/shardersF/user_center/index.do" class="user_center">个人中心</a><a id="logout" class="logout">安全退出</a></div>
+    <div>欢迎您 <span class="username">${user.username}</span><a href="${base}/user_center/index.ss" class="user_center ss-hover-effect">个人中心</a><a id="logout" class="logout ss-hover-effect">安全退出</a></div>
 </div>
 [#else]
-<div class="login">
-    <a class="tc" href="${base}/shardersF/login.do"><div class="login_btn">登录</div></a>
-    <a href="${base}/shardersF/register.do"><div class="register_btn">注册</div></a>
+<div class="login i18n">
+    <a class="tc"  name="denglu"  href="${base}/login.ss"><div class="login_btn ss-hover-effect">登录</div></a>
+    <a  name="zhuce"  href="${base}/register.ss" ><div class="register_btn ss-hover-effect">注册</div></a>
 </div>
 [/#if]
