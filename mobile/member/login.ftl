@@ -1,5 +1,5 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
-<@lay.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="login">
+<@lay.htmlHead    pagename="login">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/register_login.css">
 
 <style>
@@ -24,11 +24,11 @@
 
         <section class="main-title">
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您登录豆匣协议</h1>
-            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n" href="/shardersF/register.do" name="sharderf-user-sign-in">注册</a></div>
+            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n" href="/register.ss" name="sharderf-user-sign-in">注册</a></div>
         </section>
 
         <section class="register-form register_login">
-            <form action="${base}/login.jspx?returnUrl=/shardersF/login_success.do&failureUrl=/shardersF/login.do" method="post" class="ss-form default" id="login-form">
+            <form action="${base}/login.jspx?returnUrl=/login_success.ss&failureUrl=/login.ss" method="post" class="ss-form default" id="login-form">
                 <ul>
                     <li>
                         <label for="username" class="i18n" name="sharder-account-number">账号:</label>
@@ -49,7 +49,7 @@
                         <input type="submit" value="立即登录" class="ss-main-btn theme" />
                     </li>
                     <li style="text-align: right">
-                        <a class="i18n" name="sharder-forget-password" href="/shardersF/passWord/forgotPwd.do">忘记密码？</a>
+                        <a class="i18n" name="sharder-forget-password" href="/passWord/forgotPwd.ss">忘记密码？</a>
                     </li>
                     <#if message??>
                         <#if message=="true">

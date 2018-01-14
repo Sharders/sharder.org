@@ -1,4 +1,4 @@
-<@layout.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="invest">
+<@layout.htmlHead    pagename="invest">
 
 </@layout.htmlHead>
 
@@ -154,9 +154,9 @@
 
             },
             tabOpenUrl:function () {
-                var url = "/shardersF/invest/";
+                var url = "/invest/";
                 if(pc.isCrowdFunding){
-                    url+="invest_crowd_funding.do";
+                    url+="invest_crowd_funding.ss";
                 }else {
                     url+="invest_item.do";
                 }

@@ -1,5 +1,5 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
-<@lay.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="invest">
+<@lay.htmlHead    pagename="invest">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/invest.css">
 </@lay.htmlHead>
 <@lay.htmlBody>
@@ -16,8 +16,20 @@
             <li class="ss-line"></li>
             <li><span class="ss-text">白名单预约</span><span class="ss-text">早鸟轮</span><span class="ss-text">众筹轮</span></li>
         </ul>
-        <a href="/shardersF/user_center/index.do"><button class="ss-crowd-funding-btn">立即参与获取白名单额度</button></a>
-        <p class="ss-crowd-funding-text" >白名单额度在参与众筹时，可额外获得20%的豆匣币（SS）奖励。</p>
+        <div class="sharder-link">
+            <a href="/user_center/index.ss"><button class="subscribe-btn">获得优惠</button></a>
+            <#--<a href="/invest/invest_item.ss"><button class="angel-btn">参与早鸟</button></a>-->
+            <button class="angel-btn">参与早鸟</button>
+            <#--<a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn">参与众筹</button></a>-->
+            <button class="crowd-funding-btn">参与众筹</button>
+        </div>
+        <ul class="sharder-money">
+            <li><p> 白名单阶段</p><p>1ETH=999SS</p></li>
+            <li><p>早年轮阶段</p><p>1ETH=999SS</p></li>
+            <li><p>众筹轮早期(前三天)</p><p>1ETH=999SS</p></li>
+            <li><p>众筹轮阶段</p><p>1ETH=999SS</p></li>
+        </ul>
+
     </section>
     <section class="ss-main-plan">
         <h3 class="ss-head">代币分配</h3>
@@ -31,6 +43,22 @@
             <li class="generalTextColor"><i class="yuan5"></i><span class="i18n" name="sharder-distribution-text5">20%出块奖励：用于网络节点处理交易信息和打包出块的工作奖励及提供存储空间的存储奖励。</span></li>
             <li class="generalTextColor"><i class="yuan5"></i><span class="i18n" name="sharder-distribution-text6">10%团队基金：用于激励Shaders基金会和处理各种紧急事态。流通锁定期为三年，每年解锁3.3%。</span></li>
         </ul>
+        <div class="see-details">
+            <label for="rule">查看代币众筹细则</label>
+            <input type="checkbox" class="" id="rule" style="display: none">
+            <img src="/r/cms/resource/sharders/img/tab.png" >
+            <ul class="rule-details">
+                <li class="rule-text"><span class="rule-text-bold">白名单</span><span>在早年轮正式开始前成功注册账号即拥有1个ETH的白名单额度。白名单额度在<span class="rule-text-bold-tesu">早鸟轮阶段</span>购买豆匣币(SS)时，可额外获得20%的豆匣币(SS)奖励</span></li>
+                <li class="rule-text"><span class="rule-text-bold">推广奖励</span><span>好友通过你的分享链接或邀请码进行注册，每个人增加1个ETH白名单额度。每个账号上限为100个ETH。</li>
+                <li class="rule-text"><span class="rule-text-bold">投资奖励</span><span>好友参加早鸟轮和众筹轮投资后，邀请人可获得好友订购SS数量*5%的返点(返点无上限)</li>
+                <li class="rule-text"><span class="rule-text-bold">空投福利</span><span>参与早鸟轮投资或则邀请了10人以上好友的账户都可以获得空投奖励，系统会自动发放。</li>
+                <li class="rule-text"><span class="rule-text-bold">法币参投</span><span>如需法币参投的可至豆匣电商平台参与实物众筹。购物可获得豆匣积分(豆匣积分可1:1兑换豆匣币SS)。</li>
+                <li class="rule-text"><span class="rule-text-bold">锁仓奖励</span><span>正式交易前可到官网申请锁仓。锁仓奖励为锁仓的SS数量*奖励百分比(半年:4%,一年:10%)。</li>
+                <li class="rule-text"><span class="rule-text-bold">交易平台</span><span>预计登录币安(Binance),Okex,比特尔(Gate.io),炒客(Chaoex),Ebtcbank,比特时代(Aex.com)，Yobit,HitBTC。</span></li>
+                <li class="rule-text"><span class="rule-text-bold">发币说明</span><span>官网直投的在众筹轮结束后三日发币:以太坊智能合约参与的自动进行兑换;交易所众筹参与的由交易所发币。</span></li>
+                <li class="rule-text"><span class="rule-text-bold">退币说明</span><span>本次由于从三个渠道：官网直投，以太坊智能合约，交易所众筹进行募集。超过硬顶部分按时间先后顺序原路返回。</span></li>
+            </ul>
+        </div>
     </section>
     <section class="ss-main-participate">
         <div class="ss-participate-info" >

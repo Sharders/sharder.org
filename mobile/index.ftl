@@ -1,7 +1,9 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
-<@lay.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="index">
+<@lay.htmlHead    pagename="index">
 <script src="${resSys}/resource/sharders/js/unslider.min.js" type="text/javascript"></script>
 <link rel="stylesheet"href="${resSys}/resource/sharders/css/mobile/index.css">
+
+<script src="/r/cms/resource/sharders/js/lightslider.js"></script>
 </@lay.htmlHead>
 <@lay.htmlBody>
 <div class="index">
@@ -25,43 +27,43 @@
             <dl class="items">
                 <dt class="item">
                     <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
-                    <span class="text">简单的网络拓扑</span>
+                    <span class="text">数据安全</span>
                     <span><i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
                 </dt>
                 <dd class="detail">
-                    网络中节点对等，节点只有连通与否的状态。由更高层的协议完成复杂的状态和行为控制。
+                    客户端离线加密、保证数据隐私性。 网络根据安全性自动对数据进行分片、分散存储、多备份。
                 </dd>
                 <dt class="item">
-                    <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
-                    <span class="text">数据跨链</span>
+                    <span><i class="fa fa-hourglass-start" aria-hidden="true"></i></span>
+                    <span class="text">授信模型</span>
                     <span><i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
                 </dt>
                 <dd class="detail">
-                    能够在现有的成熟公链和传统的互联网络中进行互联互通，能进行价值和数据传递和交换。
+                    独创SHARDER-UTXO和SHARDER-KEYPAIR保证数据必须在授信情况下才能被其他用户或机构访问和使用。数据所有权回归用户、绝对隐私。
                 </dd>
                 <dt class="item">
-                    <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
-                    <span class="text">可扩展API</span>
+                    <span><i class="fa fa-balance-scale" aria-hidden="true"></i></span>
+                    <span class="text">去中心化</span>
                     <span><i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
                 </dt>
                 <dd class="detail">
-                    易用的 API 并可供上层应用扩展。
+                    无限扩容、永久存储、永不关停。 观察者实时同步全网数据对象最新状态、动态调整数据分布。确保.999数据安全性和可用性。减少重复备份，提高空间利用率。
                 </dd>
                 <dt class="item">
-                    <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
-                    <span class="text">可量化的贡献度</span>
+                    <span><i class="fa fa-microchip" aria-hidden="true"></i></span>
+                    <span class="text">豆匣矿机</span>
                     <span><i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
                 </dt>
                 <dd class="detail">
-                    参与协议各方的贡献度都应该有相应的量化标准和可被观测的贡献度。比如采用 PoST 和 PoR 作为贡献的磁盘空间和存储时间的量化证明。
+                    不再是惨烈的矿机军备竞赛，不再是先入者的狂欢，欢迎豆匣网络的保卫者们随时购买Sharder Hub加入豆匣网络共享挖矿红利。不再是浪费算力和存储空间，挖矿存储并举的一体机Sharder Box能获得挖矿、存储、观察者三重收益。
                 </dd>
                 <dt class="item">
-                    <span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
-                    <span class="text">所有权和隐私性</span>
+                    <span><i class="fa fa-i-cursor" aria-hidden="true"></i></span>
+                    <span class="text">跨链共享经济生态</span>
                     <span><i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
                 </dt>
                 <dd class="detail">
-                    数据提供者具有数据的所有权和完全访问权，并具有绝对的隐私性。任何非所有者都需要经过所有者授权才能访问和使用数据。
+                    首创存储协议跨链部署构建共享经济生态，允许用户将闲置存储接入豆匣网络提供空间换取相应报酬。依靠点对点自由交易市场让用户透明、公开、自由、公平地进行数据交易，打破价格垄断，让定价权回归用户和市场供需。
                 </dd>
             </dl>
         </div>
@@ -78,57 +80,77 @@
             <ul class="items">
                 <li class="item item1">
                     <div class="up">
-                        <div><h4 class="ss-sub-title">豆匣网络</h4></div>
-                        <div><img src="${resSys}/resource/sharders/img/index/star_topology.png"></div>
+                        <div><h4 class="ss-sub-title">豆匣协议 （Sharder Protocol）</h4></div>
+                        <div> <img src="${resSys}/resource/sharders/img/index/douxiaxieyi.png"></div>
                     </div>
                     <p class="ss-content">
-                        由部署了豆匣存储协议的全节点和豆匣池组成了豆匣网络。在这个系统中希望最终能形成存储买卖的自由市场，不仅能合理地满足企业和个人用户日益增长的存储需求。同时也能更大限度地有效利用闲置或过时的存储硬件设备，减少电子垃圾的同时为存储提供者带来一定的经济回报。
+                        豆匣协议是份可跨链部署的分布式存储协议，当前的各种公链、存储网络、个人节点都可部署或运行豆匣客户端。
+                        在豆匣协议中定义了各种对象、数据存取的操作函数、存储校验机制、共识机制、贡献度量化、数据授信机制。
+                        同时也对数据加密、数据分片、多链架构、文件系统、智能合约、自由市场、安全性、可用性、伸缩性等方面进行了抽象和设计。
                     </p>
                 </li>
                 <li class="item item2">
                     <div class="up">
                         <div><img src="${resSys}/resource/sharders/img/index/net_form_topology.png"></div>
-                        <div><h4 class="ss-sub-title">豆匣池</h4></div>
+                        <div><h4 class="ss-sub-title">豆匣池（Sharder Pool）</h4></div>
                     </div>
                     <p class="ss-content">
-                        由多个部署了豆匣协议的节点组成的小型网络（类似于当前比特币网络里的矿池）。现有的公链或存储网络只要部署了豆匣协议也就组成了一个豆匣池。豆匣公链也
-                        是一个。豆匣池可以选择不和其他豆匣池连通，形成一个封 闭网络系统。按照豆匣协议提倡的开放标准，豆匣池选择封闭是需要支付费用，否则至少需要对外开放最低限度的存储空间。
+                        由多个部署了豆匣协议的节点组成的小型网络（类似于当前比特币网络里的矿池）。
+                        现有的公链或存储网络只要部署了豆匣协议也就形成了一个豆匣池。
+                        豆匣池之间通过豆匣协议原生的多链结构能够跨链通讯和交易，进行数据和价值互换。
                     </p>
                 </li>
                 <li class="item item3">
                     <div class="up">
-                        <div><h4 class="ss-sub-title">豆匣链</h4></div>
+                        <div><h4 class="ss-sub-title">豆匣公链 （Sharder Chain）</h4></div>
                         <div><img src="${resSys}/resource/sharders/img/index/tree_topology.png"></div>
                     </div>
                     <p class="ss-content">
-                        豆匣链是第一个部署了豆匣存储协议的商用区块链网络。同时还充当了分布式数据库的作用，需要永久保存的信息和对象状态都需要记录到豆匣公链中。宏观看他是一个中间锚定网络，类似于传统通信网络中的骨干节点。早期没有节点或豆匣池愿意承担观察者角时候，豆匣链会承担这一角色。整个豆匣网络的稳定和性能都受到豆匣链的影响。但随着有豆匣池或独立的全节点实现协议中定义的观察者等角色，最终豆匣链也仅是网络中的一个普通豆匣池。
+                        第一个部署了豆匣存储协议的商用公链，是0号豆匣池（Sharder-Pool<sub>0</sub>）。
+                        是构成豆匣网络的一个重要的豆匣池和基石。豆匣协议的所有特性都会在豆匣链中首先实现和测试。
+                        同时作为一条商用公链还有一些相应特性：易用的账户模型、数字资产、担保交易、定制化API、运营支撑系统等。
+                    </p>
+                </li>
+                <li class="item item3">
+                    <div class="up">
+                        <div><h4 class="ss-sub-title">豆匣网络 （Sharder Network）</h4></div>
+                        <div><img src="${resSys}/resource/sharders/img/index/star_topology.png"></div>
+                    </div>
+                    <p class="ss-content">
+                        各种部署了豆匣协议的豆匣池最终组成了去中心化分布式的豆匣网络。豆匣网络不仅提供高质量低价格的数据服务。还会研发云存（Bean Cloud）、矩阵（Sharder Matrix）、智脑（Sharder Brain）、数据集市(One Fair)等DApp应用，围绕数据构建跨链共享经济生态，豆匣终将会彻底改变整个存储世界和人类数据价值融通交换的方式。
                     </p>
                 </li>
             </ul>
         </div>
     </section>
-    <section class="ss-container  sharder-documents-main">
+    <section class="ss-container  sharder-documents-main" id="whitepaper">
         <div class="ss-main">
             <div class="ss-main-title ss-main-btn theme">
                 <div>
                     <span class="blank"></span>
-                    <span class="zh">豆匣文档/</span>
-                    <span class="en">DOCUMENT</span>
+                    <span class="zh">白皮书/</span>
+                    <span class="en">Whitepaper</span>
                 </div>
 
             </div>
             <ul class="items">
                 <li class="item item1">
                     <i class="img"></i>
-                    <button >豆匣白皮书</button>
+                    <p class="ss-sub-title zh">技术白皮书</p>
+                    <a href="http://oss.sharder.org/sharder/whitepaper/sharder-technical-whitepaper-v1.1-cn.pdf"><button >中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
+                    <a href="http://oss.sharder.org/sharder/whitepaper/sharder-technical-whitepaper-v1.1-cn.pdf"><button style="background-color: #d2d2d2">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
                 </li>
                 <li class="item item2">
                     <i class="img"></i>
-                    <button >社区白皮书</button>
+                    <p class="ss-sub-title zh">经济白皮书</p>
+                    <a href="http://oss.sharder.org/sharder/whitepaper/sharder-economic-whitepaper-v1.0-cn.pdf"><button >中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
+                    <a href="http://oss.sharder.org/sharder/whitepaper/sharder-economic-whitepaper-v1.0-cn.pdf"><button style="background-color: #d2d2d2">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
                 </li>
                 <li class="item item3">
                     <i class="img"></i>
-                    <button >用户手册</button>
+                    <p class="ss-sub-title zh">用户手册</p>
+                    <button style="background-color: #d2d2d2">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                    <button style="background-color: #d2d2d2">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
                 </li>
             </ul>
         </div>
@@ -136,8 +158,12 @@
 
     <section class="ss-container  sharder-more-main ">
         <div class="ss-main">
-            <h4 class="ss-sub-title">代币众筹正在进行中,加入我们了解更多内容!</h4>
-            <button class="ss-main-btn">立即加入</button>
+            <h4 class="ss-sub-title">加入我们了解更多豆匣协议详情!</h4>
+            <#if user ?? >
+                <a href="/invest/invest.ss"><button class="ss-main-btn">立即加入</button></a>
+            <#else >
+                <a href="/register.ss"><button class="ss-main-btn">立即加入</button></a>
+            </#if>
         </div>
     </section>
 
@@ -146,8 +172,8 @@
             <div class="ss-main-title ss-main-btn theme">
                 <div>
                     <span class="blank"></span>
-                    <span class="zh">豆匣应用/</span>
-                    <span class="en">USE</span>
+                    <span class="zh">商业应用/</span>
+                    <span class="en">DApp</span>
                 </div>
             </div>
             <ul class="items">
@@ -156,11 +182,31 @@
                         <img src="${resSys}/resource/sharders/img/index/cloud_storage.png">
                     </div>
                     <div>
-                        <h5 class="ss-sub-title">云存链（数据存证和保全）</h5>
+                        <h3 class="ss-sub-title">云存（Bean Cloud）</h3>
                         <p class="ss-content">
-                            云存链数据保全是基于Sharder协议下的的文件数据加密存储服务平台。
-                            为用户提供数据资料，数字作品，合同签证等数据的区块链分布式存储服务。同时具有对用户进行撮合。提供在线电子签约服务，
-                            保证签约及合约的公平公正有效性。
+                            数据存储、存证和保全平台。主要服务于P2P网贷、小贷、消费金融、电商、ERP系统，可以将电子合同、支付凭证、投资记录等电子数据保存于豆匣网络中，利用区块链可溯源不可篡改的特性对已上链和保存于豆匣网络中的数据出具保全证书和司法证明。
+                        </p>
+                    </div>
+                </li>
+                <li class="item item2">
+                    <div>
+                        <img src="${resSys}/resource/sharders/img/index/juzheng.png">
+                    </div>
+                    <div>
+                        <h3 class="ss-sub-title">矩阵（Sharder Matrix）</h3>
+                        <p class="ss-content">
+                            围绕个人的数据存储应用。您的生物数据（包括基因信息、成长记录、医疗数据等），甚至于您的所思所想都可以记录到矩阵中。随着数据的不断累积最终形成个体独特的豆匣数据矩阵。
+                        </p>
+                    </div>
+                </li>
+                <li class="item item1">
+                    <div>
+                        <img src="${resSys}/resource/sharders/img/index/zhinao.png">
+                    </div>
+                    <div>
+                        <h3 class="ss-sub-title">智脑（Sharder Brain）</h3>
+                        <p class="ss-content">
+                            随着人工智能AI、智能硬件和物联网的发展，以及未来无监督学习的突破。我们坚信智脑能在数据安全、数据分布调整、数据分析、数据搜索、数据预警（数据安全性预警、个人生命特征预警）等方面为个人和企业提供智能的数据服务。
                         </p>
                     </div>
                 </li>
@@ -169,10 +215,9 @@
                         <img src="${resSys}/resource/sharders/img/index/onefair.png">
                     </div>
                     <div>
-                        <h5 class="ss-sub-title">One Fair（原创作品版权）</h5>
+                        <h3 class="ss-sub-title">数据集市（One Fair）</h3>
                         <p class="ss-content">
-                            One Fair 使用了区块链技术来完成艺术创作类数字作品的注册登记评价以及交易。解决了艺术创作领域所面临的尴尬局面，创造了全新的产业共赢的局面。
-                            同时也填补了艺术创作类数字资产版权登记和公平转让交易的空白，能够最大化激发用户创作的积极性以及让每个艺术创作的作品产生价值。
+                            基于豆匣公链和豆匣协议最终会形成围绕个人的数据自由集市。在数据集市里能透明、公开、自由、公平地进行点对点交易。可交易的内容包括：存储空间、数字资产、被证明过的数据、有价值的信息等。甚至个人可以售卖自己的生命体征数据给医疗研究机构。数据集市One Fair终将让你的数据能够更加便捷快速地融通，我们相信沉默的数据丧失了流动性就如现金资产一般只会越来越贬值。
                         </p>
                     </div>
                 </li>
@@ -190,26 +235,9 @@
                 </div>
             </div>
             <div class="team-banner banner" id="team_banner">
-                <ul class="items">
-                    <li class="item ">
-                        <img src="/r/cms/resource/sharders/img/teamphoto/xy.png" >
-                        <ul class="item-item">
-                            <li class="head-portrait-name">想抢了</li>
-                            <li class="sub-title">啊啊啊啊啊</li>
-                            <li class="ss-content">阿斯蒂芬付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付发生的</li>
-                        </ul>
-                    </li>
-                    <li class="item">
-                        <img src="/r/cms/resource/sharders/img/teamphoto/xy.png" >
-                        <ul class="item-item">
-                            <li class="head-portrait-name">苗条</li>
-                            <li class="sub-title">的点点滴滴</li>
-                            <li class="ss-content">发撒打发萨芬撒飞洒发撒发生撒范德萨发生时发打发沙发方法撒爱上风飒飒发</li>
-                        </ul>
-                    </li>
-                </ul>
-                <a href="javascript:void(0);" class="page-turning prev"><img class="arrow" id="al" src="/r/cms/resource/sharders/img/index/towards-left.png" alt="prev"></a>
-                <a href="javascript:void(0);" class="page-turning next"><img class="arrow" id="ar" src="/r/cms/resource/sharders/img/index/towards-right.png" alt="next"></a>
+                <#include "/WEB-INF/ftl/sharders/team.ftl">
+                <#--<a href="javascript:void(0);" class="page-turning prev"><img class="arrow" id="al" src="/r/cms/resource/sharders/img/index/towards-left.png" alt="prev"></a>-->
+                <#--<a href="javascript:void(0);" class="page-turning next"><img class="arrow" id="ar" src="/r/cms/resource/sharders/img/index/towards-right.png" alt="next"></a>-->
             </div>
         </div>
     </section>
@@ -218,8 +246,8 @@
             <div class="ss-main-title ss-main-btn theme">
                 <div>
                     <span class="blank"></span>
-                    <span class="zh">豆匣规划/</span>
-                    <span class="en">PLAN</span>
+                    <span class="zh">路线图/</span>
+                    <span class="en">Road Map</span>
                 </div>
             </div>
             <div class="m-timeline">
@@ -377,19 +405,31 @@
             </div>
             <ul class="items">
                 <li class="item">
-                    <img src="${resSys}/resource/sharders/img/index/boen.png">
+                    <img src="${resSys}/resource/sharders/img/partner/zbj.png">
                 </li>
                 <li class="item">
-                    <img src="${resSys}/resource/sharders/img/index/lingyou.png">
+                    <img src="${resSys}/resource/sharders/img/partner/yjf.png">
                 </li>
                 <li class="item">
-                    <img src="${resSys}/resource/sharders/img/index/shixiaojiang.png">
+                    <img src="${resSys}/resource/sharders/img/partner/tgs.png">
                 </li>
                 <li class="item">
-                    <img src="${resSys}/resource/sharders/img/index/yijifu.png">
+                    <img src="${resSys}/resource/sharders/img/partner/brgf.png">
                 </li>
                 <li class="item">
-                    <img src="${resSys}/resource/sharders/img/index/zhubajie.png">
+                    <img src="${resSys}/resource/sharders/img/partner/kxjt.png">
+                </li>
+                <li class="item">
+                    <img src="${resSys}/resource/sharders/img/partner/ayjt.png">
+                </li>
+                <li class="item ">
+                    <img src="${resSys}/resource/sharders/img/partner/schange.png">
+                </li>
+                <li class="item">
+                    <img src="${resSys}/resource/sharders/img/partner/xor.png">
+                </li>
+                <li class="item">
+                    <img src="${resSys}/resource/sharders/img/partner/ges.png">
                 </li>
             </ul>
         </div>
@@ -403,20 +443,25 @@
                 }),
                 data04 = unslider04.data('unslider');
 
-        $('.page-turning').click(function() {
-            var fn = this.className.split(' ')[1];
-            data04[fn]();
-        });
+//        $('.page-turning').click(function() {
+//            var fn = this.className.split(' ')[1];
+//            data04[fn]();
+//        });
+
+//        $('.team-banner').on('swipeleft', function(e) {data04["next"]();});
+//        $('.team-banner').on('swiperight', function(e) {data04["prev"]();});
+
+
     });
+
+
+
     $(document).ready(function () {
         $(".sharder-network-main dt.item").click(function () {
             var clickObj = $(this);
 
             var icon = $(clickObj).find(".fa");
             var _obj = clickObj.next();
-
-            console.log();
-
             try {
                 if (_obj.css("display") == "none") {
                     icon.removeClass("fa-angle-double-down");
@@ -432,7 +477,7 @@
 
             $(_obj).slideToggle(20);
         })
-    })
+    });
 
 </script>
 </@lay.htmlBody>

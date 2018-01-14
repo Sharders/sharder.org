@@ -1,5 +1,10 @@
-<@layout.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="invest_item">
+<@layout.htmlHead    pagename="invest_item">
 
+<style>
+    .show{
+        display: block !important;
+    }
+</style>
 </@layout.htmlHead>
 
 <@layout.htmlBody>
@@ -8,7 +13,14 @@
         <section>
             <h1 class="ss-main-title invest-main-h1"><span class="i18n" name="sharder-angel-wheels">Sharder天使轮</span></h1>
         </section>
+
         <#include "invest_timeline.ftl" />
+        <section class="in-user-center">
+            <button class="ss-main-btn"><span class="i18n" name="sharder-timeline-text1">你当前白名单额度为</span>:${maxSubscribe!} <span class="i18n" name="sharder-timeline-text2">ETH或等价数字货币</span></button>
+            <p class="i18n" name="sharder-invest-item-text1">白名单所获得的额度在天使轮购买豆匣币（SS）时，可额外获得20%的豆匣币（SS）奖励。</p>
+        </section>
+
+
         <section class="invest-item">
             <h3 class="ss-sub-title i18n" name="sharder-angel-wheel">天使轮</h3>
             <p class="i18n" name="sharder-invest-time-start-end">1月22日9:00-2月4日23:59</p>
@@ -51,34 +63,40 @@
             </div>
 
             <div class="participation">
-                <p class="ss-main-title invset-h4 i18n" name="sharder-angel-wheel-participate">参与</p>
-                <p><span class="i18n" name="sharder-available-subscribe">可用的白名单额度: </span><span>{{available}}ETH</span>=<span>{{available*currency.ETH/currency.BTC}}BTC</span>=<span>{{available*currency.ETH/currency.LTC}}LTC</span></p>
-                <ul class="pay-types">
-                    <li><input type="radio" class="ss-radio-hidden" id="btc" value="BTC" checked="checked" name="payType"/><label for="btc" class="ss-label-btn" v-on:click="selectedPayType('BTC'),zero=''">
-                        <img src="/r/cms/resource/sharders/img/BTC.png"><span class="i18n" name="sharder-BTC">比特币(BTC)</span></label></li>
-                    <li><input type="radio" class="ss-radio-hidden" id="eth" value="ETH" name="payType"/><label for="eth" class="ss-label-btn" v-on:click="selectedPayType('ETH'),zero=''">
-                        <img src="/r/cms/resource/sharders/img/ETH.png"><span class="i18n" name="sharder-ETH">以太坊(ETH)</span></label></li>
-                    <li><input type="radio" class="ss-radio-hidden" id="ltc" value="LTC" name="payType"/><label for="ltc" class="ss-label-btn" v-on:click="selectedPayType('LTC'),zero=''">
-                        <img src="/r/cms/resource/sharders/img/LTC.png"><span class="i18n" name="sharder-LTC">莱特币(LTC)</span></label></li>
-                </ul>
-                <ul class="pay-number">
-                    <li><input type="number" oninput="investTransition(app.payType,this)" input-type="icoin" placeholder="请输入支持的数量" name="payAmount" :value="zero" maxlength="4"><span class="sign">{{payType}}</span><span>=</span></li>
-                    <li><input type="number" oninput="investTransition(app.payType,this)" input-type="cny" :value="zero" maxlength="10"><span class="sign">&yen;</span><span>=</span></li>
-                    <li><input type="number" oninput="investTransition(app.payType,this)" input-type="ss" :value="zero" maxlength="10"><span class="sign">SS</span></li>
-                </ul>
+                <form action="#" id="invest_form">
+                    <p class="ss-main-title invset-h4 i18n" name="sharder-angel-wheel-participate">参与</p>
+                    <p><span class="i18n" name="sharder-available-subscribe">可用的白名单额度: </span><span>{{available}}ETH</span>=<span>{{available*currency.ETH/currency.BTC}}BTC</span>=<span>{{available*currency.ETH/currency.LTC}}LTC</span></p>
+                    <ul class="pay-types">
+                        <li><input type="radio" class="ss-radio-hidden" id="btc" value="BTC" checked="checked" name="payType"/><label for="btc" class="ss-label-btn" v-on:click="selectedPayType('BTC'),zero=''">
+                            <img src="/r/cms/resource/sharders/img/BTC.png"><span class="i18n" name="sharder-BTC">比特币(BTC)</span></label></li>
+                        <li><input type="radio" class="ss-radio-hidden" id="eth" value="ETH" name="payType"/><label for="eth" class="ss-label-btn" v-on:click="selectedPayType('ETH'),zero=''">
+                            <img src="/r/cms/resource/sharders/img/ETH.png"><span class="i18n" name="sharder-ETH">以太坊(ETH)</span></label></li>
+                        <li><input type="radio" class="ss-radio-hidden" id="ltc" value="LTC" name="payType"/><label for="ltc" class="ss-label-btn" v-on:click="selectedPayType('LTC'),zero=''">
+                            <img src="/r/cms/resource/sharders/img/LTC.png"><span class="i18n" name="sharder-LTC">莱特币(LTC)</span></label></li>
+                    </ul>
+                    <ul class="pay-number">
+                        <li><input type="number" oninput="investTransition(app.payType,this)" input-type="icoin" placeholder="请输入支持的数量" name="payAmount" :value="zero" maxlength="4"><span class="sign">{{payType}}</span><span>=</span></li>
+                        <li><input type="number" oninput="investTransition(app.payType,this)" input-type="cny" :value="zero" maxlength="10"><span class="sign">&yen;</span><span>=</span></li>
+                        <li><input type="number" oninput="investTransition(app.payType,this)" input-type="ss" :value="zero" maxlength="10"><span class="sign">SS</span></li>
+                    </ul>
+                    <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-transfer" v-on:click="transfer()" id="transfer">转账</button>
 
-                <div class="pay-text">
-                    <p class="generalTextColor i18n" name="sharder-invest-item-text9">感谢你参加豆匣天使轮，你可以用直接从交易所或其他数字货币钱包发送ETH和BTC到以下地址。</p>
-                    <p class="generalTextColor i18n" name="sharder-invest-item-text10">参加天使轮将会默认优先使用白名单额度，如果提交了信息但未完成转账。提交扣除的白名单额度将在24小时回复。</p>
-                    <p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账成功后为了保证你的资金安全，转账后请加客服微信，并将转账成功的截图发给我们。我们将对您进行一对一的确认。</p>
-                </div>
-                <div>
-                    <div class="qr-code" id="walletAddr_qr_code"></div>
-                </div>
-                <div class="pay-addr">
-                    <span class="i18n" name="sharder-addr-wallet">钱包地址:</span><span id="sharder-addr">{{walletAddr}}</span><button onclick="jsCopy()" class="i18n" name="sharder-copy">复制</button>
-                </div>
-                <button class="ss-main-btn pay-btn i18n" name="sharder-completed-transfer" v-on:click="prompt()">已完成转账</button>
+                    <div id="transfer_details" style="display: none">
+                        <div class="pay-text">
+                            <p class="generalTextColor i18n" name="sharder-invest-item-text9">感谢你参加豆匣天使轮，你可以用直接从交易所或其他数字货币钱包发送ETH和BTC到以下地址。</p>
+                            <p class="generalTextColor i18n" name="sharder-invest-item-text10">参加天使轮将会默认优先使用白名单额度，如果提交了信息但未完成转账。提交扣除的白名单额度将在24小时回复。</p>
+                            <p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账成功后为了保证你的资金安全，转账后请加客服微信，并将转账成功的截图发给我们。我们将对您进行一对一的确认。</p>
+                        </div>
+                        <div>
+                            <div class="qr-code" id="walletAddr_qr_code"></div>
+                        </div>
+                        <div class="pay-addr">
+                            <span class="i18n" name="sharder-addr-wallet">钱包地址:</span><span id="sharder-addr">{{walletAddr}}</span><button type="button" onclick="jsCopy()" class="i18n" name="sharder-copy">复制</button>
+                            <input type="hidden" name="shardersWalletAddr" :value="walletAddr">
+                        </div>
+                        <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-completed-transfer" v-on:click="prompt()">已完成转账</button>
+                    </div>
+                </form>
             </div>
         </section>
          <section class="service-qr-code">
@@ -142,6 +160,7 @@
             walletAddr:'',
             currency:'',
             available:number,
+            isShowTransfer:true,
         },
         methods:{
             selectedPayType:function (payType) {
@@ -170,7 +189,26 @@
                $(".participation .pay-types li img").css("background-color","#ffffff");
                $(".participation .pay-types li img").css("border-radius","50%");
             },
+            transfer:function () {
+                $("#transfer_details").css("display","block");
+                $("#transfer").css("display","none");
+
+            },
             prompt:function () {
+
+                //这里需要判断输入金额
+               var payAmount =  $("input[name='payAmount']").val();
+
+               if(payAmount == null || payAmount<=0){
+                   return;
+               }
+
+
+
+                var requestUrl = "/invest/invest.ss";
+                var _data = $("#invest_form").serialize();
+                commAjax(requestUrl,"post",_data,"");
+
                 var style = $(".popup").css("display");
                 if(style == "none"){
                     $(".popup").css("display","block");

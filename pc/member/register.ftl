@@ -1,4 +1,4 @@
-<@layout.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="register">
+<@layout.htmlHead    pagename="register">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/register_login.css">
 <style>
     html,body{
@@ -36,18 +36,19 @@
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您注册豆匣协议</h1>
         </section>
         <section class="register-form">
-            <form action="${base}/shardersF/register_.do?returnUrl=/shardersF/login.do" method="post"  class="ss-form default" id="register-form">
+            <form action="${base}/register_.do?returnUrl=/login.ss" method="post"  class="ss-form default" id="register-form">
                 <ul>
                     <li>
-                        <span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/shardersF/login.do" name="sharderf-user-sign-in">登录</a>
+                        <span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/login.ss" name="sharderf-user-sign-in">登录</a>
                     </li>
-                    <li>
-                        <label for="username"><i>*</i><span class="i18n" name="sharder-sign-in-username">用户名:</span></label>
-                        <input id="username" type="text" placeholder="用户名" vld="{rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在'}}" name="username" class="username" />
-                    </li>
+                    <#--<li>-->
+                        <#--<label for="username"><i>*</i><span class="i18n" name="sharder-sign-in-username">用户名:</span></label>-->
+                        <#--<input id="username" type="text" placeholder="用户名" vld="{rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在'}}" name="username" class="username" />-->
+                    <#--</li>-->
+                    <input  type="hidden"  name="username"/>
                     <li >
                         <label for="identification"><i>*</i><span class="i18n" name="sharder-user-emil">手机/邮箱:</span></label>
-                        <input type="text" id="identification" maxlength="30" vld="{remote:'/shardersF/user_center/is_not_exist.do',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱" class="register-input identification"/>
+                        <input type="text" id="identification" maxlength="30" vld="{remote:'/user_center/is_not_exist.ss',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱" class="register-input identification"/>
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="phone"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
@@ -89,10 +90,10 @@
         //把邀请码存入cookie
         var inviterId = "${inviterId!}";
         if(inviterId != null && inviterId != ''){
+            console.log(inviterId);
             $("input[name='inviterId']").attr("disabled",true);
             $.cookie('inviterId',inviterId, { expires: 30});
         }else {
-            console.log("=====+_____-");
             $("input[name='inviterId']").val($.cookie('inviterId'));
         }
 
@@ -110,7 +111,7 @@
     })
 
     function executeRegister() {
-
+        $("input [name='username']").val($("#identification").val());
         var _form = $("#register-form");
         var reqeustUrl =_form .attr("action");
         var _data = _form.serialize();
@@ -122,7 +123,7 @@
             alert(result.result.data.toString())
         }else{
             $.cookie('inviterId', '', { expires: -1 });
-            location.href="/shardersF/login.do";
+            location.href="/login.ss";
         }
     }
 </script>

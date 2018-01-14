@@ -1,4 +1,4 @@
-<@layout.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="center">
+<@layout.htmlHead    pagename="center">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/user_center.css" />
 <script src="/r/cms/resource/sharders/layui/lay/modules/layer.js" type="text/javascript" charset="utf-8"></script>
 </@layout.htmlHead>
@@ -306,13 +306,13 @@
                 }
             },
             dataRequest:function (name,num) {
-                var url = "/shardersF/user_center";
+                var url = "/user_center";
                 if(name == "baimingdan"){
-                    url += "/details_whitelist.do?page="+num ;
+                    url += "/details_whitelist.ss?page="+num ;
                 }else if(name == "zhongchou"){
-                    url += "/details_whitelist.do?page="+num ;//需要修改
+                    url += "/details_whitelist.ss?page="+num ;//需要修改
                 }else if(name == "fandian"){
-                    url += "/details_whitelist.do?page="+num ;//需要修改
+                    url += "/details_whitelist.ss?page="+num ;//需要修改
                 }else{
                     window.alert("请求异常！！！");
                     return;
@@ -373,7 +373,7 @@
                 if(pc.isSubmit){
                     $.ajax({
                         type: "post",
-                        url:"/shardersF/passWord/edit.do",
+                        url:"/passWord/edit.ss",
                         data:$('#userPwd').serialize(),
                         dataType: "json",
                         success: function(data) {
@@ -424,7 +424,7 @@
             $("#applyFor").attr("disabled",true);
             layer.load(2);
             $.ajax({
-                url:"/shardersF/subscribe/apply.do",
+                url:"/subscribe/apply.ss",
                 dataType:"json",
                 success:function (result) {
                     layer.closeAll('loading');

@@ -1,4 +1,4 @@
-<@layout.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题"  pagename="login">
+<@layout.htmlHead     pagename="login">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/register_login.css">
 
 <style>
@@ -25,11 +25,11 @@
         </section>
 
         <section class="register-form"><!--invest/invest.do-->
-            <form action="${base}/login.jspx?returnUrl=/shardersF/login_success.do&failureUrl=/shardersF/login.do" method="post" class="ss-form default" id="login-form">
+            <form action="${base}/login.jspx?returnUrl=/login_success.ss&failureUrl=/login.ss" method="post" class="ss-form default" id="login-form">
                 <ul>
 
                     <li>
-                        <span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n" href="/shardersF/register.do" name="sharder-log-in-immediately">立即注册</a>
+                        <span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n ss-hover-effect" href="/register.ss" name="sharder-log-in-immediately">立即注册</a>
                     </li>
                     <li>
                         <label for="username" class="i18n" name="sharder-account-number">账号:</label>
@@ -47,10 +47,10 @@
                         </li>
                     </#if>
                     <li>
-                        <input type="submit" value="立即登录" class="ss-main-btn theme" />
+                        <input type="submit" value="立即登录" class="ss-main-btn theme ss-hover-effect" />
                     </li>
                     <li style="text-align: right">
-                        <a class="i18n" name="sharder-forget-password" href="/shardersF/passWord/forgotPwd.do">忘记密码？</a>
+                        <a class="i18n" name="sharder-forget-password" href="/passWord/forgotPwd.ss">忘记密码？</a>
                     </li>
                     <#if message??>
                         <#if message=="true">

@@ -1,5 +1,5 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
-<@lay.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="invest">
+<@lay.htmlHead    pagename="invest">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/center.css">
 <link rel="stylesheet" href="/r/cms/resource/sharders/layui/css/layui.css">
 </@lay.htmlHead>
@@ -184,13 +184,13 @@
                 app.pagingQuery(1);
             },
             pagingQuery:function (num) {
-                var url = "/shardersF/user_center";
+                var url = "/user_center";
                 if(app.name == "baimingdan"){
-                    url += "/details_whitelist.do?page="+num ;
+                    url += "/details_whitelist.ss?page="+num ;
                 }else if(app.name == "zhongchou"){
-                    url += "/details_whitelist.do?page="+num ;//需要修改
+                    url += "/details_whitelist.ss?page="+num ;//需要修改
                 }else if(app.name == "fandian"){
-                    url += "/details_whitelist.do?page="+num ;//需要修改
+                    url += "/details_whitelist.ss?page="+num ;//需要修改
                 }else{
                     window.alert("请求异常！！！");
                     return;

@@ -1,5 +1,5 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
-<@lay.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="register">
+<@lay.htmlHead    pagename="register">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/register_login.css">
 
 <style>
@@ -35,15 +35,15 @@
     <div class="ss-main">
         <section class="main-title">
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">找回登录密码</h1>
-            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/shardersF/login.do" name="sharderf-user-sign-in">登录</a></div>
+            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/login.ss" name="sharderf-user-sign-in">登录</a></div>
         </section>
 
         <section class="register-form verify-identity-form register_login">
-            <form action="${base}/shardersF/passWord/forgotPwd.do"  class="ss-form default" id="forgot-pwd-form">
+            <form action="${base}/passWord/forgotPwd.ss"  class="ss-form default" id="forgot-pwd-form">
                 <ul>
                     <li>
                         <label for="identification_forgot_pwd" class="i18n" name="sharder-account-number">账号:</label>
-                        <input id="identification_forgot_pwd" type="text" placeholder="手机号码或邮箱"  vld="{remote:'/shardersF/user_center/isexist.do',messages:{remote:'手机或邮箱不存在！'}}" name="identification"  class="required login-input username" />
+                        <input id="identification_forgot_pwd" type="text" placeholder="手机号码或邮箱"  vld="{remote:'/user_center/isexist.ss',messages:{remote:'手机或邮箱不存在！'}}" name="identification"  class="required login-input username" />
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="captcha"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
@@ -59,7 +59,7 @@
         </section>
 
         <section class="register-form set-pwd-main register_login" style="display: none;"><!--invest/invest.do-->
-            <form action="${base}/shardersF/passWord/forgotPwd.do" method="post" class="ss-form default" id="set-pwd-form">
+            <form action="${base}/passWord/forgotPwd.ss" method="post" class="ss-form default" id="set-pwd-form">
                 <ul>
                     <li>
                         <label for="password"><i>*</i><span class="i18n" name="sharder-user-password">设置密码:</span></label>
@@ -89,7 +89,7 @@
         methods:{
             verifyIdentity:function () {
                 alert("执行了");
-                var requestUrl = "/shardersF/user_center/verification_code.do";
+                var requestUrl = "/user_center/verification_code.ss";
                 var data = $("#forgot-pwd-form").serialize();
 
                 commAjax(requestUrl,"post",data,app.verifyIdentityReuslt);
@@ -106,7 +106,7 @@
             },
 
             setPwd:function () {
-                var requestUrl = "/shardersF/passWord/forgotPwd.do";
+                var requestUrl = "/passWord/forgotPwd.ss";
                 var data = $("#set-pwd-form").serialize();
 
                 commAjax(requestUrl,"post",data,app.setPwdResult);
@@ -116,7 +116,7 @@
                 if (!isTrue(result.success)){
                     alert(result.message);
                 }else{
-                    location.href="/shardersF/login.do";
+                    location.href="/login.ss";
                 }
 
             }

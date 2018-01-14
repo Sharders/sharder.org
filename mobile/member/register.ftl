@@ -1,5 +1,5 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
-<@lay.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题" pagename="register">
+<@lay.htmlHead    pagename="register">
 
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/register_login.css">
 <style>
@@ -36,18 +36,19 @@
     <div class="ss-main">
         <section class="main-title">
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您注册豆匣协议</h1>
-            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/shardersF/login.do" name="sharderf-user-sign-in">登录</a></div>
+            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/login.ss" name="sharderf-user-sign-in">登录</a></div>
         </section>
         <section class="register-form register_login">
-            <form action="${base}/shardersF/register_.do?returnUrl=/shardersF/login.do" method="post"  class="ss-form default" id="register-form">
+            <form action="${base}/register_.do?returnUrl=/login.ss" method="post"  class="ss-form default" id="register-form">
                 <ul>
-                    <li>
-                        <label for="username"><i>*</i><span class="i18n" name="sharder-sign-in-username">用户名:</span></label>
-                        <input id="username" type="text" vld="{rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在'}}" name="username" class="username" />
-                    </li>
+                    <#--<li>-->
+                        <#--<label for="username"><i>*</i><span class="i18n" name="sharder-sign-in-username">用户名:</span></label>-->
+                        <#--<input id="username" type="text" vld="{rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在'}}" name="username" class="username" />-->
+                    <#--</li>-->
+                        <input  type="hidden"  name="username"/>
                     <li >
                         <label for="identification"><i>*</i><span class="i18n" name="sharder-phone-emil">手机/邮箱:</span></label>
-                        <input type="text" id="identification" maxlength="30" vld="{remote:'/shardersF/user_center/is_not_exist.do',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱"  class="register-input identification" />
+                        <input type="text" id="identification" maxlength="30" vld="{remote:'/user_center/is_not_exist.ss',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱"  class="register-input identification" />
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="captcha"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
@@ -109,6 +110,7 @@
     
     function executeRegister() {
         var _form = $("#register-form");
+        $("input [name='username']").val($("#identification").val());
         var reqeustUrl =_form .attr("action");
         var _data = _form.serialize();
 
@@ -121,7 +123,7 @@
         }else{
             //注册成功 删除cookie
             $.cookie('inviterId', '', { expires: -1 });
-            location.href="/shardersF/login.do";
+            location.href="/login.ss";
         }
     }
 
