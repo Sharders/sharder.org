@@ -11,13 +11,13 @@
         <#include "invest_timeline.ftl" />
         <section class="distribution-program">
             <div class="price-conversion">
-                <span>白名单阶段:1ETH=9999SS</span>
-                <span>早鸟轮阶段:1ETH=9999SS</span>
-                <span>众筹轮(前三天):1ETH=9999SS</span>
-                <span>众筹轮阶段:1ETH=9999SS</span>
+                <span class="i18n" name="">白名单阶段:1ETH=待定</span>
+                <span class="i18n" name="">早鸟轮阶段:1ETH=待定</span>
+                <span class="i18n" name="">众筹轮(前三天):1ETH=待定</span>
+                <span class="i18n" name="">众筹轮阶段:1ETH=待定</span>
             </div>
             <h3 class="ss-sub-title i18n" name="sharder-distribution">Sharder代币分配计划</h3>
-            <p class="generalTextColor i18n" name="sharder-invest-text3">本次众筹代币是Sharder Storage，以下简称SS,SS是一种基于以太坊实现的合约代币。Sharder总共发行XXXXXXXXXXSS,流通量为分配计划如下：</p>
+            <p class="generalTextColor i18n" name="sharder-invest-text3">本次众筹代币是Sharder Storage，以下简称SS,SS是一种基于以太坊实现的合约代币。Sharder总共发行50000,0000SS,流通量60%为分配计划如下：</p>
             <div class="distribution-ratio">
                 <div id="distribution_ratio" style="width: 350px;height: 280px;" class="distribution-ratio-img"></div>
                 <ul class="distribution-ratio-text">
@@ -31,19 +31,19 @@
             </div>
         </section>
         <div class="see-details">
-            <label for="rule">查看代币众筹细则</label>
-            <input type="checkbox" class="" id="rule" style="display: none">
+            <label for="rule"  class="i18n" name="">查看代币众筹细则</label>
+            <input type="checkbox"   id="rule" style="display: none">
             <img src="/r/cms/resource/sharders/img/index/towards-left.png" >
             <ul class="rule-details">
-                <li class="rule-text"><span class="rule-text-bold">白名单</span><span>在早年轮正式开始前成功注册账号即拥有1个ETH的白名单额度。白名单额度在<span class="rule-text-bold-tesu">早鸟轮阶段</span>购买豆匣币(SS)时，可额外获得20%的豆匣币(SS)奖励</span></li>
-                <li class="rule-text"><span class="rule-text-bold">推广奖励</span><span>好友通过你的分享链接或邀请码进行注册，每个人增加1个ETH白名单额度。每个账号上限为100个ETH。</li>
-                <li class="rule-text"><span class="rule-text-bold">投资奖励</span><span>好友参加早鸟轮和众筹轮投资后，邀请人可获得好友订购SS数量*5%的返点(返点无上限)</li>
-                <li class="rule-text"><span class="rule-text-bold">空投福利</span><span>参与早鸟轮投资或则邀请了10人以上好友的账户都可以获得空投奖励，系统会自动发放。</li>
-                <li class="rule-text"><span class="rule-text-bold">法币参投</span><span>如需法币参投的可至豆匣电商平台参与实物众筹。购物可获得豆匣积分(豆匣积分可1:1兑换豆匣币SS)。</li>
-                <li class="rule-text"><span class="rule-text-bold">锁仓奖励</span><span>正式交易前可到官网申请锁仓。锁仓奖励为锁仓的SS数量*奖励百分比(半年:4%,一年:10%)。</li>
-                <li class="rule-text"><span class="rule-text-bold">交易平台</span><span>预计登录币安(Binance),Okex,比特尔(Gate.io),炒客(Chaoex),Ebtcbank,比特时代(Aex.com)，Yobit,HitBTC。</span></li>
-                <li class="rule-text"><span class="rule-text-bold">发币说明</span><span>官网直投的在众筹轮结束后三日发币:以太坊智能合约参与的自动进行兑换;交易所众筹参与的由交易所发币。</span></li>
-                <li class="rule-text"><span class="rule-text-bold">退币说明</span><span>本次由于从三个渠道：官网直投，以太坊智能合约，交易所众筹进行募集。超过硬顶部分按时间先后顺序原路返回。</span></li>
+                <li class="rule-text"><span class="rule-text-bold i18n" name="">白名单</span><span class="i18n" name="">在早年轮正式开始前成功注册账号即拥有1个ETH的白名单额度。白名单额度在<span class="rule-text-bold-tesu i18n" name="">早鸟轮阶段</span>购买豆匣币(SS)时，可额外获得20%的豆匣币(SS)奖励</span></li>
+                <li class="rule-text"><span class="rule-text-bold i18n" name="">推广奖励</span><span class="i18n" name="">好友通过你的分享链接或邀请码进行注册，每个人增加1个ETH白名单额度。每个账号上限为100个ETH。</li>
+                <li class="rule-text"><span class="rule-text-bold i18n" name="">投资奖励</span><span class="i18n" name="">好友参加早鸟轮和众筹轮投资后，邀请人可获得好友订购SS数量*5%的返点(返点无上限)</li>
+                <li class="rule-text"><span class="rule-text-bold i18n" name="">空投福利</span><span class="i18n" name="">参与早鸟轮投资或则邀请了10人以上好友的账户都可以获得空投奖励，系统会自动发放。</li>
+                <li class="rule-text"><span class="rule-text-bold i18n" name="">法币参投</span><span class="i18n" name="">如需法币参投的可至豆匣电商平台参与实物众筹。购物可获得豆匣积分(豆匣积分可1:1兑换豆匣币SS)。</li>
+                <li class="rule-text"><span class="rule-text-bold i18n" name="">锁仓奖励</span><span class="i18n" name="">正式交易前可到官网申请锁仓。锁仓奖励为锁仓的SS数量*奖励百分比(半年:4%,一年:10%)。</li>
+                <li class="rule-text"><span class="rule-text-bold i18n" name="">交易平台</span><span class="i18n" name="">预计登录币安(Binance),Okex,比特尔(Gate.io),炒客(Chaoex),Ebtcbank,比特时代(Aex.com)，Yobit,HitBTC。</span></li>
+                <li class="rule-text"><span class="rule-text-bold i18n" name="">发币说明</span><span class="i18n" name="">官网直投的在众筹轮结束后三日发币:以太坊智能合约参与的自动进行兑换;交易所众筹参与的由交易所发币。</span></li>
+                <li class="rule-text"><span class="rule-text-bold i18n" name="">退币说明</span><span class="i18n" name="">本次由于从三个渠道：官网直投，以太坊智能合约，交易所众筹进行募集。超过硬顶部分按时间先后顺序原路返回。</span></li>
             </ul>
         </div>
         <section class="flow-path">
@@ -57,33 +57,33 @@
                 <button class="flow-button shopping-button" v-on:click="tabCrowdFunding(false)"><div v-if="isOfficial"></div><span class="i18n" name="sharder-business-city">商城众筹流程</span></button>
                 <ul class="flow-path-ul flow-path-ul1">
                     <li>
-                        <span class="step">步骤一</span>
-                        <button class="item">登录注册</button>
+                        <span class="step i18n" name="buzhou1">步骤一</span>
+                        <button class="item i18n" name="flow-path-ul.item1">登录注册</button>
                         <img src="/r/cms/resource/sharders/img/xian.png">
                     </li>
                     <li>
-                        <span class="step">步骤二</span>
-                        <button class="item">进入商城页面查看{{crowdFunding.a}}信息</button>
+                        <span class="step i18n" name="buzhou2">步骤二</span>
+                        <button class="item i18n" name="">进入商城页面查看{{crowdFunding.a}}信息</button>
                         <img src="/r/cms/resource/sharders/img/xian.png">
                     </li>
                     <li>
-                        <span class="step">步骤三</span>
+                        <span class="step i18n" name="buzhou3">步骤三</span>
                         <button class="item">{{crowdFunding.b}}</button>
                         <img src="/r/cms/resource/sharders/img/xian.png">
                     </li>
                 <#--<i class="fa fa-angle-double-left" aria-hidden="true"></i>-->
                     <li>
-                        <span class="step">步骤四</span>
+                        <span class="step i18n" name="buzhou4">步骤四</span>
                         <button class="item">{{crowdFunding.c}}</button>
                     </li>
                 </ul>
                 <div class="switch-div">
-                    <span class="step five" v-if="!isOfficial">步骤五</span>
+                    <span class="step five i18n" v-if="!isOfficial" name="buzhou5">步骤五</span>
                     <img src="/r/cms/resource/sharders/img/xian2.png" class="flow-img">
                 </div>
                 <ul class="flow-path-ul flow-path-ul2">
                     <li>
-                        <button class="item">进入众筹中心查看众筹信息</button>
+                        <button class="item i18n" name="">进入众筹中心查看众筹信息</button>
                         <img src="/r/cms/resource/sharders/img/xian.png">
                     </li>
                     <li>
@@ -105,8 +105,7 @@
 
     </div>
 </div>
-
-<script src="${resSys}/resource/sharders/js/echarts-all-3.js" type="text/javascript"></script>
+<script src="http://oss.sharder.org/sharder/js/echarts-all-3.js?v=${version!}" type="text/javascript"></script>
 <script>
     var pc = new Vue({
         el: ".invest",
@@ -149,7 +148,7 @@
                     }
                     $(".invest-item-tab img").css("transform","rotateY(180deg)");
                     $(".invest-item").css("padding-right","110px");
-                    pc.angelOrCrowdText={time1:"1月22日9:30",time2:"2月4日23:59"};
+                    pc.angelOrCrowdText={time1:"1月29日9:30",time2:"2月11日23:59"};
                 }
 
             },
@@ -158,7 +157,7 @@
                 if(pc.isCrowdFunding){
                     url+="invest_crowd_funding.ss";
                 }else {
-                    url+="invest_item.do";
+                    url+="invest_item.ss";
                 }
                 window.console.info("888888");
                 location.href=url;

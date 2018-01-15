@@ -40,7 +40,7 @@
             <form action="${base}/passWord/forgotPwd.ss"  class="ss-form default" id="forgot-pwd-form">
                 <ul>
                     <li>
-                        <span class="i18n">已有账号?</span><a class="in-login i18n" href="/login.ss" >立即登录</a>
+                        <span class="i18n" name="">已有账号?</span><a class="in-login i18n" href="/login.ss" name="">立即登录</a>
                     </li>
                     <li>
                         <label for="identification_forgot_pwd" class="i18n" name="sharder-account-number">账号:</label>
@@ -48,7 +48,7 @@
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="captcha"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
-                        <input id="captcha" type="text" placeholder="校验码" name="captcha" class="captcha" />
+                        <input id="captcha" type="text" placeholder="校验码" name="captcha" class="captcha " />
                         <input type="button"  name="校验码" onclick="forgotPwdVcode(this)" value="获取验证码"/>
                     </li>
                     <input type="hidden" name="captchaToken" value="">
@@ -73,7 +73,7 @@
                     </li>
                     <input type="hidden" name="token" value="">
                     <li>
-                        <input type="submit" value="保存" class="ss-main-btn theme" />
+                        <input type="submit" value="保存" class="ss-main-btn theme i18n" name=""/>
                     </li>
                 </ul>
             </form>

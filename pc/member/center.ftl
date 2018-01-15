@@ -44,14 +44,14 @@
             </p>
             <span class="title i18n" name="sharder-subscribe-get">获得方式:</span>
             <p class="text i18n" name="sharder-explain-text2">
-                每个人的起始额度为0，邀请一人在官网注册成功，可获得1ETH的额度，每个账号每天最多可获得10次要求奖励，白名单预约期间为1月8日 -1月22日。每个账户总上限为100ETH或等价的LTC，BTC
+                每个人的起始额度为1，邀请一人在官网注册成功，可获得1ETH的额度，每个账号每天最多可获得10次要求奖励，白名单预约期间为1月18日 -1月28日。每个账户总上限为100ETH或等价的LTC，BTC
                 <br/> 你可以在账户信息查看你的专属邀请链接。
             </p>
             <span class="title i18n" name="sharder-subscribe-use">使用方式:</span>
             <p class="text i18n" name="sharder-explain-text3">
                 白名单获得的预约额度在天使轮众筹购买豆匣币(SSC)时，可额外获得20%的豆匣币(SSC)奖励。<br/> 参与天使轮众筹后即消耗本账户的名额，未使用完的额度将在天使轮众筹结束后清零。
                 <br/> 你可以在我的资产查看白名单状态及邀请信息。
-                <br/> *投资机构及大额投资者请联系官方人员获得XXXXXX
+                <br/> *投资机构及大额投资者请联系官方人员
             </p>
         </div>
         <div class="user-subscribe"><span class="i18n" name="sharder-user-subscribe-quota">你当前的白名单额度 :</span>${maxSubscribe!}ETH</div>
@@ -91,21 +91,23 @@
                 <span class="currency">ETH</span>
                 <span class="quota used">${maxSubscribe!}</span>
                 <span class="alreadyUsed"><span class="i18n" name="sharder-user-already-quota">已使用额度 :</span> ${nowSubscribe!}ETH</span>
-                <span class="details"v-on:click="isLuck(1)">{{isOff1 ? "查看详情" : "关闭详情"}}</span>
+                <span class="details" v-on:click="isLuck(1)">{{isOff1 ? "查看详情" : "关闭详情"}}</span>
             </div>
             <div class="personal crowd-funding">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-income">众筹所得</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
                     <div class="popup-crowd-funding i18n" name="sharder-subscribe-text2">参与不同阶段所获得的豆匣币（SS）数量。</div></span>
                 <span class="currency i18n" name="sharder-SS">豆匣币(SS)</span>
                 <span class="quota">0</span>
-                <span class="details"v-on:click="isLuck(2)">{{isOff2 ? "查看详情" : "关闭详情"}}</span>
+                <#--<span class="details" v-on:click="isLuck(2)">{{isOff2 ? "查看详情" : "关闭详情"}}</span>-->
+                <span class="details" >{{isOff2 ? "查看详情" : "关闭详情"}}</span>
             </div>
             <div class="personal rebate">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">返点奖励</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
                     <div class="poput-invitation i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其投资获得豆匣币（SS）总额的5%作为返点奖励。</div></span>
                 <span class="currency">豆匣币 ( SS )</span>
                 <span class="quota">0</span>
-                <span class="details" v-on:click="isLuck(3)">{{isOff3 ? "查看详情" : "关闭详情"}}</span>
+                <span class="details" >{{isOff3 ? "查看详情" : "关闭详情"}}</span>
+                <#--<span class="details" v-on:click="isLuck(3)">{{isOff3 ? "查看详情" : "关闭详情"}}</span>-->
             </div>
         </div>
         <div class="subscribe-list">

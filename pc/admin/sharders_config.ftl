@@ -103,22 +103,18 @@
         });
         //监听提交
         form.on('submit(demo1)', function(data){
-            var requestUrl = "/config/index.htm";
+            var requestUrl = "/config/edit.ss";
             commAjax(requestUrl,"post",data.field,editResult);
 
             var editResult = function (_data) {
-
                if(isTrue(_data.success)){
                    layer.after("修改成功",function () {
                        location.reload();
                    });
-
                }else{
                    return false;
                }
             }
-
-
         });
     });
 </script>

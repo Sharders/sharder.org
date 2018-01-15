@@ -40,11 +40,11 @@
 </script>
 [#if user??]
 <div class="login-user">
-    <div>欢迎您 <span class="username">${user.username}</span><a href="${base}/user_center/index.ss" class="user_center ss-hover-effect">个人中心</a><a id="logout" class="logout ss-hover-effect">安全退出</a></div>
+    <div>欢迎您 <span class="username">${user.username}</span><a href="${base}/user_center/index.ss" class="user_center ss-hover-effect i18n" name="">个人中心</a><a id="logout" class="logout ss-hover-effect i18n" name="">安全退出</a></div>
 </div>
 [#else]
 <div class="login i18n">
-    <a class="tc"  name="denglu"  href="${base}/login.ss"><div class="login_btn ss-hover-effect">登录</div></a>
-    <a  name="zhuce"  href="${base}/register.ss" ><div class="register_btn ss-hover-effect">注册</div></a>
+    <a  href="${base}/login.ss"><div class="login_btn ss-hover-effect i18n"  name="denglu">登录</div></a>
+    <a  href="${base}/register.ss" ><div class="register_btn ss-hover-effect i18n" name="zhuce">注册</div></a>
 </div>
 [/#if]

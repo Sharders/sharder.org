@@ -36,7 +36,7 @@
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您注册豆匣协议</h1>
         </section>
         <section class="register-form">
-            <form action="${base}/register_.do?returnUrl=/login.ss" method="post"  class="ss-form default" id="register-form">
+            <form action="${base}/register_.ss?returnUrl=/login.ss" method="post"  class="ss-form default" id="register-form">
                 <ul>
                     <li>
                         <span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/login.ss" name="sharderf-user-sign-in">登录</a>
@@ -53,7 +53,7 @@
                     <li class="ss-verification-code-li" >
                         <label for="phone"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
                         <input id="phone" type="text" placeholder="校验码" name="captcha" class="captcha"/>
-                        <input type="button"  name="校验码" onclick="registerVcode('identification',this)" value="获取验证码"/>
+                        <input type="button" class="i18n" name="" onclick="registerVcode('identification',this)" value="获取验证码"/>
                     </li>
                     <li>
                         <label for="password"><i>*</i><span class="i18n" name="sharder-user-password">设置密码:</span></label>
@@ -77,7 +77,7 @@
                         <input type="checkbox" name="protocol" checked><label><span class="i18n" name="sharder-user-protocol">我已阅读并同意</span><a id="protocol" class="i18n" name="sharder-user-protocol-is">《Sharder用户协议》</a></label>
                     </li>
                     <li>
-                        <input type="submit" value="立即注册" class="ss-main-btn theme"/>
+                        <input type="submit" value="立即注册" class="ss-main-btn theme i18n" name=""/>
                     </li>
                 </ul>
                 <input type="hidden" name="captchaToken" value="">
