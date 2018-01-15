@@ -49,9 +49,7 @@
                     <li>
                         <input type="submit" value="立即登录" class="ss-main-btn theme ss-hover-effect" />
                     </li>
-                    <li style="text-align: right">
-                        <a class="i18n" name="sharder-forget-password" href="/passWord/forgotPwd.ss">忘记密码？</a>
-                    </li>
+
                     <#if message??>
                         <#if message=="true">
                             您必须登录后才能继续刚才的操作
@@ -83,6 +81,9 @@
                             注册成功！
                         </#if>
                     </#if>
+                    <li style="text-align: right">
+                        <a class="i18n" name="sharder-forget-password" href="/passWord/forgotPwd.ss">忘记密码？</a>
+                    </li>
                 </ul>
             </form>
         </section>
