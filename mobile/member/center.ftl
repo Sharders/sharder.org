@@ -16,13 +16,13 @@
         </ul>
         <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="jsCopy()">复制推广链接</button>
         <p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众筹。</p>
-        <p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众筹获得豆匣币(SS)总额度的5%作为返点奖励。</p>
+        <p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众筹获得豆匣(SS)总额度的5%作为返点奖励。</p>
     </div>
     <div class="asset-information" id="center">
         <h1 class="phone-center-information-title i18n" name="asset-information">资产信息</h1>
         <div class="sharders-total-assets">
             <p class="sharder-total-assets i18n" name="sharsder-my-total-assets">总资产</p>
-            <p class="sharder-sharder i18n" name="sharder-SS">豆匣币(SS)</p>
+            <p class="sharder-sharder i18n" name="sharder-SS">豆匣(SS)</p>
             <p class="sharder-quota">0</p>
         </div>
         <div class="crowd-funding-rebate">
@@ -71,7 +71,7 @@
             <p class="subscribe-information-text i18n" name="sharder-subscribe-texts2">每个人起始额度为1ETH。通过你的邀请链接成功一人在官网注册成功。可获得1ETH的额度。白名单预约期间为1月18日——1月28日。每个账号总上限为100ETH或等价的LTC,BTC。</p>
             <p class="subscribe-information-title i18n" name="sharder-subscribe-use">使用:</p>
             <p class="subscribe-information-text i18n" name="sharder-subscribe-texts3">
-                白名单额度在参与早鸟轮众筹时，可额外获得20%的豆匣币(SS)奖励。<br />
+                白名单额度在参与早鸟轮众筹时，可额外获得20%的豆匣(SS)奖励。<br />
                 参与早鸟论众筹后即可消耗本账户的额度，并用完的额度将在早鸟轮众筹结束后清零。<br>
                 投资机构及大额投资请联系官方客服人员获得优惠额度。<br>
             </p>

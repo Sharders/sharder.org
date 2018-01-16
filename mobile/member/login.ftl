@@ -81,12 +81,11 @@
                         </#if>
                     </#if>
                     <li style="text-align: right">
-                        <a class="i18n" name="sharder-forget-password" href="/passWord/forgotPwd.ss">忘记密码？</a>
+                        <a class="i18n underline" name="sharder-forget-password" href="/passWord/forgotPwd.ss">忘记密码？</a>
                     </li>
                 </ul>
             </form>
         </section>
-
     </div>
 </div>
 </@lay.htmlBody>

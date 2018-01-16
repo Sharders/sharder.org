@@ -18,7 +18,7 @@
                 <ul>
                     <li class="generalTextColor">
                         <span class="i18n" name="sharder-start-time">1.开始时间:</span>
-                       <span class="i18n" name="sharder-crowd-funding-text1">北京时间2018年2月23日9:00，如下列任一目标达成则将立即停止天使轮。<br/>
+                       <span class="i18n" name="sharder-crowd-funding-text1">北京时间2018年2月23日9:00，如下列任一目标达成则将立即停止早鸟轮。<br/>
                         &nbsp;&nbsp;&nbsp;&nbsp;A:xxxxxs个SS全部售出。<br/>
                         &nbsp;&nbsp;&nbsp;&nbsp;B:SS售出超XX个并到达截止时间2018年3月23日。</span>
                     </li>
@@ -38,11 +38,11 @@
                     </li>
                     <li class="generalTextColor">
                         <span class="i18n" name="sharder-examine-time">5.审核时间</span>
-                        <span class="i18n" name="sharder-crowd-funding-text5">天使轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
+                        <span class="i18n" name="sharder-crowd-funding-text5">早鸟轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
                     </li>
                     <li class="generalTextColor">
                         <span class="i18n" name="sharder-raise-time">6.众筹时间</span>
-                        <span class="i18n" name="sharder-crowd-funding-text6">天使轮结束以后，众筹将会在官网以及XXX进行公开IEO,具体信息以官方信息为准。</span>
+                        <span class="i18n" name="sharder-crowd-funding-text6">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
                     </li>
                 </ul>
             </div>
@@ -50,9 +50,9 @@
             <div class="participation">
                 <p class="ss-main-title invset-h4 i18n" name="sharder-participate">参与</p>
                 <div class="pay-text crowd-funding-text">
-                    <p class="generalTextColor i18n" name="sharder-crowd-funding-text7">感谢你参加豆匣天使轮，你可以用直接从交易所或其他数字货币钱包发送ETH和BTC到以下地址。</p>
-                    <p class="generalTextColor i18n" name="sharder-crowd-funding-text7">感谢你参加豆匣天使轮，你可以用直接从交易所或其他数字货币钱包发送ETH和BTC到以下地址。</p>
-                    <p class="generalTextColor i18n" name="sharder-crowd-funding-text7">感谢你参加豆匣天使轮，你可以用直接从交易所或其他数字货币钱包发送ETH和BTC到以下地址。</p>
+                    <p class="generalTextColor i18n" name="sharder-crowd-funding-text7">感谢你参加豆匣早鸟轮，你可以用直接从交易所或其他数字货币钱包发送ETH和BTC到以下地址。</p>
+                    <p class="generalTextColor i18n" name="sharder-crowd-funding-text7">感谢你参加豆匣早鸟轮，你可以用直接从交易所或其他数字货币钱包发送ETH和BTC到以下地址。</p>
+                    <p class="generalTextColor i18n" name="sharder-crowd-funding-text7">感谢你参加豆匣早鸟轮，你可以用直接从交易所或其他数字货币钱包发送ETH和BTC到以下地址。</p>
                 </div>
                 <div>
                     <img src="/r/cms/resource/sharders/img/12345.png" class="participation-img"/>

@@ -11,33 +11,30 @@
 <div class="ss-container ss-theme-background-color">
     <div class="invest ss-main" id="invest_item">
         <section>
-            <h1 class="ss-main-title invest-main-h1"><span class="i18n" name="sharder-angel-wheels">Sharder天使轮</span></h1>
+            <h1 class="ss-main-title invest-main-h1"><span class="i18n" name="sharder-angel-wheels">Sharder早鸟轮</span></h1>
         </section>
 
         <#include "invest_timeline.ftl" />
-        <section class="in-user-center">
-            <button class="ss-main-btn"><span class="i18n" name="sharder-timeline-text1">你当前白名单额度为</span>:${maxSubscribe!} <span class="i18n" name="sharder-timeline-text2">ETH或等价数字货币</span></button>
-            <p class="i18n" name="sharder-invest-item-text1">白名单所获得的额度在天使轮购买豆匣币（SS）时，可额外获得20%的豆匣币（SS）奖励。</p>
-        </section>
+
 
 
         <section class="invest-item">
-            <h3 class="ss-sub-title i18n" name="sharder-angel-wheel">天使轮</h3>
-            <p class="i18n" name="sharder-invest-time-start-end">1月22日9:00-2月4日23:59</p>
+            <h3 class="ss-sub-title i18n" name="sharder-angel-wheel">早鸟轮</h3>
+            <p class="i18n" name="sharder-invest-time-start-end">1月29日9:00-2月11日23:59</p>
             <div class="ss-row-timeline"></div>
             <div class="clause">
                 <h4 class="invset-h4 i18n" name="sharder-rule">规则</h4>
                 <ul>
                     <li class="generalTextColor">
                         <span class="crude i18n" name="sharder-start-time">1.开始时间:</span>
-                        <span class="i18n" name="sharder-invest-item-text2">北京时间2018年1月22日9:00，如下列任一目标达成则将立即停止天使轮。<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;A:38135593个SS全部售出。<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;B:SS售出超XX个并到达截止时间2018年2月4日。</span>
+                        <span class="i18n" name="sharder-invest-item-text2">北京时间2018年1月29日9:00，如下列任一目标达成则将立即停止早鸟轮。<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;A:75,000,000个SS全部售出。<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;B:SS售出超35,000,000个并到达截止时间2018年2月29日。</span>
                     </li>
                     <li class="generalTextColor">
                         <span class="crude i18n" name="sharder-subscription-ratio">2.兑换比例:</span>
-                        <span class="i18n" name="sharder-invest-item-text3">由于虚拟货币市场价格波动性，我们会在天使轮开始时间（北京时间2018年1月22日9:00）前一周确定锁定价格和兑换数量。<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;锁定价格：以交易所“币安”（官网www.binance.com）两周内的收盘价均价确定锁定价格和兑换数量。</span>
+                        <span class="i18n" name="sharder-invest-item-text3">由于虚拟货币市场价格波动性，我们会在早鸟轮开始时间（北京时间2018年1月29日9:00）前一周确定锁定价格和兑换数量。<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;锁定价格：以交易所“币安”（官网www.binance.com）一周内的收盘价均价确定锁定价格和兑换数量。</span>
                     </li>
                     <li class="generalTextColor">
                         <span class="crude i18n" name="sharder-investment-quota">3.参投限额:</span>
@@ -49,15 +46,11 @@
                     </li>
                     <li class="generalTextColor">
                         <span class="crude">5.</span>
-                        <span class="i18n" name="sharder-invest-item-text6">天使轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
+                        <span class="i18n" name="sharder-invest-item-text6">早鸟轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
                     </li>
                     <li class="generalTextColor">
-                        <span class="crude">6.</span>
-                        <span class="i18n" name="sharder-invest-item-text7">天使轮结束以后，众筹将会在官网以及XXX进行公开IEO,具体信息以官方信息为准。</span>
-                    </li>
-                    <li class="generalTextColor">
-                        <span class="crude i18n" name="sharder-subscribe">7.白名单:</span>
-                        <span class="i18n" name="sharder-invest-item-text8">天使轮结束以后，众筹将会在官网以及XXX进行公开IEO,具体信息以官方信息为准。</span>
+                        <span class="crude i18n" name="sharder-subscribe">6.白名单:</span>
+                        <span class="i18n" name="sharder-invest-item-text8">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
                     </li>
                 </ul>
             </div>
@@ -83,15 +76,15 @@
 
                     <div id="transfer_details" style="display: none">
                         <div class="pay-text">
-                            <p class="generalTextColor i18n" name="sharder-invest-item-text9">感谢你参加豆匣天使轮，你可以用直接从交易所或其他数字货币钱包发送ETH和BTC到以下地址。</p>
-                            <p class="generalTextColor i18n" name="sharder-invest-item-text10">参加天使轮将会默认优先使用白名单额度，如果提交了信息但未完成转账。提交扣除的白名单额度将在24小时回复。</p>
+                            <p class="generalTextColor i18n" name="sharder-invest-item-text9">感谢你参加豆匣早鸟轮，你可以用直接从交易所或其他数字货币钱包发送{{payType}}到以下地址。</p>
+                            <p class="generalTextColor i18n" name="sharder-invest-item-text10">参加早鸟轮将会默认优先使用白名单额度，如果提交了信息但未完成转账。提交扣除的白名单额度将在24小时回复。</p>
                             <p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账成功后为了保证你的资金安全，转账后请加客服微信，并将转账成功的截图发给我们。我们将对您进行一对一的确认。</p>
                         </div>
                         <div>
                             <div class="qr-code" id="walletAddr_qr_code"></div>
                         </div>
                         <div class="pay-addr">
-                            <span class="i18n" name="sharder-addr-wallet">钱包地址:</span><span id="sharder-addr">{{walletAddr}}</span><button type="button" onclick="jsCopy()" class="i18n" name="sharder-copy">复制</button>
+                            <span class="i18n" name="sharder-addr-wallet">{{payType}}钱包地址:</span><span id="sharder-addr">{{walletAddr}}</span><button type="button" onclick="jsCopy()" class="i18n" name="sharder-copy">复制</button>
                             <input type="hidden" name="shardersWalletAddr" :value="walletAddr">
                         </div>
                         <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-completed-transfer" v-on:click="prompt()">已完成转账</button>
