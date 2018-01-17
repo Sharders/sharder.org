@@ -46,7 +46,7 @@
                         </li>
                     </#if>
                     <li>
-                        <input type="submit" value="立即登录" class="ss-main-btn theme" />
+                        <input type="submit" value="立即登录" name="" class="ss-main-btn theme i18n" />
                     </li>
 
                     <#if message??>

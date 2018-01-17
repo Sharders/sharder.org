@@ -54,7 +54,7 @@
                 <br/> *投资机构及大额投资者请联系官方人员
             </p>
         </div>
-        <div class="user-subscribe" style="text-align: center"><span class="i18n" style="float: left" name="sharder-user-subscribe-quota">你当前的白名单额度 :${maxSubscribe!}ETH</span><a style="border-bottom: 1px solid;color: rgb(214, 203, 203);cursor: pointer;margin-left: -168px;">参与早鸟轮</a></div>
+        <div class="user-subscribe" style="text-align: center"><span  style="float: left"><span class="i18n" name="sharder-user-subscribe-quota">你当前的白名单额度 :</span>${maxSubscribe!}ETH</span><a style="border-bottom: 1px solid;color: rgb(214, 203, 203);cursor: pointer;margin-left: -168px;" class="i18n" name="sharder-early-bird">参与早鸟轮</a></div>
     </div>
     <div class="user">
         <span class="title i18n" name="sharder-user-information">账户信息</span>
@@ -87,26 +87,26 @@
         <div class="subscribe-crowd-funding">
             <div class="personal white-list">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
-                    <div class="popup-subscribe i18n" name="sharder-subscribe-text1">邀请好友注册成功将会获得白名单额度，每人每天最多可获得10ETH或等值其他货币(只适用于早鸟阶段)。众筹期间最多可获得100ETH或等值其他货币额度。白名单额度在早鸟轮众筹期间购买份额时候将额外获得20%的奖励。未使用的白名单额度将在早鸟轮结束以后清零</div></span>
+                    <div class="popup-subscribe i18n" name="sharder-subscribe-text1">邀请好友注册成功将会获得白名单额度，每人每天最多可获得10ETH或等值其他代币(仅适用于早鸟)。众筹期间最多可获得100ETH或等值其他代币额度。白名单额度在早鸟期认购时将额外获得20%SS奖励。</div></span>
                 <span class="currency">ETH</span>
                 <span class="quota used">${maxSubscribe!}</span>
                 <span class="alreadyUsed"><span class="i18n" name="sharder-user-already-quota">已使用额度 :</span> ${nowSubscribe!}ETH</span>
-                <span class="details" v-on:click="isLuck(1)">{{isOff1 ? "查看详情" : "关闭详情"}}</span>
+                <span class="details" v-on:click="isLuck(1)">{{retruenTExt(isOff1)}}</span>
             </div>
             <div class="personal crowd-funding">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-income">众筹所得</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
-                    <div class="popup-crowd-funding i18n" name="sharder-subscribe-text2">参与不同阶段所获得的豆匣（SS）数量。</div></span>
+                    <div class="popup-crowd-funding i18n" name="sharder-subscribe-text2">获得的豆匣（SS）数量。</div></span>
                 <span class="currency i18n" name="sharder-SS">豆匣(SS)</span>
                 <span class="quota">0</span>
                 <#--<span class="details" v-on:click="isLuck(2)">{{isOff2 ? "查看详情" : "关闭详情"}}</span>-->
-                <span class="details" >{{isOff2 ? "查看详情" : "关闭详情"}}</span>
+                <span class="details" >{{retruenTExt(isOff2)}}</span>
             </div>
             <div class="personal rebate">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">返点奖励</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
                     <div class="poput-invitation i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其投资获得豆匣（SS）总额的5%作为返点奖励。</div></span>
-                <span class="currency">豆匣 ( SS )</span>
+                <span class="currency i18n" name="sharder-SS">豆匣 ( SS )</span>
                 <span class="quota">0</span>
-                <span class="details" >{{isOff3 ? "查看详情" : "关闭详情"}}</span>
+                <span class="details" >{{retruenTExt(isOff3)}}</span>
                 <#--<span class="details" v-on:click="isLuck(3)">{{isOff3 ? "查看详情" : "关闭详情"}}</span>-->
             </div>
         </div>
@@ -130,7 +130,7 @@
         </div>
         <button class="currency-ss i18n" name="sharder-subscribe-currency">提币</button>
         <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-        <div class="poput-extract i18n" name="sharder-subscribe-text4">通过官网直投的支持者，将在公开众筹结束后开始提币，三天内自动兑换到您提供的 ETH 钱包地址（锁仓者除外）。</div>
+        <div class="poput-extract i18n" name="sharder-subscribe-text4">通过官网直投的，将于公开众筹结束后开始提币，三天内自动兑换到您提供的ETH钱包地址（锁仓者除外）。</div>
 
     </div>
     <div class="rule">
@@ -140,24 +140,39 @@
         </p>
         <span class="title i18n" name="sharder-acquisition-mode">获得方式:</span>
         <p class="text i18n" name="sharder-subscribe-text7">
-            通过你的专属链接注册并成功参与早鸟轮众筹。你可以获得其早鸟轮和众筹获得豆匣(SS)总额的5%作为返点奖励。<br/> 要求返点活动与白名单邀请无冲突且无要请限制，可以继续要请并获得返点奖励。
+            好友通过你的专属链接成功参与早鸟众筹。你可以获得其兑豆匣(SS)总额的5%作为返点奖励。<br/>
         </p>
     </div>
     <div class="edit-password">
             <form method="post" id="userPwd">
                 <h2 class="i18n" name="sharder-user-edit-pwd">修改密码</h2>
-                <input type="password" placeholder="请输入旧密码" id="oldPassWord" name="origPwd" v-on:keyup="verification()"/>
-                <input type="password" placeholder="请输入新密码" id="newPassWord1" v-on:keyup="verification()"/>
-                <input type="password" placeholder="再次输入密码" name="newPwd" id="newPassWord2" v-on:keyup="verification()"/>
+                <div>
+                    <label class="i18n" name="user-text-1">请输入旧密码</label> <input type="password" id="oldPassWord" name="origPwd" v-on:keyup="verification()"/>
+                </div>
+               <div>
+                   <label class="i18n" name="user-text-2">请输入新密码</label><input type="password" id="newPassWord1" v-on:keyup="verification()"/>
+               </div>
+                <div>
+                    <label class="i18n" name="user-text-3">再次输入密码</label><input type="password"  name="newPwd" id="newPassWord2" v-on:keyup="verification()"/>
+                </div>
+
                 <input type="button" value="提交" v-on:click="editPwd()"/>
             </form>
         <div class="userPwd-div">
             <h2 class="i18n" name="sharder-operation-result">操作结果</h2>
             <span>{{Pwd.message}}{{Pwd.error}}</span>
-            <input type="button" value="重新修改" v-on:click="edit()"/>
+            <#--<input type="button" value="重新修改" v-on:click="edit()"/>-->
         </div>
         <span class="close" v-on:click="winOpen()" >X</span>
     </div>
+</div>
+<div style="display: none">
+    <span id="chakan" class="i18n" name="user-test-text1">查看详情</span>
+    <span id="guanbi" class="i18n" name="user-test-text2">关闭详情</span>
+    <span id="subscribe" class="i18n" name="user-test-text3">白名单额度详情</span>
+    <span id="crodw-funding" class="i18n" name="user-test-text4">众筹所得详情</span>
+    <span id="fandian" class="i18n" name="user-test-text5">返点奖励详情</span>
+    <span id="erro" class="i18n" name="user-test-text6">未知错误</span>
 </div>
 <div class="maker"></div>
 <script type="text/x-template" id="details-white-list">
@@ -225,13 +240,13 @@
         methods: {
             nameText:function (name) {
                 if(name == "baimingdan"){
-                    return "白名单额度详情";
+                    return $("#subscribe").text();
                 }else if(name == "zhongchou"){
-                    return "众筹所得详情";
+                    return $("#crodw-funding").text();
                 }else if(name == "fandian"){
-                    return "返点奖励详情";
+                    return $("#fandian").text();
                 }else{
-                    return "未知错误"
+                    return $("#erro").text();
                 }
             },
             pagingQuery:function (name,page) {
@@ -392,6 +407,13 @@
                 $('#userPwd').css("display","block");
                 $('.userPwd-div').css("display","none");
             },
+            retruenTExt:function (bool) {
+                if(bool){
+                    return $("#chakan").text();
+                }else{
+                    return $("#guanbi").text();
+                }
+            },
         },
         components:{
             'baimingdan':{
@@ -420,7 +442,6 @@
             },
         }
     });
-    
     $(document).ready(function () {
         $("#applyFor").click(function () {
             $("#applyFor").attr("disabled",true);

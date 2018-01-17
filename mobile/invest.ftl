@@ -7,7 +7,7 @@
 <@lay.htmlBody>
 <div class="ss-mian">
     <section class="ss-main-title">
-        <h3 class="ss-head i18n" name="">豆匣token众筹</h3>
+        <h3 class="ss-head i18n" name="">豆匣众筹</h3>
         <ul>
             <li><span class="ss-time i18n" name="">1月18日-1月28日</span><span class="ss-time i18n" name="">1月29日-2月11日</span><span class="ss-time i18n" name="">2月23日-3月23</span></li>
             <li>
@@ -133,7 +133,7 @@
         <p class="ss-btn-text i18n" name="sharser-invset-text9">参与入口于早鸟(2018年1月29日)开始时开启</p>
     </section>
 </div>
-<script src="http://oss.sharder.org/sharder/js/echarts-all-3.js?v=${version!}" type="text/javascript"></script>
+<script src="https://oss.sharder.org/sharder/js/echarts-all-3.js?v=${version!}" type="text/javascript"></script>
 <script>
     var app = new Vue({
         el: ".ss-main-participate",

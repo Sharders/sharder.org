@@ -11,20 +11,20 @@
 </style>
 
 <script type="text/javascript">
-        $(function() {
-           /*window.register =  */$("#register-form").validate({
-                rules: {
-                    protocol:"required"
-                },
-                messages: {
-                    protocol:"请先同意服务条款"
-                },
-               submitHandler: function() {
-                   executeRegister();
-               }
-            });
-
+    $(function() {
+        /*window.register =  */$("#register-form").validate({
+            rules: {
+                protocol:"required"
+            },
+            messages: {
+                protocol:"请先同意服务条款"
+            },
+            submitHandler: function() {
+                executeRegister();
+            }
         });
+
+    });
 </script>
 
 </@layout.htmlHead>
@@ -33,7 +33,7 @@
 <div class="ss-container register-main">
     <div class="ss-main">
         <section class="main-title">
-            <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您注册豆匣协议</h1>
+            <h1 class="ss-main-title i18n" name="welcome-registration-sharderfs">欢迎您注册豆匣协议</h1>
         </section>
         <section class="register-form">
             <form action="${base}/register_.ss?returnUrl=/login.ss" method="post"  class="ss-form default" id="register-form">
@@ -41,10 +41,10 @@
                     <li>
                         <span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n underline" href="/login.ss" name="sharderf-user-sign-in">登录</a>
                     </li>
-                    <#--<li>-->
-                        <#--<label for="username"><i>*</i><span class="i18n" name="sharder-sign-in-username">用户名:</span></label>-->
-                        <#--<input id="username" type="text" placeholder="用户名" vld="{rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在'}}" name="username" class="username" />-->
-                    <#--</li>-->
+                <#--<li>-->
+                <#--<label for="username"><i>*</i><span class="i18n" name="sharder-sign-in-username">用户名:</span></label>-->
+                <#--<input id="username" type="text" placeholder="用户名" vld="{rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在'}}" name="username" class="username" />-->
+                <#--</li>-->
                     <input  type="hidden"  name="username" id="username"/>
                     <li >
                         <label for="identification"><i>*</i><span class="i18n" name="sharder-user-emil">手机/邮箱:</span></label>
@@ -74,7 +74,10 @@
                         <i class="code-img"><img id="guestbookCaptcha" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl"></i>
                     </li>
                     <li class="register-protocol">
-                        <input type="checkbox" name="protocol" checked><label><span class="i18n" name="sharder-user-protocol">我已阅读并同意</span><a id="protocol" class="i18n underline" name="sharder-user-protocol-is">《Sharder用户协议》</a></label>
+                        <input type="checkbox" name="protocol" checked><label><span class="i18n" name="sharder-user-protocol">我已阅读并同意</span>
+                        <a id="protocol" class="i18n underline" name="sharder-user-protocol-is">《豆匣用户协议》</a>
+                        <a id="mallprotocol" class="i18n underline" name="sharder-mall-protocol-is">《豆匣商城用户协议》</a>
+                    </label>
                     </li>
                     <li>
                         <input type="submit" value="立即注册" class="ss-main-btn theme i18n" name=""/>
@@ -109,10 +112,23 @@
             });
             $("#register-protocol").load("/r/cms/resource/sharders/register-protocol.html");
         })
+
+        $("#mallprotocol").click(function(){
+            layer.open({
+                type: 1,
+                skin: 'popup-hint default register-protocol',
+                closeBtn:1,
+                area: ['600px', '700px'], //宽高
+                title:"豆匣商城用户协议",
+                content:"<div id='register-protocol'></div>"
+            });
+            $("#register-protocol").load("/r/cms/resource/sharders/mall-register-protocol.html");
+        })
+
     })
 
     function executeRegister() {
-        $("#guestbookCaptcha").click();
+        layer.load(2);
         $("#username").val($("#identification").val());
         var _form = $("#register-form");
 
@@ -123,12 +139,17 @@
     }
 
     function registerResult(result) {
+        layer.closeAll('loading');
+        $("#guestbookCaptcha").click();
         if(!isTrue(result.success)){
             layer.msg(result.result.data.toString());
             $("#register-form input[type='submit']").removeAttr("disabled");
         }else{
-            $.cookie('inviterId', '', { expires: -1 });
-            location.href="/login.ss";
+            layer.msg("注册成功",function () {
+                $.cookie('inviterId', '', { expires: -1 });
+                location.href="/login.ss";
+            },1000);
+
         }
     }
 </script>

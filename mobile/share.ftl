@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title class="i18n" name="">邀请注册</title>
     <link rel="stylesheet"  href="/r/cms/resource/sharders/css/mobile/share.css">
-    <link rel="shortcut icon" href="http://oss.sharder.org/sharder/favicon.ico" />
+    <link rel="shortcut icon" href="https://oss.sharder.org/sharder/favicon.ico" />
 </head>
 <body class="mhome">
 <div class="ss-share-main ss-main">
