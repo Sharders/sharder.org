@@ -29,7 +29,7 @@
                 <ul>
 
                     <li>
-                        <span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n ss-hover-effect" href="/register.ss" name="sharder-log-in-immediately">立即注册</a>
+                        <span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n ss-hover-effect underline"  href="/register.ss" name="sharder-log-in-immediately">立即注册</a>
                     </li>
                     <li>
                         <label for="username" class="i18n" name="sharder-account-number">账号:</label>
@@ -82,7 +82,7 @@
                         </#if>
                     </#if>
                     <li style="text-align: right">
-                        <a class="i18n" name="sharder-forget-password" href="/passWord/forgotPwd.ss">忘记密码？</a>
+                        <a class="i18n underline" name="sharder-forget-password" href="/passWord/forgotPwd.ss">忘记密码？</a>
                     </li>
                 </ul>
             </form>

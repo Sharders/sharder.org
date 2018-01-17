@@ -79,7 +79,7 @@
                     <p class="ss-sub-title zh">技术白皮书</p>
                     <p class="ss-sub-title en">TECHNICAL WHITE PAPER</p>
                     <a href="http://oss.sharder.org/sharder/whitepaper/sharder-technical-whitepaper-v1.1-cn.pdf"><button class="down-btn zh">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
-                    <button class="down-btn en closed">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                    <button class="down-btn en closed">EN<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
                     <#--<a href="http://oss.sharder.org/cos/sharder-technical-whitepaper-v1.1-en.pdf"><button class="down-btn en">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>-->
                 </li>
                 <li class="item item2">
@@ -87,22 +87,22 @@
                     <p class="ss-sub-title zh">经济白皮书</p>
                     <p class="ss-sub-title en">ECONOMIC WHITE PAPER</p>
                     <a href="http://oss.sharder.org/sharder/whitepaper/sharder-economic-whitepaper-v1.0-cn.pdf"><button class="down-btn zh">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
-                    <button class="down-btn en closed">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
-                    <#--<a href="http://oss.sharder.org/cos/sharder-economic-whitepaper-v1.0-en.pdf"><button class="down-btn en">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>-->
+                    <#--<button class="down-btn en closed">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>-->
+                    <a href="http://oss.sharder.org/sharder/whitepaper/sharder-economic-whitepaper-v1.0-en.pdf"><button class="down-btn en">EN<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
                 </li>
                 <li class="item item3">
                     <i class="img"></i>
                     <p class="ss-sub-title zh">用户手册</p>
                     <p class="ss-sub-title en">USER MANUAL</p>
                     <button class="down-btn zh">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
-                    <button class="down-btn en">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                    <button class="down-btn en">EN<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
                 </li>
             </ul>
         </div>
     </section>
     <section class="ss-container sharder-more-main tail">
-        <div class="ss-main">
-            <h4 class="ss-sub-title zh">加入我们了解更多豆匣协议详情!</h4>
+        <div class="ss-main ss-hover-effect">
+            <h4 class="ss-sub-title zh">加入我们了解更多豆匣协议详情</h4>
             <h5 class="ss-sub-title en">SHARDER - CROSS-CHAIN DISTRIBUTED STORAGE PROTOCOL</h5>
             <#if user ?? >
                 <a href="/invest/invest.ss"><button class="ss-main-btn ss-hover-effect i18n" name="liaojiegengduo">了解更多</button></a>
@@ -145,7 +145,7 @@
                 <li class="items1">
                     <ul>
                         <li>
-                            <p class="i18n" name="project-main.items1.item-item1.title1">豆匣链研发</p>
+                            <p class="i18n" name="project-main.items1.item-item1.title1">海螺链研发</p>
                             <span></span>
                         </li>
                         <li >
@@ -167,18 +167,6 @@
                             <span class="i18n" name="project-main.items1.item-item4.title4">部署协议到海螺网络和量子链、私有云</span>
                         </li>
                     </ul>
-                </li>
-                <li class="items2">
-                    <p>
-                        <button>Q1</button>
-                        <button>Q2</button>
-                        <button>Q3</button>
-                        <button>Q4</button>
-                        <button class="weilai">Q1</button>
-                        <button class="weilai">Q2</button>
-                        <button class="weilai">Q3</button>
-                        <button class="weilai">Q4</button>
-                    </p>
                 </li>
                 <li class="items3">
                     <ul>
@@ -212,19 +200,10 @@
                         </li>
                     </ul>
                 </li>
-                <li class="line">
-                    <span class="line1"></span>
-                    <span class="line2"></span>
-                    <span class="line3"></span>
-                    <span class="line4"></span>
-                    <span class="line5 tesu"></span>
-                    <span class="line6"></span>
-                    <span class="line7"></span>
-                    <span class="line8"></span>
-                </li>
+
             </ul>
-            <span class="span h1">2018</span>
-            <span class="span h2">2017</span>
+            <span class="span h1">2017</span>
+            <span class="span h2">2018</span>
         </div>
     </section>
     <section class="ss-container sharder-partner-main tail">

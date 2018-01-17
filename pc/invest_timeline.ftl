@@ -1,15 +1,15 @@
 <section>
     <ul class="ss-row-timeline invest-timeline">
         <li class="ss-row-timeline-item">
-            <h4 class="ss-sub-title up-title i18n" name="sharder-time-start-end">1月8日-1月21日</h4>
+            <h4 class="ss-sub-title up-title i18n" name="sharder-time-start-end">1月18日-1月28日</h4>
             <p class="content i18n" name="sharder-subscribe-reserve">白名单预约</p>
             <a href="/user_center/index.ss"><button class="content-over subscribe-over ss-hover-effect i18n" name="canyubaimingdan">参与白名单</button></a>
         </li>
         <li class="ss-row-timeline-item">
-            <h4 class="ss-sub-title up-title i18n" name="sharder-angel-time-start-end">1月22日-2月4日天使轮</h4>
-            <p class="content i18n" name="sharder-angel">天使轮</p>
-            <button class="content-over angel-over i18n" name="canyutianshilun">参与天使轮</button>
-            <#--<a href="/invest/invest_item.ss"><button class="content-over angel-over " >参与天使轮</button></a>-->
+            <h4 class="ss-sub-title up-title i18n" name="sharder-angel-time-start-end">1月29日-2月11日早鸟轮</h4>
+            <p class="content i18n" name="sharder-angel">早鸟轮</p>
+            <button class="content-over angel-over i18n" name="canyutianshilun">参与早鸟轮</button>
+            <#--<a href="/invest/invest_item.ss"><button class="content-over angel-over " >参与早鸟轮</button></a>-->
         </li>
         <li class="ss-row-timeline-item">
             <h4 class="ss-sub-title up-title i18n" name="sharder-crowd-funding-time-start-end">2月23日-3月23众筹</h4>

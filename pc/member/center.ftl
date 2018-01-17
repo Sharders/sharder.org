@@ -17,12 +17,12 @@
     <div class="subscribe">
         <div class="subscribe-share">
             <span class="subscribe-make i18n" name="sharder-subscribe-share">白名单份额预约</span>
-            <span class="subscribe-time i18n" name="sharder-subscribe-start-end">1月8日9:00——1月21日23:59</span>
+            <span class="subscribe-time i18n" name="sharder-subscribe-start-end">1月18日9:00——1月28日23:59</span>
             <div class="speed-progress">
 						<span class="progress">
 							<span class="line" style="width: ${subscribeNumber/10!}%"></span>
 						</span>
-                <span class="total-subscribe i18n" name="sharder-subscribe-total-share">总份额1000ETH(或等价的BTC,LTCM)</span>
+                <span class="total-subscribe i18n" name="sharder-subscribe-total-share">总份额1000ETH(或等价的BTC,LTC)</span>
                 <span class="subscribe-proportion">${subscribeNumber/10!}%</span>
             </div>
             <ul class="invitation">
@@ -49,12 +49,12 @@
             </p>
             <span class="title i18n" name="sharder-subscribe-use">使用方式:</span>
             <p class="text i18n" name="sharder-explain-text3">
-                白名单获得的预约额度在天使轮众筹购买豆匣币(SSC)时，可额外获得20%的豆匣币(SSC)奖励。<br/> 参与天使轮众筹后即消耗本账户的名额，未使用完的额度将在天使轮众筹结束后清零。
+                白名单获得的预约额度在早鸟轮众筹购买豆匣(SS)时，可额外获得20%的豆匣(SS)奖励。<br/> 参与早鸟轮众筹后即消耗本账户的名额，未使用完的额度将在早鸟轮众筹结束后清零。
                 <br/> 你可以在我的资产查看白名单状态及邀请信息。
                 <br/> *投资机构及大额投资者请联系官方人员
             </p>
         </div>
-        <div class="user-subscribe"><span class="i18n" name="sharder-user-subscribe-quota">你当前的白名单额度 :</span>${maxSubscribe!}ETH</div>
+        <div class="user-subscribe" style="text-align: center"><span class="i18n" style="float: left" name="sharder-user-subscribe-quota">你当前的白名单额度 :${maxSubscribe!}ETH</span><a style="border-bottom: 1px solid;color: rgb(214, 203, 203);cursor: pointer;margin-left: -168px;">参与早鸟轮</a></div>
     </div>
     <div class="user">
         <span class="title i18n" name="sharder-user-information">账户信息</span>
@@ -76,12 +76,12 @@
 
         </ul>
     </div>
-    <div class="remarks i18n" name="sharder-subscribe-text5">邀请注册并参与众筹可获得5%的返点奖励！</div>
+    <div class="remarks i18n" name="sharder-subscribe-text5">如果所邀请好友参与早鸟轮或众筹轮投资，邀请人可获得好友认购SS数量*5%的返点，该返点无上限。</div>
     <div class="assets">
         <span class="title i18n" name="sharder-my-assets">我的资产</span>
         <div class="total-assets">
             <span class="personal-total-assets i18n" name="sharsder-my-total-assets">总资产</span>
-            <span class="sharder-ss i18n" name="sharder-SS">豆匣币(SS)</span>
+            <span class="sharder-ss i18n" name="sharder-SS">豆匣(SS)</span>
             <span class="shardr-assets">0</span>
         </div>
         <div class="subscribe-crowd-funding">
@@ -95,16 +95,16 @@
             </div>
             <div class="personal crowd-funding">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-income">众筹所得</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
-                    <div class="popup-crowd-funding i18n" name="sharder-subscribe-text2">参与不同阶段所获得的豆匣币（SS）数量。</div></span>
-                <span class="currency i18n" name="sharder-SS">豆匣币(SS)</span>
+                    <div class="popup-crowd-funding i18n" name="sharder-subscribe-text2">参与不同阶段所获得的豆匣（SS）数量。</div></span>
+                <span class="currency i18n" name="sharder-SS">豆匣(SS)</span>
                 <span class="quota">0</span>
                 <#--<span class="details" v-on:click="isLuck(2)">{{isOff2 ? "查看详情" : "关闭详情"}}</span>-->
                 <span class="details" >{{isOff2 ? "查看详情" : "关闭详情"}}</span>
             </div>
             <div class="personal rebate">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">返点奖励</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
-                    <div class="poput-invitation i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其投资获得豆匣币（SS）总额的5%作为返点奖励。</div></span>
-                <span class="currency">豆匣币 ( SS )</span>
+                    <div class="poput-invitation i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其投资获得豆匣（SS）总额的5%作为返点奖励。</div></span>
+                <span class="currency">豆匣 ( SS )</span>
                 <span class="quota">0</span>
                 <span class="details" >{{isOff3 ? "查看详情" : "关闭详情"}}</span>
                 <#--<span class="details" v-on:click="isLuck(3)">{{isOff3 ? "查看详情" : "关闭详情"}}</span>-->
@@ -136,11 +136,11 @@
     <div class="rule">
         <span class="title i18n" name="sharder-explain-rebate">返点奖励解释:</span>
         <p class="text i18n" name="sharder-subscribe-text6">
-            通过你的专属链接邀请注册并参与众筹成功后你可以获得豆匣币(SS)奖励。
+            通过你的专属链接邀请注册并参与众筹成功后你可以获得豆匣(SS)奖励。
         </p>
         <span class="title i18n" name="sharder-acquisition-mode">获得方式:</span>
         <p class="text i18n" name="sharder-subscribe-text7">
-            通过你的专属链接注册并成功参与天使轮众筹。你可以获得其天使轮和众筹获得豆匣币(SC)总额的5%作为返点奖励。<br/> 要求返点活动与白名单邀请无冲突且无要请限制，可以继续要请并获得返点奖励。
+            通过你的专属链接注册并成功参与早鸟轮众筹。你可以获得其早鸟轮和众筹获得豆匣(SS)总额的5%作为返点奖励。<br/> 要求返点活动与白名单邀请无冲突且无要请限制，可以继续要请并获得返点奖励。
         </p>
     </div>
     <div class="edit-password">
@@ -185,12 +185,12 @@
     <div class="rebate-details subscribe-body">
         <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-participation-time">参与时间</span><span class="subscribe-table i18n" name="sharder-stage-participation">参与阶段</span><span class="subscribe-table i18n" name="sharder-source">来源</span><span class="subscribe-table special i18n" name="sahrder-support-quantity">支持数量</span><span class="subscribe-table i18n" name="sharder-obtain-token">获得代币(SS)</span><span class="subscribe-table i18n" name="sharder-use-white-list">使用白名单额度</span><span class="subscribe-table i18n" name="sharder-white-list-award">白名单奖励</span></p>
         <ul class="subscribe-ul">
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">天使轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">天使轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">天使轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">天使轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">天使轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">天使轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
         </ul>
     </div>
 </script>
@@ -203,7 +203,7 @@
         input.select();
         document.execCommand("Copy");
         input.remove();
-        alert("Copy OK !!!");
+        layer.msg("复制成功");
     }
     var pc = new Vue({
         el: ".ss-theme-background-color",
