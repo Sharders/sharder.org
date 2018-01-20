@@ -84,7 +84,7 @@
                             <div class="qr-code" id="walletAddr_qr_code"></div>
                         </div>
                         <div class="pay-addr">
-                            <span class="i18n" name="sharder-addr-wallet">{{payType}}钱包地址:</span><span id="sharder-addr">{{walletAddr}}</span><button type="button" onclick="jsCopy()" class="i18n" name="sharder-copy">复制</button>
+                            {{payType}}<span class="i18n" name="sharder-addr-wallet">钱包地址:</span><span id="sharder-addr">{{walletAddr}}</span><button type="button" onclick="jsCopy()" class="i18n" name="sharder-copy">复制</button>
                             <input type="hidden" name="shardersWalletAddr" :value="walletAddr">
                         </div>
                         <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-completed-transfer" v-on:click="prompt()">已完成转账</button>
@@ -110,7 +110,7 @@
          </section>
     </div>
 </div>
-<div class="popup">感谢您支持豆匣众筹。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
+<div class="popup i18n" name ="sharder-Thank" style="display: none">感谢您支持豆匣众筹。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
 <#--<script src="${resSys}/resource/sharders/js/jquery.zeroclipboard.js" type="text/javascript"></script>-->
 <script src="${resSys}/resource/sharders/js/jquery.qrcode-0.12.0.min.js" type="text/javascript"></script>
 <script>
@@ -122,7 +122,7 @@
         input.select();
         document.execCommand("Copy");
         input.remove();
-        alert("复制成功");
+        layer.msg("复制成功");
     }
 </script>
 <script>
@@ -201,12 +201,12 @@
                 var requestUrl = "/invest/invest.ss";
                 var _data = $("#invest_form").serialize();
                 commAjax(requestUrl,"post",_data,"");
-
-                var style = $(".popup").css("display");
-                if(style == "none"){
-                    $(".popup").css("display","block");
-                    setTimeout('$(".popup").css("display","none")',5000);
-                }
+                layer.msg($(".popup").text());
+//                var style = $(".popup").css("display");
+//                if(style == "none"){
+//                    $(".popup").css("display","block");
+//                    setTimeout('$(".popup").css("display","none")',5000);
+//                }
             },
         }
     })

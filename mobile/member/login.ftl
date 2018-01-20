@@ -1,5 +1,6 @@
-<@layout.htmlHead     pagename="login">
-<link rel="stylesheet" href="/r/cms/resource/sharders/css/register_login.css">
+<#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
+<@lay.htmlHead    pagename="login">
+<link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/register_login.css">
 
 <style>
     html,body{
@@ -15,25 +16,23 @@
         $("#login-form").validate();
     });
 </script>
-</@layout.htmlHead>
+</@lay.htmlHead>
 
-<@layout.htmlBody isShowFooter=false>
+<@lay.htmlBody isShowFooter=false>
 <div class="ss-container register-main login-main">
     <div class="ss-main">
+
         <section class="main-title">
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您登录豆匣协议</h1>
+            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n" href="/register.ss" name="sharderf-user-sign-in">注册</a></div>
         </section>
 
-        <section class="register-form"><!--invest/invest.do-->
+        <section class="register-form register_login">
             <form action="${base}/login.jspx?returnUrl=/login_success.ss&failureUrl=/login.ss" method="post" class="ss-form default" id="login-form">
                 <ul>
-
-                    <li>
-                        <span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n ss-hover-effect underline"  href="/register.ss" name="sharder-log-in-immediately">立即注册</a>
-                    </li>
                     <li>
                         <label for="username" class="i18n" name="sharder-account-number">账号:</label>
-                        <input id="username" type="text" placeholder="手机号码或邮箱" name="username" class="required login-input i18n sharder-account-number" />
+                        <input id="username" type="text" placeholder="手机号码或邮箱" name="username" class="required login-input" />
                     </li>
                     <li>
                         <label for="password" class="i18n" name="sharder-user-password">密码:</label>
@@ -47,7 +46,7 @@
                         </li>
                     </#if>
                     <li>
-                        <input type="submit" value="立即登录" class="ss-main-btn theme ss-hover-effect i18n" name="head.denglu" />
+                        <input type="submit" value="立即登录" name="" class="ss-main-btn theme i18n" />
                     </li>
 
                     <#if message??>
@@ -87,7 +86,6 @@
                 </ul>
             </form>
         </section>
-
     </div>
 </div>
-</@layout.htmlBody>
+</@lay.htmlBody>

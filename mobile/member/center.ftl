@@ -1,0 +1,250 @@
+<#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
+<@lay.htmlHead    pagename="center">
+<link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/center.css">
+<link rel="stylesheet" href="/r/cms/resource/sharders/layui/css/layui.css">
+</@lay.htmlHead>
+
+<@lay.htmlBody>
+<div class="phone-center-main">
+    <div class="user-information" >
+        <h1 class="phone-center-information-title i18n" name="sharder-user-information">账户信息</h1>
+        <ul class="user-information-text">
+            <li><labal class="user-title i18n" name="sharder-account-number">账号:</labal><span class="user-text">${acconut!}</span></li>
+            <li><labal class="user-title i18n" name="sharder-sign-in-username">用户名:</labal><span class="user-text">${user.username!}</span></li>
+            <li><labal class="user-title i18n" name="sharder-extension-code">推广码:</labal><span class="user-text">${inviterId!}</span></li>
+            <li><labal class="user-title tesu i18n" name="sharder-extension-link">推广链接:</labal><span class="user-text augoid" id="contents">${invitePage!}?inviterId=${inviterId!}</span></li>
+        </ul>
+        <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="jsCopy()">复制推广链接</button>
+        <p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众筹。</p>
+        <p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众筹获得豆匣(SS)总额度的5%作为返点奖励。</p>
+    </div>
+    <div class="asset-information" id="center">
+        <h1 class="phone-center-information-title i18n" name="asset-information">资产信息</h1>
+        <div class="sharders-total-assets">
+            <p class="sharder-total-assets i18n" name="sharsder-my-total-assets">总资产</p>
+            <p class="sharder-sharder i18n" name="sharder-SS">豆匣(SS)</p>
+            <p class="sharder-quota">0</p>
+        </div>
+        <div class="crowd-funding-rebate">
+                <div class="crowd-funding details">
+                    <p class="crowd-funding-title">
+                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img" v-on:click="tabMessage(true)">
+                        <span class="details-title i18n" name="sharder-subscribe-income">众筹所得</span>
+                    </p>
+                    <p class="crowd-funding quota ">0SS</p>
+                    <p class="details-colse" >{{crowd ? "关闭详情" : "查看详情"}}</p>
+                    <#--<p class="details-colse" v-on:click="tabBtn(1)">{{crowd ? "关闭详情" : "查看详情"}}</p>-->
+                </div>
+                <div class="rebate details">
+                    <p class="crowd-funding-title">
+                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img img" v-on:click="tabMessage(false)">
+                        <span class="details-title i18n" name="sharder-subscribe-rebate">返点奖励</span>
+                    </p>
+                    <p class="rebate-quota quota">0SS</p>
+                    <p class="details-colse" >{{isRebate ? "关闭详情" : "查看详情"}}</p>
+                    <#--<p class="details-colse" v-on:click="tabBtn(2)">{{isRebate ? "关闭详情" : "查看详情"}}</p>-->
+                </div>
+        </div>
+        <div class="paging-query">
+                <component :is="template"></component>
+                <div id="page"></div>
+        </div>
+    </div>
+    <div class="subscribe-information">
+        <h1 class="phone-center-information-title i18n" name="white-list-reservation">白名单额度预约</h1>
+        <p class="subscribe-start-end-time i18n" name="white-list-time">时间1月18日9:00-1月28日23.59</p>
+        <span class="subscribe-line"><span style="width: ${subscribeNumber/10!}%"></span></span>
+        <p class="subscribe-line-text"><span class="i18n" name="total-share">总份额: <span>1000</span></span><span class="i18n" name="">ETH(或等价的BTC,LTC)</span><span class="line-number">${subscribeNumber/10!}%</span></p>
+        <ul class="subscribe-user-list">
+            <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName0!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe0.maxSubscribe!}</span><span>ETH</span></li>
+            <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName1!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe1.maxSubscribe!}</span><span>ETH</span></li>
+            <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName2!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe2.maxSubscribe!}</span><span>ETH</span></li>
+        </ul>
+        <p class="subscribe-quota">
+            <span class="i18n" name="sharder-you-subscribe-is">你当前的白名单额度为:</span><span>${maxSubscribe!}ETH</span><span class="subscribe-quota-info"><span class="i18n" name="nowsubscribe-total">已经使用额度:</span>${nowSubscribe!}ETH</span>
+        </p>
+        <div class="subscribe-info-text">
+            <p  class="subscribe-info-title i18n" name="sharder-subscribe-fine">白名单解释</p>
+            <p class="subscribe-information-title i18n" name="sharder-subscribe-1">白名单说明</p>
+            <p class="subscribe-information-text i18n" name="sharder-subscribe-2">在早鸟轮正式开始前成功注册账号都拥有1个ETH的基础白名单额度</p>
+            <p class="subscribe-information-title i18n" name="sharder-subscribe-3">白名单额度</p>
+            <p class="subscribe-information-text i18n" name="sharder-subscribe-4">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度。单个账户额度上限为100ETH。</p>
+            <p class="subscribe-information-title i18n" name="sharder-subscribe-5">白名单奖励</p>
+            <p class="subscribe-information-text i18n" name="sharder-subscribe-6">早鸟轮认购豆匣币(SS)时，系统会自动赠送20%的豆匣币(SS)。</p>
+            <p class="subscribe-information-text i18n" name="sharder-subscribe-7"> 如拥有1ETH白名单额度，认购总额为3ETH，则换币的计算公式为:1*ETH锁定价/SS单价*(1+20%)+2*ETH锁定价/SS单价。</p>
+        </div>
+    </div>
+</div>
+<div style="display: none">
+    <span class="i18n" name="sharder-subscribe-text2">参与不同阶段所获得的豆匣（SS）数量</span>
+    <span class="i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其投资获得豆匣（SS）总额的5%作为返点奖励。</span>
+</div>
+<script type="text/x-template" id="details-white-list">
+    <div class="details-white-list subscribe-body">
+        <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-registrant">注册人</span><span class="subscribe-table i18n" name="sharder-registrant-time">注册时间</span><span class="subscribe-table i18n" name="sharder-white-list-share">白名单份额</span></p>
+        <ul class="subscribe-ul">
+            <li class="subscribe-li" v-for="pd in parentData.dataList"><span class="subscribe-table">{{pd.id}}</span><span class="subscribe-table">{{pd.createDate}}</span><span class="subscribe-table">1TEH</span></li>
+            <li class="subscribe-li" v-if="parentData.dataList == ''"><span>No data is found！！！</span></li>
+        </ul>
+    </div>
+</script>
+<script type="text/x-template" id="public-information">
+    <div class="public-information subscribe-body">
+        <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-registrant-uid">注册人UID</span><span class="subscribe-table i18n" name="sharder-registrant-time">注册时间</span><span class="subscribe-table i18n" name="sharder-public-access">众筹获得</span><span class="subscribe-table special i18n" name="sharder-deal-base">返点奖励(20%)</span></p>
+        <ul class="subscribe-ul">
+            <li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>
+        </ul>
+    </div>
+</script>
+<script type="text/x-template" id="rebate-details">
+    <div class="rebate-details subscribe-body">
+        <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-participation-time">参与时间</span><span class="subscribe-table i18n" name="sharder-obtain-token">来源</span><span class="subscribe-table i18n" name="sharder-obtain-token">获得代币(SS)</span><span class="subscribe-table i18n" name="sharder-white-list-award">白名单奖励</span></p>
+        <ul class="subscribe-ul">
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
+        </ul>
+    </div>
+</script>
+<script src="/r/cms/resource/sharders/layui/layui.js"></script>
+<script>
+    var laypage;
+    layui.use(['laypage'], function() {
+       laypage = layui.laypage;
+    });
+</script>
+<script>
+    function jsCopy() {
+        var text = document.getElementById("contents").innerText;
+        var input = document.createElement("input");
+        input.value = text;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("Copy");
+        input.remove();
+        layer.msg("复制成功");
+    }
+    var app = new Vue({
+        el:"#center",
+        data:{
+            crowd:false,
+            isRebate:false,
+            name:"",
+            id:${user.id!},
+            dataList:"",
+            template:"",
+        },
+        methods:{
+            tabMessage:function(bool){
+                var text;
+                if(bool){
+                    text = $("span[name='sharder-subscribe-text2']").text();
+                }else{
+                    text = $("span[name='sharder-subscribe-text3']").text();
+                }
+                layer.msg(text, {
+                    time: 50000, //5s后自动关闭
+                    btn: ['OK']
+                });
+            },
+            paging:function () {
+                laypage.render({
+                    elem: 'page'
+                    ,count: 100
+                    ,first: false
+                    ,last: false
+                    ,jump: function(obj, first){
+                        if(!first){
+                            layer.msg('第 '+ obj.curr +' 页');
+                            app.pagingQuery(obj.curr);
+                        }
+                    }
+                });
+            }
+            ,tabBtn:function (num) {
+                $(".paging-query").css("display","none");
+                $(".crowd-funding.details").css("border-bottom","0");
+                $(".rebate.details").css("border-bottom","0");
+                if(num == 1){
+                    app.crowd=!app.crowd;
+                    app.isRebate=false;
+                    app.name = "fandian";
+                    app.template=app.name;
+                    app.paging();
+                }else if(num == 2){
+                    app.isRebate=!app.isRebate;
+                    app.crowd=false;
+                    app.name = "zhongchou";
+                    app.template=app.name;
+                    app.paging();
+                }else {
+                    window.alert("无法识别的事件！！！");
+                    return;
+                }
+                if(app.crowd == true){
+                    $(".crowd-funding.details").css("border-bottom","2px solid #0ba0d1");
+                }else if(app.isRebate == true){
+                    $(".rebate.details").css("border-bottom","2px solid #0ba0d1");
+                }
+                if(app.crowd == true || app.isRebate == true){
+                    $(".paging-query").css("display","block");
+                }
+                app.pagingQuery(1);
+            },
+            pagingQuery:function (num) {
+                var url = "/user_center";
+                if(app.name == "baimingdan"){
+                    url += "/details_whitelist.ss?page="+num ;
+                }else if(app.name == "zhongchou"){
+                    url += "/details_whitelist.ss?page="+num ;//需要修改
+                }else if(app.name == "fandian"){
+                    url += "/details_whitelist.ss?page="+num ;//需要修改
+                }else{
+                    window.alert("请求异常！！！");
+                    return;
+                }
+                url += "&id="+app.id+"&number=10";
+                $.ajax({
+                    type: "get",
+                    url:url,
+                    dataType: "json",
+                    success: function(result) {
+                        console.info(result);
+                        app.dataList = result.userRelation;
+                    },
+                    error:function(){
+                        console.error("ajax请求异常！！！");
+                    }
+                });
+            }
+
+        },
+        components:{
+            'zhongchou':{
+                template:'#public-information',
+                data:function(){
+                    return{
+                        parentData:this.$parent.$data
+                    }
+                }
+            },
+            'fandian':{
+                template:'#rebate-details',
+                data:function(){
+                    return{
+                        parentData:this.$parent.$data
+                    }
+                }
+            },
+        },
+    });
+
+</script>
+</@lay.htmlBody>
