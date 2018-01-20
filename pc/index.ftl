@@ -1,101 +1,62 @@
-<@layout.htmlHead title="我就是标题" keywords="我就是标题" description="我就是标题">
-<link type="text/css" rel="stylesheet" href="\r\cms\resource\sharders\css\index.css">
-<script src="${resSys}/resource/sharders/js/unslider.min.js" type="text/javascript"></script>
-<style>
+<#import "/WEB-INF/ftl/sharders/ss_tpl_index.ftl" as indexTpl/>
 
-</style>
-<style>
-
-
-</style>
+<@layout.htmlHead  pagename="index">
+    <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/index.css">
+    <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/common.css">
+    <script src="${resSys}/resource/sharders/js/unslider.min.js" type="text/javascript"></script>
+    <style>
+    </style>
 </@layout.htmlHead>
 
 <@layout.htmlBody>
 <div class="index">
     <section class="ss-container home-page tail">
         <div class="ss-main">
-            <ul class="network">
-                <li class="network-node network-node-1">
-                    <span>Miner</span>
-                    <i></i>
-                </li>
-                <li class="network-node network-node-2">
-                    <span>Witness</span>
-                    <i></i>
-                </li>
-                <li class="network-node network-node-3">
-                    <i></i>
-                    <span>Miner</span>
-                </li>
-                <li class="network-node network-node-4">
-
-                    <i></i>
-                    <span>Watcher</span>
-                </li>
-                <li class="network-node network-node-5">
-
-                    <i></i>
-                    <span>Owner</span>
-                </li>
-                <li class="network-node network-node-9">
-                    <span></span>
-                    <i>SHARDER<br/>PROTOCOL</i>
-                </li>
-                <li class="network-node network-node-6">
-
-                    <i></i>
-                    <span>Boxer</span>
-                </li>
-                <li class="network-node network-node-7">
-                    <i></i>
-                    <span>Owner</span>
-                </li>
-                <li class="network-node network-node-8">
-
-                    <i></i>
-                    <span>bean</span>
-                </li>
-            </ul>
-            <p class="text ss-main-title zh">豆匣协议——跨链分布式存储协议</p>
+            <ul class="network"></ul>
+            <p class="text ss-main-title zh i18n" name="sharder.big.title">豆匣协议——跨链分布式存储协议</p>
             <p class="text ss-main-title en">CROSS-CHAIN DISTRIBUTED STORAGE PROTOCOL</p>
         </div>
+        <section id="sectionDownMouse">
+            <a href="#sharder-network-main"><span></span></a>
+        </section>
     </section>
-    <section class="ss-container sharder-network-main tail">
+    <section class="ss-container sharder-network-main tail" id="sharder-network-main">
         <div class="ss-main">
             <div class="sharder-network">
-
                 <div class="ss-main-title ss-main-btn theme">
-                    <div>
+                    <div class="ss-hover-effect">
                         <span class="blank"></span>
-                        <span class="zh">豆匣网络/</span>
-                        <span class="en">SHARDER</span>
+                        <span class="zh i18n" name="project-main.title.protocol">豆匣协议/</span>
+                        <span class="en i18n" name="project-main.subtitle.protocol">SHARDER</span>
                     </div>
                 </div>
                 <ul>
                     <li class="ss-describe ss-describe1">
                         <div class="item item1">
-                            <h4 class="ss-sub-title">简单的网络拓扑</h4>
-                            <div class="ss-content">网络中节点对等，节点只有连通与否的状态。由更高层的协议完成复杂的状态和行为控制。</div>
+                            <h4 class="ss-sub-title i18n" name="sharder.network.main.title1">数据安全</h4>
+                            <div class="ss-content i18n" name="sharder.network.main.content1">
+                                客户端离线加密、保证数据隐私性。 网络根据安全性自动对数据进行分片、分散存储、多备份。
+                            </div>
                         </div>
                         <div class="item item2">
-                            <h4 class="ss-sub-title">数据跨链</h4>
-                            <div class="ss-content">能够在现有的成熟公链和传统的互联网络中进行互联互通，能进行价值和数据传递和交换。</div>
+                            <h4 class="ss-sub-title i18n" name="sharder.network.main.title2">授信模型</h4>
+                            <div class="ss-content i18n" name="sharder.network.main.content2">独创SHARDER-UTXO和SHARDER-KEYPAIR保证数据必须在授信情况下才能被其他用户或机构访问和使用。数据所有权回归用户、绝对隐私。</div>
                         </div>
                     </li>
                     <li class="ss-describe ss-describe2">
                         <div class="item item3">
-                            <h4 class="ss-sub-title">可扩展API</h4>
-                            <div class="ss-content">易用的 API 并可供上层应用扩展。</div>
+                            <h4 class="ss-sub-title i18n" name="sharder.network.main.title3">去中心化</h4>
+                            <div class="ss-content i18n" name="sharder.network.main.content3">无限扩容、永久存储、永不关停。 观察者实时同步全网数据对象最新状态、动态调整数据分布。确保.999数据安全性和可用性。减少重复备份，提高空间利用率。</div>
                         </div>
                         <div class="item item4">
-                            <h4 class="ss-sub-title">可量化的贡献度</h4>
-                            <div class="ss-content">参与协议各方的贡献度都应该有相应的量化标准和可被观测的贡献度。比如采用 PoST 和 PoR 作为贡献的磁盘空间和存储时间的量化证明。</div>
+                            <h4 class="ss-sub-title i18n" name="sharder.network.main.title4">豆匣矿机 </h4>
+                            <div class="ss-content i18n" name="sharder.network.main.content4">不再是惨烈的矿机军备竞赛，不再是先入者的狂欢，欢迎豆匣网络的保卫者们随时购买Sharder Hub加入豆匣网络共享挖矿红利。不再是浪费算力和存储空间，挖矿存储并举的一体机Sharder Box能获得挖矿、存储、观察者三重收益。</div>
                         </div>
                     </li>
                     <li class="ss-describe ss-describe3">
                         <div class="item item5">
-                            <h4 class="ss-sub-title">所有权和隐私性</h4>
-                            <div class="ss-content">数据提供者具有数据的所有权和完全访问权，并具有绝对的隐私性。任何非所有者都需要经过所有者授权才能访问和使用数据。</div>
+                            <h4 class="ss-sub-title i18n" name="sharder.network.main.title5">跨链共享经济生态</h4>
+                            <div class="ss-content i18n" name="sharder.network.main.content5">首创存储协议跨链部署构建共享经济生态，允许用户将闲置存储接入豆匣网络提供空间换取相应报酬。依靠点对点自由交易市场让用户透明、公开、自由、公平地进行数据交易，打破价格垄断，让定价权回归用户和市场供需。</div>
                         </div>
                     </li>
                 </ul>
@@ -104,331 +65,152 @@
         </div>
     </section>
     <section class="ss-container sharder-definition-main tail">
-        <div class="ss-main">
-            <div class="ss-main-title ss-main-btn theme">
-                <div>
-                    <span class="blank"></span>
-                    <span class="zh">豆匣定义/</span>
-                    <span class="en">DEFINITION</span>
-                </div>
-            </div>
-
-            <div class="item item1">
-                <div>
-                    <h5 class="ss-sub-title">豆匣网络 （Sharder Network）</h5>
-                    <p class="ss-content">
-                        由部署了豆匣存储协议的全节点和豆匣池组成了豆匣网络。在这个系统中希望最终能形成存储买卖的自由市场，不仅能合理地满足企业和个人用户日益增长的存储需求。同时也能更大限度地有效利用闲置或过时的存储硬件设备，减少电子垃圾的同时为存储提供者带来一定的经济回报。
-                    </p>
-                </div>
-                <div>
-                    <img src="${resSys}/resource/sharders/img/index/star_topology.png">
-                </div>
-            </div>
-            <div class="item item2">
-                <div>
-                    <img src="${resSys}/resource/sharders/img/index/net_form_topology.png">
-                </div>
-                <div>
-                    <h5 class="ss-sub-title">豆匣池（Sharder Pool）</h5>
-                    <p class="ss-content">
-                        由多个部署了豆匣协议的节点组成的小型网络（类似于当前比特币网络里的矿池）。现有的公链或存储网络只要部署了豆匣协议也就组成了一个豆匣池。豆匣公链也
-                        是一个。豆匣池可以选择不和其他豆匣池连通，形成一个封 闭网络系统。按照豆匣协议提倡的开放标准，豆匣池选择封闭是需要支付费用，否则至少需要对外开放最低限度的存储空间。
-                    </p>
-                </div>
-            </div>
-            <div class="item item3">
-                <div>
-                    <h5 class="ss-sub-title">豆匣链（Sharders chain）</h5>
-                    <p class="ss-content">
-                        豆匣链是第一个部署了豆匣存储协议的商用区块链网络。同时还充当了分布式数据库的作用，需要永久保存的信息和对象状态都需要记录到豆匣公链中。宏观看他是一个中间锚定网络，类似于传统通信网络中的骨干节点。早期没有节点或豆匣池愿意承担观察者角时候，豆匣链会承担这一角色。整个豆匣网络的稳定和性能都受到豆匣链的影响。但随着有豆匣池或独立的全节点实现协议中定义的观察者等角色，最终豆匣链也仅是网络中的一个普通豆匣池。
-                    </p>
-                </div>
-                <div>
-                    <img src="${resSys}/resource/sharders/img/index/tree_topology.png">
-                </div>
-            </div>
-        </div>
-
+        <@indexTpl.sharderDef/>
     </section>
-
-    <section class="ss-container sharder-documents-main tail">
-        <div class="ss-main">
+    <section class="ss-container sharder-documents-main tail" id="whitepaper">
+        <div class="ss-main" name="whitepaper">
             <div class="ss-main-title ss-main-btn theme">
-                <div>
+                <div class="ss-hover-effect">
                     <span class="blank"></span>
-                    <span class="zh">豆匣文档/</span>
-                    <span class="en">DOCUMENT</span>
+                    <span class="zh i18n" name="project-main.title.whitepaper">白皮书/</span>
+                    <span class="en i18n" name="project-main.subtitle.whitepaper">WHITEPAPER</span>
                 </div>
             </div>
             <ul class="items">
                 <li class="item item1">
                     <i class="img"></i>
-                    <p class="ss-sub-title zh">豆匣白皮书</p>
-                    <p class="ss-sub-title en">WHITE PAPER</p>
-                    <a class="ss-link">在线查看</a>
-                    <button class="down-btn zh">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
-                    <button class="down-btn en">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                    <p class="ss-sub-title zh">技术白皮书</p>
+                    <p class="ss-sub-title en">TECHNICAL WHITE PAPER</p>
+                    <a href="${sharderCfg('urlTechZh')}"><button class="down-btn zh " ><span class="i18n" name="btn.zh">中文</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
+                    <button class="down-btn en closed"><span class="i18n" name="btn.en">EN</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                    <#--<a href="${sharderCfg('urlTechEn')}"><button class="down-btn en">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>-->
                 </li>
                 <li class="item item2">
                     <i class="img"></i>
-                    <p class="ss-sub-title zh">社区白皮书</p>
-                    <p class="ss-sub-title en">WHITE PAPER ON COMMUNITY</p>
-                    <a class="ss-link">在线查看</a>
-                    <button class="down-btn zh">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
-                    <button class="down-btn en">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                    <p class="ss-sub-title zh">白皮书</p>
+                    <p class="ss-sub-title en">WHITE PAPER</p>
+                    <a href="${sharderCfg('urlEncoZh')}"><button class="down-btn zh " ><span class="i18n" name="btn.zh">中文</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
+                    <#--<button class="down-btn en closed">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>-->
+                    <a href="${sharderCfg('urlEncoEn')}"><button class="down-btn en"><span class="i18n" name="btn.en">EN</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
                 </li>
                 <li class="item item3">
                     <i class="img"></i>
                     <p class="ss-sub-title zh">用户手册</p>
                     <p class="ss-sub-title en">USER MANUAL</p>
-                    <a class="ss-link">在线查看</a>
-                    <button class="down-btn zh">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
-                    <button class="down-btn en">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                    <button class="down-btn zh " ><span class="i18n" name="btn.zh">中文</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                    <button class="down-btn en"><span class="i18n" name="btn.en">EN</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
                 </li>
             </ul>
+        </div>
+    </section>
+    <section class="ss-container sharder-more-main tail">
+        <div class="ss-main ss-hover-effect">
+            <h4 class="ss-sub-title zh i18n" name="sharder-more-main.main-title">加入我们了解更多豆匣协议详情</h4>
+            <h5 class="ss-sub-title en">SHARDER - CROSS-CHAIN DISTRIBUTED STORAGE PROTOCOL</h5>
+            <#if user ?? >
+                <a href="/invest/invest.ss"><button class="ss-main-btn ss-hover-effect i18n" name="liaojiegengduo">了解更多</button></a>
+            <#else >
+                <a href="/register.ss"><button class="ss-main-btn ss-hover-effect i18n"  name="lijijiaru">立即加入</button></a>
+            </#if>
         </div>
     </section>
 
-    <section class="ss-container sharder-more-main tail">
-        <div class="ss-main">
-            <h4 class="ss-sub-title zh">代币众筹正在进行中,加入我们了解更多内容!</h4>
-            <h5 class="ss-sub-title en">SHARDER - CROSS-CHAIN DISTRIBUTED STORAGE PROTOCOL</h5>
-            <button class="ss-main-btn">了解更多</button>
-        </div>
-    </section>
     <section class="ss-container sharder-use-main tail">
-        <div class="ss-main">
-            <div class="ss-main-title ss-main-btn theme">
-                <div>
-                    <span class="blank"></span>
-                    <span class="zh">豆匣应用/</span>
-                    <span class="en">USE</span>
-                </div>
-            </div>
-            <ul class="items">
-                <li class="item item1">
-                    <div>
-                        <img src="${resSys}/resource/sharders/img/index/cloud_storage.png">
-                    </div>
-                    <div>
-                        <h5 class="ss-sub-title">云存链（数据存证和保全）</h5>
-                        <p class="ss-content">
-                            云存链数据保全是基于Sharder协议下的的文件数据加密存储服务平台。
-                            为用户提供数据资料，数字作品，合同签证等数据的区块链分布式存储服务。同时具有对用户进行撮合。提供在线电子签约服务，
-                            保证签约及合约的公平公正有效性。
-                        </p>
-                    </div>
-                </li>
-                <li class="item item2">
-                    <div>
-                        <img src="${resSys}/resource/sharders/img/index/onefair.png">
-                    </div>
-                    <div>
-                        <h5 class="ss-sub-title">One Fair（原创作品版权）</h5>
-                        <p class="ss-content">
-                            One Fair 使用了区块链技术来完成艺术创作类数字作品的注册登记评价以及交易。解决了艺术创作领域所面临的尴尬局面，创造了全新的产业共赢的局面。
-                            同时也填补了艺术创作类数字资产版权登记和公平转让交易的空白，能够最大化激发用户创作的积极性以及让每个艺术创作的作品产生价值。
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+       <@indexTpl.sharderDApp/>
     </section>
+
     <section class="ss-container sharder-team-main tail">
         <div class="ss-main">
             <div class="ss-main-title ss-main-btn theme">
-                <div>
+                <div class="ss-hover-effect">
                     <span class="blank"></span>
-                    <span class="zh">豆匣团队/</span>
-                    <span class="en">TEAM</span>
+                    <span class="zh i18n" name="project-main.title.team">豆匣团队/</span>
+                    <span class="en i18n" name="project-main.subtitle.team">TEAM</span>
                 </div>
             </div>
             <div class="team-banner banner" id="team_banner">
-                <ul class="items">
-                    <li class="item">
-                        <img src="/r/cms/resource/sharders/img/index/fql.png" >
-                        <ul class="item-item">
-                            <li class="head-portrait-name">想抢了</li>
-                            <li class="sub-title">啊啊啊啊啊</li>
-                            <li class="ss-content">阿斯蒂芬付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付发生的</li>
-                        </ul>
-                    </li>
-                    <li class="item">
-                        <img src="/r/cms/resource/sharders/img/index/fql.png">
-                        <ul class="item-item">
-                            <li class="head-portrait-name">苗条</li>
-                            <li class="sub-title">的点点滴滴</li>
-                            <li class="ss-content">发撒打发萨芬撒飞洒发撒发生撒范德萨发生时发打发沙发方法撒爱上风飒飒发</li>
-                        </ul>
-                    </li>
-                </ul>
-                <a href="javascript:void(0);" class="page-turning prev"><img class="arrow" id="al" src="/r/cms/resource/sharders/img/index/towards-left.png" alt="prev"></a>
-                <a href="javascript:void(0);" class="page-turning next"><img class="arrow" id="ar" src="/r/cms/resource/sharders/img/index/towards-right.png" alt="next"></a>
+                <#include "/WEB-INF/ftl/sharders/team.ftl">
+                <a href="javascript:void(0);" class="page-turning prev ss-hover-effect"><img class="arrow" id="al" src="/r/cms/resource/sharders/img/index/towards-left.png" alt="prev"></a>
+                <a href="javascript:void(0);" class="page-turning next ss-hover-effect"><img class="arrow" id="ar" src="/r/cms/resource/sharders/img/index/towards-right.png" alt="next"></a>
             </div>
-
         </div>
     </section>
     <section class="ss-container sharder-project-main tail">
         <div class="ss-main">
             <div class="ss-main-title ss-main-btn theme">
-                <div>
+                <div class="ss-hover-effect">
                     <span class="blank"></span>
-                    <span class="zh">豆匣规划/</span>
-                    <span class="en">PLAN</span>
+                    <span class="zh i18n" name="project-main.title.roadmap">路线图/</span>
+                    <span class="en i18n" name="project-main.subtitle.roadmap">ROAD MAP</span>
                 </div>
             </div>
             <ul class="items">
-                <li class="item item1">
-                    <div class="item-item">
-                        <ul class="ss-content">
-
-                        </ul>
-                        <span class="ss-sub-title year year2017">2017年</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>海螺白皮书</li>
-                            <li>海螺测试网络</li>
-                        </ul>
-                        <span class="ss-sub-title">...</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>云存研发</li>
-                            <li>豆匣链研发</li>
-                            <li>豆匣协议白皮书</li>
-                        </ul>
-                        <span class="ss-sub-title">12月</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>豆匣社区</li>
-                            <li>第一轮空投</li>
-                            <li>早鸟募集
-                            </li>
-                        </ul>
-                        <span class="ss-sub-title year year2018">2018年</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>第二轮空投</li>
-                            <li>众筹轮募集</li>
-                            <li>云存内测</li>
-                        </ul>
-                        <span class="ss-sub-title">2月</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>接入博恩云</li>
-                            <li>豆匣社区理事会</li>
-                            <li>发放ERC-20 Token</li>
-                        </ul>
-                        <span class="ss-sub-title">3月</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>第三轮空投</li>
-                            <li>云存公测</li>
-                            <li>上线交易所</li>
-
-                        </ul>
-                        <span class="ss-sub-title">4月</span>
-                    </div>
+                <li class="items1">
+                    <ul>
+                        <li>
+                            <p class="i18n" name="project-main.items1.item-item1.title1">海螺链研发</p>
+                            <span></span>
+                        </li>
+                        <li >
+                            <p class="i18n" name="project-main.items1.item-item2.title1">云存</p>
+                            <span class="i18n" name="project-main.items1.item-item2.title2">区块链存证、证明人公证</span>
+                            <p class="i18n" name="project-main.items1.item-item2.title3">豆匣协议白皮书</p>
+                            <span class="i18n" name="project-main.items1.item-item2.title4">跨链存储协议、多链架构、授信模型</span>
+                        </li>
+                        <li>
+                            <p class="i18n" name="project-main.items1.item-item3.title1">豆匣链</p>
+                            <span class="i18n" name="project-main.items1.item-item3.title2">实现豆匣协议、数据分片、全节点客户端</span>
+                            <p class="i18n" name="project-main.items1.item-item3.title3">云存公测</p>
+                            <span class="i18n" name="project-main.items1.item-item3.title4">100家商户接入、博恩云接入</span>
+                        </li>
+                        <li>
+                            <p class="i18n" name="project-main.items1.item-item4.title1">轻客户端</p>
+                            <span class="i18n" name="project-main.items1.item-item4.title2">移动端钱包、网页版轻钱包、币币兑换</span>
+                            <p class="i18n" name="project-main.items1.item-item4.title3">多链出块</p>
+                            <span class="i18n" name="project-main.items1.item-item4.title4">部署协议到海螺网络和量子链、私有云</span>
+                        </li>
+                    </ul>
                 </li>
-                <li class="item item2">
-
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>虚拟机</li>
-                            <li>预言机</li>
-                            <li>自由市场</li>
-                            <li>图灵完备</li>
-                        </ul>
-                        <span class="ss-sub-title">...</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>生态建设</li>
-                            <li>数据资产化</li>
-                            <li>豆匣协议sdk</li>
-                            <li>多豆匣池出块</li>
-                        </ul>
-                        <span class="ss-sub-title year year2019">2019年</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>担保交易</li>
-                            <li>轻钱包公测</li>
-                            <li>存储节点客户端公测</li>
-                        </ul>
-                        <span class="ss-sub-title">12月</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>轻钱包内测</li>
-                            <li>智能合约</li>
-                            <li>存储节点客户端内测</li>
-                        </ul>
-                        <span class="ss-sub-title">10月</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>第六轮空投</li>
-                            <li>观察者角色实现</li>
-                            <li>证明人角色实现</li>
-                            <li>接入公证处POA</li>
-                        </ul>
-                        <span class="ss-sub-title">7月</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>数据分片</li>
-                            <li>节点认证算法</li>
-                            <li>第五轮空投</li>
-                            <li>全节点客户端内测</li>
-                        </ul>
-                        <span class="ss-sub-title">6月</span>
-                    </div>
-                    <div class="item-item">
-                        <ul class="ss-content">
-                            <li>社区任务开放</li>
-                            <li>第四轮空投</li>
-                            <li>上线交易所</li>
-                            <li>云存接入更多商户</li>
-                        </ul>
-                        <span class="ss-sub-title">5月</span>
-                    </div>
+                <li class="items3">
+                    <ul>
+                        <li>
+                            <p class="i18n" name="project-main.items3.item-item1.title1">海螺立项</p>
+                            <span ></span>
+                            <p class="i18n" name="project-main.items3.item-item1.title2">海螺白皮书</p>
+                            <span></span>
+                        </li>
+                        <li>
+                            <p class="i18n" name="project-main.items3.item-item2.title1">海螺社区</p>
+                            <span class="i18n" name="project-main.items3.item-item2.title2">海螺Q群、海螺官网、海螺微信</span>
+                            <p class="i18n" name="project-main.items3.item-item2.title3">海螺测试网络</p>
+                            <span class="i18n" name="project-main.items3.item-item2.title4">CPOS共识出块、多终端客户端、海螺积分</span>
+                        </li>
+                        <li>
+                            <p class="i18n" name="project-main.items3.item-item3.title1">豆匣公链研发</p>
+                            <span class="i18n" name="project-main.items3.item-item3.title2">Github开源</span>
+                            <p class="i18n" name="project-main.items3.item-item3.title3">云存内测</p>
+                            <span class="i18n" name="project-main.items3.item-item3.title4">首批10家电商和互联网金融平台参与内测</span>
+                            <p class="i18n" name="project-main.items3.item-item3.title5">豆匣社区</p>
+                            <span class="i18n" name="project-main.items3.item-item3.title6">中英文社区、城市合伙人、奖金任务、社区空投</span>
+                        </li>
+                        <li>
+                            <p class="i18n" name="project-main.items3.item-item4.title1">观察者和证明者</p>
+                            <span class="i18n" name="project-main.items3.item-item4.title2">数据分布调整、数据索引服务、授信模型</span>
+                            <p class="i18n" name="project-main.items3.item-item4.title3">微节点矿机</p>
+                            <span class="i18n" name="project-main.items3.item-item4.title4">微节点矿机、存储者客户端</span>
+                            <p class="i18n" name="project-main.items3.item-item4.title5">智能合约</p>
+                            <span class="i18n" name="project-main.items3.item-item4.title6">图灵完备智能合约、担保交易模型、虚拟机</span>
+                        </li>
+                    </ul>
                 </li>
+
             </ul>
+            <span class="span h1">2018</span>
+            <span class="span h2">2017</span>
         </div>
     </section>
     <section class="ss-container sharder-partner-main tail">
-        <div class="ss-main">
-            <div class="ss-main-title ss-main-btn theme">
-                <div>
-                    <span class="blank"></span>
-                    <span class="zh">合作伙伴/</span>
-                    <span class="en">PARTNER</span>
-                </div>
-            </div>
-            <ul class="items">
-                <li class="item">
-                    <img src="${resSys}/resource/sharders/img/index/boen.png">
-                </li>
-                <li class="item">
-                    <img src="${resSys}/resource/sharders/img/index/lingyou.png">
-                </li>
-                <li class="item">
-                    <img src="${resSys}/resource/sharders/img/index/shixiaojiang.png">
-                </li>
-                <li class="item">
-                    <img src="${resSys}/resource/sharders/img/index/yijifu.png">
-                </li>
-                <li class="item">
-                    <img src="${resSys}/resource/sharders/img/index/zhubajie.png">
-                </li>
-            </ul>
-        </div>
+        <@indexTpl.sharderPartner/>
     </section>
 </div>
 <script>
