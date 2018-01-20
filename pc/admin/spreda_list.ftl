@@ -1,4 +1,4 @@
-<@layout.htmlHead title="推广列表" keywords="我就是标题" description="我就是标题">
+<@layout.htmlHead title="推广列表"  >
 
 </@layout.htmlHead>
 

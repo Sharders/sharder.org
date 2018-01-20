@@ -1,4 +1,4 @@
-<@layout.htmlHead title="sharders配置" keywords="我就是标题" description="我就是标题">
+<@layout.htmlHead title="sharders配置"  >
 
 </@layout.htmlHead>
 
@@ -18,7 +18,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">键</label>
             <div class="layui-input-inline">
-                <input type="text"  autocomplete="off" class="layui-input" value="{{d.key}}" disabled>
+                <input type="text" name="key"  autocomplete="off" class="layui-input" value="{{d.key}}" disabled>
             </div>
         </div>
         <div class="layui-form-item">
@@ -30,7 +30,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">备注</label>
             <div class="layui-input-inline">
-                <input type="text"  class="layui-input" value="{{d.memo}}">
+                <input type="text" name="memo"  class="layui-input" value="{{d.memo}}">
             </div>
         </div>
         <div class="layui-form-item">
@@ -103,11 +103,18 @@
         });
         //监听提交
         form.on('submit(demo1)', function(data){
-            console.log(data);
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            })
-            return false;
+            var requestUrl = "/config/edit.ss";
+            commAjax(requestUrl,"post",data.field,editResult);
+
+            var editResult = function (_data) {
+               if(isTrue(_data.success)){
+                   layer.after("修改成功",function () {
+                       location.reload();
+                   });
+               }else{
+                   return false;
+               }
+            }
         });
     });
 </script>
