@@ -33,13 +33,13 @@
 <div class="ss-container register-main">
     <div class="ss-main">
         <section class="main-title">
-            <h1 class="ss-main-title i18n" name="welcome-registration-sharderfs">欢迎您注册豆匣协议</h1>
+            <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您注册豆匣协议</h1>
         </section>
         <section class="register-form">
             <form action="${base}/register_.ss?returnUrl=/login.ss" method="post"  class="ss-form default" id="register-form">
                 <ul>
                     <li>
-                        <span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n underline" href="/login.ss" name="sharderf-user-sign-in">登录</a>
+                        <span class="i18n" name="sharderf-account-number-exist">已有账号?</span><a class="in-login i18n underline" href="/login.ss" name="sharderf-user-sign-in">登录</a>
                     </li>
                 <#--<li>-->
                 <#--<label for="username"><i>*</i><span class="i18n" name="sharder-sign-in-username">用户名:</span></label>-->
@@ -48,12 +48,12 @@
                     <input  type="hidden"  name="username" id="username"/>
                     <li >
                         <label for="identification"><i>*</i><span class="i18n" name="sharder-user-emil">手机/邮箱:</span></label>
-                        <input type="text" id="identification" maxlength="30" vld="{remote:'/user_center/is_not_exist.ss',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱" class="register-input identification"/>
+                        <input type="text" id="identification" maxlength="30" vld="{remote:'/user_center/is_not_exist.ss',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱" class="register-input identification i18n sharder-user-emil"/>
                     </li>
                     <li class="ss-verification-code-li" >
-                        <label for="phone"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
-                        <input id="phone" type="text" placeholder="校验码" name="captcha" class="captcha" maxlength="6"/>
-                        <input type="button" class="i18n" name="" onclick="registerVcode('identification',this)" value="获取验证码"/>
+                        <label for="phone"><i>*</i><span class="i18n" name="sharder-user--verification-code">校验码:</span></label>
+                        <input id="phone" type="text"   placeholder="校验码" name="captcha" class="captcha i18n sharder-user-code-2" maxlength="6"/>
+                        <input type="button" class="i18n sharder-user-get-code-2" name="fasong" onclick="registerVcode('identification',this)" value="获取验证码"/>
                     </li>
                     <li>
                         <label for="password"><i>*</i><span class="i18n" name="sharder-user-password">设置密码:</span></label>
@@ -62,7 +62,7 @@
                     <li>
                         <label for="confirm_password"><i>*</i><span class="i18n" name="sharder-user-pwd">确认密码:</span></label>
 
-                        <input type="password" equalto="#password" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
+                        <input id="confirm_password" type="password" equalto="#password" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
                     </li>
                     <li>
                         <label for="verification code"><span class="i18n" name="sharder-sign-recommend">推荐人ID(选填):</span></label>
@@ -80,7 +80,7 @@
                     </label>
                     </li>
                     <li>
-                        <input type="submit" value="立即注册" class="ss-main-btn theme i18n" name=""/>
+                        <input type="submit" value="立即注册" class="ss-main-btn theme i18n" name="lijizhuce"/>
                     </li>
                 </ul>
                 <input type="hidden" name="captchaToken" value="">
@@ -95,11 +95,14 @@
         //把邀请码存入cookie
         var inviterId = "${inviterId!}";
         if(inviterId != null && inviterId != ''){
-            console.log(inviterId);
-            $("input[name='inviterId']").attr("disabled",true);
+            $("input[name='inviterId']").attr("readonly",true);
             $.cookie('inviterId',inviterId, { expires: 30});
         }else {
-            $("input[name='inviterId']").val($.cookie('inviterId'));
+            var inviterId2 = $.cookie('inviterId');
+            if(inviterId2 != null || inviterId2 != ""){
+                $("input[name='inviterId']").attr("readonly",true);
+                $("input[name='inviterId']").val(inviterId2);
+            }
         }
         $("#protocol").click(function(){
             layer.open({

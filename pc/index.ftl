@@ -13,8 +13,8 @@
     <section class="ss-container home-page tail">
         <div class="ss-main">
             <ul class="network"></ul>
-            <p class="text ss-main-title zh i18n" name="sharder.big.title">豆匣协议——跨链分布式存储协议</p>
-            <p class="text ss-main-title en">CROSS-CHAIN DISTRIBUTED STORAGE PROTOCOL</p>
+            <p class="text ss-main-title zh i18n" name="sharder.big.title">豆匣协议—跨链分布式存储协议</p>
+            <p class="text ss-main-title en i18n" name="sharder.big.title.en">CROSS-CHAIN DISTRIBUTED STORAGE PROTOCOL</p>
         </div>
         <section id="sectionDownMouse">
             <a href="#sharder-network-main"><span></span></a>
@@ -26,8 +26,8 @@
                 <div class="ss-main-title ss-main-btn theme">
                     <div class="ss-hover-effect">
                         <span class="blank"></span>
-                        <span class="zh i18n" name="project-main.title.protocol">豆匣协议/</span>
-                        <span class="en i18n" name="project-main.subtitle.protocol">SHARDER</span>
+                        <span class="zh i18n" name="project-main.title.protocol">豆匣协议</span>
+                        <#--<span class="en i18n" name="project-main.subtitle.protocol">SHARDER</span>-->
                     </div>
                 </div>
                 <ul>
@@ -72,33 +72,62 @@
             <div class="ss-main-title ss-main-btn theme">
                 <div class="ss-hover-effect">
                     <span class="blank"></span>
-                    <span class="zh i18n" name="project-main.title.whitepaper">白皮书/</span>
-                    <span class="en i18n" name="project-main.subtitle.whitepaper">WHITEPAPER</span>
+                    <span class="zh i18n" name="White-Paper">白皮书</span>
+                    <#--<span class="en i18n" name="project-main.subtitle.whitepaper">WHITEPAPER</span>-->
                 </div>
             </div>
             <ul class="items">
                 <li class="item item1">
                     <i class="img"></i>
-                    <p class="ss-sub-title zh">技术白皮书</p>
-                    <p class="ss-sub-title en">TECHNICAL WHITE PAPER</p>
-                    <a href="${sharderCfg('urlTechZh')}"><button class="down-btn zh " ><span class="i18n" name="btn.zh">中文</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
-                    <button class="down-btn en closed"><span class="i18n" name="btn.en">EN</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
-                    <#--<a href="${sharderCfg('urlTechEn')}"><button class="down-btn en">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>-->
+                    <p class="ss-sub-title en i18n" name="Technical-Paper">技术白皮书</p>
+                    <a href="${sharderCfg('urlTechZh')}">
+                        <button class="down-btn zh " >
+                            <span class="i18n" name="btn.zh">中文</span>
+                            <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+                        </button>
+                    </a>
+
+                    <a href="javascript:void(0);">
+                        <button class="down-btn en closed">
+                            <span class="i18n" name="btn.en">EN</span>
+                            <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+                        </button>
+                    </a>
+
                 </li>
                 <li class="item item2">
                     <i class="img"></i>
-                    <p class="ss-sub-title zh">白皮书</p>
-                    <p class="ss-sub-title en">WHITE PAPER</p>
-                    <a href="${sharderCfg('urlEncoZh')}"><button class="down-btn zh " ><span class="i18n" name="btn.zh">中文</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
-                    <#--<button class="down-btn en closed">英文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>-->
-                    <a href="${sharderCfg('urlEncoEn')}"><button class="down-btn en"><span class="i18n" name="btn.en">EN</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
+                    <p class="ss-sub-title en i18n" name="project-main.title.whitepaper">商业白皮书</p>
+                    <a href="${sharderCfg('urlEncoZh')}">
+                        <button class="down-btn zh " >
+                            <span class="i18n" name="btn.zh">中文</span>
+                            <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+                        </button>
+                    </a>
+                    <a href="${sharderCfg('urlEncoEn')}">
+                        <button class="down-btn en">
+                            <span class="i18n" name="btn.en">EN</span>
+                            <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+                        </button>
+                    </a>
                 </li>
                 <li class="item item3">
                     <i class="img"></i>
-                    <p class="ss-sub-title zh">用户手册</p>
-                    <p class="ss-sub-title en">USER MANUAL</p>
-                    <button class="down-btn zh " ><span class="i18n" name="btn.zh">中文</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
-                    <button class="down-btn en"><span class="i18n" name="btn.en">EN</span><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                    <p class="ss-sub-title en i18n" name="User-Manual">用户手册</p>
+
+                    <a href="javascript:void(0);">
+                        <button class="down-btn zh" >
+                            <span class="i18n" name="btn.zh">中文</span>
+                            <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+                        </button>
+                    </a>
+
+                    <a href="javascript:void(0);">
+                        <button class="down-btn en">
+                            <span class="i18n" name="btn.en">EN</span>
+                            <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+                        </button>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -106,7 +135,7 @@
     <section class="ss-container sharder-more-main tail">
         <div class="ss-main ss-hover-effect">
             <h4 class="ss-sub-title zh i18n" name="sharder-more-main.main-title">加入我们了解更多豆匣协议详情</h4>
-            <h5 class="ss-sub-title en">SHARDER - CROSS-CHAIN DISTRIBUTED STORAGE PROTOCOL</h5>
+            <#--<h5 class="ss-sub-title en">Sharder - Cross-chain Distributed Storage Protocol</h5>-->
             <#if user ?? >
                 <a href="/invest/invest.ss"><button class="ss-main-btn ss-hover-effect i18n" name="liaojiegengduo">了解更多</button></a>
             <#else >
@@ -124,8 +153,8 @@
             <div class="ss-main-title ss-main-btn theme">
                 <div class="ss-hover-effect">
                     <span class="blank"></span>
-                    <span class="zh i18n" name="project-main.title.team">豆匣团队/</span>
-                    <span class="en i18n" name="project-main.subtitle.team">TEAM</span>
+                    <span class="zh i18n" name="project-main.title.team">豆匣团队</span>
+                    <#--<span class="en i18n" name="project-main.subtitle.team">TEAM</span>-->
                 </div>
             </div>
             <div class="team-banner banner" id="team_banner">
@@ -140,8 +169,8 @@
             <div class="ss-main-title ss-main-btn theme">
                 <div class="ss-hover-effect">
                     <span class="blank"></span>
-                    <span class="zh i18n" name="project-main.title.roadmap">路线图/</span>
-                    <span class="en i18n" name="project-main.subtitle.roadmap">ROAD MAP</span>
+                    <span class="zh i18n" name="project-main.title.roadmap">路线图</span>
+                    <#--<span class="en i18n" name="project-main.subtitle.roadmap">ROAD MAP</span>-->
                 </div>
             </div>
             <ul class="items">
@@ -216,7 +245,13 @@
 <script>
     $(document).ready(function(e) {
         var unslider04 = $('#team_banner').unslider({
-                    dots: true
+                    speed: 1000,               //  The speed to animate each slide (in milliseconds)
+                    delay: 3000,              //  The delay between slide animations (in milliseconds)
+                    complete: function() {},  //  A function that gets called after every slide animation
+                    keys: true,               //  Enable keyboard (left, right) arrow shortcuts
+                    dots: true,               //  Display dot navigation
+                    fluid: false              //  Support responsive design. May break non-responsive designs
+
                 }),
                 data04 = unslider04.data('unslider');
 

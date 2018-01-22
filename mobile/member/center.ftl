@@ -28,21 +28,22 @@
         <div class="crowd-funding-rebate">
                 <div class="crowd-funding details">
                     <p class="crowd-funding-title">
-                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img">
+                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img" v-on:click="tabMessage(true)">
                         <span class="details-title i18n" name="sharder-subscribe-income">众筹所得</span>
                     </p>
                     <p class="crowd-funding quota ">0SS</p>
-                    <p class="details-colse" >{{crowd ? "关闭详情" : "查看详情"}}</p>
-                    <#--<p class="details-colse" v-on:click="tabBtn(1)">{{crowd ? "关闭详情" : "查看详情"}}</p>-->
+                    <#--<p class="details-colse" >{{retruenTExts(!crowd)}}</p>-->
+                    <#--<p class="details-colse" v-on:click="tabBtn(2)">{{crowd ? "关闭详情" : "查看详情"}}</p>-->
+
                 </div>
                 <div class="rebate details">
                     <p class="crowd-funding-title">
-                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img img">
+                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img img" v-on:click="tabMessage(false)">
                         <span class="details-title i18n" name="sharder-subscribe-rebate">返点奖励</span>
                     </p>
                     <p class="rebate-quota quota">0SS</p>
-                    <p class="details-colse" >{{isRebate ? "关闭详情" : "查看详情"}}</p>
-                    <#--<p class="details-colse" v-on:click="tabBtn(2)">{{isRebate ? "关闭详情" : "查看详情"}}</p>-->
+                    <#--<p class="details-colse" >{{isRebate ? "关闭详情" : "查看详情"}}</p>-->
+                    <p class="details-colse" v-on:click="tabBtn(1)">{{retruenTExt(!isRebate)}}</p>
                 </div>
         </div>
         <div class="paging-query">
@@ -53,30 +54,46 @@
     <div class="subscribe-information">
         <h1 class="phone-center-information-title i18n" name="white-list-reservation">白名单额度预约</h1>
         <p class="subscribe-start-end-time i18n" name="white-list-time">时间1月18日9:00-1月28日23.59</p>
-        <span class="subscribe-line"><span style="width: ${subscribeNumber/10!}%"></span></span>
-        <p class="subscribe-line-text"><span class="i18n" name="total-share">总份额: <span>1000</span></span><span class="i18n" name="">ETH(或等价的BTC,LTC)</span><span class="line-number">${subscribeNumber/10!}%</span></p>
+        <span class="subscribe-line">
+            <#if subscribeNumber gt 1000 >
+                <span style="width: 100%"></span>
+            <#else >
+                <span style="width: ${subscribeNumber/10!}%"></span>
+            </#if>
+        </span>
+        <p class="subscribe-line-text"><span class="i18n" name="total-share">总份额: <span>1000</span></span><span class="i18n" name="dengjia">ETH(或等价的BTC)</span><span class="line-number">${subscribeNumber/10!}%</span></p>
         <ul class="subscribe-user-list">
-            <li><span class="username-list i18n" name="sharder-account-number">账户:${userName0!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe0.maxSubscribe!}</span><span>ETH</span></li>
-            <li><span class="username-list i18n" name="sharder-account-number">账户:${userName1!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe1.maxSubscribe!}</span><span>ETH</span></li>
-            <li><span class="username-list i18n" name="sharder-account-number">账户:${userName2!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe2.maxSubscribe!}</span><span>ETH</span></li>
+            <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName0!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe0.maxSubscribe!}</span><span>ETH</span></li>
+            <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName1!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe1.maxSubscribe!}</span><span>ETH</span></li>
+            <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName2!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe2.maxSubscribe!}</span><span>ETH</span></li>
         </ul>
         <p class="subscribe-quota">
-            <span class="i18n" name="sharder-you-subscribe-is">你当前的白名单额度为:</span><span>${maxSubscribe!}ETH</span><span class="subscribe-quota-info i18n" name="nowsubscribe-total">已经使用额度:${nowSubscribe!}ETH</span>
+            <span class="i18n" name="sharder-you-subscribe-is">你当前的白名单额度为:</span><span>${maxSubscribe!}ETH</span><span class="subscribe-quota-info"><span class="i18n" name="nowsubscribe-total">已经使用额度:</span>${nowSubscribe!}ETH</span>
         </p>
         <div class="subscribe-info-text">
-            <p  class="subscribe-info-title i18n" name="sharder-subscribe-list">白名单预约细则</p>
-            <p class="subscribe-information-title i18n" name="sharder-subscribe">白名单:</p>
-            <p class="subscribe-information-text i18n" name="sharder-subscribe-texts1">为了确保豆匣的贡献和支持者都有公平的参与机会，加大宣传力度。豆匣基金推出了白名单计划。本次白名单预约发行总额度为1000ETH或等价的BTC,LTC。</p>
-            <p class="subscribe-information-title i18n" name="sharder-subscribe-get">获得:</p>
-            <p class="subscribe-information-text i18n" name="sharder-subscribe-texts2">每个人起始额度为1ETH。通过你的邀请链接成功一人在官网注册成功。可获得1ETH的额度。白名单预约期间为1月18日——1月28日。每个账号总上限为100ETH或等价的LTC,BTC。</p>
-            <p class="subscribe-information-title i18n" name="sharder-subscribe-use">使用:</p>
-            <p class="subscribe-information-text i18n" name="sharder-subscribe-texts3">
-                白名单额度在参与早鸟轮众筹时，可额外获得20%的豆匣(SS)奖励。<br />
-                参与早鸟论众筹后即可消耗本账户的额度，并用完的额度将在早鸟轮众筹结束后清零。<br>
-                投资机构及大额投资请联系官方客服人员获得优惠额度。<br>
-            </p>
+            <p  class="subscribe-info-title i18n" name="sharder-subscribe-fine">白名单解释</p>
+            <p class="subscribe-information-title i18n" name="sharder-subscribe-1">白名单说明</p>
+            <p class="subscribe-information-text i18n" name="sharder-subscribe-2">在早鸟轮正式开始前成功注册账号都拥有1个ETH的基础白名单额度</p>
+            <p class="subscribe-information-title i18n" name="sharder-subscribe-3">白名单额度</p>
+            <p class="subscribe-information-text i18n" name="sharder-subscribe-4">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度。单个账户额度上限为100ETH。</p>
+            <p class="subscribe-information-title i18n" name="sharder-subscribe-5">白名单奖励</p>
+            <p class="subscribe-information-text i18n" name="sharder-subscribe-6">早鸟轮认购豆匣币(SS)时，系统会自动赠送20%的豆匣币(SS)。</p>
+            <p class="subscribe-information-text i18n" name="sharder-subscribe-7"> 如拥有1ETH白名单额度，认购总额为3ETH，则换币的计算公式为:1*ETH锁定价/SS单价*(1+20%)+2*ETH锁定价/SS单价。</p>
         </div>
     </div>
+</div>
+<div style="display: none">
+    <span class="i18n" name="sharder-subscribe-text2">参与不同阶段所获得的豆匣（SS）数量</span>
+    <span class="i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其投资获得豆匣（SS）总额的5%作为返点奖励。</span>
+    <span id="chakans" class="i18n" name="user-test-text7">查看众筹详情</span>
+    <span id="guanbis" class="i18n" name="user-test-text8">关闭众筹详情</span>
+    <span id="chakan" class="i18n" name="user-test-text1">查看邀请详情</span>
+    <span id="guanbi" class="i18n" name="user-test-text2">关闭邀请详情</span>
+    <span class="i18n" name="sharder-registrant-uid">注册人UID</span>
+    <span class="i18n" name="friend-regdate">注册时间</span>
+    <span class="i18n" name="sharder-public-access">众筹获得</span>
+    <span class="i18n" name="sharder-deal-base">返点奖励/SS</span>
+    <span class="i18n" name="copyok">复制成功</span>
 </div>
 <script type="text/x-template" id="details-white-list">
     <div class="details-white-list subscribe-body">
@@ -91,24 +108,20 @@
     <div class="public-information subscribe-body">
         <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-registrant-uid">注册人UID</span><span class="subscribe-table i18n" name="sharder-registrant-time">注册时间</span><span class="subscribe-table i18n" name="sharder-public-access">众筹获得</span><span class="subscribe-table special i18n" name="sharder-deal-base">返点奖励(20%)</span></p>
         <ul class="subscribe-ul">
-            <li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>
+            <#--<li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>-->
+            <#--<li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>-->
+            <#--<li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>-->
+            <#--<li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>-->
+            <#--<li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>-->
         </ul>
     </div>
 </script>
-<script type="text/x-template" id="rebate-details">
+<script type="text/x-template" id="rebate_details_mb">
     <div class="rebate-details subscribe-body">
-        <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-participation-time">参与时间</span><span class="subscribe-table i18n" name="sharder-obtain-token">来源</span><span class="subscribe-table i18n" name="sharder-obtain-token">获得代币(SS)</span><span class="subscribe-table i18n" name="sharder-white-list-award">白名单奖励</span></p>
+        <p class="subscribe-head"><span class="subscribe-table i18n" name="friend-regid">{{parentData.title.a}}</span><span class="subscribe-table i18n" >{{parentData.title.b}}</span><span class="subscribe-table i18n" name="friend-whiteQuotal">{{parentData.title.c}}</span><span class="subscribe-table i18n" name="friend-backQuotal">{{parentData.title.d}}</span></p>
         <ul class="subscribe-ul">
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000SS</span><span class="subscribe-table">200SS</span></li>
+            <li class="subscribe-li" v-if="parentData.dataList == false"><span>No data is found！！！</span></li>
+            <li class="subscribe-li" v-for="dealBase in parentData.dataList.list"><span class="subscribe-table">{{dealBase.userId}}</span><span class="subscribe-table">{{dealBase.registerDate}}</span><span class="subscribe-table special">{{dealBase.whitelistsQuota==(''||null)?'-':dealBase.whitelistsQuota}}</span><span class="subscribe-table">{{dealBase.dealBase==(''||null)?'-':dealBase.dealBase}}</span></li>
         </ul>
     </div>
 </script>
@@ -128,110 +141,155 @@
         input.select();
         document.execCommand("Copy");
         input.remove();
-        alert("Copy OK !!!");
+        layer.msg($("span[name='copyok']").text());
     }
-    var app = new Vue({
-        el:"#center",
-        data:{
-            crowd:false,
-            isRebate:false,
-            name:"",
-            id:${user.id!},
-            dataList:"",
-            template:"",
-        },
-        methods:{
-            paging:function () {
-                laypage.render({
-                    elem: 'page'
-                    ,count: 100
-                    ,first: false
-                    ,last: false
-                    ,jump: function(obj, first){
-                        if(!first){
-                            layer.msg('第 '+ obj.curr +' 页');
-                            app.pagingQuery(obj.curr);
+
+    var timeid;
+    timeid = window.setInterval(function () {
+        var PieChart = localStorage.getItem("end-of-translation");
+        if (PieChart) {
+            var app = new Vue({
+                el:"#center",
+                data:{
+                    crowd:false,
+                    isRebate:false,
+                    name:"",
+                    id:${user.id!},
+                    dataList:'',
+                    template:'fandian',
+                    title:'',
+                },
+                methods:{
+                    tabMessage:function(bool){
+                        var text;
+                        if(bool){
+                            text = $("span[name='sharder-subscribe-text2']").text();
+                        }else{
+                            text = $("span[name='sharder-subscribe-text3']").text();
                         }
-                    }
-                });
-            }
-            ,tabBtn:function (num) {
-                $(".paging-query").css("display","none");
-                $(".crowd-funding.details").css("border-bottom","0");
-                $(".rebate.details").css("border-bottom","0");
-                if(num == 1){
-                    app.crowd=!app.crowd;
-                    app.isRebate=false;
-                    app.name = "fandian";
-                    app.template=app.name;
-                    app.paging();
-                }else if(num == 2){
-                    app.isRebate=!app.isRebate;
-                    app.crowd=false;
-                    app.name = "zhongchou";
-                    app.template=app.name;
-                    app.paging();
-                }else {
-                    window.alert("无法识别的事件！！！");
-                    return;
-                }
-                if(app.crowd == true){
-                    $(".crowd-funding.details").css("border-bottom","2px solid #0ba0d1");
-                }else if(app.isRebate == true){
-                    $(".rebate.details").css("border-bottom","2px solid #0ba0d1");
-                }
-                if(app.crowd == true || app.isRebate == true){
-                    $(".paging-query").css("display","block");
-                }
-                app.pagingQuery(1);
-            },
-            pagingQuery:function (num) {
-                var url = "/user_center";
-                if(app.name == "baimingdan"){
-                    url += "/details_whitelist.ss?page="+num ;
-                }else if(app.name == "zhongchou"){
-                    url += "/details_whitelist.ss?page="+num ;//需要修改
-                }else if(app.name == "fandian"){
-                    url += "/details_whitelist.ss?page="+num ;//需要修改
-                }else{
-                    window.alert("请求异常！！！");
-                    return;
-                }
-                url += "&id="+app.id+"&number=10";
-                $.ajax({
-                    type: "get",
-                    url:url,
-                    dataType: "json",
-                    success: function(result) {
-                        console.info(result);
-                        app.dataList = result.userRelation;
+                        layer.msg(text, {
+                            time: 50000, //5s后自动关闭
+                            btn: ['OK']
+                        });
                     },
-                    error:function(){
-                        console.error("ajax请求异常！！！");
+                    paging:function () {
+                        laypage.render({
+                            elem: 'page'
+                            ,count: 30
+                            ,first: false
+                            ,last: false
+                            ,jump: function(obj, first){
+                                if(!first){
+//                            layer.msg('第 '+ obj.curr +' 页');
+                                    app.pagingQuery(obj.curr);
+                                }
+                            }
+                        });
                     }
-                });
-            }
+                    ,tabBtn:function (num) {
+                        app.title={a:$("span[name='sharder-registrant-uid']").text(),
+                            b:$("span[name='friend-regdate']").text(),
+                            c:$("span[name='sharder-public-access']").text(),
+                            d:$("span[name='sharder-deal-base']").text()};
+                        $(".paging-query").css("display","none");
+                        $(".crowd-funding.details").css("border-bottom","0");
+                        $(".rebate.details").css("border-bottom","0");
+                        if(num == 2){
+                            app.crowd=!app.crowd;
+                            app.isRebate=false;
+                            app.name = "fandianzhongchou";
+                            app.template=app.name;
+                            app.paging();
+                        }else if(num == 1){
+                            app.isRebate=!app.isRebate;
+                            app.crowd=false;
+                            app.name = "fandian";
+                            app.template=app.name;
+                            app.paging();
+                        }else {
+                            window.alert("无法识别的事件！！！");
+                            return;
+                        }
+                        if(app.crowd == true){
+                            $(".crowd-funding.details").css("border-bottom","2px solid #0ba0d1");
+                        }else if(app.isRebate == true){
+                            $(".rebate.details").css("border-bottom","2px solid #0ba0d1");
+                        }
+                        if(app.crowd == true || app.isRebate == true){
+                            $(".paging-query").css("display","block");
+                        }
+                        app.pagingQuery(1);
+                    },
+                    pagingQuery:function (num) {
+                        var url = "";
+                        if(app.name == "baimingdan"){
+                            url += "/details_whitelist.ss?pageNo="+num ;
+                        }else if(app.name == "zhongchou"){
+                            url += "/details_whitelist.ss?pageNo="+num ;//需要修改
+                        }else if(app.name == "fandian"){
+                            url += "/user_center/invite_awaer.ss?pageNo="+num ;//需要修改
+                        }else{
+                            window.alert("请求异常！！！");
+                            return;
+                        }
+                        url +="&pageSize=10";
+                        console.info(url);
+                        $.ajax({
+                            type: "get",
+                            url:url,
+                            dataType: "json",
+                            success: function(_result) {
+                                console.info(_result);
+                                if(num >Math.ceil(_result.result.data.totalCount/10.0)) {
+                                    app.dataList = false;
+                                    return;
+                                }
+                                app.dataList = _result.result.data;
+                                console.info(app.dataList);
+                            },
+                            error:function(){
+                                console.error("ajax请求异常！！！");
+                            }
+                        });
+                    },
+                    retruenTExt:function (bool) {
+                        if(bool){
+                            return $("#chakan").text();
+                        }else{
+                            return $("#guanbi").text();
+                        }
+                    },
+                    retruenTExts:function (bool) {
+                        if(bool){
+                            return $("#chakans").text();
+                        }else{
+                            return $("#guanbis").text();
+                        }
+                    },
 
-        },
-        components:{
-            'zhongchou':{
-                template:'#public-information',
-                data:function(){
-                    return{
-                        parentData:this.$parent.$data
-                    }
-                }
-            },
-            'fandian':{
-                template:'#rebate-details',
-                data:function(){
-                    return{
-                        parentData:this.$parent.$data
-                    }
-                }
-            },
-        },
-    });
+                },
+                components:{
+                    'zhongchou':{
+                        template:'#public-information',
+                        data:function(){
+                            return{
+                                parentData:this.$parent.$data
+                            }
+                        }
+                    },
+                    'fandian':{
+                        template:'#rebate_details_mb',
+                        data:function(){
+                            return{
+                                parentData:this.$parent.$data
+                            }
+                        }
+                    },
+                },
+            });
+            window.clearInterval(timeid);
+        }
 
+    },100);
 </script>
 </@lay.htmlBody>

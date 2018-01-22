@@ -25,7 +25,7 @@
                         <option value="">直接选择或搜索选择</option>
                         <option value="BTC">BTC</option>
                         <option value="ETH">ETH</option>
-                        <option value="LTC">LTC</option>
+                        <#--<option value="LTC">LTC</option>-->
                     </select>
                 </div>
             </div>

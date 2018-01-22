@@ -35,7 +35,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn layui-bg-blue" lay-submit lay-filter="demo1" >立即提交</button>
+                <button class="layui-btn layui-bg-blue" lay-submit lay-filter="v_sumbit" >立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -95,27 +95,25 @@
                 var getTpl = edit_config.innerHTML
                         ,view = document.getElementById('edit_view');
                 laytpl(getTpl).render(data, function(html){
-                    console.log(getTpl);
-                    console.log(data);
                     view.innerHTML = html;
                 });
             }
         });
         //监听提交
-        form.on('submit(demo1)', function(data){
+        form.on('submit(v_sumbit)', function(data){
             var requestUrl = "/config/edit.ss";
             commAjax(requestUrl,"post",data.field,editResult);
-
-            var editResult = function (_data) {
-               if(isTrue(_data.success)){
-                   layer.after("修改成功",function () {
-                       location.reload();
-                   });
-               }else{
-                   return false;
-               }
-            }
+            return false;
         });
+        var editResult = function (_data) {
+            if(isTrue(_data.success)){
+                layer.msg("修改成功",function () {
+                    location.reload();
+                });
+            }else{
+                return false;
+            }
+        }
     });
 </script>
 <script type="text/html" id="barBtns">

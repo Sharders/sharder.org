@@ -8,13 +8,13 @@
         <li class="ss-row-timeline-item">
             <h4 class="ss-sub-title up-title i18n" name="sharder-angel-time-start-end">1月29日-2月11日</h4>
             <p class="content i18n" name="sharder-angel">早鸟轮</p>
-            <button class="content-over angel-over i18n" name="canyutianshilun">参与早鸟轮</button>
+            <button class="content-over angel-over i18n" name="canyutianshilun">参与早鸟</button>
             <#--<a href="/invest/invest_item.ss"><button class="content-over angel-over " >参与早鸟轮</button></a>-->
         </li>
         <li class="ss-row-timeline-item">
             <h4 class="ss-sub-title up-title i18n" name="sharder-crowd-funding-time-start-end">2月23日-3月23</h4>
             <p class="content i18n" name="sharder-crowd-funding">众筹</p>
-            <button class="content-over crowd-funding-over i18n" name="canyuzhongchoulun">参与众筹轮</button>
+            <button class="content-over crowd-funding-over i18n" name="canyuzhongchoulun">参与众筹</button>
             <#--<a href="//invest/invest_crowd_funding.ss"><button class="content-over crowd-funding-over">参与众筹轮</button></a>-->
         </li>
     </ul>

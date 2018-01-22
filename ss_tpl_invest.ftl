@@ -8,7 +8,7 @@
     <li class="generalTextColor"><i class="yuan3"></i><span class="i18n" name="sharder-distribution-text3">社区基金：用于维护社区，建设活跃开放的豆匣生态。</span></li>
     <li class="generalTextColor"><i class="yuan4"></i><span class="i18n" name="sharder-distribution-text4">空投基金：社区空投、交易所空投、海螺测试网络TCC兑换。</span></li>
     <li class="generalTextColor"><i class="yuan5"></i><span class="i18n" name="sharder-distribution-text5">系统奖励：挖矿奖励、观察者奖励、证明人奖励、存储奖励。</span></li>
-    <li class="generalTextColor"><i class="yuan5"></i><span class="i18n" name="sharder-distribution-text6">团队基金：豆匣团队持有，流通锁定期为三年，每年解锁约 3.3%。</span></li>
+    <li class="generalTextColor"><i class="yuan6"></i><span class="i18n" name="sharder-distribution-text6">团队基金：豆匣团队持有，流通锁定期为三年，每年解锁约 3.3%。</span></li>
 </ul>
 </#macro>
 
@@ -32,8 +32,8 @@
     <div>
         <h3 class="<#if isMobile>ss-head<#else>ss-sub-title</#if> i18n" name="sharder-participation-process">众筹参与流程</h3>
         <p class="generalTextColor i18n" name="sharder-flow-path-text1">为了确保公平、公正、公开以及方便广大投资者参与。可以通过下面三种方式参与众筹</p>
-        <p class="generalTextColor"><span class="flow-title i18n" name="sharder-flow-path-text2">1、官网直投：</span><span class="i18n" name="sharder-flow-path-text3">比特币BTC、以太坊ETH、莱特币LTC在豆匣官网参与。</span></p>
-        <p class="generalTextColor"><span class="flow-title i18n" name="sharder-flow-path-text4">2、商城众筹：</span><span class="i18n" name="sharder-flow-path-text5">前往商城购买定制商品可获赠豆匣积分，豆匣积分可1:1兑换豆匣SS。(商城购买开启时间与早鸟轮时间一致)。</span></p>
+        <p class="generalTextColor"><span class="flow-title i18n" name="sharder-flow-path-text2">1、官网直投：</span><span class="i18n" name="sharder-flow-path-text3">比特币BTC、以太坊ETH在豆匣官网参与。</span></p>
+        <p class="generalTextColor"><span class="flow-title i18n" name="sharder-flow-path-text4">2、商城众筹：</span><span class="i18n" name="sharder-flow-path-text5">前往商城购买定制商品可获赠豆匣积分，豆匣积分可1:1兑换豆匣SS。</span></p>
         <p class="generalTextColor"><span class="flow-title i18n" name="sharder-flow-path-text9">3、智能合约：</span><span class="i18n" name="sharder-flow-path-text10">众筹轮可以直接向智能合约地址转账，以太坊智能合约会自动发送豆匣SS。</span></p>
 </#macro>
 

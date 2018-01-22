@@ -12,7 +12,7 @@
     <section class="ss-container  home-page">
         <div class="ss-main">
             <img src="${resSys}/resource/sharders/img/mobile/m-home-background.png" class="background">
-            <p class="text ss-main-title zh i18n" name="sharder.big.title">豆匣协议——跨链分布式存储协议</p>
+            <p class="text ss-main-title zh i18n" name="sharder.big.title">豆匣协议—跨链分布式存储协议</p>
             <p class="text ss-main-title en">CROSS-CHAIN DISTRIBUTED STORAGE PROTOCOL</p>
         </div>
     </section>
@@ -22,7 +22,7 @@
                 <div>
                     <span class="blank"></span>
                     <span class="zh i18n" name="project-main.title.protocol">豆匣协议/</span>
-                    <span class="en i18n" name="project-main.subtitle.protocol">SHARDER</span>
+                    <#--<span class="en i18n" name="project-main.subtitle.protocol">SHARDER</span>-->
                 </div>
             </div>
             <img src="" class="sub-main-logo">
@@ -79,8 +79,8 @@
             <div class="ss-main-title ss-main-btn theme">
                 <div>
                     <span class="blank"></span>
-                    <span class="zh i18n" name="project-main.title.whitepaper">白皮书/</span>
-                    <span class="en i18n" name="project-main.subtitle.whitepaper">WHITEPAPER</span>
+                    <span class="zh i18n" name="navbar.whitepaper">白皮书/</span>
+                    <#--<span class="en i18n" name="project-main.subtitle.whitepaper">WHITEPAPER</span>-->
                 </div>
 
             </div>
@@ -89,36 +89,30 @@
                     <i class="img"></i>
                     <p class="ss-sub-title zh i18n" name="TECHNICAL-WHITE-PAPER">技术白皮书</p>
                         <button>
-                            <a href="/whitepaper/preview" class="i18n" name="btn.zh">中文</a>
-                            <a href="https://oss.sharder.org/sharder/whitepaper/sharder-technical-whitepaper-v1.1-cn.pdf"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
+                            <a href="/whitepaper/preview.ss?type=urlTechZh" class="i18n" name="btn.zh">中文</a>
                         </button>
-                   <button class="tesu" >
-                       <a class="i18n" name="btn.en">EN</a>
-                       <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
-                   </button>
+                       <button class="tesu" >
+                           <a class="i18n" name="btn.en">EN</a>
+                       </button>
                 </li>
                 <li class="item item2">
                     <i class="img"></i>
                     <p class="ss-sub-title zh i18n" name="WHITE-PAPER">白皮书</p>
-                        <button>
-                            <a href="/whitepaper/preview" class="i18n" name="btn.zh">中文</a>
-                            <a href="https://oss.sharder.org/sharder/whitepaper/sharder-economic-whitepaper-v1.0-cn.pdf"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
-                        </button>
-                        <button >
-                            <a href="/whitepaper/preview" class="i18n" name="btn.en">EN</a>
-                            <a href="https://oss.sharder.org/sharder/whitepaper/sharder-economic-whitepaper-v1.0-en.pdf"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
-                        </button>
+                    <button>
+                        <a href="/whitepaper/preview.ss?type=urlEncoZh" class="i18n" name="btn.zh">中文</a>
+                    </button>
+                    <button >
+                        <a href="/whitepaper/preview.ss?type=urlEncoEn" class="i18n" name="btn.en">EN</a>
+                    </button>
                 </li>
                 <li class="item item3">
                     <i class="img"></i>
                     <p class="ss-sub-title zh i18n" name="USER-MANUAL">用户手册</p>
                     <button class=" tesu" >
                         <a  class="i18n" name="btn.zh">中文</a>
-                        <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
                     </button>
                     <button class=" tesu" >
                         <a class="i18n" name="btn.en">EN</a>
-                        <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
                     </button>
                 </li>
             </ul>
@@ -128,7 +122,7 @@
     <section class="ss-container  sharder-more-main ">
         <div class="ss-main">
             <#if user ?? >
-                <a href="/invest/invest.ss"><button class="ss-main-btn i18n" liaojiegengduo=了解更多>了解更多</button></a>
+                <a href="/invest/invest.ss"><button class="ss-main-btn i18n" name="liaojiegengduo" >了解更多</button></a>
             <#else >
                 <a href="/register.ss"><button class="ss-main-btn i18n" name="lijijiaru">立即加入</button></a>
             </#if>
@@ -146,7 +140,7 @@
                 <div>
                     <span class="blank"></span>
                     <span class="zh i18n" name="project-main.title.team">豆匣团队/</span>
-                    <span class="en i18n" name="project-main.subtitle.team">TEAM</span>
+                    <#--<span class="en i18n" name="project-main.subtitle.team">TEAM</span>-->
                 </div>
             </div>
             <div class="team-banner banner" id="team_banner">
@@ -160,7 +154,7 @@
                 <div>
                     <span class="blank"></span>
                     <span class="zh i18n" name="project-main.title.roadmap">路线图/</span>
-                    <span class="en i18n" name="project-main.subtitle.roadmap">ROAD MAP</span>
+                    <#--<span class="en i18n" name="project-main.subtitle.roadmap">ROAD MAP</span>-->
                 </div>
             </div>
             <div class="m-timeline">
@@ -281,7 +275,12 @@
 <script>
     $(document).ready(function(e) {
         var unslider04 = $('#team_banner').unslider({
-//                    dots: true
+                    speed: 1000,               //  The speed to animate each slide (in milliseconds)
+                    delay: 3000,              //  The delay between slide animations (in milliseconds)
+                    complete: function() {},  //  A function that gets called after every slide animation
+                    keys: true,               //  Enable keyboard (left, right) arrow shortcuts
+                    dots: false,               //  Display dot navigation
+                    fluid: false
                 }),
                 data04 = unslider04.data('unslider');
 

@@ -21,7 +21,7 @@
 <div class="ss-container register-main login-main">
     <div class="ss-main">
         <section class="main-title">
-            <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您登录豆匣协议</h1>
+            <h1 class="ss-main-title i18n" name="welcome-login-sharder">欢迎您登录豆匣协议</h1>
         </section>
 
         <section class="register-form"><!--invest/invest.do-->
@@ -29,11 +29,11 @@
                 <ul>
 
                     <li>
-                        <span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n ss-hover-effect underline"  href="/register.ss" name="sharder-log-in-immediately">立即注册</a>
+                        <span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n ss-hover-effect underline"  href="/register.ss" name="sharder-register-immediately">立即注册</a>
                     </li>
                     <li>
                         <label for="username" class="i18n" name="sharder-account-number">账号:</label>
-                        <input id="username" type="text" placeholder="手机号码或邮箱" name="username" class="required login-input" />
+                        <input id="username" type="text" placeholder="手机号码或邮箱" name="username" class="required login-input i18n sharder-account-number" />
                     </li>
                     <li>
                         <label for="password" class="i18n" name="sharder-user-password">密码:</label>
@@ -47,7 +47,7 @@
                         </li>
                     </#if>
                     <li>
-                        <input type="submit" value="立即登录" class="ss-main-btn theme ss-hover-effect" />
+                        <input type="submit" value="立即登录" class="ss-main-btn theme ss-hover-effect i18n" name="head.denglu" />
                     </li>
 
                     <#if message??>
@@ -81,7 +81,7 @@
                             <span class="i18n" name="">注册成功！</span>
                         </#if>
                     </#if>
-                    <li style="text-align: right">
+                    <li class="in-forget-pwd ss-hover-effect underline" style="text-align: right">
                         <a class="i18n underline" name="sharder-forget-password" href="/passWord/forgotPwd.ss">忘记密码？</a>
                     </li>
                 </ul>

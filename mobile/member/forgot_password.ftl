@@ -34,8 +34,8 @@
 <div class="ss-container register-main forgot-pwd-main" id="forgot-pwd-main">
     <div class="ss-main">
         <section class="main-title">
-            <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">找回登录密码</h1>
-            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">已有账号?</span><a class="in-login i18n" href="/login.ss" name="sharderf-user-sign-in">登录</a></div>
+            <h1 class="ss-main-title i18n" name="retrieve-login-password">找回登录密码</h1>
+            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number-exist">已有账号?</span><a class="in-login i18n" href="/login.ss" name="sharderf-user-sign-in">登录</a></div>
         </section>
 
         <section class="register-form verify-identity-form register_login">
@@ -43,16 +43,16 @@
                 <ul>
                     <li>
                         <label for="identification_forgot_pwd" class="i18n" name="sharder-account-number">账号:</label>
-                        <input id="identification_forgot_pwd" type="text" placeholder="手机号码或邮箱"  vld="{remote:'/user_center/isexist.ss',messages:{remote:'手机或邮箱不存在！'}}" name="identification"  class="required login-input username" />
+                        <input id="identification_forgot_pwd" type="text" placeholder="手机号码或邮箱"  vld="{remote:'/user_center/isexist.ss',messages:{remote:'手机或邮箱不存在！'}}" name="identification"  class="required login-input username i18n" />
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="captcha"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
-                        <input id="captcha" type="text" placeholder="校验码" name="captcha" class="captcha" />
-                        <input type="button"  name="校验码" onclick="forgotPwdVcode(this)" value="获取验证码"/>
+                        <input id="captcha" type="text" placeholder="校验码" name="captcha" class="captcha i18n" />
+                        <input type="button"  class="i18n" name="fasong" onclick="forgotPwdVcode(this)" value="获取验证码"/>
                     </li>
                     <input type="hidden" name="captchaToken" value="">
                     <li>
-                        <input type="submit" value="下一步" class="ss-main-btn theme" />
+                        <input type="submit" value="下一步" class="ss-main-btn theme i18n" name="the-next-step" />
                     </li>
                 </ul>
             </form>
@@ -88,14 +88,12 @@
         },
         methods:{
             verifyIdentity:function () {
-                alert("执行了");
                 var requestUrl = "/user_center/verification_code.ss";
                 var data = $("#forgot-pwd-form").serialize();
 
                 commAjax(requestUrl,"post",data,app.verifyIdentityReuslt);
             },
             verifyIdentityReuslt:function(_result){
-                console.log(_result);
                 if (!isTrue(_result.success)){
                     alert(_result.message);
                 }else{

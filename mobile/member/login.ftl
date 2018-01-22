@@ -23,8 +23,8 @@
     <div class="ss-main">
 
         <section class="main-title">
-            <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">欢迎您登录豆匣协议</h1>
-            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n" href="/register.ss" name="sharderf-user-sign-in">注册</a></div>
+            <h1 class="ss-main-title i18n" name="welcome-login-sharder">欢迎您登录豆匣协议</h1>
+            <div class="ss-in-login"><span class="i18n" name="sharderf-account-number">没有账号?</span><a class="in-login i18n" href="/register.ss" name="sharder-register-immediately">注册</a></div>
         </section>
 
         <section class="register-form register_login">
@@ -46,7 +46,7 @@
                         </li>
                     </#if>
                     <li>
-                        <input type="submit" value="立即登录" name="" class="ss-main-btn theme i18n" />
+                        <input type="submit" value="立即登录" name="account.lijidenglu" class="ss-main-btn theme i18n" />
                     </li>
 
                     <#if message??>
@@ -80,7 +80,7 @@
                             <span class="i18n" name="">注册成功！</span>
                         </#if>
                     </#if>
-                    <li style="text-align: right">
+                    <li class="forget-pwd">
                         <a class="i18n underline" name="sharder-forget-password" href="/passWord/forgotPwd.ss">忘记密码？</a>
                     </li>
                 </ul>

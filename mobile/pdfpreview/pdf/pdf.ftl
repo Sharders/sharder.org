@@ -2,12 +2,16 @@
 <head>
     <title class="i18n" name="title-douxia-white-book">豆匣协议-白皮书</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta id="i18n_pagename" content="crowd_funding">
+    <meta id="i18n_pagename" content="message">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <#--<link rel="shortcut icon" type="image/x-icon" href="${systemSetting().shortcuticon}" />-->
+    <link rel="shortcut icon" href="https://oss.sharder.org/sharder/favicon.ico" />
     <link rel="stylesheet" href="/r/cms/resource/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="/r/cms/pdf/css/pdf.css" type="text/css" />
+    <script src="/thirdparty/ueditor/third-party/jquery-1.10.2.js"></script>
+    <script src="/r/cms/resource/i18n/js/jquery.i18n.properties.js"></script>
+    <script src="/r/cms/resource/i18n/js/language.js"></script>
+    <script src="/r/cms/resource/js/jquery.cookie.js"></script>
 </head>
 
 <body>
@@ -25,11 +29,11 @@
                     <div class="tech i18n" name="tech-white-book">技术白皮书</div>
                     <div class="zh-en">
                         <a href="/whitepaper/preview.ss?type=urlTechZh" target="_blank">
-                            <button class="down-btn i18n" name="ch">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                            <button class="down-btn <#if "2"==flag>active</#if> i18n" name="ch">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
                         </a>
                         <#--<a href="/whitepaper/preview.ss?type=urlTechEn" target="_blank">-->
                         <a href="JavaScript:void('')" target="_blank">
-                            <button class="down-btn i18n" style="background-color: #ccc;" name="en">EN<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
+                            <button class="down-btn i18n closed"  name="en">EN<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
                         </a>
                     </div>
                 </div>
@@ -40,12 +44,12 @@
             </div>
             <div class="col-xs-4 col">
                 <div class="right-2">
-                    <div class="tech i18n" name="white-book">白皮书<br>WHITE PAPER</div>
+                    <div class="tech i18n" name="white-book">白皮书</div>
                     <div  class="zh-en">
                         <a href="/whitepaper/preview.ss?type=urlEncoZh" target="_blank">
-                            <button class="down-btn i18n" name="ch">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
+                            <button class="down-btn <#if "3"==flag>active</#if> i18n" name="ch">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
                         <a href="/whitepaper/preview.ss?type=urlEncoEn" target="_blank">
-                            <button class="down-btn i18n" name="en">EN<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
+                            <button class="down-btn <#if "4"==flag>active</#if> i18n" name="en">EN<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>
                     </div>
                 </div>
             </div>
@@ -60,50 +64,15 @@
             </div>
         </div>
 </body>
-<script src="/thirdparty/ueditor/third-party/jquery-1.10.2.js"></script>
-<script src="/r/cms/resource/i18n/js/jquery.i18n.properties.js"></script>
-<script src="/r/cms/resource/i18n/js/language.js"></script>
-<script src="/r/cms/resource/js/jquery.cookie.js"></script>
 <script>
     $(function(){
-        <#--if ($.cookie('userLanguage')!=undefined) {-->
-            <#--var lang = $.cookie('userLanguage');-->
-            <#--var type = '${chose}';-->
-            <#--if(type=="urlTechZh"){-->
-                <#--$("#iframe1").attr("src",'/r/cms/pdf/generic/web/viewer.html?file=' + encodeURIComponent('/previewpdf.ss?type='+type));-->
-            <#--}else{-->
-                <#--if(lang=='en'){-->
-                    <#--console.log("aa = "+type)-->
-                    <#--console.log(type.indexOf('En'))-->
-                    <#--if(type.indexOf('Zh')>0){-->
-                        <#--t = type.substring(0,type.indexOf('Zh'));-->
-                        <#--t = t+'En';-->
-                        <#--$("#iframe1").attr("src",'/r/cms/pdf/generic/web/viewer.html?file=' + encodeURIComponent('/previewpdf.ss?type='+t));-->
-                    <#--}else{-->
-                        <#--$("#iframe1").attr("src",'/r/cms/pdf/generic/web/viewer.html?file=' + encodeURIComponent('/previewpdf.ss?type='+type));-->
-                    <#--}-->
-                <#--}-->
-                <#--if(lang=='zh-CN'){-->
-                    <#--var type = '${chose}';-->
-                    <#--console.log("bb="+type)-->
-                    <#--if(type.indexOf('Zh')>0){-->
-                        <#--$("#iframe1").attr("src",'/r/cms/pdf/generic/web/viewer.html?file=' + encodeURIComponent('/previewpdf.ss?type='+type));-->
-                    <#--}else{-->
-                        <#--t = type.substring(0,7);-->
-                        <#--t = t+'Zh';-->
-                        <#--$("#iframe1").attr("src",'/r/cms/pdf/generic/web/viewer.html?file=' + encodeURIComponent('/previewpdf.ss?type='+t));-->
-                    <#--}-->
-                <#--}-->
-            <#--}-->
-        <#--}-->
-        $("#iframe1").attr("src",'/r/cms/pdf/generic/web/viewer.html?file=' + encodeURIComponent('/previewpdf.ss?type='+'${chose}'));
+        $("#iframe1").attr("src",'/r/cms/pdf/generic/web/viewer.html?file=' + encodeURIComponent('/whitepaper/download.ss?type='+'${chose}'));
         storage=window.localStorage;
         storage.a=1;
     });
     var interval = setInterval('showProess()', 1000);
     function  showProess() {
         var storage=window.localStorage;
-        console.log(storage['a']);
         if(storage['a']==2){
             clearInterval(interval);
             $('.flow-0').hide();
