@@ -44,7 +44,7 @@
                 <li style="<#if subscribe2.maxSubscribe == 0 >display:none;</#if> "><span class="invitation-name"><span class="i18n" name="sharder-account-number">账户：</span><#if userName2 ??>${userName2!}</#if></span><span
                         class="invitation-quota"><span class="i18n" name="sharder-obtain-amount">获得额度:</span><#if subscribe2 ??>${subscribe2.maxSubscribe!}</#if>ETH</span></li>
             </ul>
-            <#if !nowSubscribe ??> <button class="ss-main-btn i18n" title="点击成为白名单" id="applyFor" name="sharder-become-subscribe">成为白名单</button></#if>
+            <#--<#if !nowSubscribe ??> <button class="ss-main-btn i18n" title="点击成为白名单" id="applyFor" name="sharder-become-subscribe">成为白名单</button></#if>-->
         </div>
 
         <div class="subscribe-rule">
@@ -161,7 +161,7 @@
                     <label class="i18n" name="user-text-3">再次输入密码</label><input type="password"  name="newPwd" id="newPassWord2" v-on:keyup="verification()"/>
                 </div>
 
-                <input type="button" value="提交" v-on:click="editPwd()"/>
+                <input type="button" name="the-next-step" class="i18n" value="提交" v-on:click="editPwd()"/>
             </form>
         <div class="userPwd-div">
             <h2 class="i18n" name="sharder-operation-result">操作结果</h2>
@@ -180,12 +180,13 @@
     <span id="erro" class="i18n" name="user-test-text6">未知错误</span>
     <span id="chakans" class="i18n" name="user-test-text7">查看众筹详情</span>
     <span id="guanbis" class="i18n" name="user-test-text8">关闭众筹详情</span>
-    <span class="i18n" name="copyok">复制成功</span>
     <span class="i18n" name="sharder-registrant-uid">注册人UID</span>
     <span class="i18n" name="friend-regdate">注册时间</span>
-    <span class="i18n" name="sharder-public-access">众筹获得</span>
+    <span class="i18n" name="friend-whiteQuotal">白名单额度</span>
     <span class="i18n" name="sharder-deal-base">返点奖励/SS</span>
     <span class="i18n" name="copyok">复制成功</span>
+    <span class="i18n"name="user-test-text11">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>
+    <span class="i18n"name="user-test-text12">立刻邀请</span>
 </div>
 <div class="maker"></div>
 
@@ -211,11 +212,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="dealBase in parentData.dealBases.list">
+                <tr v-for="dealBase in parentData.dealBases.list" >
                     <td>{{dealBase.userId}}</td>
                     <td>{{dealBase.registerDate}}</td>
                     <td>{{dealBase.whitelistsQuota==(''||null)?'-':dealBase.whitelistsQuota}}</td>
                     <td>{{dealBase.dealBase==(''||null)?'-':dealBase.dealBase}}</td>
+                </tr>
+                <tr>
+                    <td colspan="4" v-if="parentData.dealBases == ''"><span style="color: red">{{parentData.title.e}}</span><a href="#member_center" >{{parentData.title.f}}</a></td>
                 </tr>
             </tbody>
         </table>
@@ -274,6 +278,7 @@
                     Pwd:'',
                     asset_template:'', //我的资产模板
                     title:'',
+                    isData:true,
                 },
                 methods: {
                     //选择要显示的数据
@@ -281,8 +286,10 @@
 
                         pc.title={a:$("span[name='sharder-registrant-uid']").text(),
                             b:$("span[name='friend-regdate']").text(),
-                            c:$("span[name='sharder-public-access']").text(),
-                            d:$("span[name='sharder-deal-base']").text()};
+                            c:$("span[name='friend-whiteQuotal']").text(),
+                            d:$("span[name='sharder-deal-base']").text(),
+                            e:$("span[name='user-test-text11']").text(),
+                            f:$("span[name='user-test-text12']").text()};
 
                         if($("#subscribe-list").css("display") == "block"){
                             $("#subscribe-list").css("display","none");
@@ -323,8 +330,13 @@
                         commAjax(requestUrl,"get",data,pc.loadDealbaseResult);
                     },
                     loadDealbaseResult:function (_result) {
-                        pc.dealBases = _result.result.data;
-                        pc.setPaging(pc.dealBases);
+                        if (isTrue(_result.success)){
+                            pc.dealBases = _result.result.data;
+                            pc.setPaging(pc.dealBases);
+                        }else{
+//                            layer.msg(_result.message);
+                            return;
+                        }
                     },
                     msgListView:function(curPage){
                         //根据当前页获取数据

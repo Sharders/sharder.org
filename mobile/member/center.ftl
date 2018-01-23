@@ -5,7 +5,7 @@
 </@lay.htmlHead>
 
 <@lay.htmlBody>
-<div class="phone-center-main">
+<div class="phone-center-main" id="member_center">
     <div class="user-information" >
         <h1 class="phone-center-information-title i18n" name="sharder-user-information">账户信息</h1>
         <ul class="user-information-text">
@@ -91,9 +91,11 @@
     <span id="guanbi" class="i18n" name="user-test-text2">关闭邀请详情</span>
     <span class="i18n" name="sharder-registrant-uid">注册人UID</span>
     <span class="i18n" name="friend-regdate">注册时间</span>
-    <span class="i18n" name="sharder-public-access">众筹获得</span>
+    <span class="i18n" name="friend-whiteQuotal">白名单额度</span>
     <span class="i18n" name="sharder-deal-base">返点奖励/SS</span>
     <span class="i18n" name="copyok">复制成功</span>
+    <span class="i18n"name="user-test-text11">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>
+    <span class="i18n"name="user-test-text12">立刻邀请</span>
 </div>
 <script type="text/x-template" id="details-white-list">
     <div class="details-white-list subscribe-body">
@@ -120,7 +122,7 @@
     <div class="rebate-details subscribe-body">
         <p class="subscribe-head"><span class="subscribe-table i18n" name="friend-regid">{{parentData.title.a}}</span><span class="subscribe-table i18n" >{{parentData.title.b}}</span><span class="subscribe-table i18n" name="friend-whiteQuotal">{{parentData.title.c}}</span><span class="subscribe-table i18n" name="friend-backQuotal">{{parentData.title.d}}</span></p>
         <ul class="subscribe-ul">
-            <li class="subscribe-li" v-if="parentData.dataList == false"><span>No data is found！！！</span></li>
+            <li class="subscribe-li" v-if="parentData.dataList == false"><span style="color: red;font-size: 11px;">{{parentData.title.e}}</span><a href="#member_center" style="font-size: 11px;">{{parentData.title.f}}</a></li>
             <li class="subscribe-li" v-for="dealBase in parentData.dataList.list"><span class="subscribe-table">{{dealBase.userId}}</span><span class="subscribe-table">{{dealBase.registerDate}}</span><span class="subscribe-table special">{{dealBase.whitelistsQuota==(''||null)?'-':dealBase.whitelistsQuota}}</span><span class="subscribe-table">{{dealBase.dealBase==(''||null)?'-':dealBase.dealBase}}</span></li>
         </ul>
     </div>
@@ -173,24 +175,36 @@
                         });
                     },
                     paging:function () {
-                        laypage.render({
-                            elem: 'page'
-                            ,count: 30
-                            ,first: false
-                            ,last: false
-                            ,jump: function(obj, first){
-                                if(!first){
-//                            layer.msg('第 '+ obj.curr +' 页');
-                                    app.pagingQuery(obj.curr);
-                                }
+                        var url= "/user_center/invite_awaer.ss";
+                        //打开查看详情设置分页数量。
+                        $.ajax({
+                            type: "get",
+                            url:url,
+                            dataType: "json",
+                            success: function(_result) {
+                                laypage.render({
+                                    elem: 'page'
+                                    ,count: _result.result.data.totalCount
+                                    ,first: false
+                                    ,last: false
+                                    ,jump: function(obj, first){
+                                        if(!first){
+        //                                  layer.msg('第 '+ obj.curr +' 页');
+                                            app.pagingQuery(obj.curr);
+                                        }
+                                    }
+                                });
                             }
                         });
                     }
                     ,tabBtn:function (num) {
                         app.title={a:$("span[name='sharder-registrant-uid']").text(),
                             b:$("span[name='friend-regdate']").text(),
-                            c:$("span[name='sharder-public-access']").text(),
-                            d:$("span[name='sharder-deal-base']").text()};
+                            c:$("span[name='friend-whiteQuotal']").text(),
+                            d:$("span[name='sharder-deal-base']").text(),
+                            e:$("span[name='user-test-text11']").text(),
+                            f:$("span[name='user-test-text12']").text()};
+
                         $(".paging-query").css("display","none");
                         $(".crowd-funding.details").css("border-bottom","0");
                         $(".rebate.details").css("border-bottom","0");

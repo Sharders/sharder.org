@@ -99,7 +99,7 @@
             $.cookie('inviterId',inviterId, { expires: 30});
         }else {
             var inviterId2 = $.cookie('inviterId');
-            if(inviterId2 != null || inviterId2 != ""){
+            if(inviterId2 != null && inviterId2 != "" && inviterId2 != undefined && typeof inviterId2 != "undefined"){
                 $("input[name='inviterId']").attr("readonly",true);
                 $("input[name='inviterId']").val(inviterId2);
             }
