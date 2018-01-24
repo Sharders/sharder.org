@@ -143,9 +143,16 @@
                     <#--<span class="en i18n" name="project-main.subtitle.team">TEAM</span>-->
                 </div>
             </div>
-            <div class="team-banner banner" id="team_banner">
-                <#include "/WEB-INF/ftl/sharders/team.ftl">
+            <div class="switch-team">
+                <input type="radio"  class="ss-radio-hidden" id="douxia" name="team" checked>
+                <label class="switch-btn i18n" for="douxia" onclick="showTeam('douxia')" name="douxiateam">中国团队</label>
+                <input type="radio" class="ss-radio-hidden" id="guojiteam" name="team">
+                <label class="switch-btn i18n" for="guojiteam" onclick="showTeam('guoji')" name="guojiteam">全球社区</label>
             </div>
+            <#--<div class="team-banner banner" id="team_banner">-->
+                <#--<#include "/WEB-INF/ftl/sharders/team.ftl">-->
+            <#--</div>-->
+            <div id="team_picture"></div>
         </div>
     </section>
     <section class="ss-container sharder-project-main">
@@ -273,28 +280,9 @@
 </div>
 
 <script>
-    $(document).ready(function(e) {
-        var unslider04 = $('#team_banner').unslider({
-                    speed: 1000,               //  The speed to animate each slide (in milliseconds)
-                    delay: 3000,              //  The delay between slide animations (in milliseconds)
-                    complete: function() {},  //  A function that gets called after every slide animation
-                    keys: true,               //  Enable keyboard (left, right) arrow shortcuts
-                    dots: false,               //  Display dot navigation
-                    fluid: false
-                }),
-                data04 = unslider04.data('unslider');
-
-//        $('.page-turning').click(function() {
-//            var fn = this.className.split(' ')[1];
-//            data04[fn]();
-//        });
-
-//        $('.team-banner').on('swipeleft', function(e) {data04["next"]();});
-//        $('.team-banner').on('swiperight', function(e) {data04["prev"]();});
-
-//        var swiper = new Swiper('.swiper-container');
-    });
-
+    $(function () {
+        showTeam("douxia");
+    })
 
 
     $(document).ready(function () {

@@ -37,7 +37,7 @@
                     </li>
                     <li>
                         <label for="password" class="i18n" name="sharder-user-password">密码:</label>
-                        <input id="password" name="password" class="required password-input" type="password" placeholder="密码" />
+                        <input id="password" name="password" class="required password-input i18n" type="password" placeholder="密码" />
                     </li>
                     <#if (errorTimes??&&errorTimes<=0)||(errorRemaining?? && errorRemaining<=0)>
                         <li class="ss-verification-code-li">

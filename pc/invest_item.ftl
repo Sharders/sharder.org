@@ -64,9 +64,9 @@
                             <#--<img src="/r/cms/resource/sharders/img/LTC.png"><span class="i18n" name="sharder-LTC">莱特币(LTC)</span></label></li>-->
                     </ul>
                     <ul class="pay-number">
-                        <li><input type="number" oninput="investTransition(app.payType,this)" input-type="icoin" placeholder="请输入支持的数量" class="i18n" name="payAmount" :value="zero" maxlength="4"><span class="sign">{{payType}}</span><span>=</span></li>
-                        <li><input type="number" oninput="investTransition(app.payType,this)" input-type="cny" :value="zero" maxlength="10"><span class="sign">&yen;</span><span>=</span></li>
-                        <li><input type="number" oninput="investTransition(app.payType,this)" input-type="ss" :value="zero" maxlength="10"><span class="sign">SS</span></li>
+                        <li><input type="number" oninput="investTransition(app.payType,this)" input-type="icoin" placeholder="请输入支持的数量" class="i18n" name="payAmount" :value="zero" maxlength="4"><span class="sign">{{payType}}</span><span>≈</span></li>
+                        <li><input type="number" oninput="investTransition(app.payType,this)" input-type="cny" :value="zero" maxlength="10"><span class="sign">&yen;</span><span>≈</span></li>
+                        <li><input type="number" oninput="investTransition(app.payType,this)" input-type="ss" :value="zero" maxlength="12"><span class="sign">SS</span></li>
                     </ul>
                     <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-transfer" v-on:click="transfer()" id="transfer">转账</button>
 
@@ -108,6 +108,7 @@
 </div>
 <div class="popup i18n" name ="sharder-Thank" style="display: none">感谢您支持豆匣众筹。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
 <span class="i18n" name="copyok" style="display: none">复制成功</span>
+<span class="i18n" name="nihaimeishurujine" style="display: none">你还没输入金额哦</span>
 <#--<script src="${resSys}/resource/sharders/js/jquery.zeroclipboard.js" type="text/javascript"></script>-->
 <script src="${resSys}/resource/sharders/js/jquery.qrcode-0.12.0.min.js" type="text/javascript"></script>
 <script>
@@ -178,34 +179,32 @@
                $(".participation .pay-types li img").css("border-radius","50%");
             },
             transfer:function () {
-                $("#transfer_details").css("display","block");
-                $("#transfer").css("display","none");
-
+                var inputNumber = $("input[name='payAmount']").val();
+                if(inputNumber != number && inputNumber > 0){
+                    $("#transfer_details").css("display","block");
+                    $("#transfer").css("display","none");
+                }else{
+                    layer.msg($("span[name='nihaimeishurujine']").text());
+                }
             },
             prompt:function () {
-
                 //这里需要判断输入金额
-               var payAmount =  $("input[name='payAmount']").val();
-
-               if(payAmount == null || payAmount<=0){
-                   return;
-               }
-
-
-
-                var requestUrl = "/invest/invest.ss";
-                var _data = $("#invest_form").serialize();
-                commAjax(requestUrl,"post",_data,"");
+                var inputNumber = $("input[name='payAmount']").val();
+                if(inputNumber != number && inputNumber > 0){
+                    var requestUrl = "/invest/invest.ss";
+                    var _data = $("#invest_form").serialize();
+                    commAjax(requestUrl,"post",_data,app.promptResult);
+                }else{
+                    layer.msg($("span[name='nihaimeishurujine']").text());
+                    return;
+                }
+            },
+            promptResult:function (_result) {
                 layer.msg($(".popup").text(),{
                     time: 5000, //5s后自动关闭
                     btn: ['OK']
                 });
-//                var style = $(".popup").css("display");
-//                if(style == "none"){
-//                    $(".popup").css("display","block");
-//                    setTimeout('$(".popup").css("display","none")',5000);
-//                }
-            },
+            }
         }
     })
     app.selectedPayType("BTC");

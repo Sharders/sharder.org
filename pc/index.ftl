@@ -4,12 +4,10 @@
     <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/index.css">
     <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/common.css">
     <script src="${resSys}/resource/sharders/js/unslider.min.js" type="text/javascript"></script>
-    <style>
-    </style>
 </@layout.htmlHead>
 
 <@layout.htmlBody>
-<div class="index">
+<div class="index" id="index" onload="showTeam('douxia')">
     <section class="ss-container home-page tail">
         <div class="ss-main">
             <ul class="network"></ul>
@@ -79,25 +77,23 @@
             <ul class="items">
                 <li class="item item1">
                     <i class="img"></i>
-                    <p class="ss-sub-title en i18n" name="Technical-Paper">技术白皮书</p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss" title="查看技术白皮书" target="_blank"><span class="i18n" name="Technical-Paper">技术白皮书</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlTechZh')}">
                         <button class="down-btn zh " >
                             <span class="i18n" name="btn.zh">中文</span>
                             <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
                         </button>
                     </a>
-
                     <a href="javascript:void(0);">
                         <button class="down-btn en closed">
                             <span class="i18n" name="btn.en">EN</span>
                             <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
                         </button>
                     </a>
-
                 </li>
                 <li class="item item2">
                     <i class="img"></i>
-                    <p class="ss-sub-title en i18n" name="project-main.title.whitepaper">商业白皮书</p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss" title="查看白皮书" target="_blank"><span class="i18n" name="project-main.title.whitepaper">白皮书</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlEncoZh')}">
                         <button class="down-btn zh " >
                             <span class="i18n" name="btn.zh">中文</span>
@@ -113,7 +109,7 @@
                 </li>
                 <li class="item item3">
                     <i class="img"></i>
-                    <p class="ss-sub-title en i18n" name="User-Manual">用户手册</p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss" title="查看用户手册" target="_blank"><span class="i18n" name="User-Manual">用户手册</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
 
                     <a href="javascript:void(0);">
                         <button class="down-btn zh" >
@@ -157,11 +153,22 @@
                     <#--<span class="en i18n" name="project-main.subtitle.team">TEAM</span>-->
                 </div>
             </div>
-            <div class="team-banner banner" id="team_banner">
-                <#include "/WEB-INF/ftl/sharders/team.ftl">
-                <a href="javascript:void(0);" class="page-turning prev ss-hover-effect"><img class="arrow" id="al" src="/r/cms/resource/sharders/img/index/towards-left.png" alt="prev"></a>
-                <a href="javascript:void(0);" class="page-turning next ss-hover-effect"><img class="arrow" id="ar" src="/r/cms/resource/sharders/img/index/towards-right.png" alt="next"></a>
+
+            <div class="switch-team">
+                <input type="radio"  class="ss-radio-hidden" id="douxia" name="team" checked>
+                <label class="switch-btn i18n" for="douxia" onclick="showTeam('douxia')" name="douxiateam">中国团队</label>
+                <input type="radio" class="ss-radio-hidden" id="guojiteam" name="team">
+                <label class="switch-btn i18n" for="guojiteam" onclick="showTeam('guoji')" name="guojiteam">全球社区</label>
             </div>
+
+            <div id="team_picture"></div>
+
+            <#--<div class="team-banner banner" id="team_banner">-->
+                <#--<#include "/WEB-INF/ftl/sharders/team.ftl">-->
+                <#--<a href="javascript:void(0);" class="page-turning prev ss-hover-effect"><img class="arrow" id="al" src="/r/cms/resource/sharders/img/index/towards-left.png" alt="prev"></a>-->
+                <#--<a href="javascript:void(0);" class="page-turning next ss-hover-effect"><img class="arrow" id="ar" src="/r/cms/resource/sharders/img/index/towards-right.png" alt="next"></a>-->
+            <#--</div>-->
+            <#--<#include "/WEB-INF/ftl/sharders/overseas_team.ftl">-->
         </div>
     </section>
     <section class="ss-container sharder-project-main tail">
@@ -243,22 +250,8 @@
     </section>
 </div>
 <script>
-    $(document).ready(function(e) {
-        var unslider04 = $('#team_banner').unslider({
-                    speed: 1000,               //  The speed to animate each slide (in milliseconds)
-                    delay: 3000,              //  The delay between slide animations (in milliseconds)
-                    complete: function() {},  //  A function that gets called after every slide animation
-                    keys: true,               //  Enable keyboard (left, right) arrow shortcuts
-                    dots: true,               //  Display dot navigation
-                    fluid: false              //  Support responsive design. May break non-responsive designs
-
-                }),
-                data04 = unslider04.data('unslider');
-
-        $('.page-turning').click(function() {
-            var fn = this.className.split(' ')[1];
-            data04[fn]();
-        });
-    });
+    $(function () {
+        showTeam("douxia");
+    })
 </script>
 </@layout.htmlBody>
