@@ -113,6 +113,18 @@
                         <div id="walletAddr_qr_code"></div>
                         <p class="bg-walletQr"><span class="i18n"  name="sharder-addr-wallet">转账地址: </span><span id="walletQr-text">{{walletAddr}}</span></p>
                     </li>
+                    <li>
+                        <div class="trade_prove">
+                            <div class="user-wallet-addr">
+                                <label for="user_wallet_addr" >请填写<span style="color: red;">您转账</span>的钱包地址:</label>
+                                <input id="user_wallet_addr" name="payWalletAddr">
+                            </div>
+
+                            <p class="hint-info">转币成功截图<span class="hint-info">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
+                            <div id="add_img"></div>
+                        </div>
+                        <input type="hidden" name="tradeImgAddr">
+                    </li>
                     <li><button class="complete_transfer i18n" name="sharder-completed-transfer" v-on:click="prompt()">完成转账</button>
                         <button class="complete_transfer i18n tesu" name="sharder-copy" onclick="jsCopy()">复制地址</button></li>
                 </div>
@@ -140,7 +152,7 @@
     <div class="popup i18n" name ="sharder-Thank" >感谢您支持豆匣众筹。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
     <span class="i18n" name="copyok" style="display: none">复制成功</span>
 </div>
-
+<span class="i18n" name="nihaimeishurujine" style="display: none">你还没输入金额哦</span>
 <script src="${resSys}/resource/sharders/js/jquery.qrcode-0.12.0.min.js" type="text/javascript"></script>
 <script>
     function jsCopy() {
@@ -211,8 +223,14 @@
                 $(".participation .pay-types li img").css("border-radius","50%");
             },
             transfer:function () {
-                $("#transfer_details").css("display","block");
-                $("#transfer").css("display","none");
+                var inputNumber = $("input[name='payAmount']").val();
+                if(inputNumber != null && inputNumber > 0){
+                    $("#transfer_details").css("display","block");
+                    $("#transfer").css("display","none");
+                    $("#add_img").load("/r/cms/resource/sharders/html/add_img2.html");
+                }else {
+                    layer.msg($("span[name='nihaimeishurujine']").text());
+                }
 
             },
             prompt:function () {

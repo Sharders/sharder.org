@@ -4,6 +4,34 @@
     .show{
         display: block !important;
     }
+    /*转账样式 start*/
+    .trade_prove {
+        width: 900px;
+        text-align: left;
+        margin: auto;
+        margin-top: 40px;
+    }
+    .trade_prove .user-wallet-addr{
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+   input[name='payWalletAddr']{
+       margin-top: 10px;
+       height: 30px;
+       width: 100%;
+       border-radius: 4px;
+       border: 1px solid #ddd;
+   }
+   .trade_prove p.hint-info{
+       color: #333;
+       font-size: 16px;
+       margin-bottom: 10px;
+   }
+    .trade_prove span.hint-info{
+        font-weight:bold;
+    }
+    /*转账样式 end*/
 </style>
 </@layout.htmlHead>
 
@@ -68,7 +96,7 @@
                         <li><input type="number" oninput="investTransition(app.payType,this)" input-type="cny" :value="zero" maxlength="10"><span class="sign">&yen;</span><span>≈</span></li>
                         <li><input type="number" oninput="investTransition(app.payType,this)" input-type="ss" :value="zero" maxlength="12"><span class="sign">SS</span></li>
                     </ul>
-                    <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-transfer" v-on:click="transfer()" id="transfer">转账</button>
+                    <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-transfer" v-on:click="transfer()" id="transfer">获取转账地址</button>
 
                     <div id="transfer_details" style="display: none">
                         <div class="pay-text">
@@ -83,6 +111,16 @@
                             {{payType}}<span class="i18n" name="sharder-addr-wallet">钱包地址:</span><span id="sharder-addr">{{walletAddr}}</span><button type="button" onclick="jsCopy()" class="i18n" name="sharder-copy">复制</button>
                             <input type="hidden" name="shardersWalletAddr" :value="walletAddr">
                         </div>
+                        <div class="trade_prove">
+                            <div class="user-wallet-addr">
+                                <label for="user_wallet_addr" >请填写<span style="color: red;">您转账</span>的钱包地址:</label>
+                                <input id="user_wallet_addr" name="payWalletAddr">
+                            </div>
+
+                            <p class="hint-info">转币成功截图<span class="hint-info">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
+                            <div id="add_img"></div>
+                        </div>
+                        <input type="hidden" name="tradeImgAddr">
                         <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-completed-transfer" v-on:click="prompt()">已完成转账</button>
                     </div>
                 </form>
@@ -160,7 +198,6 @@
                 app.currency={"BTC":config.LOCK_PRICE_BTC,"ETH":config.LOCK_PRICE_ETH,"LTC":config.LOCK_PRICE_LTC};
             },
             setWalletAddr:function (payType) {
-
                var _walletAddr =  getWalletAddr(walletAddrs,payType);
                 app.walletAddr = _walletAddr;
                 $("#walletAddr_qr_code").empty();
@@ -180,9 +217,12 @@
             },
             transfer:function () {
                 var inputNumber = $("input[name='payAmount']").val();
-                if(inputNumber != number && inputNumber > 0){
+                if(inputNumber != null && inputNumber > 0){
                     $("#transfer_details").css("display","block");
                     $("#transfer").css("display","none");
+
+                    $("#add_img").load("/r/cms/resource/sharders/html/add_img2.html");
+
                 }else{
                     layer.msg($("span[name='nihaimeishurujine']").text());
                 }
