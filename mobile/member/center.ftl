@@ -14,7 +14,7 @@
             <li><labal class="user-title i18n" name="sharder-extension-code">推广码:</labal><span class="user-text">${inviterId!}</span></li>
             <li><labal class="user-title tesu i18n" name="sharder-extension-link">推广链接:</labal><span class="user-text augoid" id="contents">${invitePage!}?inviterId=${inviterId!}</span></li>
         </ul>
-        <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="jsCopy()">复制推广链接</button>
+        <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="copyTextById('contents')">复制推广链接</button>
         <p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众筹。</p>
         <p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众筹获得豆匣(SS)总额度的5%作为返点奖励。</p>
     </div>
@@ -33,7 +33,7 @@
                     </p>
                     <p class="crowd-funding quota ">0SS</p>
                     <#--<p class="details-colse" >{{retruenTExts(!crowd)}}</p>-->
-                    <#--<p class="details-colse" v-on:click="tabBtn(2)">{{crowd ? "关闭详情" : "查看详情"}}</p>-->
+                    <p class="details-colse" v-on:click="tabBtn('zhongchou')">{{crowd ? "关闭详情" : "查看详情"}}</p>
 
                 </div>
                 <div class="rebate details">
@@ -43,7 +43,7 @@
                     </p>
                     <p class="rebate-quota quota">0SS</p>
                     <#--<p class="details-colse" >{{isRebate ? "关闭详情" : "查看详情"}}</p>-->
-                    <p class="details-colse" v-on:click="tabBtn(1)">{{retruenTExt(!isRebate)}}</p>
+                    <p class="details-colse" v-on:click="tabBtn('fandian')">{{retruenTExt(!isRebate)}}</p>
                 </div>
         </div>
         <div class="paging-query">
@@ -93,7 +93,6 @@
     <span class="i18n" name="friend-regdate">注册时间</span>
     <span class="i18n" name="friend-whiteQuotal">白名单额度</span>
     <span class="i18n" name="sharder-deal-base">返点奖励/SS</span>
-    <span class="i18n" name="copyok">复制成功</span>
     <span class="i18n"name="user-test-text11">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>
     <span class="i18n"name="user-test-text12">立刻邀请</span>
 </div>
@@ -107,16 +106,26 @@
     </div>
 </script>
 <script type="text/x-template" id="public-information">
-    <div class="public-information subscribe-body">
-        <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-registrant-uid">注册人UID</span><span class="subscribe-table i18n" name="sharder-registrant-time">注册时间</span><span class="subscribe-table i18n" name="sharder-public-access">众筹获得</span><span class="subscribe-table special i18n" name="sharder-deal-base">返点奖励(20%)</span></p>
-        <ul class="subscribe-ul">
-            <#--<li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>-->
-            <#--<li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>-->
-            <#--<li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>-->
-            <#--<li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>-->
-            <#--<li class="subscribe-li"><span class="subscribe-table">yc0000001</span><span class="subscribe-table">2018年1月8日 10:00</span><span class="subscribe-table">20SS</span><span class="subscribe-table special">20SS</span></li>-->
-        </ul>
-    </div>
+    <table class="ss-table defalut">
+        <thead>
+        <tr>
+            <th class="i18n" data-name="canyushijian">参与时间</th>
+            <th class="i18n" data-name="zhichishuliang">支持数量</th>
+            <th class="i18n" data-name="usebaimingdan">使用白名单额度</th>
+            <th class="i18n" data-name="baimingdangjiagnli">白名单奖励</th>
+            <th class="i18n" data-name="huodetoken">获得token（SS）</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="dealBase in parentData.dataList.list" >
+            <td>{{dealBase.createDate}}</td>
+            <td>{{dealBase.payAmount}}</td>
+            <td>{{dealBase.useWhitelistsQuota}}</td>
+            <td>{{dealBase.awardAmount}}</td>
+            <td>{{dealBase.amount}}</td>
+        </tr>
+        </tbody>
+    </table>
 </script>
 <script type="text/x-template" id="rebate_details_mb">
     <div class="rebate-details subscribe-body">
@@ -135,16 +144,8 @@
     });
 </script>
 <script>
-    function jsCopy() {
-        var text = document.getElementById("contents").innerText;
-        var input = document.createElement("input");
-        input.value = text;
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand("Copy");
-        input.remove();
-        layer.msg($("span[name='copyok']").text());
-    }
+
+
 
     var timeid;
     timeid = window.setInterval(function () {
@@ -153,12 +154,19 @@
             var app = new Vue({
                 el:"#center",
                 data:{
+                    /*默认分页参数 start*/
+                    countOfCurrentPage:10, //每页条数
+                    currentPage:1, //当前第几页
+                    totalCount:0, //总条数
+                    totalPage:0, //总页数
+                    /*分页参数end*/
+
                     crowd:false,
                     isRebate:false,
                     name:"",
                     id:${user.id!},
                     dataList:'',
-                    template:'fandian',
+                    template:'',
                     title:'',
                 },
                 methods:{
@@ -175,50 +183,58 @@
                         });
                     },
                     paging:function () {
-                        var url= "/user_center/invite_awaer.ss";
-                        //打开查看详情设置分页数量。
-                        $.ajax({
-                            type: "get",
-                            url:url,
-                            dataType: "json",
-                            success: function(_result) {
-                                laypage.render({
-                                    elem: 'page'
-                                    ,count: _result.result.data.totalCount
-                                    ,first: false
-                                    ,last: false
-                                    ,jump: function(obj, first){
-                                        if(!first){
-        //                                  layer.msg('第 '+ obj.curr +' 页');
-                                            app.pagingQuery(obj.curr);
-                                        }
-                                    }
-                                });
+                        var url= "";
+                        if(app.template=="fandian"){
+                            url= "/user_center/invite_awaer.ss";
+                        }else if(app.template == "zhongchou"){
+                            url= "/user_center/zhong_chou.ss";
+                        }
+                        var data = "pageNo="+app.currentPage;
+                        commAjax(url,"GET",data,app.pagingResult);
+                    },
+                    pagingResult:function (_result) {
+                        console.log(_result);
+                        if(isEmpty(app.dataList)){
+                            app.setPaging(_result);
+                        }
+                        app.dataList = _result.result.data;
+                        executeDymaicI18n();
+                    },
+                    setPaging:function (_result) {
+                        laypage.render({
+                            elem: 'page'
+                            ,count: _result.result.data.totalCount
+                            ,first: false
+                            ,last: false
+                            ,jump: function(obj, first){
+                                if(!first){
+                                    app.currentPage = obj.curr
+                                    app.paging();
+                                }
                             }
                         });
                     }
-                    ,tabBtn:function (num) {
+                    ,tabBtn:function (_t) {
+                        console.log(_t);
+                        app.template = _t;
+                        app.currentPage = 1; //每次打开新列表分页从1开始
+
                         app.title={a:$("span[name='sharder-registrant-uid']").text(),
                             b:$("span[name='friend-regdate']").text(),
                             c:$("span[name='friend-whiteQuotal']").text(),
                             d:$("span[name='sharder-deal-base']").text(),
                             e:$("span[name='user-test-text11']").text(),
                             f:$("span[name='user-test-text12']").text()};
-
                         $(".paging-query").css("display","none");
                         $(".crowd-funding.details").css("border-bottom","0");
                         $(".rebate.details").css("border-bottom","0");
-                        if(num == 2){
+                        if(_t == "zhongchou"){
                             app.crowd=!app.crowd;
                             app.isRebate=false;
-                            app.name = "fandianzhongchou";
-                            app.template=app.name;
                             app.paging();
-                        }else if(num == 1){
+                        }else if(_t == "fandian"){
                             app.isRebate=!app.isRebate;
                             app.crowd=false;
-                            app.name = "fandian";
-                            app.template=app.name;
                             app.paging();
                         }else {
                             window.alert("无法识别的事件！！！");
@@ -232,39 +248,6 @@
                         if(app.crowd == true || app.isRebate == true){
                             $(".paging-query").css("display","block");
                         }
-                        app.pagingQuery(1);
-                    },
-                    pagingQuery:function (num) {
-                        var url = "";
-                        if(app.name == "baimingdan"){
-                            url += "/details_whitelist.ss?pageNo="+num ;
-                        }else if(app.name == "zhongchou"){
-                            url += "/details_whitelist.ss?pageNo="+num ;//需要修改
-                        }else if(app.name == "fandian"){
-                            url += "/user_center/invite_awaer.ss?pageNo="+num ;//需要修改
-                        }else{
-                            window.alert("请求异常！！！");
-                            return;
-                        }
-                        url +="&pageSize=10";
-                        console.info(url);
-                        $.ajax({
-                            type: "get",
-                            url:url,
-                            dataType: "json",
-                            success: function(_result) {
-                                console.info(_result);
-                                if(num >Math.ceil(_result.result.data.totalCount/10.0)) {
-                                    app.dataList = false;
-                                    return;
-                                }
-                                app.dataList = _result.result.data;
-                                console.info(app.dataList);
-                            },
-                            error:function(){
-                                console.error("ajax请求异常！！！");
-                            }
-                        });
                     },
                     retruenTExt:function (bool) {
                         if(bool){
@@ -280,7 +263,6 @@
                             return $("#guanbis").text();
                         }
                     },
-
                 },
                 components:{
                     'zhongchou':{

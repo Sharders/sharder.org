@@ -1,7 +1,9 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
+
 <@lay.htmlHead    pagename="invest_item">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/invest_crowd_funding.css">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/invest_item.css">
+
 </@lay.htmlHead>
 <@lay.htmlBody>
 <div class="ss-mian" id="invest_item">
@@ -80,8 +82,9 @@
         <div class="main-participate-in" id="">
             <h2 class="i18n" name="add_img_container">直投</h2>
             <ul>
-                <li class="main-participate-head-title"><span class="i18n" name="sharder-user-subscribe-quota">你当前的白名单额度为:</span><span class="color">${maxSubscribe}ETH</span></li>
-                <li class="button">
+                <form id="invest_form">
+                    <li class="main-participate-head-title"><span class="i18n" name="sharder-user-subscribe-quota">你当前的白名单额度为:</span><span class="color">${maxSubscribe}ETH</span></li>
+                    <li class="button">
 
                     <input type="radio" id="eth" name="SS" checked="checked" style="display: none">
                     <label for="eth" v-on:click="selectedPayType('ETH'),zero=''">
@@ -97,12 +100,12 @@
                     <#--</label>-->
                 </li>
                 <li class="input">
-                    <input type="number" placeholder="输入支持数量" name="payAmount" class="i18n" oninput="investTransition(app.payType,this)" :value="zero" input-type="icoin">
+                    <input type="text" placeholder="输入支持数量" name="payAmount" class="i18n" oninput="investTransition(app.payType,this)" :value="zero" input-type="icoin">
                     <span class="dengyu">=</span>
-                    <input type="number" oninput="investTransition(app.payType,this)" :value="zero" maxlength="4" input-type="ss">
+                    <input type="text" oninput="investTransition(app.payType,this)" :value="zero" maxlength="4" input-type="ss">
                     <p><span class="unit btc">{{payType}}</span><span class="unit ss" maxlength="10">SS</span></p>
                 </li>
-                <li id="transfer"><button class="complete-transfer i18n" name="sharder-transfer" v-on:click="transfer()">获得转账地址</button></li>
+                <li id="transfer"><button type="button" class="complete-transfer i18n" name="sharder-transfer" v-on:click="transfer()">获得转账地址</button></li>
                 <div id="transfer_details" style="display: none">
                     <li>
                         <div class="pay-text">
@@ -111,7 +114,7 @@
                             <p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账成功后为了保证您的资金安全，转账后请加客服微信并将转账成功的截图发给我们。我们将为您进行一对一的确认。</p>
                         </div>
                         <div id="walletAddr_qr_code"></div>
-                        <p class="bg-walletQr"><span class="i18n"  name="sharder-addr-wallet">转账地址: </span><span id="walletQr-text">{{walletAddr}}</span></p>
+                        <p class="bg-walletQr"><span class="i18n"  name="sharder-addr-wallet">转账地址: </span><span id="walletQr-text">{{walletAddr}}</span><img src="/r/cms/resource/sharders/img/copyicon.svg" class="copy-icon" onclick="copyTextById('walletQr-text')"></p>
                     </li>
                     <li>
                         <div class="trade_prove">
@@ -125,8 +128,9 @@
                         </div>
                         <input type="hidden" name="tradeImgAddr">
                     </li>
-                    <li><button class="complete_transfer i18n" name="sharder-completed-transfer" v-on:click="prompt()">完成转账</button>
-                        <button class="complete_transfer i18n tesu" name="sharder-copy" onclick="jsCopy()">复制地址</button></li>
+                    <li>
+                        <button type="button" class="complete_transfer i18n" name="sharder-completed-transfer" v-on:click="prompt()">完成转账</button>
+                        <#--<button class="complete_transfer i18n tesu" name="sharder-copy" onclick="jsCopy()">复制地址</button></li>-->
                 </div>
             </ul>
         </div>
@@ -153,18 +157,9 @@
     <span class="i18n" name="copyok" style="display: none">复制成功</span>
 </div>
 <span class="i18n" name="nihaimeishurujine" style="display: none">你还没输入金额哦</span>
-<script src="${resSys}/resource/sharders/js/jquery.qrcode-0.12.0.min.js" type="text/javascript"></script>
+
 <script>
-    function jsCopy() {
-        var text = document.getElementById("walletQr-text").innerText;
-        var input = document.createElement("input");
-        input.value = text;
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand("Copy");
-        input.remove();
-        layer.msg($("span[name='copyok']").text());
-    }
+
 
 
     var config = new Object();
@@ -186,5 +181,7 @@
 
 </script>
 
+<script src="${resSys}/resource/sharders/js/jquery.qrcode-0.12.0.min.js" type="text/javascript"></script>
 <script src="/r/cms/resource/sharders/js/invest_item.js"></script>
+
 </@lay.htmlBody>

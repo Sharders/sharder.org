@@ -31,6 +31,10 @@
                         <a href="/whitepaper/preview.ss?type=urlTechZh" target="_blank">
                             <button class="down-btn <#if "2"==flag>active</#if> i18n" name="ch">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>
                         </a>
+
+                        <#--<a href="JavaScript:void('')" target="_blank">-->
+                            <#--<button class="down-btn i18n closed"  name="zh">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>-->
+                        <#--</a>-->
                         <#--<a href="/whitepaper/preview.ss?type=urlTechEn" target="_blank">-->
                         <a href="JavaScript:void('')" target="_blank">
                             <button class="down-btn i18n closed"  name="en">EN<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button>

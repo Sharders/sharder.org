@@ -95,7 +95,7 @@
         <div class="total-assets">
             <span class="personal-total-assets i18n" name="sharsder-my-total-assets">总资产</span>
             <span class="sharder-ss i18n" name="sharder-SS">豆匣(SS)</span>
-            <span class="shardr-assets">0</span>
+            <span class="shardr-assets">${amount!"0"}</span>
         </div>
         <div class="subscribe-crowd-funding">
             <div class="personal white-list">
@@ -125,7 +125,7 @@
                 <span class="details" v-on:click="selectTmpl('fandian')">{{retruenTExt(isOff3)}}</span>
             </div>
         </div>
-        <div class="subscribe-list" id="subscribe-list">
+        <div class="subscribe-list" id="subscribe-list" v-if="showDetail">
             <#--<span class="subscribe-title">{{nameText(name)}}</span>-->
             <component :is="template"></component>
             <!--交易记录end-->
@@ -203,24 +203,47 @@
                     <td>{{dealBase.whitelistsQuota==(''||null)?'-':dealBase.whitelistsQuota}}</td>
                     <td>{{dealBase.dealBase==(''||null)?'-':dealBase.dealBase}}</td>
                 </tr>
-                <tr>
-                    <td colspan="4" v-if="parentData.dealBases == ''"><span style="color: red">{{parentData.title.e}}</span><a href="#member_center" >{{parentData.title.f}}</a></td>
-                </tr>
             </tbody>
         </table>
+        <p  v-if="showHint"><span style="color: red">{{parentData.title.e}}</span><a href="#member_center" >{{parentData.title.f}}</a></p>
     </div>
 </script>
 <script type="text/x-template" id="rebate-details">
-    <div class="rebate-details subscribe-body">
-        <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-participation-time">参与时间</span><span class="subscribe-table i18n" name="sharder-stage-participation">参与阶段</span><span class="subscribe-table i18n" name="sharder-source">来源</span><span class="subscribe-table special i18n" name="sahrder-support-quantity">支持数量</span><span class="subscribe-table i18n" name="sharder-obtain-token">获得代币(SS)</span><span class="subscribe-table i18n" name="sharder-use-white-list">使用白名单额度</span><span class="subscribe-table i18n" name="sharder-white-list-award">白名单奖励</span></p>
-        <ul class="subscribe-ul">
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-            <li class="subscribe-li"><span class="subscribe-table">2018-01-23 09:20</span><span class="subscribe-table">早鸟轮</span><span class="subscribe-table">官网</span><span class="subscribe-table special">1000BTC</span><span class="subscribe-table">1000BTC</span><span class="subscribe-table">10ETH</span><span class="subscribe-table">200SS</span></li>
-        </ul>
+    <div>
+        <span class="subscribe-title i18n" name="friend-invite-reward">邀请奖励</span>
+        <table class="ss-table defalut">
+            <thead>
+            <tr>
+                <th class="i18" name="friend-regid">参与时间</th>
+                <th class="i18" >参与阶段</th>
+                <th class="i18" name="friend-whiteQuotal">来源</th>
+                <th class="i18" name="friend-backQuotal">支持数量</th>
+                <th class="i18" name="friend-backQuotal">使用白名单额度</th>
+                <th class="i18" name="friend-backQuotal">白名单奖励</th>
+                <th class="i18" name="friend-backQuotal">获得代币（SS）</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="dealBase in parentData.dealBases.list" >
+                <td>{{dealBase.createDate}}</td>
+                <td>
+                    <span v-if="dealBase.source == 'PhaseII'">
+                        早鸟
+                    </span>
+                    <span v-if="dealBase.source == 'PhaseIII'">
+                        众筹
+                    </span>
+                </td>
+                <td v-if="dealBase.source == 'Store'">商城</td>
+                <td v-else>官网</td>
+                <td>{{dealBase.payAmount}}</td>
+                <td>{{dealBase.useWhitelistsQuota}}</td>
+                <td>{{dealBase.awardAmount}}</td>
+                <td>{{dealBase.amount}}</td>
+            </tr>
+            </tbody>
+            <p  v-if="showHint"><span style="color: red">{{parentData.title.e}}</span><a href="#member_center" >{{parentData.title.f}}</a></p>
+        </table>
     </div>
 </script>
 <script src="/r/cms/resource/sharders/js/pagination.js"></script>
@@ -250,12 +273,11 @@
                     totalPage:0, //总页数
                     /*分页参数end*/
                     dealBases:'',
-                    isOff1:true,
-                    isOff2:true,
+                    isOff2:true,    //是否已关闭
                     isOff3:true,
                     template:"",
                     dataList:"",
-                    name:"",
+//                    name:"",
                     id:${user.id!},
                     number:10,
                     isOpenWindos:true,
@@ -264,11 +286,13 @@
                     asset_template:'', //我的资产模板
                     title:'',
                     isData:true,
+                    showDetail:false,
+                    showHint:false, //没有数据时是否显示提示
                 },
                 methods: {
                     //选择要显示的数据
                     selectTmpl:function(_t){
-
+                        pc.dealBases = "";
                         pc.title={a:$("span[name='sharder-registrant-uid']").text(),
                             b:$("span[name='friend-regdate']").text(),
                             c:$("span[name='friend-whiteQuotal']").text(),
@@ -276,21 +300,26 @@
                             e:$("span[name='user-test-text11']").text(),
                             f:$("span[name='user-test-text12']").text()};
 
-                        if($("#subscribe-list").css("display") == "block"){
-                            $("#subscribe-list").css("display","none");
-                        }else if($("#subscribe-list").css("display") == "none"){
-                            $("#subscribe-list").css("display","block");
-                        }else {
-                            window.console.error("数据列表无法打开，请求刷新界面后重试！！！")
-                        }
                         //设置选中的模板
                         pc.template = _t;
                         if(_t == "fandian"){
                             pc.isOff3 = pc.isOff3 ? false : true;
+                            pc.isOff2 = true;
                             if(pc.isOff3){
                                 pc.template="";
-                                return;
                             }
+                        }
+                        if(_t == "zhongchou"){
+                            pc.isOff2 = pc.isOff2 ? false : true;
+                            pc.isOff3 = true;
+                            if(pc.isOff2){
+                                pc.template="";
+                            }
+                        }
+
+
+                        if(!pc.isShowDetail()){
+                            return;
                         }
                         if(_t == "zhongchou"){
                             pc.isOff2 = pc.isOff2 ? false : true;
@@ -307,6 +336,8 @@
                     },
                     pagingDate:function (_t) {
                         if(isEmpty(_t)){
+                        layer.load(2);
+                        if(isEmpty(_t)){
                             _t = pc.asset_template;
                         }else{
                             pc.asset_template = _t;
@@ -318,6 +349,7 @@
                         }else if(_t == "zhongchou"){
                             //备用
                             requestUrl = "/user_center/invite_awaer.ss";
+                            requestUrl = "/user_center/zhong_chou.ss";
                         }else{
 
                         }
@@ -325,12 +357,13 @@
                         commAjax(requestUrl,"get",data,pc.loadDealbaseResult);
                     },
                     loadDealbaseResult:function (_result) {
+                        layer.closeAll('loading');
                         if (isTrue(_result.success)){
                             pc.dealBases = _result.result.data;
                             pc.setPaging(pc.dealBases);
-                        }else{
-//                            layer.msg(_result.message);
-                            return;
+                            if(isEmpty(pc.dealBases)){
+                                pc.showHint = true;
+                            }
                         }
                     },
                     msgListView:function(curPage){
@@ -375,8 +408,6 @@
                             input3.css("box-shadow","0px 0px 6px red");
                             pc.isSubmit = false;
                         }
-                        window.console.info(pc.isSubmit);
-                        window.console.info(input1.val()+"========"+input2.val()+"========"+input3.val());
                     },
 
                     editPwd:function () {
@@ -409,6 +440,16 @@
                             return $("#guanbis").text();
                         }
                     },
+                    isShowDetail:function () {
+                        //全部都关闭了
+                        if(pc.isOff2 && pc.isOff3){
+                            pc.showDetail =false;
+                            return false;
+                        }else{
+                            pc.showDetail =  true;
+                            return true;
+                        }
+                    }
                 },
                 components:{
                     'baimingdan':{

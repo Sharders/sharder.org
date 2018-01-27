@@ -11,10 +11,10 @@
         <#include "invest_timeline.ftl" />
         <section class="distribution-program">
             <div class="price-conversion">
-                <span class="i18n" name="crowd-step-whitelist1">白名单阶段:1ETH=70000SS</span>
-                <span class="i18n" name="crowd-step-whitelist2">早鸟轮阶段:1ETH=55000SS</span>
-                <span class="i18n" name="crowd-step-whitelist3">众筹轮(前三天):1ETH=35000SS</span>
-                <span class="i18n" name="crowd-step-whitelist4">众筹轮阶段:1ETH=32000SS</span>
+                <span ><span class="i18n" name="crowd-step-whitelist1">白名单阶段</span>:1ETH=${ETH_A_PRICE!}SS</span>
+                <span ><span class="i18n" name="crowd-step-whitelist2">早鸟轮阶段</span>:1ETH=${ETH_B_PRICE!}SS</span>
+                <span><span class="i18n" name="crowd-step-whitelist3">众筹轮(前三天)</span>:1ETH=${ETH_C_PRICE!}SS</span>
+                <span><span class="i18n" name="crowd-step-whitelist4">众筹轮阶段</span>:1ETH=${ETH_D_PRICE!}SS</span>
                 <div class="duihuan-jieshi-div">
                     <p class="duihuan-jieshi i18n" name="duihuan-jieshi">由于虚拟货币市场价格波动性，我们会根据早鸟开始时间(北京时间2018年1月29日9:00)前7天的市场收盘均价确定锁定价格和兑换数量。目前兑换比例仅供大家参考！</p>
                 </div>
