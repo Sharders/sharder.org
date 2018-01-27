@@ -33,8 +33,9 @@
         <h3 class="<#if isMobile>ss-head<#else>ss-sub-title</#if> i18n" name="sharder-participation-process">众筹参与流程</h3>
         <p class="generalTextColor i18n" name="sharder-flow-path-text1">为了确保公平、公正、公开以及方便广大投资者参与。可以通过下面三种方式参与众筹</p>
         <p class="generalTextColor"><span class="flow-title i18n" name="sharder-flow-path-text2">1、官网直投：</span><span class="i18n" name="sharder-flow-path-text3">比特币BTC、以太坊ETH在豆匣官网参与。</span></p>
-        <p class="generalTextColor"><span class="flow-title i18n" name="sharder-flow-path-text4">2、商城众筹：</span><span class="i18n" name="sharder-flow-path-text5">前往商城购买定制商品可获赠豆匣积分，豆匣积分可1:1兑换豆匣SS。</span></p>
-        <p class="generalTextColor"><span class="flow-title i18n" name="sharder-flow-path-text9">3、智能合约：</span><span class="i18n" name="sharder-flow-path-text10">众筹轮可以直接向智能合约地址转账，以太坊智能合约会自动发送豆匣SS。</span></p>
+        <p class="generalTextColor"><span class="flow-title i18n" name="sharder-flow-path-text4">2、智能合约：</span><span class="i18n" name="sharder-flow-path-text5">众筹轮可以直接向智能合约地址转账，以太坊智能合约会自动发送豆匣SS。</span></p>
+        <p class="generalTextColor"><span class="flow-title i18n" name="sharder-flow-path-text9">3、交易所众筹：</span><span class="i18n" name="sharder-flow-path-text10">交易所众筹以固定汇率兑换，代币由交易所发放。
+</span></p>
 </#macro>
 
 <#macro investXX isMobile=false>

@@ -46,7 +46,7 @@
     <section class="ss-main-plan">
         <h3 class="ss-head i18n" name="sharder-distribution">Token分配</h3>
         <p class="ss-plan-text i18n" name="sharder-invest-text3">本次众筹Token是(Sharder Storage 简称SS),SS是一种符合以太坊ERC20标准的Token。SS总共发行5亿,分配计划如下：</p>
-        <div id="distribution_ratio" ></div>
+        <div id="distribution_ratio"  style="width: 360px;height: 260px;"></div>
         <@investTpl.tokenRatio/>
         <div class="see-details">
             <input type="checkbox" class="" id="rule" style="display: none">

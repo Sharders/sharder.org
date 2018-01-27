@@ -79,7 +79,7 @@
 
             <div class="participation">
                 <form action="#" id="invest_form">
-                    <p class="ss-main-title invset-h4 i18n" name="sharder-angel-wheel-participate">参与</p>
+                    <p class="ss-main-title invset-h4 i18n" name="add_img_container">直投</p>
                     <p><span class="i18n" name="sharder-available-subscribe">可用的白名单额度: </span><span>{{available}}ETH</span>=<span>{{available*currency.ETH/currency.BTC}}BTC</span>
                         <#--=<span>{{available*currency.ETH/currency.LTC}}LTC</span>-->
                     </p>
@@ -113,11 +113,11 @@
                         </div>
                         <div class="trade_prove">
                             <div class="user-wallet-addr">
-                                <label for="user_wallet_addr" >请填写<span style="color: red;">您转账</span>的钱包地址:</label>
+                                <label for="user_wallet_addr" ><span class="i18n" name="sharder-invest-item1">请填写</span><span style="color: red;" class="i18n" name="sharder-invest-item2">您转账</span><span class="i18n" name="sharder-invest-item3">的钱包地址</span>:</label>
                                 <input id="user_wallet_addr" name="payWalletAddr">
                             </div>
 
-                            <p class="hint-info">转币成功截图<span class="hint-info">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
+                            <p class="hint-info"><span class="i18" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
                             <div id="add_img"></div>
                         </div>
                         <input type="hidden" name="tradeImgAddr">
@@ -145,8 +145,7 @@
     </div>
 </div>
 <div class="popup i18n" name ="sharder-Thank" style="display: none">感谢您支持豆匣众筹。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
-<span class="i18n" name="copyok" style="display: none">复制成功</span>
-<span class="i18n" name="nihaimeishurujine" style="display: none">你还没输入金额哦</span>
+<#include "/WEB-INF/ftl/sharders/hint/hint.ftl">
 <#--<script src="${resSys}/resource/sharders/js/jquery.zeroclipboard.js" type="text/javascript"></script>-->
 <script src="${resSys}/resource/sharders/js/jquery.qrcode-0.12.0.min.js" type="text/javascript"></script>
 <script>
@@ -165,10 +164,8 @@
         var config = new Object();
 
         var walletAddrs = new Array();
-
-
         <#list config ? keys as key >
-            config.${key} =  "${config[key]!}";
+            config.${key!"default"} =  "${config[key]!}";
         </#list>
         <#list walletAddr as addr>
             var walletAddr = new Object();
@@ -180,73 +177,7 @@
         <#if maxSubscribe ?? && nowSubscribe??>
                 number = ${maxSubscribe-nowSubscribe};
         </#if>
-
-    var app = new Vue({
-        el:'#invest_item',
-        data:{
-            payType:'',
-            zero:'',
-            walletAddr:'',
-            currency:'',
-            available:number,
-            isShowTransfer:true,
-        },
-        methods:{
-            selectedPayType:function (payType) {
-                app.payType = payType;
-                app.setWalletAddr(payType);
-                app.currency={"BTC":config.LOCK_PRICE_BTC,"ETH":config.LOCK_PRICE_ETH,"LTC":config.LOCK_PRICE_LTC};
-            },
-            setWalletAddr:function (payType) {
-               var _walletAddr =  getWalletAddr(walletAddrs,payType);
-                app.walletAddr = _walletAddr;
-                $("#walletAddr_qr_code").empty();
-               if(isNotNull(_walletAddr)){
-                    jQuery("#walletAddr_qr_code").qrcode({
-                        render: "canvas",
-                        text:_walletAddr
-                    });
-                   var qr=$("#walletAddr_qr_code canvas");
-                   qr.css("padding","10px");
-                   qr.css("width","156px");
-                   qr.css("height","156px");
-                   qr.css("border","2px solid");
-               }
-               $(".participation .pay-types li img").css("background-color","#ffffff");
-               $(".participation .pay-types li img").css("border-radius","50%");
-            },
-            transfer:function () {
-                var inputNumber = $("input[name='payAmount']").val();
-                if(inputNumber != null && inputNumber > 0){
-                    $("#transfer_details").css("display","block");
-                    $("#transfer").css("display","none");
-
-                    $("#add_img").load("/r/cms/resource/sharders/html/add_img2.html");
-
-                }else{
-                    layer.msg($("span[name='nihaimeishurujine']").text());
-                }
-            },
-            prompt:function () {
-                //这里需要判断输入金额
-                var inputNumber = $("input[name='payAmount']").val();
-                if(inputNumber != number && inputNumber > 0){
-                    var requestUrl = "/invest/invest.ss";
-                    var _data = $("#invest_form").serialize();
-                    commAjax(requestUrl,"post",_data,app.promptResult);
-                }else{
-                    layer.msg($("span[name='nihaimeishurujine']").text());
-                    return;
-                }
-            },
-            promptResult:function (_result) {
-                layer.msg($(".popup").text(),{
-                    time: 5000, //5s后自动关闭
-                    btn: ['OK']
-                });
-            }
-        }
-    })
-    app.selectedPayType("BTC");
 </script>
+
+<script src="/r/cms/resource/sharders/js/invest_item.js"></script>
 </@layout.htmlBody>

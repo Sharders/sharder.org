@@ -78,7 +78,7 @@
             </li>
         </ul>
         <div class="main-participate-in" id="">
-            <h2 class="i18n" name="sharder-angel-wheel-participate">参与</h2>
+            <h2 class="i18n" name="add_img_container">直投</h2>
             <ul>
                 <li class="main-participate-head-title"><span class="i18n" name="sharder-user-subscribe-quota">你当前的白名单额度为:</span><span class="color">${maxSubscribe}ETH</span></li>
                 <li class="button">
@@ -116,11 +116,11 @@
                     <li>
                         <div class="trade_prove">
                             <div class="user-wallet-addr">
-                                <label for="user_wallet_addr" >请填写<span style="color: red;">您转账</span>的钱包地址:</label>
+                                <label for="user_wallet_addr" ><span class="i18n" name="sharder-invest-item1">请填写</span><span style="color: red;" class="i18n" name="sharder-invest-item2">您转账</span><span class="i18n" name="sharder-invest-item3">的钱包地址</span>:</label>
                                 <input id="user_wallet_addr" name="payWalletAddr">
                             </div>
 
-                            <p class="hint-info">转币成功截图<span class="hint-info">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
+                            <p class="hint-info"><span class="i18" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
                             <div id="add_img"></div>
                         </div>
                         <input type="hidden" name="tradeImgAddr">
@@ -170,8 +170,6 @@
     var config = new Object();
 
     var walletAddrs = new Array();
-
-
         <#list config ? keys as key >
         config.${key} =  "${config[key]!}";
         </#list>
@@ -181,84 +179,12 @@
         walletAddr.type = "${addr.type!}";
         walletAddrs.push(walletAddr);
         </#list>
-    var number = 0;
+        var number = 0;
         <#if maxSubscribe ?? && nowSubscribe??>
         number = ${maxSubscribe-nowSubscribe};
         </#if>
 
-    var app = new Vue({
-        el:'#invest_item',
-        data:{
-            payType:'',
-            zero:'',
-            walletAddr:'',
-            currency:'',
-            available:number,
-            isShowTransfer:true,
-        },
-        methods:{
-            selectedPayType:function (payType) {
-                app.payType = payType;
-                app.setWalletAddr(payType);
-                app.currency={"BTC":config.LOCK_PRICE_BTC,"ETH":config.LOCK_PRICE_ETH,"LTC":config.LOCK_PRICE_LTC};
-            },
-            setWalletAddr:function (payType) {
-
-                var _walletAddr =  getWalletAddr(walletAddrs,payType);
-                console.log("dizhi"+_walletAddr);
-                app.walletAddr = _walletAddr;
-                $("#walletAddr_qr_code").empty();
-                if(isNotNull(_walletAddr)){
-                    jQuery("#walletAddr_qr_code").qrcode({
-                        render: "canvas",
-                        text:_walletAddr
-                    });
-                    var qr=$("#walletAddr_qr_code canvas");
-                    qr.css("padding","10px");
-                    qr.css("width","156px");
-                    qr.css("height","156px");
-                    qr.css("border","2px solid");
-                }
-                $(".participation .pay-types li img").css("background-color","#ffffff");
-                $(".participation .pay-types li img").css("border-radius","50%");
-            },
-            transfer:function () {
-                var inputNumber = $("input[name='payAmount']").val();
-                if(inputNumber != null && inputNumber > 0){
-                    $("#transfer_details").css("display","block");
-                    $("#transfer").css("display","none");
-                    $("#add_img").load("/r/cms/resource/sharders/html/add_img2.html");
-                }else {
-                    layer.msg($("span[name='nihaimeishurujine']").text());
-                }
-
-            },
-            prompt:function () {
-
-                //这里需要判断输入金额
-                var payAmount =  $("input[name='payAmount']").val();
-
-                if(payAmount == null || payAmount<=0){
-                    return;
-                }
-
-
-
-                var requestUrl = "/invest/invest.ss";
-                var _data = $("#invest_form").serialize();
-                commAjax(requestUrl,"post",_data,"");
-                layer.msg($(".popup").text(),{
-                    time: 5000, //5s后自动关闭
-                    btn: ['OK']
-                });
-//                var style = $(".popup").css("display");
-//                if(style == "none"){
-//                    $(".popup").css("display","block");
-//                    setTimeout('$(".popup").css("display","none")',5000);
-//                }
-            },
-        }
-    })
-    app.selectedPayType("ETH");
 </script>
+
+<script src="/r/cms/resource/sharders/js/invest_item.js"></script>
 </@lay.htmlBody>
