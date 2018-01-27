@@ -112,8 +112,7 @@
                     <div class="popup-crowd-funding i18n" name="sharder-subscribe-text2">获得的豆匣（SS）数量。</div></span>
                 <span class="currency i18n" name="sharder-SS">豆匣(SS)</span>
                 <span class="quota">0</span>
-                <#--<span class="details" v-on:click="isLuck(2)">{{retruenTExt(isOff2)}}</span>-->
-                <span class="details" >{{retruenTExts(isOff2)}}</span>
+                <span class="details" v-on:click="selectTmpl('zhongchou')">{{retruenTExts(isOff2)}}</span>
             </div>
             <div class="personal rebate">
 
@@ -171,23 +170,9 @@
         <span class="close" v-on:click="winOpen()" >X</span>
     </div>
 </div>
-<div style="display: none">
-    <span id="chakan" class="i18n" name="user-test-text1">查看邀请详情</span>
-    <span id="guanbi" class="i18n" name="user-test-text2">关闭邀请详情</span>
-    <span id="subscribe" class="i18n" name="user-test-text3">白名单额度详情</span>
-    <span id="crodw-funding" class="i18n" name="user-test-text4">众筹所得详情</span>
-    <span id="fandian" class="i18n" name="user-test-text5">返点奖励详情</span>
-    <span id="erro" class="i18n" name="user-test-text6">未知错误</span>
-    <span id="chakans" class="i18n" name="user-test-text7">查看众筹详情</span>
-    <span id="guanbis" class="i18n" name="user-test-text8">关闭众筹详情</span>
-    <span class="i18n" name="sharder-registrant-uid">注册人UID</span>
-    <span class="i18n" name="friend-regdate">注册时间</span>
-    <span class="i18n" name="friend-whiteQuotal">白名单额度</span>
-    <span class="i18n" name="sharder-deal-base">返点奖励/SS</span>
-    <span class="i18n" name="copyok">复制成功</span>
-    <span class="i18n"name="user-test-text11">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>
-    <span class="i18n"name="user-test-text12">立刻邀请</span>
-</div>
+
+<#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
+
 <div class="maker"></div>
 
 <script type="text/x-template" id="details-white-list">
@@ -307,6 +292,13 @@
                                 return;
                             }
                         }
+                        if(_t == "zhongchou"){
+                            pc.isOff2 = pc.isOff2 ? false : true;
+                            if(pc.isOff2){
+                                pc.template="";
+                                return;
+                            }
+                        }
 
                         //重新设置分页
                         pc.currentPage = 1;
@@ -314,15 +306,18 @@
                         pc.pagingDate(_t);
                     },
                     pagingDate:function (_t) {
-                        if(typeof _t == undefined || _t == null || _t == ""){
+                        if(isEmpty(_t)){
                             _t = pc.asset_template;
+                        }else{
+                            pc.asset_template = _t;
                         }
                         var requestUrl = "";
                         if(_t == "fandian"){
-                            pc.asset_template = _t;
+
                             requestUrl = "/user_center/invite_awaer.ss";
-                        }else if(_t == "xxxx"){
+                        }else if(_t == "zhongchou"){
                             //备用
+                            requestUrl = "/user_center/invite_awaer.ss";
                         }else{
 
                         }

@@ -116,11 +116,11 @@
                         </div>
                         <div class="trade_prove">
                             <div class="user-wallet-addr">
-                                <label for="user_wallet_addr" ><span class="i18n" name="sharder-invest-item1">请填写</span><span style="color: red;" class="i18n" name="sharder-invest-item2">您转账</span><span class="i18n" name="sharder-invest-item3">的钱包地址</span>:</label>
+                                <label for="user_wallet_addr" >请填写<span style="color: red;">您转账</span>的钱包地址:</label>
                                 <input id="user_wallet_addr" name="payWalletAddr">
                             </div>
 
-                            <p class="hint-info"><span class="i18" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
+                            <p class="hint-info">转币成功截图<span class="hint-info">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
                             <div id="add_img"></div>
                         </div>
                         <input type="hidden" name="tradeImgAddr">
