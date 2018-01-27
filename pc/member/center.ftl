@@ -321,21 +321,12 @@
                         if(!pc.isShowDetail()){
                             return;
                         }
-                        if(_t == "zhongchou"){
-                            pc.isOff2 = pc.isOff2 ? false : true;
-                            if(pc.isOff2){
-                                pc.template="";
-                                return;
-                            }
-                        }
-
                         //重新设置分页
                         pc.currentPage = 1;
                         pc.countOfCurrentPage = 10 ;
                         pc.pagingDate(_t);
                     },
                     pagingDate:function (_t) {
-                        if(isEmpty(_t)){
                         layer.load(2);
                         if(isEmpty(_t)){
                             _t = pc.asset_template;
@@ -348,7 +339,6 @@
                             requestUrl = "/user_center/invite_awaer.ss";
                         }else if(_t == "zhongchou"){
                             //备用
-                            requestUrl = "/user_center/invite_awaer.ss";
                             requestUrl = "/user_center/zhong_chou.ss";
                         }else{
 

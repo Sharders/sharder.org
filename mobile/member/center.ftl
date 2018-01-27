@@ -129,7 +129,7 @@
 </script>
 <script type="text/x-template" id="rebate_details_mb">
     <div class="rebate-details subscribe-body">
-        <p class="subscribe-head"><span class="subscribe-table i18n" name="friend-regid">{{parentData.title.a}}</span><span class="subscribe-table i18n" >{{parentData.title.b}}</span><span class="subscribe-table i18n" name="friend-whiteQuotal">{{parentData.title.c}}</span><span class="subscribe-table i18n" name="friend-backQuotal">{{parentData.title.d}}</span></p>
+        <p class="subscribe-head"><span class="subscribe-table i18n" name="friend-regid">{{parentData.title.a}}</span><span class="subscribe-table i18n" >{{parentData.title.b}}</span><span class="subscribe-table i18n" >{{parentData.title.c}}</span><span class="subscribe-table i18n" name="friend-backQuotal">{{parentData.title.d}}</span></p>
         <ul class="subscribe-ul">
             <li class="subscribe-li" v-if="parentData.dataList == false"><span style="color: red;font-size: 11px;">{{parentData.title.e}}</span><a href="#member_center" style="font-size: 11px;">{{parentData.title.f}}</a></li>
             <li class="subscribe-li" v-for="dealBase in parentData.dataList.list"><span class="subscribe-table">{{dealBase.userId}}</span><span class="subscribe-table">{{dealBase.registerDate}}</span><span class="subscribe-table special">{{dealBase.whitelistsQuota==(''||null)?'-':dealBase.whitelistsQuota}}</span><span class="subscribe-table">{{dealBase.dealBase==(''||null)?'-':dealBase.dealBase}}</span></li>

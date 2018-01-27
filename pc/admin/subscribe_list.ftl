@@ -157,6 +157,7 @@
                 ]]
                 ,data:_data
                 ,even: true//双数行颜色加重
+                ,page: true //开启分页
             });
         }
         start();
