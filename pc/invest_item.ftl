@@ -49,7 +49,10 @@
         <section class="invest-item">
             <h3 class="ss-sub-title i18n" name="sharder-angel-wheel">早鸟轮</h3>
             <p class="i18n" name="sharder-invest-time-start-end">1月29日9:00-2月11日23:59</p>
-            <div class="ss-row-timeline"></div>
+            <#--<div class="ss-row-timeline"></div>-->
+            <div class="sharder-row-timeline">
+                <span style="width: 10%"></span>
+            </div>
             <div class="clause">
                 <h4 class="invset-h4 i18n" name="sharder-rule">规则</h4>
                 <ul>
