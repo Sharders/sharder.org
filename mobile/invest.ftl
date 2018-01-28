@@ -1,7 +1,6 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
 <#import "/WEB-INF/t/cms/www/sharder.org/ss_tpl_invest.ftl" as investTpl/>
-
-<@lay.htmlHead    pagename="invest">
+<@lay.htmlHead>
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/invest.css">
 </@lay.htmlHead>
 <@lay.htmlBody>
@@ -26,27 +25,29 @@
             </li>
         </ul>
         <div class="sharder-link">
-            <#--<button class="i18n" name="">已结束</button>-->
-        <a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="canyubaimingdan">获得优惠</button></a>
-            <#--<a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyubaimingdan">正在进行</button></a>-->
+            <button class="i18n" name="canyubaimingdan">已结束</button>
+        <#--<a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="canyubaimingdan">获得优惠</button></a>-->
+            <a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">正在进行</button></a>
         <#--<button class="i18n" name="">已结束</button>-->
-        <button class="angel-btn i18n" name="canyutianshilun">参与早鸟</button>
+        <#--<button class="angel-btn i18n" name="canyutianshilun">参与早鸟</button>-->
         <#--<a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="canyubaimingdan">正在进行</button></a>-->
             <button class="crowd-funding-btn i18n" name="canyuzhongchoulun">参与众筹</button>
         </div>
 
         <ul class="sharder-money">
-            <li><span class="i18n" name="crowd-step-whitelist1">白名单阶段:1ETH=70000SS</span></li>
-            <li><span class="i18n" name="crowd-step-whitelist2">早鸟轮阶段:1ETH=55000SS</span></li>
-            <li><span class="i18n" name="crowd-step-whitelist3">众筹轮(前三天):1ETH=35000SS</span></li>
-            <li><span class="i18n" name="crowd-step-whitelist4">众筹轮阶段:1ETH=32000SS</span></li>
+            <li><span class="i18n" name="crowd-step-whitelist">早鸟轮阶段:1ETH=</span>${ETH_B_PRICE}SS</li>
+            <li><span class="i18n" name="crowd-step-earlybird">众筹轮轮阶段:1ETH=</span>${ETH_D_PRICE}SS</li>
+            <#--<li><span class="i18n" name="crowd-step-crowd-1st">众筹轮(前三天):1ETH=32300SS</span></li>-->
+            <#--<li><span class="i18n" name="crowd-step-crowd-2nd">众筹轮阶段:1ETH=29500SS</span></li>-->
         </ul>
         <p class="duihuan-jieshi i18n" name="duihuan-jieshi">由于虚拟货币市场价格波动性，我们会根据早鸟开始时间(北京时间2018年1月29日9:00)前7天的市场收盘均价确定锁定价格和兑换数量。目前兑换比例仅供大家参考！</p>
     </section>
     <section class="ss-main-plan">
         <h3 class="ss-head i18n" name="sharder-distribution">Token分配</h3>
         <p class="ss-plan-text i18n" name="sharder-invest-text3">本次众筹Token是(Sharder Storage 简称SS),SS是一种符合以太坊ERC20标准的Token。SS总共发行5亿,分配计划如下：</p>
-        <div id="distribution_ratio"  style="width: 360px;height: 260px;"></div>
+        <div id="distribution_ratio">
+            <img src="">
+        </div>
         <@investTpl.tokenRatio/>
         <div class="see-details">
             <input type="checkbox" class="" id="rule" style="display: none">
@@ -160,102 +161,65 @@
 </div>
 <script src="https://oss.sharder.org/sharder/js/echarts-all-3.js?v=${version!}" type="text/javascript"></script>
 <script>
-    var app = new Vue({
-        el: ".ss-main-participate",
-        data: {
-            crowdFunding:true,
-            bool:-1,
-            listDAta:'',
-        },
-        methods: {
-            tabBtn:function (num) {
-                if(app.bool == num){
-                    return ;
-                }else {
-                    app.bool = num;
-                }
-                $(".business-city").css("background-color","#000000");
-                $(".official-website-direct-investment").css("background-color","#000000");
+    var timeid;
+    timeid = window.setInterval(function () {
+        var PieChart = localStorage.getItem("end-of-translation");
+        if (PieChart) {
+            var app = new Vue({
+                el: ".ss-main-participate",
+                data: {
+                    crowdFunding:true,
+                    bool:-1,
+                    listDAta:'',
+                },
+                methods: {
+                    tabBtn:function (num) {
+                        if(app.bool == num){
+                            return ;
+                        }else {
+                            app.bool = num;
+                        }
+                        $(".business-city").css("background-color","#000000");
+                        $(".official-website-direct-investment").css("background-color","#000000");
 
-                $(".official-website-direct-investment div").css("display","none");
-                $(".business-city div").css("display","none");
-                if(app.crowdFunding){
-                    $(".official-website-direct-investment").css("background-color","#0ba0d1");
-                    $(".official-website-direct-investment div").css("display","block");
-                }else{
-                    $(".business-city").css("background-color","#0ba0d1");
-                    $(".business-city div").css("display","block");
+                        $(".official-website-direct-investment div").css("display","none");
+                        $(".business-city div").css("display","none");
+                        if(app.crowdFunding){
+                            $(".official-website-direct-investment").css("background-color","#0ba0d1");
+                            $(".official-website-direct-investment div").css("display","block");
+                        }else{
+                            $(".business-city").css("background-color","#0ba0d1");
+                            $(".business-city div").css("display","block");
+                        }
+                        app.crowdFunding = !app.crowdFunding;
+                        app.listDAta ={a:$(".text-text span[name='text-text1']").text(),
+                            b:$(".text-text span[name='text-text2']").text(),
+                            c:$(".text-text span[name='text-text3']").text(),
+                            d:$(".text-text span[name='text-text4']").text(),
+                            e:$(".text-text span[name='text-text5']").text(),
+                            f:$(".text-text span[name='text-text6']").text(),
+                            g:$(".text-text span[name='text-text7']").text(),
+                            h:$(".text-text span[name='text-text8']").text(),
+                            i:$(".text-text span[name='text-text9']").text(),
+                            j:$(".text-text span[name='text-text10']").text(),
+                            k:$(".text-text span[name='text-text11']").text()}
+                    },
                 }
-                app.crowdFunding = !app.crowdFunding;
-                app.listDAta ={a:$(".text-text span[name='text-text1']").text(),
-                    b:$(".text-text span[name='text-text2']").text(),
-                    c:$(".text-text span[name='text-text3']").text(),
-                    d:$(".text-text span[name='text-text4']").text(),
-                    e:$(".text-text span[name='text-text5']").text(),
-                    f:$(".text-text span[name='text-text6']").text(),
-                    g:$(".text-text span[name='text-text7']").text(),
-                    h:$(".text-text span[name='text-text8']").text(),
-                    i:$(".text-text span[name='text-text9']").text(),
-                    j:$(".text-text span[name='text-text10']").text(),
-                    k:$(".text-text span[name='text-text11']").text()}
-            },
+            });
+            app.tabBtn(1);
+            window.clearInterval(timeid);
         }
-    });
-//    app.tabBtn(1);
+    },100);
     function tabOpenUrl() {
 //        window.location.href="/invest/invest_item.ss";
     }
-</script>
-<script>
-    var timeid;
-    timeid= window.setInterval(function () {
-        var PieChart = localStorage.getItem("end-of-translation");
-        if(PieChart){
-            window.clearInterval(timeid);
+    setTimeout(function () {
+        console.log(i18nLanguage );
+        if(i18nLanguage == "zh-CN"){
+            $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/distributionratio.png");
+        }else if(i18nLanguage == "en"){
+            $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/distributionratioen.png");
         }
-        console.info(PieChart);
-        var myEcharts = echarts.init(document.getElementById("distribution_ratio"));
-
-        var language = localStorage.getItem("userLanguage");
-        if(language == "en"){
-            language = '43%';
-        }else if(language == "zh-CN"){
-            language = '65%';
-        }
-        option = {
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            color:['#063b5b','#098b7d','#83a821','#c9800c','#0ba0d1','#dc5f0a'],
-            series : [
-                {
-                    type: 'pie',
-                    radius : language,
-                    center: ['51%', '50%'],
-                    selectedMode: 'single',
-                    data:[
-                        {value:15, name: $(".text-text span[name='sharder-angel']").text()+'15%'},
-                        {value:35, name: $(".text-text span[name='navbar.zhongchou']").text()+'35%'},
-                        {value:10, name: $(".text-text span[name='text-text23']").text()+'10%'},
-                        {value:10, name: $(".text-text span[name='text-text24']").text()+'10%'},
-                        {value:20, name: $(".text-text span[name='text-text25']").text()+'20%'},
-                        {value:10, name: $(".text-text span[name='text-text26']").text()+'10%'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        };
-        myEcharts .setOption(option, true);
-        app.tabBtn(1);
     },100);
-
-
 </script>
 </@lay.htmlBody>

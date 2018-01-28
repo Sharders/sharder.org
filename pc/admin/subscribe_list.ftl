@@ -5,6 +5,8 @@
 <#--功能描述
     查询白名单，修改单个人的白名单额度
     页脚统计总数
+
+
 -->
 <div class="screen-speed-progress">
     <div class="screen">
@@ -25,7 +27,7 @@
                         <option value="">直接选择或搜索选择</option>
                         <option value="BTC">BTC</option>
                         <option value="ETH">ETH</option>
-                        <#--<option value="LTC">LTC</option>-->
+                    <#--<option value="LTC">LTC</option>-->
                     </select>
                 </div>
             </div>

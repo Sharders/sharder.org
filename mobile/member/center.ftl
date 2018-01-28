@@ -23,7 +23,7 @@
         <div class="sharders-total-assets">
             <p class="sharder-total-assets i18n" name="sharsder-my-total-assets">总资产</p>
             <p class="sharder-sharder i18n" name="sharder-SS">豆匣(SS)</p>
-            <p class="sharder-quota">0</p>
+            <p class="sharder-quota">${amount!"0"}</p>
         </div>
         <div class="crowd-funding-rebate">
                 <div class="crowd-funding details">
@@ -31,24 +31,24 @@
                         <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img" v-on:click="tabMessage(true)">
                         <span class="details-title i18n" name="sharder-subscribe-income">众筹所得</span>
                     </p>
-                    <p class="crowd-funding quota ">0SS</p>
+                    <p class="crowd-funding quota ">${crowd_amount!'0'}SS</p>
                     <#--<p class="details-colse" >{{retruenTExts(!crowd)}}</p>-->
-                    <p class="details-colse" v-on:click="tabBtn('zhongchou')">{{crowd ? "关闭详情" : "查看详情"}}</p>
+                    <p class="details-colse" v-on:click="tabBtn('zhongchou')">{{retruenTExts(!crowd)}}</p>
 
                 </div>
                 <div class="rebate details">
                     <p class="crowd-funding-title">
                         <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img img" v-on:click="tabMessage(false)">
-                        <span class="details-title i18n" name="sharder-subscribe-rebate">返点奖励</span>
+                        <span class="details-title i18n" name="sharder-subscribe-rebate">邀请奖励</span>
                     </p>
-                    <p class="rebate-quota quota">0SS</p>
+                    <p class="rebate-quota quota">${invite_rewards_amount!'0'}SS</p>
                     <#--<p class="details-colse" >{{isRebate ? "关闭详情" : "查看详情"}}</p>-->
                     <p class="details-colse" v-on:click="tabBtn('fandian')">{{retruenTExt(!isRebate)}}</p>
                 </div>
         </div>
         <div class="paging-query">
-                <component :is="template"></component>
-                <div id="page"></div>
+            <component :is="template"></component>
+            <div id="page"></div>
         </div>
     </div>
     <div class="subscribe-information">
@@ -63,12 +63,12 @@
         </span>
         <p class="subscribe-line-text"><span class="i18n" name="total-share">总份额: <span>1000</span></span><span class="i18n" name="dengjia">ETH(或等价的BTC)</span><span class="line-number">${subscribeNumber/10!}%</span></p>
         <ul class="subscribe-user-list">
-            <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName0!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe0.maxSubscribe!}</span><span>ETH</span></li>
-            <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName1!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe1.maxSubscribe!}</span><span>ETH</span></li>
-            <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName2!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span>${subscribe2.maxSubscribe!}</span><span>ETH</span></li>
+            <#if userName0??><li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName0!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span><#if subscribe0 ??>${subscribe0.maxSubscribe!}</#if></span><span>ETH</span></li></#if>
+            <#if userName1??><li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName1!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span><#if subscribe1 ??>${subscribe1.maxSubscribe!}</#if></span><span>ETH</span></li></#if>
+            <#if userName2??> <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName2!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span><#if subscribe2 ??>${subscribe2.maxSubscribe!}</#if></span><span>ETH</span></li></#if>
         </ul>
         <p class="subscribe-quota">
-            <span class="i18n" name="sharder-you-subscribe-is">你当前的白名单额度为:</span><span>${maxSubscribe!}ETH</span><span class="subscribe-quota-info"><span class="i18n" name="nowsubscribe-total">已经使用额度:</span>${nowSubscribe!}ETH</span>
+            <span class="i18n" name="sharder-you-subscribe-is">你当前的白名单额度为:</span><span>${maxSubscribe!}ETH</span><span class="subscribe-quota-info"><span class="i18n" name="nowsubscribe-total">已经使用额度:</span>${nowSubscribe!"0"}ETH</span>
         </p>
         <div class="subscribe-info-text">
             <p  class="subscribe-info-title i18n" name="sharder-subscribe-fine">白名单解释</p>
@@ -197,13 +197,15 @@
                         if(isEmpty(app.dataList)){
                             app.setPaging(_result);
                         }
-                        app.dataList = _result.result.data;
+
+                        app.dataList = _result.result != null ? _result.result.data : "";
                         executeDymaicI18n();
                     },
                     setPaging:function (_result) {
+                        var  a = _result.result != null ? _result.result.data.totalCount : 0;
                         laypage.render({
                             elem: 'page'
-                            ,count: _result.result.data.totalCount
+                            ,count: a
                             ,first: false
                             ,last: false
                             ,jump: function(obj, first){
@@ -215,6 +217,8 @@
                         });
                     }
                     ,tabBtn:function (_t) {
+                        app.dataList = "";
+
                         console.log(_t);
                         app.template = _t;
                         app.currentPage = 1; //每次打开新列表分页从1开始

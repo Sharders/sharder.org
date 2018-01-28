@@ -28,19 +28,22 @@
         <div class="sharder-link">
             <button class="i18n" name="canyubaimingdan">已结束</button>
         <#--<a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="">获得优惠</button></a>-->
-        <a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyubaimingdan">正在进行</button></a>
-            <#--<button class="i18n" name="">已结束</button>-->
+            <a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">正在进行</button></a>
+        <#--<button class="i18n" name="">已结束</button>-->
         <#--<button class="angel-btn i18n" name="">参与早鸟</button>-->
-            <#--<a href="/invest/invest_crowd_funding.ss">-->
-                <#--<button class="crowd-funding-btn subscribe-btn">正在进行</button>-->
-            <#--</a>-->
-        <button class="crowd-funding-btn i18n" name="canyubaimingdan">参与众筹</button>
+        <#--<a href="/invest/invest_crowd_funding.ss">-->
+        <#--<button class="crowd-funding-btn subscribe-btn">正在进行</button>-->
+        <#--</a>-->
+            <button class="crowd-funding-btn i18n" name="canyuzhongchoulun">参与众筹</button>
+
+
         </div>
     </section>
     <section class="ss-main-early-bird">
         <div class="sharder-line">
             <h3 class="sharder-early-bird i18n" name="sharder-angel-wheel">参与早鸟轮</h3>
-            <p  class="sharder-early-bird-text i18n" name="sharder-invest-time-start-end">1月29日9:00-2月11日23:59</p>
+            <#--<p  class="sharder-early-bird-text i18n" name="sharder-invest-time-start-end">1月29日9:00-2月11日23:59</p>-->
+            <p>1 ETH = ${ETH_B_PRICE} SS ,1 BTC = ${BTC_A_PRICE} SS</p>
             <p class="sharder-line-p"><span style=" width: 1%;"></span><i>1%</i></p>
         </div>
         <ul class="ss-early-bird-text">
@@ -83,55 +86,55 @@
             <h2 class="i18n" name="add_img_container">直投</h2>
             <ul>
                 <form id="invest_form">
-                    <li class="main-participate-head-title"><span class="i18n" name="sharder-user-subscribe-quota">你当前的白名单额度为:</span><span class="color">${maxSubscribe}ETH</span></li>
+                    <li class="main-participate-head-title"><span class="i18n" name="sharder-user-subscribe-quota">你当前的白名单额度为:</span><span class="color">${maxSubscribe!'0'}ETH</span></li>
                     <li class="button">
 
-                    <input type="radio" id="eth" name="SS" checked="checked" style="display: none">
-                    <label for="eth" v-on:click="selectedPayType('ETH'),zero=''">
-                       <img src="/r/cms/resource/sharders/img/ETH.png"  class="btn-eth">ETH
-                    </label>
-                    <input type="radio" id="btc" name="SS"  style="display: none">
-                    <label for="btc" v-on:click="selectedPayType('BTC'),zero=''">
-                        <img src="/r/cms/resource/sharders/img/BTC.png" class="btn-btc">BTC
-                    </label>
+                        <input type="radio" id="eth" name="SS" checked="checked" style="display: none">
+                        <label for="eth" v-on:click="selectedPayType('ETH'),zero=''">
+                            <img src="/r/cms/resource/sharders/img/ETH.png"  class="btn-eth">ETH
+                        </label>
+                        <input type="radio" id="btc" name="SS"  style="display: none">
+                        <label for="btc" v-on:click="selectedPayType('BTC'),zero=''">
+                            <img src="/r/cms/resource/sharders/img/BTC.png" class="btn-btc">BTC
+                        </label>
                     <#--<input type="radio" id="ltc" name="SS" style="display: none">-->
                     <#--<label for="ltc">-->
-                        <#--<img src="/r/cms/resource/sharders/img/LTC.png"  class="btn-ltc">LTC-->
+                    <#--<img src="/r/cms/resource/sharders/img/LTC.png"  class="btn-ltc">LTC-->
                     <#--</label>-->
-                </li>
-                <li class="input">
-                    <input type="text" placeholder="输入支持数量" name="payAmount" class="i18n" oninput="investTransition(app.payType,this)" :value="zero" input-type="icoin">
-                    <span class="dengyu">=</span>
-                    <input type="text" oninput="investTransition(app.payType,this)" :value="zero" maxlength="4" input-type="ss">
-                    <p><span class="unit btc">{{payType}}</span><span class="unit ss" maxlength="10">SS</span></p>
-                </li>
-                <li id="transfer"><button type="button" class="complete-transfer i18n" name="sharder-transfer" v-on:click="transfer()">获得转账地址</button></li>
-                <div id="transfer_details" style="display: none">
-                    <li>
-                        <div class="pay-text">
-                            <p class="generalTextColor"><span class="i18n" name="sharder-invest-item-text9">感谢你参加豆匣早鸟轮，你可以用直接从数字货币钱包发送</span>{{payType}}<span class="i18n" name="sharder-invest-item-text12">到以下地址。</span></p>
-                            <p class="generalTextColor i18n" name="sharder-invest-item-text10">参加早鸟轮将会优先使用白名单额度，如提交了认购申请但未完成转账。扣除的白名单额度将在24小时内恢复。</p>
-                            <p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账成功后为了保证您的资金安全，转账后请加客服微信并将转账成功的截图发给我们。我们将为您进行一对一的确认。</p>
-                        </div>
-                        <div id="walletAddr_qr_code"></div>
-                        <p class="bg-walletQr"><span class="i18n"  name="sharder-addr-wallet">转账地址: </span><span id="walletQr-text">{{walletAddr}}</span><img src="/r/cms/resource/sharders/img/copyicon.svg" class="copy-icon" onclick="copyTextById('walletQr-text')"></p>
                     </li>
-                    <li>
-                        <div class="trade_prove">
-                            <div class="user-wallet-addr">
-                                <label for="user_wallet_addr" ><span class="i18n" name="sharder-invest-item1">请填写</span><span style="color: red;" class="i18n" name="sharder-invest-item2">您转账</span><span class="i18n" name="sharder-invest-item3">的钱包地址</span>:</label>
-                                <input id="user_wallet_addr" name="payWalletAddr">
+                    <li class="input">
+                        <input type="text" placeholder="输入支持数量" name="payAmount" class="i18n" oninput="investTransition(app.payType,this)" :value="zero" input-type="icoin">
+                        <span class="dengyu">=</span>
+                        <input type="text" oninput="investTransition(app.payType,this)" :value="zero" maxlength="4" input-type="ss">
+                        <p><span class="unit btc">{{payType}}</span><span class="unit ss" maxlength="10">SS</span></p>
+                    </li>
+                    <li id="transfer"><button type="button" class="complete-transfer i18n" name="sharder-transfer" v-on:click="transfer()">获得转账地址</button></li>
+                    <div id="transfer_details" style="display: none">
+                        <li>
+                            <div class="pay-text">
+                                <p class="generalTextColor"><span class="i18n" name="sharder-invest-item-text9">感谢你参加豆匣早鸟轮，你可以用直接从数字货币钱包发送</span>{{payType}}<span class="i18n" name="sharder-invest-item-text12">到以下地址。</span></p>
+                                <p class="generalTextColor i18n" name="sharder-invest-item-text10">参加早鸟轮将会优先使用白名单额度，如提交了认购申请但未完成转账。扣除的白名单额度将在24小时内恢复。</p>
+                                <p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账成功后为了保证您的资金安全，转账后请加客服微信并将转账成功的截图发给我们。我们将为您进行一对一的确认。</p>
                             </div>
+                            <div id="walletAddr_qr_code"></div>
+                            <p class="bg-walletQr"><span class="i18n"  name="sharder-addr-wallet">转账地址: </span><span id="walletQr-text">{{walletAddr}}</span><img src="/r/cms/resource/sharders/img/copyicon.svg" class="copy-icon" onclick="copyTextById('walletQr-text')"></p>
+                        </li>
+                        <li>
+                            <div class="trade_prove">
+                                <div class="user-wallet-addr">
+                                    <label for="user_wallet_addr" ><span class="i18n" name="sharder-invest-item1">请填写</span><span style="color: red;" class="i18n" name="sharder-invest-item2">您转账</span><span class="i18n" name="sharder-invest-item3">的钱包地址</span>:</label>
+                                    <input id="user_wallet_addr" name="payWalletAddr">
+                                </div>
 
-                            <p class="hint-info"><span class="i18" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
-                            <div id="add_img"></div>
-                        </div>
-                        <input type="hidden" name="tradeImgAddr">
-                    </li>
-                    <li>
-                        <button type="button" class="complete_transfer i18n" name="sharder-completed-transfer" v-on:click="prompt()">完成转账</button>
+                                <p class="hint-info"><span class="i18n" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
+                                <div id="add_img"></div>
+                            </div>
+                            <input type="hidden" name="tradeImgAddr">
+                        </li>
+                        <li>
+                            <button type="button" class="complete_transfer i18n" name="sharder-completed-transfer" v-on:click="prompt()">完成转账</button>
                         <#--<button class="complete_transfer i18n tesu" name="sharder-copy" onclick="jsCopy()">复制地址</button></li>-->
-                </div>
+                    </div>
             </ul>
         </div>
     </section>
@@ -156,6 +159,7 @@
     <div class="popup i18n" name ="sharder-Thank" >感谢您支持豆匣众筹。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
     <span class="i18n" name="copyok" style="display: none">复制成功</span>
 </div>
+    <#include "/WEB-INF/ftl/sharders/hint/hint.ftl">
 <span class="i18n" name="nihaimeishurujine" style="display: none">你还没输入金额哦</span>
 
 <script>
@@ -174,7 +178,7 @@
         walletAddr.type = "${addr.type!}";
         walletAddrs.push(walletAddr);
         </#list>
-        var number = 0;
+    var number = 0;
         <#if maxSubscribe ?? && nowSubscribe??>
         number = ${maxSubscribe-nowSubscribe};
         </#if>

@@ -11,9 +11,9 @@
         <#include "invest_timeline.ftl" />
         <section class="distribution-program">
             <div class="price-conversion">
-                <span ><span class="i18n" name="crowd-step-whitelist1">白名单阶段</span>:1ETH=${ETH_A_PRICE!}SS</span>
+                <#--<span ><span class="i18n" name="crowd-step-whitelist1">白名单阶段</span>:1ETH=${ETH_A_PRICE!}SS</span>-->
                 <span ><span class="i18n" name="crowd-step-whitelist2">早鸟轮阶段</span>:1ETH=${ETH_B_PRICE!}SS</span>
-                <span><span class="i18n" name="crowd-step-whitelist3">众筹轮(前三天)</span>:1ETH=${ETH_C_PRICE!}SS</span>
+                <#--<span><span class="i18n" name="crowd-step-whitelist3">众筹轮(前三天)</span>:1ETH=${ETH_C_PRICE!}SS</span>-->
                 <span><span class="i18n" name="crowd-step-whitelist4">众筹轮阶段</span>:1ETH=${ETH_D_PRICE!}SS</span>
                 <div class="duihuan-jieshi-div">
                     <p class="duihuan-jieshi i18n" name="duihuan-jieshi">由于虚拟货币市场价格波动性，我们会根据早鸟开始时间(北京时间2018年1月29日9:00)前7天的市场收盘均价确定锁定价格和兑换数量。目前兑换比例仅供大家参考！</p>
@@ -22,7 +22,7 @@
             <h3 class="ss-sub-title i18n" name="sharder-distribution">Token分配</h3>
             <p class="generalTextColor i18n" name="sharder-invest-text3">本次众筹Token是(Sharder Storage 简称SS),SS是一种符合以太坊ERC20标准的Token。SS总共发行5亿,分配计划如下：</p>
             <div class="distribution-ratio">
-                <div id="distribution_ratio" style="width: 450px;height: 280px;" class="distribution-ratio-img"></div>
+                <div id="distribution_ratio" style="width: 480px;height: 280px;" class="distribution-ratio-img"></div>
                 <@investTpl.tokenRatio/>
             </div>
         </section>
@@ -188,8 +188,8 @@
             series : [
                 {
                     type: 'pie',
-                    radius : '65%',
-                    center: ['51%', '50%'],
+                    radius : '60%',
+                    center: ['54%', '50%'],
                     selectedMode: 'single',
                     data:[
                         {value:15, name: $("#test-text span[name='sharder-angel']").text()+'15%'},

@@ -1,4 +1,4 @@
-<@layout.htmlHead    pagename="invest_item">
+<@layout.htmlHead>
 
 <style>
     .show{
@@ -16,18 +16,18 @@
         color: #333;
         margin-bottom: 20px;
     }
-   input[name='payWalletAddr']{
-       margin-top: 10px;
-       height: 30px;
-       width: 100%;
-       border-radius: 4px;
-       border: 1px solid #ddd;
-   }
-   .trade_prove p.hint-info{
-       color: #333;
-       font-size: 16px;
-       margin-bottom: 10px;
-   }
+    input[name='payWalletAddr']{
+        margin-top: 10px;
+        height: 30px;
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+    .trade_prove p.hint-info{
+        color: #333;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
     .trade_prove span.hint-info{
         font-weight:bold;
     }
@@ -48,8 +48,9 @@
 
         <section class="invest-item">
             <h3 class="ss-sub-title i18n" name="sharder-angel-wheel">早鸟轮</h3>
-            <p class="i18n" name="sharder-invest-time-start-end">1月29日9:00-2月11日23:59</p>
-            <#--<div class="ss-row-timeline"></div>-->
+            <#--<p class="i18n" name="sharder-invest-time-start-end">1月29日9:00-2月11日23:59</p>-->
+            <p>1 ETH = ${ETH_B_PRICE} SS ,1 BTC = ${BTC_A_PRICE} SS</p>
+        <#--<div class="ss-row-timeline"></div>-->
             <div class="sharder-row-timeline">
                 <span style="width: 10%"></span>
             </div>
@@ -83,16 +84,19 @@
             <div class="participation">
                 <form action="#" id="invest_form">
                     <p class="ss-main-title invset-h4 i18n" name="add_img_container">直投</p>
-                    <p><span class="i18n" name="sharder-available-subscribe">可用的白名单额度: </span><span>{{available}}ETH</span>=<span>{{available*currency.ETH/currency.BTC}}BTC</span>
-                        <#--=<span>{{available*currency.ETH/currency.LTC}}LTC</span>-->
+                    <p><span class="i18n" name="sharder-available-subscribe">可用的白名单额度: </span><span>{{available}}ETH</span>=<span>{{(available*currency.ETH/currency.BTC).toFixed(4)}}BTC</span>
+                    <#--=<span>{{available*currency.ETH/currency.LTC}}LTC</span>-->
                     </p>
+
+
+
                     <ul class="pay-types">
                         <li><input type="radio" class="ss-radio-hidden" id="btc" value="BTC" checked="checked" name="payType"/><label for="btc" class="ss-label-btn" v-on:click="selectedPayType('BTC'),zero=''">
                             <img src="/r/cms/resource/sharders/img/BTC.png"><span class="i18n" name="sharder-BTC">比特币(BTC)</span></label></li>
                         <li><input type="radio" class="ss-radio-hidden" id="eth" value="ETH" name="payType"/><label for="eth" class="ss-label-btn" v-on:click="selectedPayType('ETH'),zero=''">
                             <img src="/r/cms/resource/sharders/img/ETH.png"><span class="i18n" name="sharder-ETH">以太坊(ETH)</span></label></li>
-                        <#--<li><input type="radio" class="ss-radio-hidden" id="ltc" value="LTC" name="payType"/><label for="ltc" class="ss-label-btn" v-on:click="selectedPayType('LTC'),zero=''">-->
-                            <#--<img src="/r/cms/resource/sharders/img/LTC.png"><span class="i18n" name="sharder-LTC">莱特币(LTC)</span></label></li>-->
+                    <#--<li><input type="radio" class="ss-radio-hidden" id="ltc" value="LTC" name="payType"/><label for="ltc" class="ss-label-btn" v-on:click="selectedPayType('LTC'),zero=''">-->
+                    <#--<img src="/r/cms/resource/sharders/img/LTC.png"><span class="i18n" name="sharder-LTC">莱特币(LTC)</span></label></li>-->
                     </ul>
                     <ul class="pay-number">
                         <li><input type="number" oninput="investTransition(app.payType,this)" input-type="icoin" placeholder="请输入支持的数量" class="i18n" name="payAmount" :value="zero" maxlength="4"><span class="sign">{{payType}}</span><span>≈</span></li>
@@ -129,26 +133,26 @@
                 </form>
             </div>
         </section>
-         <section class="service-qr-code">
-                <div>
-                    <div class="qr-div">
-                        <p class="ss-sub-title i18n" name="sharder-customer-service-weChat">客服微信</p>
-                        <img class="qr-code" src="/r/cms/resource/sharders/img/index/weixingqr.png">
-                    </div>
-                    <div class="qr-div">
-                        <p class="ss-sub-title i18n" name="shar-customer-service-QQ">客服QQ</p>
-                        <img class="qr-code" src="/r/cms/resource/sharders/img/kefuQQ.png">
-                    </div>
-                    <div class="qr-div">
-                        <p class="ss-sub-title i18n" name="sharder-customer-service-QQS">官方QQ群</p>
-                        <img class="qr-code" src="/r/cms/resource/sharders/img/index/qqyidong.png">
-                    </div>
+        <section class="service-qr-code">
+            <div>
+                <div class="qr-div">
+                    <p class="ss-sub-title i18n" name="sharder-customer-service-weChat">客服微信</p>
+                    <img class="qr-code" src="/r/cms/resource/sharders/img/index/weixingqr.png">
                 </div>
-         </section>
+                <div class="qr-div">
+                    <p class="ss-sub-title i18n" name="shar-customer-service-QQ">客服QQ</p>
+                    <img class="qr-code" src="/r/cms/resource/sharders/img/kefuQQ.png">
+                </div>
+                <div class="qr-div">
+                    <p class="ss-sub-title i18n" name="sharder-customer-service-QQS">官方QQ群</p>
+                    <img class="qr-code" src="/r/cms/resource/sharders/img/index/qqyidong.png">
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 <div class="popup i18n" name ="sharder-Thank" style="display: none">感谢您支持豆匣众筹。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
-<#include "/WEB-INF/ftl/sharders/hint/hint.ftl">
+    <#include "/WEB-INF/ftl/sharders/hint/hint.ftl">
 <#--<script src="${resSys}/resource/sharders/js/jquery.zeroclipboard.js" type="text/javascript"></script>-->
 <script src="${resSys}/resource/sharders/js/jquery.qrcode-0.12.0.min.js" type="text/javascript"></script>
 <script>
@@ -164,21 +168,21 @@
     }
 </script>
 <script>
-        var config = new Object();
+    var config = new Object();
 
-        var walletAddrs = new Array();
+    var walletAddrs = new Array();
         <#list config ? keys as key >
-            config.${key!"default"} =  "${config[key]!}";
+        config.${key!"default"} =  "${config[key]!}";
         </#list>
         <#list walletAddr as addr>
-            var walletAddr = new Object();
-            walletAddr.addr = "${addr.addr!}";
-            walletAddr.type = "${addr.type!}";
-            walletAddrs.push(walletAddr);
+        var walletAddr = new Object();
+        walletAddr.addr = "${addr.addr!}";
+        walletAddr.type = "${addr.type!}";
+        walletAddrs.push(walletAddr);
         </#list>
-        var number = 0;
+    var number = 0;
         <#if maxSubscribe ?? && nowSubscribe??>
-                number = ${maxSubscribe-nowSubscribe};
+        number = ${maxSubscribe-nowSubscribe};
         </#if>
 </script>
 

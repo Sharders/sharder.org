@@ -77,7 +77,7 @@
             <ul class="items">
                 <li class="item item1">
                     <i class="img"></i>
-                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss" title="查看技术白皮书" target="_blank"><span class="i18n" name="Technical-Paper">技术白皮书</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlTechZh" title="查看技术白皮书" target="_blank"><span class="i18n" name="Technical-Paper">技术白皮书</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlTechZh')}">
                         <button class="down-btn zh " >
                             <span class="i18n" name="btn.zh">中文</span>
@@ -93,7 +93,7 @@
                 </li>
                 <li class="item item2">
                     <i class="img"></i>
-                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss" title="查看白皮书" target="_blank"><span class="i18n" name="project-main.title.whitepaper">白皮书</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlEncoZh" title="查看白皮书" target="_blank"><span class="i18n" name="project-main.title.whitepaper">白皮书</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlEncoZh')}">
                         <button class="down-btn zh " >
                             <span class="i18n" name="btn.zh">中文</span>
