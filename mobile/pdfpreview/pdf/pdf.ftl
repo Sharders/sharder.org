@@ -73,6 +73,7 @@
         $("#iframe1").attr("src",'/r/cms/pdf/generic/web/viewer.html?file=' + encodeURIComponent('/whitepaper/download.ss?type='+'${chose}'));
         storage=window.localStorage;
         storage.a=1;
+        $('.chose-lang').find('img').css('top','-2px');
     });
     var interval = setInterval('showProess()', 1000);
     function  showProess() {

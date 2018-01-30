@@ -1,6 +1,6 @@
 <#import "/WEB-INF/ftl/sharders/ss_tpl_index.ftl" as indexTpl/>
 
-<@layout.htmlHead  pagename="index">
+<@layout.htmlHead>
     <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/index.css">
     <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/common.css">
     <script src="${resSys}/resource/sharders/js/unslider.min.js" type="text/javascript"></script>
@@ -76,7 +76,7 @@
             </div>
             <ul class="items">
                 <li class="item item1">
-                    <i class="img"></i>
+                    <span class="bps-icon"><i class="fa fa-download" aria-hidden="true"></i></span>
                     <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlTechZh" title="查看技术白皮书" target="_blank"><span class="i18n" name="Technical-Paper">技术白皮书</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlTechZh')}">
                         <button class="down-btn zh " >
@@ -92,7 +92,7 @@
                     </a>
                 </li>
                 <li class="item item2">
-                    <i class="img"></i>
+                    <span class="bps-icon"><i class="fa fa-file-code-o" aria-hidden="true"></i></span>
                     <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlEncoZh" title="查看白皮书" target="_blank"><span class="i18n" name="project-main.title.whitepaper">白皮书</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlEncoZh')}">
                         <button class="down-btn zh " >
@@ -108,7 +108,7 @@
                     </a>
                 </li>
                 <li class="item item3">
-                    <i class="img"></i>
+                    <span class="bps-icon"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i></span>
                     <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss" title="查看用户手册" target="_blank"><span class="i18n" name="User-Manual">用户手册</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
 
                     <a href="javascript:void(0);">
@@ -253,5 +253,20 @@
     $(function () {
         showTeam("douxia");
     })
+    if(isNotempty("${user!}")){
+        layer.open({
+            type: 1,
+            shade: false,
+            title: false, //不显示标题
+            skin: 't-hint-info', //加上边框
+            area: ['700px',''], //宽高
+            content: "\n" +
+            "<p>各位豆匣支持者，谢谢您们的关注和支持。目前由于转账数量较多，我们的客服小伙伴需要一些时间逐一进行人工核对，请耐心等待我们的确认结果。我们最晚会于今天22:00前把01月30日09:00之前资料齐全的所有转账都完成核对和确认！</p>\n" +
+            "<p>Dear Sharder contributors, thank you for your support. Because of the high volume of transaction, we may need more time to confirm each transaction mannually. The transactions before Jan. 30 0:00 UTC and with complete proof documents will be confirmed no later than Jan. 30 14:00 UTC. Thank you</p>\n" +
+            "<p>客服邮箱/service email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;service@sharder.org</p>"
+
+        });
+    }
+
 </script>
 </@layout.htmlBody>

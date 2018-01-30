@@ -42,7 +42,7 @@
                     <#if (errorTimes??&&errorTimes<=0)||(errorRemaining?? && errorRemaining<=0)>
                         <li class="ss-verification-code-li">
                             <label for="verification code"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
-                            <input id="verification_code" type="text" maxlength="20" name="captcha" class="captcha" />
+                            <input id="verification_code" type="text" maxlength="20" name="captcha"  class="imgCaptcha"/>
                             <i class="code-img"><img id="guestbookCaptcha" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl"></i>
                         </li>
                     </#if>

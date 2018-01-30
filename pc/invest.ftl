@@ -11,12 +11,13 @@
         <#include "invest_timeline.ftl" />
         <section class="distribution-program">
             <div class="price-conversion">
-                <#--<span ><span class="i18n" name="crowd-step-whitelist1">白名单阶段</span>:1ETH=${ETH_A_PRICE!}SS</span>-->
-                <span ><span class="i18n" name="crowd-step-whitelist2">早鸟轮阶段</span>:1ETH=${ETH_B_PRICE!}SS</span>
-                <#--<span><span class="i18n" name="crowd-step-whitelist3">众筹轮(前三天)</span>:1ETH=${ETH_C_PRICE!}SS</span>-->
-                <span><span class="i18n" name="crowd-step-whitelist4">众筹轮阶段</span>:1ETH=${ETH_D_PRICE!}SS</span>
+                <span ><span class="i18n" name="crowd-step-earlybird">早鸟轮: 1ETH=</span>${ETH_B_PRICE!}SS</span>
+                <span><span class="i18n" name="crowd-step-crowd-2nd">众筹轮: 1ETH=</span>${ETH_D_PRICE!}SS</span>
                 <div class="duihuan-jieshi-div">
-                    <p class="duihuan-jieshi i18n" name="duihuan-jieshi">由于虚拟货币市场价格波动性，我们会根据早鸟开始时间(北京时间2018年1月29日9:00)前7天的市场收盘均价确定锁定价格和兑换数量。目前兑换比例仅供大家参考！</p>
+                    <p class="duihuan-jieshi i18n">
+                        <span class="i18n" name="duihuan-jieshi">由于虚拟货币市场价格波动性，我们根据CoinMarketCap(https://coinmarketcap.com)1月22日到28日7天的市场收盘均价作为锁定价:</span>
+                        ETH=<span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>, BTC=<span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
+                    </p>
                 </div>
             </div>
             <h3 class="ss-sub-title i18n" name="sharder-distribution">Token分配</h3>
@@ -177,7 +178,6 @@
         if(PieChart){
             window.clearInterval(timeid);
         }
-        console.info(PieChart);
         var myEcharts = echarts.init(document.getElementById("distribution_ratio"));
         option = {
             tooltip : {
@@ -213,7 +213,12 @@
         pc.tabCrowdFunding(true);
     },100);
 
-
+    setTimeout(function () {
+        if(i18nLanguage == "en"){
+            $(".ETH_LOCK_PRICE").html(convertUs($(".ETH_LOCK_PRICE").html())+"$");
+            $(".BTC_LOCK_PRICE").html(convertUs($(".BTC_LOCK_PRICE").html())+"$");
+        }
+    },100)
 
 </script>
 </@layout.htmlBody>

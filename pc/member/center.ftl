@@ -19,61 +19,64 @@
 
 <!-- JiaThis Button END -->
 <div class="container ss-theme-background-color" id="member_center">
-    <div class="subscribe">
-        <div class="subscribe-share">
-            <span class="subscribe-make i18n" name="sharder-subscribe-share">白名单份额预约</span>
-            <span class="subscribe-time i18n" name="sharder-subscribe-start-end">1月18日9:00-1月28日23:59</span>
-            <div class="speed-progress">
-						<span class="progress">
-                            <#if subscribeNumber ??>
-                                <#if subscribeNumber gt 1000 >
-                                    <span class="line" style="width: 100%"></span>
-                                <#else >
-                                    <span class="line" style="width: ${subscribeNumber/10!}%"></span>
-                                </#if>
-                            </#if>
+    <#--<div class="subscribe">-->
+        <#--<div class="subscribe-share">-->
+            <#--<span class="subscribe-make i18n" name="sharder-subscribe-share">白名单份额预约</span>-->
+            <#--<span class="subscribe-time i18n" name="sharder-subscribe-start-end">1月18日9:00-1月28日23:59</span>-->
+            <#--<div class="speed-progress">-->
+						<#--<span class="progress">-->
+                            <#--<#if subscribeNumber ??>-->
+                                <#--<#if subscribeNumber gt 1000 >-->
+                                    <#--<span class="line" style="width: 100%"></span>-->
+                                <#--<#else >-->
+                                    <#--<span class="line" style="width: ${subscribeNumber/10!}%"></span>-->
+                                <#--</#if>-->
+                            <#--</#if>-->
 
 
-						</span>
-                <span class="total-subscribe i18n" name="sharder-subscribe-total-share">总份额1000ETH(或等价的BTC)</span>
-                <span class="subscribe-proportion">
-                    <#if subscribeNumber ??>
-                        ${subscribeNumber/10!}%
-                    </#if>
-                </span>
-            </div>
-            <ul class="invitation">
-                    <p style="text-align: center" class="i18n" name="subscribe-list">白名单额度排名</p>
-                    <#if subscribe0 ??><li><span class="invitation-name"><span class="i18n" name="sharder-account-number">账户：</span>${userName0!}</span><span
-                            class="invitation-quota"><span class="i18n" name="sharder-obtain-amount">获得额度:</span>${subscribe0.maxSubscribe!}ETH</span></li></#if>
-                    <#if subscribe1 ??><li><span class="invitation-name"><span class="i18n" name="sharder-account-number">账户：</span>${userName1!}</span><span
-                            class="invitation-quota"><span class="i18n" name="sharder-obtain-amount">获得额度:</span>${subscribe1.maxSubscribe!}ETH</span></li></#if>
-                    <#if userName2 ??><li><span class="invitation-name"><span class="i18n" name="sharder-account-number">账户：</span>${userName2!}</span><span
-                            class="invitation-quota"><span class="i18n" name="sharder-obtain-amount">获得额度:</span>${subscribe2.maxSubscribe!}ETH</span></li></#if>
-            </ul>
-        <#--<#if !nowSubscribe ??> <button class="ss-main-btn i18n" title="点击成为白名单" id="applyFor" name="sharder-become-subscribe">成为白名单</button></#if>-->
-        </div>
+						<#--</span>-->
+                <#--<span class="total-subscribe i18n" name="sharder-subscribe-total-share">总份额1000ETH(或等价的BTC)</span>-->
+                <#--<span class="subscribe-proportion">-->
+                    <#--<#if subscribeNumber ??>-->
+                        <#--${subscribeNumber/10!}%-->
+                    <#--</#if>-->
+                <#--</span>-->
+            <#--</div>-->
+            <#--<ul class="invitation">-->
+                    <#--<p style="text-align: center" class="i18n" name="subscribe-list">白名单额度排名</p>-->
+                    <#--<#if subscribe0 ??><li><span class="invitation-name"><span class="i18n" name="sharder-account-number">账户：</span>${userName0!}</span><span-->
+                            <#--class="invitation-quota"><span class="i18n" name="sharder-obtain-amount">获得额度:</span>${subscribe0.maxSubscribe!}ETH</span></li></#if>-->
+                    <#--<#if subscribe1 ??><li><span class="invitation-name"><span class="i18n" name="sharder-account-number">账户：</span>${userName1!}</span><span-->
+                            <#--class="invitation-quota"><span class="i18n" name="sharder-obtain-amount">获得额度:</span>${subscribe1.maxSubscribe!}ETH</span></li></#if>-->
+                    <#--<#if userName2 ??><li><span class="invitation-name"><span class="i18n" name="sharder-account-number">账户：</span>${userName2!}</span><span-->
+                            <#--class="invitation-quota"><span class="i18n" name="sharder-obtain-amount">获得额度:</span>${subscribe2.maxSubscribe!}ETH</span></li></#if>-->
+            <#--</ul>-->
+        <#--&lt;#&ndash;<#if !nowSubscribe ??> <button class="ss-main-btn i18n" title="点击成为白名单" id="applyFor" name="sharder-become-subscribe">成为白名单</button></#if>&ndash;&gt;-->
+        <#--</div>-->
 
-        <div class="subscribe-rule">
-        <#--<span class="subscribe-detailed i18n" name="sharder-subscribe-fine">白名单解释</span>-->
-            <span class="title i18n" name="sharder-subscribe-1">白名单说明</span>
-            <p class="text i18n" name="sharder-subscribe-2">
-                在早鸟轮正式开始前成功注册账号都拥有1个ETH的基础白名单额度。
-            </p>
-            <span class="title i18n" name="sharder-subscribe-3">白名单额度</span>
-            <p class="text i18n" name="sharder-subscribe-4">
-                好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度。单个账户额度上限为100ETH。
-            </p>
-            <span class="title i18n" name="sharder-subscribe-5">白名单奖励:</span>
-            <p class="text i18n" name="sharder-subscribe-6">
-                早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。
-            </p>
-            <p class="text i18n" name="sharder-subscribe-7">
-                如拥有1ETH白名单额度，认购总额为3ETH，则换币的计算公式为:1*ETH锁定价/SS单价*(1+20%)+2*ETH锁定价/SS单价。
-            </p>
-        </div>
-        <div class="user-subscribe" style="text-align: center"><span  style="float: left"><span class="i18n" name="sharder-user-subscribe-quota" style="margin-right: 10px">您当前的白名单额度 :</span>${maxSubscribe!"0"}ETH</span><a href="/invest/invest_item.ss" style="border-bottom: 1px solid #fff;color: #fff;margin-left: -168px" class="i18n" name="sharder-early-bird">参与早鸟轮</a></div>
-    </div>
+        <#--<div class="subscribe-rule">-->
+        <#--&lt;#&ndash;<span class="subscribe-detailed i18n" name="sharder-subscribe-fine">白名单解释</span>&ndash;&gt;-->
+            <#--<span class="title i18n" name="sharder-subscribe-1">白名单说明</span>-->
+            <#--<p class="text i18n" name="sharder-subscribe-2">-->
+                <#--在早鸟轮正式开始前成功注册账号都拥有1个ETH的基础白名单额度。-->
+            <#--</p>-->
+            <#--<span class="title i18n" name="sharder-subscribe-3">白名单额度</span>-->
+            <#--<p class="text i18n" name="sharder-subscribe-4">-->
+                <#--好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度。单个账户额度上限为100ETH。-->
+            <#--</p>-->
+            <#--<span class="title i18n" name="sharder-subscribe-5">白名单奖励:</span>-->
+            <#--<p class="text i18n" name="sharder-subscribe-6">-->
+                <#--早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。-->
+            <#--</p>-->
+            <#--<p class="text i18n" name="sharder-subscribe-7">-->
+                <#--如拥有1ETH白名单额度，认购总额为3ETH，则换币的计算公式为:1*ETH锁定价/SS单价*(1+20%)+2*ETH锁定价/SS单价。-->
+            <#--</p>-->
+        <#--</div>-->
+        <#--<div class="user-subscribe" style="text-align: center"><span  style="float: left"><span class="i18n" name="sharder-user-subscribe-quota" style="margin-right: 10px">您当前的白名单额度 :</span>${maxSubscribe!"0"}ETH</span>-->
+            <#--<a href="<#if startNow?? && "false"==startNow >javascript:void(0);<#else>/invest/invest_item.ss</#if>" style="border-bottom: 1px solid #fff;color: #fff;margin-left: -168px" class="i18n" name="sharder-early-bird">参与早鸟轮</a>-->
+        <#--</div>-->
+    <#--</div>-->
+        <div style="text-align: center"><img src="/r/cms/resource/sharders/img/index/subscribe_overPC.jpg" id="subscribe-over"></div>
     <div class="user">
         <span class="title i18n" name="sharder-user-information">账户信息</span>
         <ul>
@@ -125,7 +128,7 @@
             <div class="personal rebate">
 
                 <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">邀请奖励</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
-                    <div class="poput-invitation i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其投资获得豆匣（SS）总额的5%作为邀请奖励。</div></span>
+                    <div class="poput-invitation i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其认购豆匣（SS）总额的5%作为邀请奖励。</div></span>
                 <span class="currency i18n" name="sharder-SS">豆匣(SS)</span>
                 <span class="quota">${invite_rewards_amount!'0'}</span>
             <#--<span class="details" >{{retruenTExt(isOff3)}}</span>-->
@@ -225,11 +228,11 @@
                 <th class="i18" name="friend-regid">{{parentData.title2.a}}</th>
                 <th class="i18" >{{parentData.title2.b}}</th>
                 <th class="i18" name="friend-whiteQuotal">{{parentData.title2.c}}</th>
+                <th class="i18" name="friend-whiteQuotal">{{parentData.title2.i}}</th>
                 <th class="i18" name="friend-backQuotal">{{parentData.title2.d}}</th>
                 <th class="i18" name="friend-backQuotal">{{parentData.title2.e}}</th>
                 <th class="i18" name="friend-backQuotal">{{parentData.title2.f}}</th>
                 <th class="i18" name="friend-backQuotal">{{parentData.title2.g}}</th>
-
             </tr>
             </thead>
             <tbody>
@@ -256,7 +259,7 @@
                     {{dealBase.payAmount || '0'}}
                     <span v-if="dealBase.payType == 'SYSTEM'">赠送</span><span v-else>{{dealBase.payType}}</span></td>
                 <td>{{dealBase.useWhitelistsQuota || '0'}}</td>
-                <td>{{dealBase.awardAmount || '0'}}</td>
+                <td>{{dealBase.whitelistAwardAmount || '0'}}</td>
                 <td>{{dealBase.amount || '0'}}</td>
             </tr>
             </tbody>
@@ -323,6 +326,7 @@
                         pc.title2={a:$("span[name='sharder-participation-time']").text(),
                             b:$("span[name='sharder-stage-participation']").text(),
                             c:$("span[name='sharder-source']").text(),
+                            i:$("span[name='sharder-bill-status']").text(),
                             d:$("span[name='sahrder-support-quantity']").text(),
                             e:$("span[name='sharder-use-white-list']").text(),
                             f:$("span[name='sharder-white-list-award']").text(),
@@ -519,6 +523,10 @@
                 })
             });
             window.clearInterval(timeid);
+            var  language = localStorage.getItem("userLanguage");
+            if(language == "en"){
+                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_overPC_en.jpg");
+            }
         }
     },100);
 

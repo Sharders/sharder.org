@@ -123,7 +123,6 @@
                 data:_data,
                 dataType: "json",
                 success: function(result) {
-                    console.info(result);
                     _method(result);
                 },
                 error:function(){
@@ -169,7 +168,6 @@
 
             var data = obj.data;
             localStorage.clear();
-            console.info(data);
             localStorage.setItem("subscribeData",JSON.stringify(data));
 //            layer.alert('编辑行：<br>'+ JSON.stringify(data));
             var index = layer.open({

@@ -21,15 +21,14 @@
                 <ul>
                     <li class="generalTextColor">
                         <span class="i18n title" name="sharder-start-time">1.开始时间:</span>
-                        <span class="i18n" name="sharder-crowd-funding-text1">北京时间2018年2月23日9:00，如下列任一目标达成则将立即停止早鸟轮。<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;A:xxxxxs个SS全部售出。<br/>
+                        <span class="i18n" name="sharder-crowd-funding-text1">
+                            北京时间2018年3月23日9:00，如下列任一目标达成则将立即停止早鸟轮。<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;A:7500000个SS全部售出。<br/>
                         &nbsp;&nbsp;&nbsp;&nbsp;B:SS售出超XX个并到达截止时间2018年3月23日。</span>
                     </li>
                     <li class="generalTextColor">
                         <span class="i18n title" name="sharder-subscription-ratio">2.兑换比例:</span>
-                        <span class="i18n" name="sharder-crowd-funding-text2">北京时间2018年1月22日9:00起，1BTC=1SS<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;北京时间2018年1月22日9:00起，1BTC=1SS<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;北京时间2018年1月22日9:00起，1BTC=1SS</span>
+                        <span class="i18n" name="sharder-crowd-funding-t">北京时间2018年2月23日9:00起</span>,1 BTC = ${BTC_A_PRICE!}SS,1 ETH = ${ETH_B_PRICE!} SS
                     </li>
                     <li class="generalTextColor">
                         <span class="i18n title" name="sharder-investment-quota">3.参投限额:</span>
@@ -67,7 +66,7 @@
             <div class="participation">
                 <form action="#" id="invest_form">
                     <div class="pay-text crowd-funding-text">
-                        <h3>参与方式一:官网直投</h3>
+                        <h3 name="Participatory-mode-1" class="i18n">参与方式一:官网直投</h3>
                         <p class="generalTextColor i18n" name="sharder-crowd-funding-text7">此方式你可以使用拥有私钥的以太坊钱包以及从交易所直接提币转账</p>
                     </div>
                     <ul class="pay-types">
@@ -86,7 +85,7 @@
                     <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-transfer" v-on:click="transfer()" id="transfer">获取转账地址</button>
                     <div  id="transfer_details" style="display: none">
                         <div class="pay-text">
-                            <p class="generalTextColor">你可以从交易所或其他钱包地址转账到官网直投地址</p>
+                            <p class="generalTextColor i18n" name="your-addr-official">你可以从交易所或其他钱包地址转账到官网直投地址</p>
                             <p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账完成后请你填写转账信息并上传转账截图。以便我们进行确认</p>
                         </div>
                         <div>
@@ -98,10 +97,10 @@
                         </div>
                         <div class="trade_prove">
                             <div class="user-wallet-addr">
-                                <h4>请填写您转账的钱包地址:</h4>
+                                <h4 class="i18n" name="transfer-wallet-address">请填写您转账的钱包地址:</h4>
                                 <input id="user_wallet_addr" name="payWalletAddr">
                             </div>
-                            <p class="hint-info"><span class="i18" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
+                            <p class="hint-info"><span class="i18n" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
                             <div id="add_img"></div>
                         </div>
                         <input type="hidden" name="tradeImgAddr">
@@ -111,14 +110,14 @@
             </div>
             <div class="participation">
                 <div class="pay-text crowd-funding-text">
-                    <h3>参与方式二:智能合约</h3>
+                    <h3 name="Participatory-mode-2" class="i18n">参与方式二:智能合约</h3>
                     <p class="generalTextColor i18n" name="sharder-crowd-funding-text7">此方式你必须使用拥有私钥的以太坊钱包地址进行转账(不能从交易所提币)</p>
                 </div>
                 <div id="early-birdwalletAddr_qr_code"></div>
                 <div class="pay-addr">
                     <span class="i18n" name="sharder-wallet-addr">钱包地址:</span><span id="sharder-addrs">0xd63F6D2f8cC2D166c43f9c82595af9498132fe32</span><button onclick="jsCopy('sharder-addrs')" class="i18n" name="sharder-copy">复制</button>
                 </div>
-                <p class="sharder-pay-text">参与所获得的豆匣SS将会自动发送到你的转账的以太坊账户地址</p>
+                <p class="sharder-pay-text i18n" name="sharder-pay-text-info">参与所获得的豆匣SS将会自动发送到你的转账的以太坊账户地址</p>
             </div>
         </section>
     </div>

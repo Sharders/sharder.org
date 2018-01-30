@@ -1,7 +1,7 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
 <@lay.htmlHead    pagename="invest_crowd_funding">
-<link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/invest_crowd_funding.css">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/invest_item.css">
+<link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/invest_crowd_funding.css">
 </@lay.htmlHead>
 <@lay.htmlBody>
 <div class="ss-mian" id="invest_item">
@@ -31,7 +31,7 @@
             <#--<a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyubaimingdan">正在进行</button></a>-->
             <button class="i18n" name="canyubaimingdan">已结束</button>
             <#--<button class="angel-btn i18n" name="canyubaimingdan">参与早鸟</button>-->
-            <a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="canyubaimingdan">正在进行</button></a>
+            <a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="canyuzhongchoulun">正在进行</button></a>
             <#--<button class="crowd-funding-btn i18n" name="canyubaimingdan">参与众筹</button>-->
         </div>
     </section>
@@ -44,7 +44,7 @@
         <ul class="ss-early-bird-text">
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-start-time" >1.开始时间:</span>
-                <span class="i18n" name="sharder-invest-item-text2">
+                <span class="i18n" name="sharder-crowd-funding-text1">
                     北京时间2018年3月23日23:59，如下列任一目标达成则将立即停止众筹轮。<br/>
                 &nbsp;&nbsp;A:7500000个SS全部售出。<br/>
                 &nbsp;&nbsp;B:SS售出超1950个ETH并到达截止时间2018年3月23日。
@@ -52,35 +52,34 @@
             </li>
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-subscription-ratio">2.兑换比例:</span>
-                <span class="i18n" name="sharder-invset-text4">
-                        由于虚拟货币市场价格波动性，我们会在早鸟开始时(北京时间2018年1月29日9:00)前一周确定锁定价格和兑换数量。<br/>
-                        &nbsp;&nbsp;锁定价格：以交易所"币安"(官网www.binance.com)一周内的收盘价均价确定锁定价格和兑换数量。</span>
+                <span class="i18n" name="sharder-crowd-funding-t">北京时间2018年3月23日9:00起</span><br />
+                1 BTC = ${BTC_A_PRICE}SS,1 ETH = ${ETH_B_PRICE} SS
             </li>
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-investment-quota">3.参投限额:</span>
                 <span class="i18n" name="sharder-crowd-funding-text3">≥1ETH/人，或等额BTC。</span>
             </li>
             <li class="generalTextColor">
-                <span class="crude i18n" name="sharder-hair-time">4.发币时间:</span>
-                <span class="i18n" name="sharder-invset-text5">众筹结束后一周以内。</span>
+                <span class="crude i18n" name="sharder-hair-tiem">4.发币时间:</span>
+                <span class="i18n" name="sharder-crowd-funding-text4">众筹结束后一周以内。</span>
             </li>
             <li class="generalTextColor">
-                <span class="crude">5.</span>
-                <span class="i18n" name="sharder-invset-text6">早鸟轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
+                <span class="crude i18n" name="sharder-examine-time">5.</span>
+                <span class="i18n" name="sharder-crowd-funding-text5">早鸟轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
             </li>
             <li class="generalTextColor">
-                <span class="crude">6.</span>
-                <span class="i18n" name="sharder-invset-text7">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
+                <span class="crude i18n" name="sharder-raise-time">6.</span>
+                <span class="i18n" name="sharder-crowd-funding-text6">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
             </li>
-            <li class="generalTextColor">
-                <span class="crude i18n" name="sharder-subscribe">7.白名单:</span>
-                <span  class="i18n" name="sharder-invset-text8">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
-            </li>
+            <#--<li class="generalTextColor">-->
+                <#--<span class="crude i18n" name="sharder-subscribe">7.白名单:</span>-->
+                <#--<span  class="i18n" name="sharder-invset-text8">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>-->
+            <#--</li>-->
         </ul>
     </section>
     <section class="sharder-pay">
         <div class="main-participate-in" id="">
-            <h2 class="i18n" name="add_img_container">参与方式一:官网直投</h2>
+            <h2 class="i18n" name="Participatory-mode-1">参与方式一:官网直投</h2>
             <ul>
                 <li class="main-participate-head-title">此方式你可以使用拥有私钥的以太坊钱包以及从交易所直接转账</li>
                 <li class="button">
@@ -108,7 +107,7 @@
                 <div id="transfer_details" style="display: none">
                     <li>
                         <div class="pay-text">
-                            <p class="generalTextColor">你可以从交易所或其他钱包地址转账到官网直投地址。</p>
+                            <p class="generalTextColor i18n" name="your-addr-official">你可以从交易所或其他钱包地址转账到官网直投地址。</p>
                             <p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账后请你填写转账信息并上传转账截图。以便我们进行确认</p>
                         </div>
                         <div id="walletAddr_qr_code"></div>
@@ -121,7 +120,7 @@
                                 <input id="user_wallet_addr" name="payWalletAddr">
                             </div>
 
-                            <p class="hint-info"><span class="i18" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
+                            <p class="hint-info"><span class="i18n" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
                             <div id="add_img"></div>
                         </div>
                         <input type="hidden" name="tradeImgAddr">
@@ -134,16 +133,17 @@
     </section>
     <section class="walletAddr_qr_codes">
         <div class="main-participate-in">
-            <h2 class="i18n" name="sharder-participate">参与方式二:智能合约</h2>
+            <h2 class="i18n" name="Participatory-mode-2">参与方式二:智能合约</h2>
             <p class="par-text i18n" name="sharder-crowd-funding-text7">此方式你必须使用拥有私钥的以太坊钱包地址进行转账 <br> 注意：不能从交易所提币转账</p>
             <div id="walletAddr_qr_codes"></div>
             <p class="par-addr"><span class="i18n" name="sharder-addr-wallet">转账地址：</span><span id="qr_code_text">U38YJA734HGFQJ723KDU89</span></p>
         </div>
     </section>
 </div>
+    <#include "/WEB-INF/ftl/sharders/hint/hint.ftl">
 <div style="display: none">
     <div class="popup i18n" name ="sharder-Thank" >感谢您支持豆匣众筹。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
-    <span class="i18n" name="copyok" style="display: none">复制成功</span>
+    <#--<span class="i18n" name="copyok" style="display: none">复制成功</span>-->
 </div>
 <span class="i18n" name="nihaimeishurujine" style="display: none">你还没输入金额哦</span>
 <script src="${resSys}/resource/sharders/js/jquery.qrcode-0.12.0.min.js" type="text/javascript"></script>

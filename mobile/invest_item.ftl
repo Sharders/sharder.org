@@ -28,58 +28,50 @@
         <div class="sharder-link">
             <button class="i18n" name="canyubaimingdan">已结束</button>
         <#--<a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="">获得优惠</button></a>-->
-            <a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">正在进行</button></a>
+            <#--<a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">正在进行</button></a>-->
+            <a href="javascript:;"><button class="angel-btn subscribe-btn i18n" name="wancheng">完成</button></a>
         <#--<button class="i18n" name="">已结束</button>-->
         <#--<button class="angel-btn i18n" name="">参与早鸟</button>-->
         <#--<a href="/invest/invest_crowd_funding.ss">-->
         <#--<button class="crowd-funding-btn subscribe-btn">正在进行</button>-->
         <#--</a>-->
-            <button class="crowd-funding-btn i18n" name="canyuzhongchoulun">参与众筹</button>
-
-
+            <#--<button class="crowd-funding-btn i18n" name="canyuzhongchoulun">参与众筹</button>-->
+            <button class="crowd-funding-btn i18n"name="jinqingqidai">敬请期待</button>
         </div>
     </section>
     <section class="ss-main-early-bird">
         <div class="sharder-line">
             <h3 class="sharder-early-bird i18n" name="sharder-angel-wheel">参与早鸟轮</h3>
             <#--<p  class="sharder-early-bird-text i18n" name="sharder-invest-time-start-end">1月29日9:00-2月11日23:59</p>-->
-            <p>1 ETH = ${ETH_B_PRICE} SS ,1 BTC = ${BTC_A_PRICE} SS</p>
-            <p class="sharder-line-p"><span style=" width: 1%;"></span><i>1%</i></p>
+            <p>1ETH = ${ETH_B_PRICE!}SS,1BTC = ${BTC_A_PRICE}SS</p>
+            <#--<#if usePhaseIIAmount ?? && phaseIIAmount ??>-->
+                <#--<p class="sharder-line-p"><span style=" width:${(usePhaseIIAmount/phaseIIAmount)*100}%;"></span><i>${(usePhaseIIAmount/phaseIIAmount)*100}%</i></p>-->
+                <#--<#else >-->
+                    <#--<p class="sharder-line-p"><span style=" width:0%;"></span><i>0%</i></p>-->
+            <#--</#if>-->
+            <p class="sharder-line-p"><span style=" width:100%;"></span><i>100%</i></p>
         </div>
         <ul class="ss-early-bird-text">
             <li class="generalTextColor">
-                <span class="crude i18n" name="sharder-start-time">1.开始时间:</span>
-                <span class="i18n" name="sharder-invest-item-text2">
-                    北京时间2018年2月21日23:59，如下列任一目标达成则将立即停止早鸟轮。<br/>
-                &nbsp;&nbsp;A:7500000个SS全部售出。<br/>
-                &nbsp;&nbsp;B:SS售出超1950个ETH并到达截止时间2018年2月11日。
-                </span>
+                <span class="crude i18n" name="sharder-finish-condition">1.结束条件:</span><br/>
+                <span class="i18n" name="sharder-invset-finish1">1) 7,500,0000个SS全部售出。</span><br/>
+                <span class="i18n" name="sharder-invset-finish2">2) 到达截止时间2018年2月11日23:59。</span>
             </li>
             <li class="generalTextColor">
-                <span class="crude i18n" name="sharder-subscription-ratio">2.兑换比例:</span>
-                <span class="i18n" name="sharder-invset-text4">
-                        由于虚拟货币市场价格波动性，我们会在早鸟轮开始时间（北京时间2018年1月29日9:00）前一周确定锁定价格和兑换数量。<br/>
-                        &nbsp;&nbsp;锁定价格：以交易所“币安”（官网www.binance.com）一周内的收盘价均价确定锁定价格和兑换数量。</span>
+                <span class="crude i18n" name="sharder-invest-limit">2.参投限额:</span><br/>
+                <span class="i18n" name="sharder-invest-limit-rule">≥1ETH/人或等额BTC。</span>
             </li>
             <li class="generalTextColor">
-                <span class="crude i18n" name="sharder-investment-quota">3.参投限额:</span>
-                <span class="i18n" name="sharder-invest-item-text4">≥1ETH/人，或等额BTC。</span>
+                <span class="crude i18n" name="sharder-invest-whitelist">3.白名单:</span><br/>
+                <span class="i18n" name="sharder-invest-whitelist-rule">使用白名单额度参与认购可获得20%的奖励。</span>
             </li>
             <li class="generalTextColor">
-                <span class="crude i18n" name="sharder-hair-time">4.发币时间:</span>
-                <span class="i18n" name="sharder-invset-text5">众筹结束后一周以内。</span>
+                <span class="crude i18n" name="sharder-time-referral">4.邀请奖励:</span><br/>
+                <span class="i18n" name="sharder-time-referral-rule">早鸟轮结束以后进入审核阶段，于72小时内公布认购结果。公开众筹结束后一周内完成Token兑换。</span>
             </li>
             <li class="generalTextColor">
-                <span class="crude">5.</span>
-                <span class="i18n" name="sharder-invset-text6">早鸟轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
-            </li>
-            <li class="generalTextColor">
-                <span class="crude">6.</span>
-                <span class="i18n" name="sharder-invset-text7">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
-            </li>
-            <li class="generalTextColor">
-                <span class="crude i18n" name="sharder-subscribe">7.白名单:</span>
-                <span  class="i18n" name="sharder-invset-text8">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
+                <span class="crude i18n" name="sharder-time-token">5.豆匣SS:</span><br/>
+                <span class="i18n" name="sharder-invest-issue-token-currency">豆匣SS是ERC20标准的token，SS将于众售结束后7个工作日内发送至您的ETH地址。</span>
             </li>
         </ul>
         <div class="main-participate-in" id="">
@@ -89,11 +81,11 @@
                     <li class="main-participate-head-title"><span class="i18n" name="sharder-user-subscribe-quota">你当前的白名单额度为:</span><span class="color">${maxSubscribe!'0'}ETH</span></li>
                     <li class="button">
 
-                        <input type="radio" id="eth" name="SS" checked="checked" style="display: none">
+                        <input type="radio" id="eth" name="payType" value="ETH" checked="checked" style="display: none">
                         <label for="eth" v-on:click="selectedPayType('ETH'),zero=''">
                             <img src="/r/cms/resource/sharders/img/ETH.png"  class="btn-eth">ETH
                         </label>
-                        <input type="radio" id="btc" name="SS"  style="display: none">
+                        <input type="radio" id="btc" name="payType" value="BTC"  style="display: none">
                         <label for="btc" v-on:click="selectedPayType('BTC'),zero=''">
                             <img src="/r/cms/resource/sharders/img/BTC.png" class="btn-btc">BTC
                         </label>
@@ -112,9 +104,9 @@
                     <div id="transfer_details" style="display: none">
                         <li>
                             <div class="pay-text">
-                                <p class="generalTextColor"><span class="i18n" name="sharder-invest-item-text9">感谢你参加豆匣早鸟轮，你可以用直接从数字货币钱包发送</span>{{payType}}<span class="i18n" name="sharder-invest-item-text12">到以下地址。</span></p>
+                                <#--<p class="generalTextColor"><span class="i18n" name="sharder-invest-item-text9">感谢你参加豆匣早鸟轮，你可以用直接从数字货币钱包发送</span>{{payType}}<span class="i18n" name="sharder-invest-item-text12">到以下地址。</span></p>-->
                                 <p class="generalTextColor i18n" name="sharder-invest-item-text10">参加早鸟轮将会优先使用白名单额度，如提交了认购申请但未完成转账。扣除的白名单额度将在24小时内恢复。</p>
-                                <p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账成功后为了保证您的资金安全，转账后请加客服微信并将转账成功的截图发给我们。我们将为您进行一对一的确认。</p>
+                                <#--<p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账成功后为了保证您的资金安全，转账后请加客服微信并将转账成功的截图发给我们。我们将为您进行一对一的确认。</p>-->
                             </div>
                             <div id="walletAddr_qr_code"></div>
                             <p class="bg-walletQr"><span class="i18n"  name="sharder-addr-wallet">转账地址: </span><span id="walletQr-text">{{walletAddr}}</span><img src="/r/cms/resource/sharders/img/copyicon.svg" class="copy-icon" onclick="copyTextById('walletQr-text')"></p>
@@ -132,7 +124,7 @@
                             <input type="hidden" name="tradeImgAddr">
                         </li>
                         <li>
-                            <button type="button" class="complete_transfer i18n" name="sharder-completed-transfer" v-on:click="prompt()">完成转账</button>
+                            <button type="button" class="complete_transfer i18n" name="sharder-completed-transfer" v-on:click="prompt()">已完成转账</button>
                         <#--<button class="complete_transfer i18n tesu" name="sharder-copy" onclick="jsCopy()">复制地址</button></li>-->
                     </div>
             </ul>
@@ -142,17 +134,18 @@
         <ul>
             <li>
                 <p class="i18n" name="sharder-customer-service-weChat">客服微信</p>
-                <img src="/r/cms/resource/sharders/img/index/weixingqr.png" class="customer-service qq">
+                <img src="/r/cms/resource/sharders/img/index/weixin2.jpg" class="customer-service qq">
             </li>
-            <li>
-                <p class="i18n" name="shar-customer-service-QQ">客服QQ</p>
-                <img src="/r/cms/resource/sharders/img/kefuQQ.png"class="customer-service wechat" >
-            </li>
+            <#--<li>-->
+                <#--<p class="i18n" name="shar-customer-service-QQ">客服QQ</p>-->
+                <#--<img src="/r/cms/resource/sharders/img/kefuQQ.png"class="customer-service wechat" >-->
+            <#--</li>-->
             <li>
                 <p class="i18n" name="sharder-customer-service-QQS">官方QQ群</p>
                 <img src="/r/cms/resource/sharders/img/index/qqyidong.png" class="customer-service qqs">
             </li>
         </ul>
+        <p class="i18n" name="custom-service">客服工作时间：10:00  - 21:00</p>
     </section>
 </div>
 <div style="display: none">

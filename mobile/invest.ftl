@@ -2,6 +2,13 @@
 <#import "/WEB-INF/t/cms/www/sharder.org/ss_tpl_invest.ftl" as investTpl/>
 <@lay.htmlHead>
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/invest.css">
+<style>
+    #distribution_ratio img{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+</style>
 </@lay.htmlHead>
 <@lay.htmlBody>
 <div class="ss-mian">
@@ -27,7 +34,12 @@
         <div class="sharder-link">
             <button class="i18n" name="canyubaimingdan">已结束</button>
         <#--<a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="canyubaimingdan">获得优惠</button></a>-->
-            <a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">正在进行</button></a>
+            <#if startNow?? && "false"==startNow >
+                <a href="javascript:void(0);"><button class="angel-btn i18n" name="canyutianshilun">参与早鸟</button></a>
+            <#else>
+                <a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">参与早鸟</button></a>
+            </#if>
+
         <#--<button class="i18n" name="">已结束</button>-->
         <#--<button class="angel-btn i18n" name="canyutianshilun">参与早鸟</button>-->
         <#--<a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="canyubaimingdan">正在进行</button></a>-->
@@ -35,15 +47,18 @@
         </div>
 
         <ul class="sharder-money">
-            <li><span class="i18n" name="crowd-step-whitelist">早鸟轮阶段:1ETH=</span>${ETH_B_PRICE}SS</li>
-            <li><span class="i18n" name="crowd-step-earlybird">众筹轮轮阶段:1ETH=</span>${ETH_D_PRICE}SS</li>
-            <#--<li><span class="i18n" name="crowd-step-crowd-1st">众筹轮(前三天):1ETH=32300SS</span></li>-->
-            <#--<li><span class="i18n" name="crowd-step-crowd-2nd">众筹轮阶段:1ETH=29500SS</span></li>-->
+            <li><span class="i18n" name="crowd-step-earlybird">早鸟轮: 1ETH=</span>${ETH_B_PRICE}SS</li>
+            <li><span class="i18n" name="crowd-step-crowd-2nd">众筹轮: 1ETH=</span>${ETH_D_PRICE}SS</li>
         </ul>
-        <p class="duihuan-jieshi i18n" name="duihuan-jieshi">由于虚拟货币市场价格波动性，我们会根据早鸟开始时间(北京时间2018年1月29日9:00)前7天的市场收盘均价确定锁定价格和兑换数量。目前兑换比例仅供大家参考！</p>
+        <p class="duihuan-jieshi">
+            <span class="i18n" name="duihuan-jieshi">
+                由于虚拟货币市场价格波动性，我们根据CoinMarketCap(https://coinmarketcap.com)1月22日到28日7天的市场收盘均价作为锁定价:
+            </span>
+            ETH=<span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>, BTC=<span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
+        </p>
     </section>
     <section class="ss-main-plan">
-        <h3 class="ss-head i18n" name="sharder-distribution">Token分配</h3>
+        <h3 class="ss-head i18n" name="sharder-distribution">豆匣SS分配</h3>
         <p class="ss-plan-text i18n" name="sharder-invest-text3">本次众筹Token是(Sharder Storage 简称SS),SS是一种符合以太坊ERC20标准的Token。SS总共发行5亿,分配计划如下：</p>
         <div id="distribution_ratio">
             <img src="">
@@ -51,7 +66,7 @@
         <@investTpl.tokenRatio/>
         <div class="see-details">
             <input type="checkbox" class="" id="rule" style="display: none">
-            <label for="rule"><span class="i18n" name="token-rules">查看众筹细则</span><i class="fa fa-angle-down"></i></label>
+            <label for="rule"><span class="i18n" name="sharder-rules-raise">众筹细则</span><i class="fa fa-angle-down"></i></label>
             <@investTpl.investRules/>
         </div>
     </section>
@@ -214,11 +229,13 @@
 //        window.location.href="/invest/invest_item.ss";
     }
     setTimeout(function () {
-        console.log(i18nLanguage );
+
         if(i18nLanguage == "zh-CN"){
             $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/distributionratio.png");
         }else if(i18nLanguage == "en"){
             $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/distributionratioen.png");
+            $(".ETH_LOCK_PRICE").html(convertUs($(".ETH_LOCK_PRICE").html())+"$");
+            $(".BTC_LOCK_PRICE").html(convertUs($(".BTC_LOCK_PRICE").html())+"$");
         }
     },100);
 </script>

@@ -20,7 +20,7 @@
     <li class="rule-text"><span class="rule-text-bold i18n" name="details-name-1">白名单</span><span class="i18n" name="details-text-1">在早鸟轮正式开始前注册账号即拥有1个ETH的白名单额度，使用白名单额度购买SS可获得额外20%SS赠送。</span></li>
     <li class="rule-text"><span class="rule-text-bold i18n" name="details-name-2">推广奖励</span><span class="i18n" name="details-text-2">分享个人链接或邀请码邀请好友注册豆匣，每成功注册1人可获得1个ETH白名单额度。单个账号白名单额度上限为100ETH。</li>
     <li class="rule-text"><span class="rule-text-bold i18n" name="details-name-3">投资返点</span><span class="i18n" name="details-text-3">如果所邀请好友参与早鸟轮或众筹轮投资，邀请人可获得好友认购SS数量*5%的返点，该返点无上限。</li>
-    <li class="rule-text"><span class="rule-text-bold i18n" name="details-name-4">空投福利</span><span class="i18n" name="details-text-4">参与早鸟轮投资或邀请了10人以上（含10人）的账户均可获得空投奖励，系统会自动空投SS到您的豆匣账户，数额以官网公布为准。</li>
+    <#--<li class="rule-text"><span class="rule-text-bold i18n" name="details-name-4">空投福利</span><span class="i18n" name="details-text-4">参与早鸟轮投资或邀请了10人以上（含10人）的账户均可获得空投奖励，系统会自动空投SS到您的豆匣账户，数额以官网公布为准。</li>-->
     <li class="rule-text"><span class="rule-text-bold i18n" name="details-name-5">法币参投</span><span class="i18n" name="details-text-5">需法币投资的用户可至豆匣商城参与实物众筹。商城购物可获赠豆匣积分，豆匣积分可1:1兑换豆匣SS。</li>
     <li class="rule-text"><span class="rule-text-bold i18n" name="details-name-6">锁仓奖励</span><span class="i18n" name="details-text-6">正式交易前可在官网申请锁仓。锁仓奖励为锁仓的SS数量*奖励百分比（半年：5%，一年：12%）。</li>
     <li class="rule-text"><span class="rule-text-bold i18n" name="details-name-7">交易平台</span><span class="i18n" name="details-text-7">预计登录：币安(Binance)、Okex、比特尔(Gate.io)、炒客(Chaoex)、Ebtcbank、比特时代(Aex.com)、Yobit、HitBTC。</span></li>

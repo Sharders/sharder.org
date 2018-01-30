@@ -1,8 +1,8 @@
 <@layout.htmlHead title="账单列表"  >
 <style>
     .trade-img{
-        max-width: 400px;
-        max-height: 800px;
+        max-width: 600px;
+        max-height: 1000px;
     }
     #look_img{
         padding: 10px;
@@ -117,6 +117,14 @@
                     <input type="text" name="payAmount"  class="layui-input">
                 </div>
             </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">额外奖励</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="extraAwardAmount"  class="layui-input">
+                </div>
+            </div>
+
             <div class="layui-upload">
                 <button type="button" class="layui-btn" id="test2">交易截图上传</button>
                 <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
@@ -154,8 +162,11 @@
 <div>
 <#--修改账单的模板 start-->
 <script id="edit_bill" type="text/html">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>提示：状态1为已支付，2为待审核，3为未支付 已支付的不能修改</legend>
+    </fieldset>
     <form class="layui-form" action="">
-        <div class="layui-form-item">
+        <div class="layui-form-item" style="display: none;">
             <label class="layui-form-label">账单ID</label>
             <div class="layui-input-inline">
                 <input type="text" name="id"  autocomplete="off" class="layui-input" value="{{d.id}}" disabled>
@@ -168,6 +179,8 @@
                 <input type="text" class="layui-input" value="{{d.status ||''}}"name="status">
             </div>
         </div>
+
+
         <div class="layui-form-item">
             <label class="layui-form-label">来源</label>
             <div class="layui-input-inline">
@@ -177,19 +190,19 @@
         <div class="layui-form-item">
             <label class="layui-form-label">总额</label>
             <div class="layui-input-inline">
-                <input type="text" name="amount"  class="layui-input" value="{{d.amount||''}}">
+                <input type="text" name="amount"  class="layui-input layui-disabled" value="{{d.amount||''}}" disabled>
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">原本金额</label>
             <div class="layui-input-inline">
-                <input type="text" name="originalAmount"  class="layui-input" value="{{d.originalAmount||''}}">
+                <input type="text" name="originalAmount"  class="layui-input layui-disabled" value="{{d.originalAmount||''}}" disabled>
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">奖励金额</label>
             <div class="layui-input-inline">
-                <input type="text" name="awardAmount"  class="layui-input" value="{{d.awardAmount||''}}">
+                <input type="text" name="awardAmount"  class="layui-input layui-disabled" value="{{d.awardAmount||''}}" disabled>
             </div>
         </div>
         <div class="layui-form-item">
@@ -202,6 +215,12 @@
             <label class="layui-form-label">支付金额</label>
             <div class="layui-input-inline">
                 <input type="text" name="payAmount"  class="layui-input" value="{{d.payAmount||''}}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">额外奖励</label>
+            <div class="layui-input-inline">
+                <input type="text" name="extraAwardAmount"  class="layui-input" value="{{d.extraAwardAmount||''}}">
             </div>
         </div>
         <div class="layui-form-item">
@@ -262,7 +281,7 @@
                     ,{field:'payType', width:80, title: '支付类型', sort: true}
                     ,{field:'payAmount', width:80, title: '支付金额', sort: true}
                     ,{field:'shardersWalletAddr', width:160, title: '豆匣钱包地址'}
-//                    ,{field:'tradeImgAddr', width:100, title: '交易截图'}
+                    ,{field:'tradeImgAddr', width:100, title: '交易截图'}
                     ,{field:'payWalletAddr', width:120, title: '用户支付地址'}
                     ,{field:'createDate', width:120, title: '创建时间', sort: true}
                     ,{field:'modifiedDate', width:120, title: '修改时间', sort: true}
@@ -280,7 +299,7 @@
                 if(obj.event === 'look-img'){
                    var arr = sSplit(data.tradeImgAddr);
 
-                    if(arr != null){
+                    if(isNotempty(arr)){
                         layer.open({
                             title:'转账截图',
                             type: 1,
@@ -354,7 +373,6 @@
                     });
                 }
                 ,done: function(res){
-                    console.log(res);
                     var imgUrl = res.result.url;
                     var tradeImgAddr = $("input[name='tradeImgAddr']").val();
                     $("input[name='tradeImgAddr']").val(tradeImgAddr+imgUrl);
@@ -389,7 +407,6 @@
 
             $('.add-bill-btn').on('click', function(){
                 var type = $(this).data('type');
-                console.log(type);
                 active[type] ? active[type].call(this) : '';
             });
 
