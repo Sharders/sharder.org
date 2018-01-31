@@ -95,7 +95,7 @@
             },
             verifyIdentityReuslt:function(_result){
                 if (!isTrue(_result.success)){
-                    alert(_result.message);
+                    layer.msg(_result.message);
                 }else{
                     $(".verify-identity-form").css("display","none");
                     $(".set-pwd-main").css("display","block");
@@ -112,7 +112,7 @@
 
             setPwdResult:function (result) {
                 if (!isTrue(result.success)){
-                    alert(result.message);
+                    layer.msg(result.message);
                 }else{
                     location.href="/login.ss";
                 }

@@ -34,12 +34,12 @@
         <div class="sharder-link">
             <button class="i18n" name="canyubaimingdan">已结束</button>
         <#--<a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="canyubaimingdan">获得优惠</button></a>-->
-            <#if startNow?? && "false"==startNow >
-                <a href="javascript:void(0);"><button class="angel-btn i18n" name="canyutianshilun">参与早鸟</button></a>
-            <#else>
-                <a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">参与早鸟</button></a>
-            </#if>
-
+            <#--<#if startNow?? && "false"==startNow >-->
+                <#--<a href="javascript:void(0);"><button class="angel-btn i18n" name="canyutianshilun">参与早鸟</button></a>-->
+            <#--<#else>-->
+                <#--<a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">参与早鸟</button></a>-->
+            <#--</#if>-->
+            <button class="i18n" name="yijieshu">参与早鸟</button>
         <#--<button class="i18n" name="">已结束</button>-->
         <#--<button class="angel-btn i18n" name="canyutianshilun">参与早鸟</button>-->
         <#--<a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="canyubaimingdan">正在进行</button></a>-->

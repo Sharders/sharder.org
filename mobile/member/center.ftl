@@ -246,7 +246,7 @@
                             app.crowd=false;
                             app.paging();
                         }else {
-                            window.alert("无法识别的事件！！！");
+                            layer.msg("无法识别的事件！！！");
                             return;
                         }
                         if(app.crowd == true){
