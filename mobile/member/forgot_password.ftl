@@ -72,7 +72,7 @@
                     </li>
                     <input type="hidden" name="token" value="">
                     <li>
-                        <input type="submit" value="保存" class="ss-main-btn theme" />
+                        <input type="submit" value="保存" class="ss-main-btn theme i18n" name="the-next-step" />
                     </li>
                 </ul>
             </form>

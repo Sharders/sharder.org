@@ -29,8 +29,8 @@
             <button class="i18n" name="yijieshu">已结束</button>
         <#--<a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="">获得优惠</button></a>-->
             <#--<a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">正在进行</button></a>-->
-            <a href="javascript:;"><button class="angel-btn subscribe-btn i18n" name="yijieshu">已结束</button></a>
-        <#--<button class="i18n" name="">已结束</button>-->
+            <#--<a href="javascript:;"><button class="angel-btn subscribe-btn i18n" name="yijieshu">已结束</button></a>-->
+        <button class="i18n" name="yijieshu">已结束</button>
         <#--<button class="angel-btn i18n" name="">参与早鸟</button>-->
         <#--<a href="/invest/invest_crowd_funding.ss">-->
         <#--<button class="crowd-funding-btn subscribe-btn">正在进行</button>-->

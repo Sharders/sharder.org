@@ -43,7 +43,7 @@
         <#--<button class="i18n" name="">已结束</button>-->
         <#--<button class="angel-btn i18n" name="canyutianshilun">参与早鸟</button>-->
         <#--<a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="canyubaimingdan">正在进行</button></a>-->
-            <button class="crowd-funding-btn i18n" name="canyuzhongchoulun">参与众筹</button>
+            <button class="crowd-funding-btn i18n" name="jinqingqidai">参与众筹</button>
         </div>
 
         <ul class="sharder-money">

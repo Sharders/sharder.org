@@ -269,7 +269,7 @@
                 elem: '#bill_list'
                 ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
                 ,cols: [[
-                    {field:'id', width:80, title: '账单ID', sort: true}
+                    {field:'id', width:80, title: '账单ID', sort: true,fixed: true}
                     ,{field:'pId', width:80, title: '父账单ID', sort: true}
                     ,{field:'pUserId', width:80, title: '父账单用户ID', sort: true}
                     ,{field:'userId', width:80, title: '用户ID', sort: true}
@@ -390,7 +390,8 @@
                             key: {
                                 id: demoReload.val()
                             }
-                        }
+                        },
+
                     });
                 },
                 addBill: function(){

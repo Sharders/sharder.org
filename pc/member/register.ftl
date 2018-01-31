@@ -109,7 +109,7 @@
                 type: 1,
                 skin: 'popup-hint default register-protocol',
                 closeBtn:1,
-                area: ['600px', '700px'], //宽高
+                area: ['600px', '90%'], //宽高
                 title:"Sharder用户协议",
                 content:"<div id='register-protocol'></div>"
             });
@@ -121,7 +121,7 @@
                 type: 1,
                 skin: 'popup-hint default register-protocol',
                 closeBtn:1,
-                area: ['600px', '700px'], //宽高
+                area: ['600px', '90%'], //宽高
                 title:"豆匣商城用户协议",
                 content:"<div id='register-protocol'></div>"
             });

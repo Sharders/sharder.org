@@ -31,8 +31,8 @@
             <#--<a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyubaimingdan">正在进行</button></a>-->
             <button class="i18n" name="canyubaimingdan">已结束</button>
             <#--<button class="angel-btn i18n" name="canyubaimingdan">参与早鸟</button>-->
-            <a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="canyuzhongchoulun">正在进行</button></a>
-            <#--<button class="crowd-funding-btn i18n" name="canyubaimingdan">参与众筹</button>-->
+            <#--<a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="jinqingqidai">正在进行</button></a>-->
+            <button class="crowd-funding-btn i18n" name="jinqingqidai">参与众筹</button>
         </div>
     </section>
     <section class="ss-main-early-bird">
@@ -81,7 +81,7 @@
         <div class="main-participate-in" id="">
             <h2 class="i18n" name="Participatory-mode-1">参与方式一:官网直投</h2>
             <ul>
-                <li class="main-participate-head-title">此方式你可以使用拥有私钥的以太坊钱包以及从交易所直接转账</li>
+                <li class="main-participate-head-title i18n" name="sharder-exchange-transfer">此方式你可以使用拥有私钥的以太坊钱包以及从交易所直接转账</li>
                 <li class="button">
 
                     <input type="radio" id="eth" name="SS" checked="checked" style="display: none">

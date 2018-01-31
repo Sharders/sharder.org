@@ -197,7 +197,7 @@
 </script>
 <script type="text/x-template" id="public-information">
     <div>
-        <span class="subscribe-title i18n" name="friend-invite-reward">邀请奖励</span>
+        <span class="subscribe-title i18n" data-name="friend-invite-reward">邀请奖励</span>
         <table class="ss-table defalut">
             <thead>
             <tr>
@@ -221,7 +221,7 @@
 </script>
 <script type="text/x-template" id="rebate-details">
     <div>
-        <span class="subscribe-title i18n" name="friend-invite-reward">邀请奖励</span>
+        <span class="subscribe-title i18n" data-name="friend-invite-reward">邀请奖励</span>
         <table class="ss-table defalut">
             <thead>
             <tr>
@@ -239,25 +239,25 @@
             <tr v-for="dealBase in parentData.dealBases.list" >
                 <td>{{dealBase.createDate}}</td>
                 <td>
-                    <span v-if="dealBase.source == 'PhaseII'">
+                    <span v-if="dealBase.source == 'PhaseII'" class="i18n" data-name="my-sharder-info-1">
                         早鸟
                     </span>
-                    <span v-if="dealBase.source == 'PhaseIII'">
+                    <span v-if="dealBase.source == 'PhaseIII'" class="i18n" data-name="my-sharder-info-2">
                         众筹
                     </span>
                 </td>
-                <td v-if="dealBase.source == 'Store'">商城</td>
-                <td v-else>官网</td>
+                <td v-if="dealBase.source == 'Store'" data-name="my-sharder-info-3" class="i18n">商城</td>
+                <td v-else data-name="my-sharder-info-4" class="i18n">官网</td>
                 <td>
-                    <span v-if="dealBase.status == '1'">已确认</span>
-                    <span v-if="dealBase.status == '2'">待审核</span>
-                    <span v-if="dealBase.status == '0'">未支付</span>
-                    <span v-if="dealBase.status == '-1'">失效</span>
-                    <span v-if="dealBase.status == '0'">已发送奖励</span>
+                    <span v-if="dealBase.status == '1'" data-name="my-sharder-info-5" class="i18n">已确认</span>
+                    <span v-if="dealBase.status == '2'" data-name="my-sharder-info-6" class="i18n">待审核</span>
+                    <#--<span v-if="dealBase.status == '0'">未支付</span>-->
+                    <span v-if="dealBase.status == '-1'" data-name="my-sharder-info-7" class="i18n">失效</span>
+                    <span v-if="dealBase.status == '0'" data-name="my-sharder-info-8" class="i18n">已发送奖励</span>
                 </td>
                 <td>
                     {{dealBase.payAmount || '0'}}
-                    <span v-if="dealBase.payType == 'SYSTEM'">赠送</span><span v-else>{{dealBase.payType}}</span></td>
+                    <span v-if="dealBase.payType == 'SYSTEM'" data-name="my-sharder-info-9" class="i18n">赠送</span><span v-else>{{dealBase.payType}}</span></td>
                 <td>{{dealBase.useWhitelistsQuota || '0'}}</td>
                 <td>{{dealBase.whitelistAwardAmount || '0'}}</td>
                 <td>{{dealBase.amount || '0'}}</td>
@@ -381,6 +381,9 @@
                         }
                         var data = pageParams(pc.currentPage,pc.countOfCurrentPage);
                         commAjax(requestUrl,"get",data,pc.loadDealbaseResult);
+                        setTimeout(function () {
+                            layer.closeAll('loading');
+                        },20000);
                     },
                     loadDealbaseResult:function (_result) {
                         console.log(_result);
@@ -391,6 +394,7 @@
                             if(isEmpty(pc.dealBases)){
                                 pc.showHint = true;
                             }
+                            executeDymaicI18n();
                         }
                     },
                     msgListView:function(curPage){
@@ -415,7 +419,14 @@
                         }
                         pc.edit();
                     },
-                    verification:function () {
+                    edit:function () {
+                        $("input#oldPassWord").val('');
+                        $("input#newPassWord1").val('');
+                        $("input#newPassWord2").val('');
+                        $('#userPwd').css("display","block");
+                        $('.userPwd-div').css("display","none");
+                    }
+                    ,verification:function () {
                         var input1 = $("#oldPassWord");
                         var input2 = $("#newPassWord1");
                         var input3 = $("#newPassWord2");
