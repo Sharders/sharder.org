@@ -121,15 +121,15 @@
             <div class="personal crowd-funding">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-income">众筹所得</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
                     <div class="popup-crowd-funding i18n" name="sharder-subscribe-text2">获得的豆匣(SS)数量。</div></span>
-                <span class="currency i18n" name="sharder-SS">豆匣(SS)</span>
+                <span class="currency i18n" name="sharder-SS-1">豆匣(SS)</span>
                 <span class="quota">${crowd_amount!'0'}</span>
                 <span class="details" v-on:click="selectTmpl('zhongchou')">{{retruenTExts(isOff2)}}</span>
             </div>
             <div class="personal rebate">
 
-                <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">邀请奖励</span><img src="/r/cms/resource/sharders/img/index/gantanhao.png" class="personal-img"/>
+                <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">邀请奖励</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
                     <div class="poput-invitation i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其认购豆匣（SS）总额的5%作为邀请奖励。</div></span>
-                <span class="currency i18n" name="sharder-SS">豆匣(SS)</span>
+                <span class="currency i18n" name="sharder-SS-1">豆匣(SS)</span>
                 <span class="quota">${invite_rewards_amount!'0'}</span>
             <#--<span class="details" >{{retruenTExt(isOff3)}}</span>-->
             <#--<span class="details" v-on:click="isLuck(3)">{{retruenTExt(isOff3)}}</span>-->
@@ -150,14 +150,14 @@
         <div class="poput-extract i18n" name="sharder-subscribe-text4">通过官网直投的，将于公开众筹结束后开始发放豆匣SS，七个工作日内发放到您提供的ETH钱包地址（锁仓者除外）。</div>
 
     </div>
-    <div class="rule">
-        <p class="text">
-            <span class="title i18n" name="sharder-subscribe-8">返点奖励</span><span class="i18n" name="sharder-subscribe-9">邀请的好友参与早鸟投资后，您可获得好友认购SS数量*5%的返点，返点无上限。</span>
-        </p>
-        <p class="text">
-            <span class="title i18n" name="sharder-subscribe-10">空投红利</span><span class="i18n" name="sharder-subscribe-11">成功邀请10个以上好友能享受特殊空投红利，具体数量以官网和社区公告为准，符合要求者系统会自动空投到您的豆匣账户。</span>
-        </p>
-    </div>
+    <#--<div class="rule">-->
+        <#--<p class="text">-->
+            <#--<span class="title i18n" name="sharder-subscribe-8">返点奖励</span><span class="i18n" name="sharder-subscribe-9">邀请的好友参与早鸟投资后，您可获得好友认购SS数量*5%的返点，返点无上限。</span>-->
+        <#--</p>-->
+        <#--<p class="text">-->
+            <#--<span class="title i18n" name="sharder-subscribe-10">空投红利</span><span class="i18n" name="sharder-subscribe-11">成功邀请10个以上好友能享受特殊空投红利，具体数量以官网和社区公告为准，符合要求者系统会自动空投到您的豆匣账户。</span>-->
+        <#--</p>-->
+    <#--</div>-->
     <div class="edit-password">
         <form method="post" id="userPwd">
             <h2 class="i18n" name="sharder-user-edit-pwd">修改密码</h2>
@@ -250,10 +250,10 @@
                 <td v-else data-name="my-sharder-info-4" class="i18n">官网</td>
                 <td>
                     <span v-if="dealBase.status == '1'" data-name="my-sharder-info-5" class="i18n">已确认</span>
-                    <span v-if="dealBase.status == '2'" data-name="my-sharder-info-6" class="i18n">待审核</span>
+                    <span v-if="dealBase.status == '0'" data-name="my-sharder-info-6" class="i18n">待审核</span>
                     <#--<span v-if="dealBase.status == '0'">未支付</span>-->
                     <span v-if="dealBase.status == '-1'" data-name="my-sharder-info-7" class="i18n">失效</span>
-                    <span v-if="dealBase.status == '0'" data-name="my-sharder-info-8" class="i18n">已发送奖励</span>
+                    <#--<span v-if="dealBase.status == '0'" data-name="my-sharder-info-8" class="i18n">已发送奖励</span>-->
                 </td>
                 <td>
                     {{dealBase.payAmount || '0'}}
@@ -394,8 +394,11 @@
                             if(isEmpty(pc.dealBases)){
                                 pc.showHint = true;
                             }
-                            executeDymaicI18n();
+
                         }
+                        setTimeout(function () {
+                            executeDymaicI18n();
+                        },100);
                     },
                     msgListView:function(curPage){
                         //根据当前页获取数据

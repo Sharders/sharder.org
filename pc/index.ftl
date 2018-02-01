@@ -261,9 +261,9 @@
             skin: 't-hint-info', //加上边框
             area: ['700px',''], //宽高
             content: "\n" +
-            "<p>各位豆匣支持者，谢谢您们的关注和支持。目前由于转账数量较多，我们的客服小伙伴需要一些时间逐一进行人工核对，请耐心等待我们的确认结果。我们最晚会于今天22:00前把01月30日09:00之前资料齐全的所有转账都完成核对和确认！</p>\n" +
-            "<p>Dear Sharder contributors, thank you for your support. Because of the high volume of transaction, we may need more time to confirm each transaction mannually. The transactions before Jan. 30 0:00 UTC and with complete proof documents will be confirmed no later than Jan. 30 14:00 UTC. Thank you</p>\n" +
-            "<p>客服邮箱/service email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;service@sharder.org</p>"
+            "<p>各位豆匣支持者，谢谢您们的关注和支持。目前由于转账数量较多，我们的客服小伙伴需要一些时间逐一进行人工核对，请耐心等待我们的确认结果。我们最晚会于2月01号22:00前把2月01日09:00之前资料齐全的所有转账都完成核对和确认！</p>\n" +
+            "<p>Dear Sharder contributors, thank you for your support. Because of the high volume of transaction, we may need more time to confirm each transaction mannually. The transactions before Feb.1st 0:00 UTC and with complete proof documents will be confirmed no later than Feb.1st 30 14:00 UTC. Thank you!</p>\n" +
+            "<p>客服邮箱/Customer service email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;service@sharder.org</p>"
 
         });
     }

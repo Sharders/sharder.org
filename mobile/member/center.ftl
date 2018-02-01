@@ -101,6 +101,8 @@
     <span class="i18n" name="sharder-deal-base">返点奖励/SS</span>
     <span class="i18n"name="user-test-text11">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>
     <span class="i18n"name="user-test-text12">立刻邀请</span>
+    <span class="i18n"name="layui-laypage-prev">上一页</span>
+    <span class="i18n"name="layui-laypage-next">下一页</span>
 </div>
 <script type="text/x-template" id="details-white-list">
     <div class="details-white-list subscribe-body">
@@ -115,11 +117,11 @@
     <table class="ss-table defalut">
         <thead>
         <tr>
-            <th class="i18n" data-name="canyushijian">参与时间</th>
-            <th class="i18n" data-name="zhichishuliang">支持数量</th>
-            <th class="i18n" data-name="usebaimingdan">使用白名单额度</th>
-            <th class="i18n" data-name="baimingdangjiagnli">白名单奖励</th>
-            <th class="i18n" data-name="huodetoken">获得token（SS）</th>
+            <th class="i18n" data-name="sharder-participation-time">参与时间</th>
+            <th class="i18n" data-name="sahrder-support-quantity">支持数量</th>
+            <th class="i18n" data-name="sharder-use-white-list">使用白名单额度</th>
+            <th class="i18n" data-name="sharder-white-list-award">白名单奖励</th>
+            <th class="i18n" data-name="sharder-get-ss">获得token（SS）</th>
         </tr>
         </thead>
         <tbody>
@@ -217,9 +219,13 @@
                                 if(!first){
                                     app.currentPage = obj.curr
                                     app.paging();
+                                    $("#page a.layui-laypage-prev").text($("span[name='layui-laypage-prev']").text());
+                                    $("#page a.layui-laypage-next").text($("span[name='layui-laypage-next']").text());
                                 }
                             }
                         });
+                        $("#page a.layui-laypage-prev").text($("span[name='layui-laypage-prev']").text());
+                        $("#page a.layui-laypage-next").text($("span[name='layui-laypage-next']").text());
                     }
                     ,tabBtn:function (_t) {
                         app.dataList = "";
