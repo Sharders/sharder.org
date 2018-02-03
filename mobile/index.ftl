@@ -79,7 +79,7 @@
             <div class="ss-main-title ss-main-btn theme">
                 <div>
                     <span class="blank"></span>
-                    <span class="zh i18n" name="navbar.whitepaper">白皮书/</span>
+                    <span class="zh i18n" name="project-main.title.whitepaper">白皮书/</span>
                     <#--<span class="en i18n" name="project-main.subtitle.whitepaper">WHITEPAPER</span>-->
                 </div>
 
@@ -97,7 +97,7 @@
                 </li>
                 <li class="item item2">
                     <span class="bps-icon"><i class="fa fa-file-code-o" aria-hidden="true"></i></span>
-                    <p class="ss-sub-title zh i18n" name="WHITE-PAPER">白皮书</p>
+                    <p class="ss-sub-title zh i18n" name="project-main.title.whitepaper">白皮书</p>
                     <button>
                         <a href="/whitepaper/preview.ss?type=urlEncoZh" class="i18n" name="btn.zh">中文</a>
                     </button>

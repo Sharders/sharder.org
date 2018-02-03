@@ -256,8 +256,9 @@
                     <#--<span v-if="dealBase.status == '0'" data-name="my-sharder-info-8" class="i18n">已发送奖励</span>-->
                 </td>
                 <td>
-                    {{dealBase.payAmount || '0'}}
-                    <span v-if="dealBase.payType == 'SYSTEM'" data-name="my-sharder-info-9" class="i18n">赠送</span><span v-else>{{dealBase.payType}}</span></td>
+                    <#--{{dealBase.payAmount || '0'}}-->
+                    <#--<span v-if="dealBase.payType == 'SYSTEM'" data-name="my-sharder-info-9" class="i18n">赠送</span><span v-else>{{dealBase.payType}}</span>-->
+                </td>
                 <td>{{dealBase.useWhitelistsQuota || '0'}}</td>
                 <td>{{dealBase.whitelistAwardAmount || '0'}}</td>
                 <td>{{dealBase.amount || '0'}}</td>
@@ -318,8 +319,8 @@
                         $(".personal.rebate").css("border-bottom","0px");
                         pc.dealBases = "";
                         pc.title={a:$("span[name='sharder-registrant-uid']").text(),
-                            b:$("span[name='friend-regdate']").text(),
-                            c:$("span[name='friend-whiteQuotal']").text(),
+                            b:$("span[name='sharder-registrant-time']").text(),
+                            c:$("div>span[name='sharder-subscribe-quota']").text(),
                             d:$("span[name='sharder-deal-base']").text(),
                             e:$("span[name='user-test-text11']").text(),
                             f:$("span[name='user-test-text12']").text()};

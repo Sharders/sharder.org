@@ -17,7 +17,7 @@
 
 <#macro investRules isMobile=false>
 <ul class="rule-details">
-    <li class="rule-text"><span class="rule-text-bold i18n" name="details-name-1">白名单</span><span class="i18n" name="details-text-1">在早鸟轮正式开始前注册账号即拥有1个ETH的白名单额度，使用白名单额度购买SS可获得额外20%SS赠送。</span></li>
+    <li class="rule-text"><span class="rule-text-bold i18n" name="sharder-subscribe-share">白名单</span><span class="i18n" name="details-text-1">在早鸟轮正式开始前注册账号即拥有1个ETH的白名单额度，使用白名单额度购买SS可获得额外20%SS赠送。</span></li>
     <li class="rule-text"><span class="rule-text-bold i18n" name="details-name-2">推广奖励</span><span class="i18n" name="details-text-2">分享个人链接或邀请码邀请好友注册豆匣，每成功注册1人可获得1个ETH白名单额度。单个账号白名单额度上限为100ETH。</li>
     <li class="rule-text"><span class="rule-text-bold i18n" name="details-name-3">投资返点</span><span class="i18n" name="details-text-3">如果所邀请好友参与早鸟轮或众筹轮投资，邀请人可获得好友认购SS数量*5%的返点，该返点无上限。</li>
     <#--<li class="rule-text"><span class="rule-text-bold i18n" name="details-name-4">空投福利</span><span class="i18n" name="details-text-4">参与早鸟轮投资或邀请了10人以上（含10人）的账户均可获得空投奖励，系统会自动空投SS到您的豆匣账户，数额以官网公布为准。</li>-->

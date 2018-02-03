@@ -9,35 +9,7 @@
 <div class="ss-mian" id="invest_item">
     <section class="ss-main-title">
         <h3 class="ss-head i18n" name="sharder-angel-wheels">早鸟轮</h3>
-        <ul>
-            <li><span class="ss-time i18n" name="sharder-time-start-end">1月18日-1月28日</span>
-                <span class="ss-time i18n" name="sharder-angel-time-start-end">1月29日-2月11日</span>
-                <span class="ss-time i18n" name="sharder-crowd-funding-time-start-end">2月23日-3月23</span></li>
-            <li>
-                <img src="/r/cms/resource/sharders/img/yuan.png" class="ss-img">
-                <img src="/r/cms/resource/sharders/img/yuan.png" class="ss-img sharder-img">
-                <img src="/r/cms/resource/sharders/img/yuan.png" class="ss-img">
-            </li>
-            <li class="ss-line"></li>
-            <li>
-                <span class="ss-text i18n" name="sharder-subscribe-reserve">白名单预约</span>
-                <span class="ss-text i18n" name="sharder-angel">早鸟轮</span>
-                <span class="ss-text i18n" name="sharder-crowd-funding">众筹轮</span>
-            </li>
-        </ul>
-        <div class="sharder-link">
-            <button class="i18n" name="yijieshu">已结束</button>
-        <#--<a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="">获得优惠</button></a>-->
-            <#--<a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">正在进行</button></a>-->
-            <#--<a href="javascript:;"><button class="angel-btn subscribe-btn i18n" name="yijieshu">已结束</button></a>-->
-        <button class="i18n" name="yijieshu">已结束</button>
-        <#--<button class="angel-btn i18n" name="">参与早鸟</button>-->
-        <#--<a href="/invest/invest_crowd_funding.ss">-->
-        <#--<button class="crowd-funding-btn subscribe-btn">正在进行</button>-->
-        <#--</a>-->
-            <#--<button class="crowd-funding-btn i18n" name="canyuzhongchoulun">参与众筹</button>-->
-            <button class="crowd-funding-btn i18n"name="jinqingqidai">敬请期待</button>
-        </div>
+        <#include "invest_timeline.ftl" />
     </section>
     <section class="ss-main-early-bird">
         <div class="sharder-line">
@@ -101,32 +73,7 @@
                         <p><span class="unit btc">{{payType}}</span><span class="unit ss" maxlength="10">SS</span></p>
                     </li>
                     <li id="transfer"><button type="button" class="complete-transfer i18n" name="sharder-transfer" v-on:click="transfer()">获得转账地址</button></li>
-                    <div id="transfer_details" style="display: none">
-                        <li>
-                            <div class="pay-text">
-                                <#--<p class="generalTextColor"><span class="i18n" name="sharder-invest-item-text9">感谢你参加豆匣早鸟轮，你可以用直接从数字货币钱包发送</span>{{payType}}<span class="i18n" name="sharder-invest-item-text12">到以下地址。</span></p>-->
-                                <p class="generalTextColor i18n" name="sharder-invest-item-text10">参加早鸟轮将会优先使用白名单额度，如提交了认购申请但未完成转账。扣除的白名单额度将在24小时内恢复。</p>
-                                <#--<p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账成功后为了保证您的资金安全，转账后请加客服微信并将转账成功的截图发给我们。我们将为您进行一对一的确认。</p>-->
-                            </div>
-                            <div id="walletAddr_qr_code"></div>
-                            <p class="bg-walletQr"><span class="i18n"  name="sharder-addr-wallet">转账地址: </span><span id="walletQr-text">{{walletAddr}}</span><img src="/r/cms/resource/sharders/img/copyicon.svg" class="copy-icon" onclick="copyTextById('walletQr-text')"></p>
-                        </li>
-                        <li>
-                            <div class="trade_prove">
-                                <div class="user-wallet-addr">
-                                    <label for="user_wallet_addr" ><span class="i18n" name="sharder-invest-item1">请填写</span><span style="color: red;" class="i18n" name="sharder-invest-item2">您转账</span><span class="i18n" name="sharder-invest-item3">的钱包地址</span>:</label>
-                                    <input id="user_wallet_addr" name="payWalletAddr">
-                                </div>
-
-                                <p class="hint-info"><span class="i18n" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
-                                <div id="add_img"></div>
-                            </div>
-                            <input type="hidden" name="tradeImgAddr">
-                        </li>
-                        <li>
-                            <button type="button" class="complete_transfer i18n" name="sharder-completed-transfer" v-on:click="prompt()">已完成转账</button>
-                        <#--<button class="complete_transfer i18n tesu" name="sharder-copy" onclick="jsCopy()">复制地址</button></li>-->
-                    </div>
+                    <#include  'invest_investment.ftl'/>
             </ul>
         </div>
     </section>

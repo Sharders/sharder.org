@@ -70,14 +70,14 @@
             <div class="ss-main-title ss-main-btn theme">
                 <div class="ss-hover-effect">
                     <span class="blank"></span>
-                    <span class="zh i18n" name="White-Paper">白皮书</span>
+                    <span class="zh i18n" name="project-main.title.whitepaper">白皮书</span>
                     <#--<span class="en i18n" name="project-main.subtitle.whitepaper">WHITEPAPER</span>-->
                 </div>
             </div>
             <ul class="items">
                 <li class="item item1">
                     <span class="bps-icon"><i class="fa fa-download" aria-hidden="true"></i></span>
-                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlTechZh" title="查看技术白皮书" target="_blank"><span class="i18n" name="Technical-Paper">技术白皮书</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlTechZh" title="查看技术白皮书" target="_blank"><span class="i18n" name="TECHNICAL-WHITE-PAPER">技术白皮书</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlTechZh')}">
                         <button class="down-btn zh " >
                             <span class="i18n" name="btn.zh">中文</span>

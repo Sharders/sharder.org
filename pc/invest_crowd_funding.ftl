@@ -83,29 +83,7 @@
                         <li><input type="number" oninput="investTransition(app.payType,this)" input-type="ss" :value="zero" maxlength="12"><span class="sign">SS</span></li>
                     </ul>
                     <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-transfer" v-on:click="transfer()" id="transfer">获取转账地址</button>
-                    <div  id="transfer_details" style="display: none">
-                        <div class="pay-text">
-                            <p class="generalTextColor i18n" name="your-addr-official">你可以从交易所或其他钱包地址转账到官网直投地址</p>
-                            <p class="pay-akey generalTextColor i18n" name="sharder-invest-item-text11">转账完成后请你填写转账信息并上传转账截图。以便我们进行确认</p>
-                        </div>
-                        <div>
-                            <div class="qr-code" id="walletAddr_qr_code"></div>
-                        </div>
-                        <div class="pay-addr">
-                            <span class="i18n" name="sharder-addr-wallet">地址:</span><span id="sharder-addr">{{walletAddr}}</span><button type="button" onclick="jsCopy('sharder-addr')" class="i18n" name="sharder-copy">复制</button>
-                            <input type="hidden" name="shardersWalletAddr" :value="walletAddr">
-                        </div>
-                        <div class="trade_prove">
-                            <div class="user-wallet-addr">
-                                <h4 class="i18n" name="transfer-wallet-address">请填写您转账的钱包地址:</h4>
-                                <input id="user_wallet_addr" name="payWalletAddr">
-                            </div>
-                            <p class="hint-info"><span class="i18n" name="sharder-invest-item4">转币成功截图</span><span class="hint-info i18n" name="sharder-invest-item5">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
-                            <div id="add_img"></div>
-                        </div>
-                        <input type="hidden" name="tradeImgAddr">
-                        <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-completed-transfer" v-on:click="prompt()">已完成转账</button>
-                    </div>
+                    <#include  'invest_investment.ftl'/>
                 </form>
             </div>
             <div class="participation">

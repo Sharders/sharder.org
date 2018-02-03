@@ -47,7 +47,7 @@
                         </li>
                     </#if>
                     <li>
-                        <input type="submit" value="立即登录" class="ss-main-btn theme ss-hover-effect i18n" name="head.denglu" />
+                        <input type="submit" value="立即登录" class="ss-main-btn theme ss-hover-effect i18n" name="account.lijidenglu" />
                     </li>
 
                     <#if message??>

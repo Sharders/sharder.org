@@ -96,8 +96,8 @@
     <span id="chakan" class="i18n" name="user-test-text1">查看邀请详情</span>
     <span id="guanbi" class="i18n" name="user-test-text2">关闭邀请详情</span>
     <span class="i18n" name="sharder-registrant-uid">注册人UID</span>
-    <span class="i18n" name="friend-regdate">注册时间</span>
-    <span class="i18n" name="friend-whiteQuotal">白名单额度</span>
+    <span class="i18n" name="sharder-registrant-time">注册时间</span>
+    <span class="i18n" name="sharder-subscribe-quota">白名单额度</span>
     <span class="i18n" name="sharder-deal-base">返点奖励/SS</span>
     <span class="i18n"name="user-test-text11">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>
     <span class="i18n"name="user-test-text12">立刻邀请</span>
@@ -235,8 +235,8 @@
                         app.currentPage = 1; //每次打开新列表分页从1开始
 
                         app.title={a:$("span[name='sharder-registrant-uid']").text(),
-                            b:$("span[name='friend-regdate']").text(),
-                            c:$("span[name='friend-whiteQuotal']").text(),
+                            b:$("span[name='sharder-registrant-time']").text(),
+                            c:$("span[name='sharder-subscribe-quota']").text(),
                             d:$("span[name='sharder-deal-base']").text(),
                             e:$("span[name='user-test-text11']").text(),
                             f:$("span[name='user-test-text12']").text()};

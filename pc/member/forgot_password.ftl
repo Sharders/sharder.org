@@ -47,7 +47,7 @@
                         <input id="identification_forgot_pwd" type="text" placeholder="手机号码或邮箱"  vld="{remote:'/user_center/isexist.ss',messages:{remote:'手机或邮箱不存在！'}}" name="identification"  class="required login-input i18n" />
                     </li>
                     <li class="ss-verification-code-li" >
-                        <label for="captcha"><i>*</i><span class="i18n" name="sharder-user--verification-code">校验码:</span></label>
+                        <label for="captcha"><i>*</i><span class="i18n" name="sharder-user-code-2">校验码:</span></label>
                         <input id="captcha" type="text" placeholder="校验码" name="captcha" class="captcha i18n" />
                         <input type="button"  class="i18n" name="fasong" onclick="forgotPwdVcode(this)" value="获取验证码"/>
                     </li>

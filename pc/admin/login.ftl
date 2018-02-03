@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="description" content="管理端登录" />
     <title>Sharders管理端登录</title>
     <link rel="stylesheet" href="/r/cms/resource/sharders/admin/css/login.css">

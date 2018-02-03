@@ -72,7 +72,7 @@
                         <input id="referrer" type="text" name="inviterId" class="" value="${inviterId!}"/>
                     </li>
                     <li class="ss-verification-code-li">
-                        <label for="verification code"><i>*</i><span class="i18n" name="sharder-sign-verification-code">校验码:</span></label>
+                        <label for="verification code"><i>*</i><span class="i18n" name="sharder-user-code-2">校验码:</span></label>
                         <input id="verification_code" type="text" maxlength="20" name="imgCaptcha" class="imgCaptcha" />
                         <i class="code-img"><img id="guestbookCaptcha" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl"></i>
                     </li>

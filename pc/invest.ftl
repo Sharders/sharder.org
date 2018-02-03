@@ -12,7 +12,7 @@
         <section class="distribution-program">
             <div class="price-conversion">
                 <span ><span class="i18n" name="crowd-step-earlybird">早鸟轮: 1ETH=</span>${ETH_B_PRICE!}SS</span>
-                <span><span class="i18n" name="crowd-step-crowd-2nd">众筹轮: 1ETH=</span>${ETH_D_PRICE!}SS</span>
+                <span><span class="i18n" name="crowd-step-crowd-1st">众筹轮: 1ETH=</span>${ETH_D_PRICE!}SS</span>
                 <div class="duihuan-jieshi-div">
                     <p class="duihuan-jieshi i18n">
                         <span class="i18n" name="duihuan-jieshi">由于虚拟货币市场价格波动性，我们根据CoinMarketCap(https://coinmarketcap.com)1月22日到28日7天的市场收盘均价作为锁定价:</span>
@@ -109,7 +109,7 @@
             <span class="i18n" name="test-text2-5">成功购买商品</span>
             <span class="i18n" name="test-text2-6">付款成功</span>
             <span class="i18n" name="test-text2-7">豆匣商城</span>
-            <span class="i18n" name="sharder-angel">早鸟轮</span>
+            <span class="i18n" name="sharder-angel-wheel">早鸟轮</span>
             <span class="i18n" name="navbar.zhongchou">众筹轮</span>
             <span class="i18n" name="text-text23">社区基金</span>
             <span class="i18n" name="text-text24">空投基金</span>
@@ -192,7 +192,7 @@
                     center: ['54%', '50%'],
                     selectedMode: 'single',
                     data:[
-                        {value:15, name: $("#test-text span[name='sharder-angel']").text()+'15%'},
+                        {value:15, name: $("#test-text span[name='sharder-angel-wheel']").text()+'15%'},
                         {value:35, name: $("#test-text span[name='navbar.zhongchou']").text()+'35%'},
                         {value:10, name: $("#test-text span[name='text-text23']").text()+'10%'},
                         {value:10, name: $("#test-text span[name='text-text24']").text()+'10%'},
