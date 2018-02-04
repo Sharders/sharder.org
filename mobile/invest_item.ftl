@@ -8,12 +8,12 @@
 <@lay.htmlBody>
 <div class="ss-mian" id="invest_item">
     <section class="ss-main-title">
-        <h3 class="ss-head i18n" name="sharder-angel-wheels">早鸟轮</h3>
+        <h3 class="ss-head i18n" name="sharder-sharder-presale">早鸟轮</h3>
         <#include "invest_timeline.ftl" />
     </section>
     <section class="ss-main-early-bird">
         <div class="sharder-line">
-            <h3 class="sharder-early-bird i18n" name="sharder-angel-wheel">参与早鸟轮</h3>
+            <h3 class="sharder-early-bird i18n" name="sharder-early-bird">参与早鸟轮</h3>
             <#--<p  class="sharder-early-bird-text i18n" name="sharder-invest-time-start-end">1月29日9:00-2月11日23:59</p>-->
             <p>1ETH = ${ETH_B_PRICE!}SS,1BTC = ${BTC_A_PRICE}SS</p>
             <#--<#if usePhaseIIAmount ?? && phaseIIAmount ??>-->
@@ -26,8 +26,8 @@
         <ul class="ss-early-bird-text">
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-finish-condition">1.结束条件:</span><br/>
-                <span class="i18n" name="sharder-invset-finish1">1) 7,500,0000个SS全部售出。</span><br/>
-                <span class="i18n" name="sharder-invset-finish2">2) 到达截止时间2018年2月11日23:59。</span>
+                <span class="i18n" name="sharder-invset-finish-million">1) 7,500,0000个SS全部售出。</span><br/>
+                <span class="i18n" name="sharder-invset-finish-time">2) 到达截止时间2018年2月11日23:59。</span>
             </li>
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-invest-limit">2.参投限额:</span><br/>
@@ -39,7 +39,7 @@
             </li>
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-time-referral">4.邀请奖励:</span><br/>
-                <span class="i18n" name="sharder-time-referral-rule">早鸟轮结束以后进入审核阶段，于72小时内公布认购结果。公开众筹结束后一周内完成Token兑换。</span>
+                <span class="i18n" name="sharder-time-referral-rule">早鸟轮结束以后进入审核阶段，于72小时内公布认购结果。公开众售结束后一周内完成Token兑换。</span>
             </li>
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-time-token">5.豆匣SS:</span><br/>
@@ -96,11 +96,11 @@
     </section>
 </div>
 <div style="display: none">
-    <div class="popup i18n" name ="sharder-Thank" >感谢您支持豆匣众筹。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
+    <div class="popup i18n" name ="sharder-Thank" >感谢您支持豆匣众售。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
     <span class="i18n" name="copyok" style="display: none">复制成功</span>
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl">
-<span class="i18n" name="nihaimeishurujine" style="display: none">你还没输入金额哦</span>
+<span class="i18n" name="sharder-entered-amount" style="display: none">你还没输入金额哦</span>
 
 <script>
 

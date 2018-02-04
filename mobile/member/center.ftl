@@ -21,8 +21,8 @@
             <li><labal class="user-title tesu i18n" name="sharder-extension-link">推广链接:</labal><span class="user-text augoid" id="contents">${invitePage!}?inviterId=${inviterId!}</span></li>
         </ul>
         <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="copyTextById('contents')">复制推广链接</button>
-        <p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众筹。</p>
-        <p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众筹获得豆匣(SS)总额度的5%作为返点奖励。</p>
+        <p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众售。</p>
+        <p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众售获得豆匣(SS)总额度的5%作为返点奖励。</p>
     </div>
     <div class="asset-information" id="center">
         <h1 class="phone-center-information-title i18n" name="asset-information">资产信息</h1>
@@ -35,7 +35,7 @@
                 <div class="crowd-funding details">
                     <p class="crowd-funding-title">
                         <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img" v-on:click="tabMessage(true)">
-                        <span class="details-title i18n" name="sharder-subscribe-income">众筹所得</span>
+                        <span class="details-title i18n" name="sharder-subscribe-income">众售所得</span>
                     </p>
                     <p class="crowd-funding quota ">${crowd_amount!'0'}SS</p>
                     <#--<p class="details-colse" >{{retruenTExts(!crowd)}}</p>-->
@@ -78,29 +78,29 @@
         <#--</p>-->
         <#--<div class="subscribe-info-text">-->
             <#--<p  class="subscribe-info-title i18n" name="sharder-subscribe-fine">白名单解释</p>-->
-            <#--<p class="subscribe-information-title i18n" name="sharder-subscribe-1">白名单说明</p>-->
-            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-2">在早鸟轮正式开始前成功注册账号都拥有1个ETH的基础白名单额度</p>-->
-            <#--<p class="subscribe-information-title i18n" name="sharder-subscribe-3">白名单额度</p>-->
-            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-4">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度。单个账户额度上限为100ETH。</p>-->
-            <#--<p class="subscribe-information-title i18n" name="sharder-subscribe-5">白名单奖励</p>-->
-            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-6">早鸟轮认购豆匣币(SS)时，系统会自动赠送20%的豆匣币(SS)。</p>-->
-            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-7"> 如拥有1ETH白名单额度，认购总额为3ETH，则换币的计算公式为:1*ETH锁定价/SS单价*(1+20%)+2*ETH锁定价/SS单价。</p>-->
+            <#--<p class="subscribe-information-title i18n" name="sharder-subscribe-one">白名单说明</p>-->
+            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-second">在早鸟轮正式开始前成功注册账号都拥有1个ETH的基础白名单额度</p>-->
+            <#--<p class="subscribe-information-title i18n" name="sharder-subscribe-three">白名单额度</p>-->
+            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-four">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度。单个账户额度上限为100ETH。</p>-->
+            <#--<p class="subscribe-information-title i18n" name="sharder-subscribe-five">白名单奖励</p>-->
+            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-six">早鸟轮认购豆匣币(SS)时，系统会自动赠送20%的豆匣币(SS)。</p>-->
+            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-seven"> 如拥有1ETH白名单额度，认购总额为3ETH，则换币的计算公式为:1*ETH锁定价/SS单价*(1+20%)+2*ETH锁定价/SS单价。</p>-->
         <#--</div>-->
     <#--</div>-->
 </div>
 <div style="display: none">
-    <span class="i18n" name="sharder-subscribe-text2">参与不同阶段所获得的豆匣（SS）数量</span>
-    <span class="i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其投资获得豆匣（SS）总额的5%作为返点奖励。</span>
-    <span id="chakans" class="i18n" name="user-test-text7">查看众筹详情</span>
-    <span id="guanbis" class="i18n" name="user-test-text8">关闭众筹详情</span>
-    <span id="chakan" class="i18n" name="user-test-text1">查看邀请详情</span>
-    <span id="guanbi" class="i18n" name="user-test-text2">关闭邀请详情</span>
+    <span class="i18n" name="shader-storage-token">参与不同阶段所获得的豆匣（SS）数量</span>
+    <span class="i18n" name="sharder-rewarded-purchase-referred">邀请好友成功参与众售，您将获得其投资获得豆匣（SS）总额的5%作为返点奖励。</span>
+    <span id="chakans" class="i18n" name="sharder-details-info">查看众售详情</span>
+    <span id="guanbis" class="i18n" name="sharder-details-info-close">关闭众售详情</span>
+    <span id="chakan" class="i18n" name="sharder-details">查看邀请详情</span>
+    <span id="guanbi" class="i18n" name="sharder-close-details">关闭邀请详情</span>
     <span class="i18n" name="sharder-registrant-uid">注册人UID</span>
     <span class="i18n" name="sharder-registrant-time">注册时间</span>
     <span class="i18n" name="sharder-subscribe-quota">白名单额度</span>
     <span class="i18n" name="sharder-deal-base">返点奖励/SS</span>
-    <span class="i18n"name="user-test-text11">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>
-    <span class="i18n"name="user-test-text12">立刻邀请</span>
+    <span class="i18n"name="sharder-details-benefits">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>
+    <span class="i18n"name="sharder-details-immediately">立刻邀请</span>
     <span class="i18n"name="layui-laypage-prev">上一页</span>
     <span class="i18n"name="layui-laypage-next">下一页</span>
 </div>
@@ -181,9 +181,9 @@
                     tabMessage:function(bool){
                         var text;
                         if(bool){
-                            text = $("span[name='sharder-subscribe-text2']").text();
+                            text = $("span[name='shader-storage-token']").text();
                         }else{
-                            text = $("span[name='sharder-subscribe-text3']").text();
+                            text = $("span[name='sharder-rewarded-purchase-referred']").text();
                         }
                         layer.msg(text, {
                             time: 50000, //5s后自动关闭
@@ -238,8 +238,8 @@
                             b:$("span[name='sharder-registrant-time']").text(),
                             c:$("span[name='sharder-subscribe-quota']").text(),
                             d:$("span[name='sharder-deal-base']").text(),
-                            e:$("span[name='user-test-text11']").text(),
-                            f:$("span[name='user-test-text12']").text()};
+                            e:$("span[name='sharder-details-benefits']").text(),
+                            f:$("span[name='sharder-details-immediately']").text()};
                         $(".paging-query").css("display","none");
                         $(".crowd-funding.details").css("border-bottom","0");
                         $(".rebate.details").css("border-bottom","0");

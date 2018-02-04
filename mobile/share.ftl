@@ -15,7 +15,7 @@
 
     <img src="/r/cms/resource/sharders/img/teamphoto/share-yy.png" class="yy">
     <div class="items">
-        <h3 class="ss-title3 ss-title i18n" name="">众筹即将开启</h3>
+        <h3 class="ss-title3 ss-title i18n" name="">众售即将开启</h3>
         <img src="/r/cms/resource/sharders/img/share-button.png" class="button">
         <p class="ss-title4 ss-title i18n" name="">邀请好友成功参投更有超高返点奖励</p>
         <section class="ss-share">

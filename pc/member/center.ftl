@@ -56,19 +56,19 @@
 
         <#--<div class="subscribe-rule">-->
         <#--&lt;#&ndash;<span class="subscribe-detailed i18n" name="sharder-subscribe-fine">白名单解释</span>&ndash;&gt;-->
-            <#--<span class="title i18n" name="sharder-subscribe-1">白名单说明</span>-->
-            <#--<p class="text i18n" name="sharder-subscribe-2">-->
+            <#--<span class="title i18n" name="sharder-subscribe-one">白名单说明</span>-->
+            <#--<p class="text i18n" name="sharder-subscribe-second">-->
                 <#--在早鸟轮正式开始前成功注册账号都拥有1个ETH的基础白名单额度。-->
             <#--</p>-->
-            <#--<span class="title i18n" name="sharder-subscribe-3">白名单额度</span>-->
-            <#--<p class="text i18n" name="sharder-subscribe-4">-->
+            <#--<span class="title i18n" name="sharder-subscribe-three">白名单额度</span>-->
+            <#--<p class="text i18n" name="sharder-subscribe-four">-->
                 <#--好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度。单个账户额度上限为100ETH。-->
             <#--</p>-->
-            <#--<span class="title i18n" name="sharder-subscribe-5">白名单奖励:</span>-->
-            <#--<p class="text i18n" name="sharder-subscribe-6">-->
+            <#--<span class="title i18n" name="sharder-subscribe-five">白名单奖励:</span>-->
+            <#--<p class="text i18n" name="sharder-subscribe-six">-->
                 <#--早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。-->
             <#--</p>-->
-            <#--<p class="text i18n" name="sharder-subscribe-7">-->
+            <#--<p class="text i18n" name="sharder-subscribe-seven">-->
                 <#--如拥有1ETH白名单额度，认购总额为3ETH，则换币的计算公式为:1*ETH锁定价/SS单价*(1+20%)+2*ETH锁定价/SS单价。-->
             <#--</p>-->
         <#--</div>-->
@@ -100,7 +100,7 @@
 
         </ul>
     </div>
-    <div class="remarks i18n" name="sharder-subscribe-text5">如果所邀请好友参与早鸟轮或众筹轮投资，邀请人可获得好友认购SS数量*5%的返点，该返点无上限。</div>
+    <div class="remarks i18n" name="sharder-invitation-register-sale-reward">如果所邀请好友参与早鸟轮或众售轮投资，邀请人可获得好友认购SS数量*5%的返点，该返点无上限。</div>
     <div class="assets">
         <span class="title i18n" name="sharder-my-assets">我的资产</span>
         <div class="total-assets">
@@ -111,16 +111,16 @@
         <div class="subscribe-crowd-funding">
             <div class="personal white-list">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="popup-subscribe i18n" name="sharder-subscribe-text1">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>
+                    <div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>
                 <span class="currency">ETH</span>
                 <span class="quota used">${maxSubscribe!"0"}</span>
-                <span class="alreadyUsed"><span class="i18n" name="sharder-user-already-quota">已使用额度 :</span> ${nowSubscribe!"0"}ETH</span>
+                <span class="alreadyUsed"><span class="i18n" name="sharder-subscribe-income">已使用额度 :</span> ${nowSubscribe!"0"}ETH</span>
             <#--<span class="details" v-on:click="isLuck(1)">{{retruenTExt(isOff1)}}</span>-->
             <#--<span class="details" v-on:click="selectTmpl('fandian')">{{retruenTExt(isOff3)}}</span>-->
             </div>
             <div class="personal crowd-funding">
-                <span class="explain"><span class="i18n" name="sharder-subscribe-income">众筹所得</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="popup-crowd-funding i18n" name="sharder-subscribe-text2">获得的豆匣(SS)数量。</div></span>
+                <span class="explain"><span class="i18n" name="sharder-subscribe-income">众售所得</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
+                    <div class="popup-crowd-funding i18n" name="shader-storage-token">获得的豆匣(SS)数量。</div></span>
                 <span class="currency i18n" name="sharder-SS-1">豆匣(SS)</span>
                 <span class="quota">${crowd_amount!'0'}</span>
                 <span class="details" v-on:click="selectTmpl('zhongchou')">{{retruenTExts(isOff2)}}</span>
@@ -128,7 +128,7 @@
             <div class="personal rebate">
 
                 <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">邀请奖励</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="poput-invitation i18n" name="sharder-subscribe-text3">邀请好友成功参与众筹，您将获得其认购豆匣（SS）总额的5%作为邀请奖励。</div></span>
+                    <div class="poput-invitation i18n" name="sharder-rewarded-purchase-referred">邀请好友成功参与众售，您将获得其认购豆匣（SS）总额的5%作为邀请奖励。</div></span>
                 <span class="currency i18n" name="sharder-SS-1">豆匣(SS)</span>
                 <span class="quota">${invite_rewards_amount!'0'}</span>
             <#--<span class="details" >{{retruenTExt(isOff3)}}</span>-->
@@ -147,28 +147,28 @@
         </div>
         <button class="currency-ss i18n" name="sharder-subscribe-currency">提币</button>
         <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-        <div class="poput-extract i18n" name="sharder-subscribe-text4">通过官网直投的，将于公开众筹结束后开始发放豆匣SS，七个工作日内发放到您提供的ETH钱包地址（锁仓者除外）。</div>
+        <div class="poput-extract i18n" name="sharder-website-direct-investment">通过官网直投的，将于公开众售结束后开始发放豆匣SS，七个工作日内发放到您提供的ETH钱包地址（锁仓者除外）。</div>
 
     </div>
     <#--<div class="rule">-->
         <#--<p class="text">-->
-            <#--<span class="title i18n" name="sharder-subscribe-8">返点奖励</span><span class="i18n" name="sharder-subscribe-9">邀请的好友参与早鸟投资后，您可获得好友认购SS数量*5%的返点，返点无上限。</span>-->
+            <#--<span class="title i18n" name="sharder-subscribe-eight">返点奖励</span><span class="i18n" name="sharder-subscribe-nine">邀请的好友参与早鸟投资后，您可获得好友认购SS数量*5%的返点，返点无上限。</span>-->
         <#--</p>-->
         <#--<p class="text">-->
-            <#--<span class="title i18n" name="sharder-subscribe-10">空投红利</span><span class="i18n" name="sharder-subscribe-11">成功邀请10个以上好友能享受特殊空投红利，具体数量以官网和社区公告为准，符合要求者系统会自动空投到您的豆匣账户。</span>-->
+            <#--<span class="title i18n" name="sharder-subscribe-ten">空投红利</span><span class="i18n" name="sharder-subscribe-eleven">成功邀请10个以上好友能享受特殊空投红利，具体数量以官网和社区公告为准，符合要求者系统会自动空投到您的豆匣账户。</span>-->
         <#--</p>-->
     <#--</div>-->
     <div class="edit-password">
         <form method="post" id="userPwd">
             <h2 class="i18n" name="sharder-user-edit-pwd">修改密码</h2>
             <div>
-                <label class="i18n" name="user-text-1">请输入旧密码</label> <input type="password" id="oldPassWord" name="origPwd" v-on:keyup="verification()"/>
+                <label class="i18n" name="sharder-old-password">请输入旧密码</label> <input type="password" id="oldPassWord" name="origPwd" v-on:keyup="verification()"/>
             </div>
             <div>
-                <label class="i18n" name="user-text-2">请输入新密码</label><input type="password" id="newPassWord1" v-on:keyup="verification()"/>
+                <label class="i18n" name="sharder-new-password">请输入新密码</label><input type="password" id="newPassWord1" v-on:keyup="verification()"/>
             </div>
             <div>
-                <label class="i18n" name="user-text-3">再次输入密码</label><input type="password"  name="newPwd" id="newPassWord2" v-on:keyup="verification()"/>
+                <label class="i18n" name="sharder-again-password">再次输入密码</label><input type="password"  name="newPwd" id="newPassWord2" v-on:keyup="verification()"/>
             </div>
 
             <input type="button" name="the-next-step" class="i18n" value="提交" v-on:click="editPwd()"/>
@@ -239,25 +239,25 @@
             <tr v-for="dealBase in parentData.dealBases.list" >
                 <td>{{dealBase.createDate}}</td>
                 <td>
-                    <span v-if="dealBase.source == 'PhaseII'" class="i18n" data-name="my-sharder-info-1">
+                    <span v-if="dealBase.source == 'PhaseII'" class="i18n" data-name="sharder-my-info-presale">
                         早鸟
                     </span>
-                    <span v-if="dealBase.source == 'PhaseIII'" class="i18n" data-name="my-sharder-info-2">
-                        众筹
+                    <span v-if="dealBase.source == 'PhaseIII'" class="i18n" data-name="sharder-my-info-crowdsale">
+                        众售
                     </span>
                 </td>
-                <td v-if="dealBase.source == 'Store'" data-name="my-sharder-info-3" class="i18n">商城</td>
-                <td v-else data-name="my-sharder-info-4" class="i18n">官网</td>
+                <td v-if="dealBase.source == 'Store'" data-name="sharder-my-info-mall" class="i18n">商城</td>
+                <td v-else data-name="sharder-my-info-official-website" class="i18n">官网</td>
                 <td>
-                    <span v-if="dealBase.status == '1'" data-name="my-sharder-info-5" class="i18n">已确认</span>
-                    <span v-if="dealBase.status == '0'" data-name="my-sharder-info-6" class="i18n">待审核</span>
+                    <span v-if="dealBase.status == '1'" data-name="sharder-my-info-confirmed" class="i18n">已确认</span>
+                    <span v-if="dealBase.status == '0'" data-name="sharder-my-info-to-confirmed" class="i18n">待审核</span>
                     <#--<span v-if="dealBase.status == '0'">未支付</span>-->
-                    <span v-if="dealBase.status == '-1'" data-name="my-sharder-info-7" class="i18n">失效</span>
-                    <#--<span v-if="dealBase.status == '0'" data-name="my-sharder-info-8" class="i18n">已发送奖励</span>-->
+                    <span v-if="dealBase.status == '-1'" data-name="sharder-my-info-invalid" class="i18n">失效</span>
+                    <#--<span v-if="dealBase.status == '0'" data-name="sharder-my-info-referral-bonus" class="i18n">已发送奖励</span>-->
                 </td>
                 <td>
                     <#--{{dealBase.payAmount || '0'}}-->
-                    <#--<span v-if="dealBase.payType == 'SYSTEM'" data-name="my-sharder-info-9" class="i18n">赠送</span><span v-else>{{dealBase.payType}}</span>-->
+                    <#--<span v-if="dealBase.payType == 'SYSTEM'" data-name="sharder-my-info-welfare" class="i18n">赠送</span><span v-else>{{dealBase.payType}}</span>-->
                 </td>
                 <td>{{dealBase.useWhitelistsQuota || '0'}}</td>
                 <td>{{dealBase.whitelistAwardAmount || '0'}}</td>
@@ -322,8 +322,8 @@
                             b:$("span[name='sharder-registrant-time']").text(),
                             c:$("div>span[name='sharder-subscribe-quota']").text(),
                             d:$("span[name='sharder-deal-base']").text(),
-                            e:$("span[name='user-test-text11']").text(),
-                            f:$("span[name='user-test-text12']").text()};
+                            e:$("span[name='sharder-details-benefits']").text(),
+                            f:$("span[name='sharder-details-immediately']").text()};
                         pc.title2={a:$("span[name='sharder-participation-time']").text(),
                             b:$("span[name='sharder-stage-participation']").text(),
                             c:$("span[name='sharder-source']").text(),

@@ -6,20 +6,20 @@
 <@lay.htmlBody>
 <div class="ss-mian" id="invest_item">
     <section class="ss-main-title">
-        <h3 class="ss-head i18n" name="sharder-invest-crowd-funding">众筹轮</h3>
+        <h3 class="ss-head i18n" name="sharder-invest-crowd-funding">众售轮</h3>
         <#include "invest_timeline.ftl" />
     </section>
     <section class="ss-main-early-bird">
         <div class="sharder-line">
-            <h3 class="sharder-early-bird i18n" name="sharder-crowd-funding">参与众筹轮</h3>
+            <h3 class="sharder-early-bird i18n" name="sharder-crowd-funding">参与众售轮</h3>
             <p  class="sharder-early-bird-text i18n" name="sharder-crowd-funding-time">2月23日9:00-3月23日23:59</p>
             <p class="sharder-line-p"><span style="width: 30%"></span><i>30%</i></p>
         </div>
         <ul class="ss-early-bird-text">
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-start-time" >1.开始时间:</span>
-                <span class="i18n" name="sharder-crowd-funding-text1">
-                    北京时间2018年3月23日23:59，如下列任一目标达成则将立即停止众筹轮。<br/>
+                <span class="i18n" name="sharder-crowd-funding-over-conditions">
+                    北京时间2018年3月23日23:59，如下列任一目标达成则将立即停止众售轮。<br/>
                 &nbsp;&nbsp;A:7500000个SS全部售出。<br/>
                 &nbsp;&nbsp;B:SS售出超1950个ETH并到达截止时间2018年3月23日。
                 </span>
@@ -31,29 +31,29 @@
             </li>
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-investment-quota">3.参投限额:</span>
-                <span class="i18n" name="sharder-crowd-funding-text3">≥1ETH/人，或等额BTC。</span>
+                <span class="i18n" name="sharder-crowd-funding-more">≥1ETH/人，或等额BTC。</span>
             </li>
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-hair-tiem">4.发币时间:</span>
-                <span class="i18n" name="sharder-crowd-funding-text4">众筹结束后一周以内。</span>
+                <span class="i18n" name="sharder-crowd-funding-token-sale">众售结束后一周以内。</span>
             </li>
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-examine-time">5.</span>
-                <span class="i18n" name="sharder-crowd-funding-text5">早鸟轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
+                <span class="i18n" name="sharder-crowd-funding-audit">早鸟轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
             </li>
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-raise-time">6.</span>
-                <span class="i18n" name="sharder-crowd-funding-text6">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
+                <span class="i18n" name="sharder-crowd-funding-after-presale">早鸟轮结束以后，众售将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
             </li>
             <#--<li class="generalTextColor">-->
                 <#--<span class="crude i18n" name="sharder-subscribe">7.白名单:</span>-->
-                <#--<span  class="i18n" name="sharder-invset-text8">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>-->
+                <#--<span  class="i18n" name="sharder-invset-text8">早鸟轮结束以后，众售将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>-->
             <#--</li>-->
         </ul>
     </section>
     <section class="sharder-pay">
         <div class="main-participate-in" id="">
-            <h2 class="i18n" name="Participatory-mode-1">参与方式一:官网直投</h2>
+            <h2 class="i18n" name="sharder-participatory-mode-one">参与方式一:官网直投</h2>
             <ul>
                 <li class="main-participate-head-title i18n" name="sharder-exchange-transfer">此方式你可以使用拥有私钥的以太坊钱包以及从交易所直接转账</li>
                 <li class="button">
@@ -84,8 +84,8 @@
     </section>
     <section class="walletAddr_qr_codes">
         <div class="main-participate-in">
-            <h2 class="i18n" name="Participatory-mode-2">参与方式二:智能合约</h2>
-            <p class="par-text i18n" name="sharder-crowd-funding-text7">此方式你必须使用拥有私钥的以太坊钱包地址进行转账 <br> 注意：不能从交易所提币转账</p>
+            <h2 class="i18n" name="sharder-participatory-mode-two">参与方式二:智能合约</h2>
+            <p class="par-text i18n" name="sharder-token-sale-no-exchange">此方式你必须使用拥有私钥的以太坊钱包地址进行转账 <br> 注意：不能从交易所提币转账</p>
             <div id="walletAddr_qr_codes"></div>
             <p class="par-addr"><span class="i18n" name="sharder-wallet-addr">转账地址：</span><span id="qr_code_text">U38YJA734HGFQJ723KDU89</span></p>
         </div>
@@ -93,10 +93,10 @@
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl">
 <div style="display: none">
-    <div class="popup i18n" name ="sharder-Thank" >感谢您支持豆匣众筹。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
+    <div class="popup i18n" name ="sharder-Thank" >感谢您支持豆匣众售。转账完成以后请您及时联系我们的客服人员进行一对一确认。</div>
     <#--<span class="i18n" name="copyok" style="display: none">复制成功</span>-->
 </div>
-<span class="i18n" name="nihaimeishurujine" style="display: none">你还没输入金额哦</span>
+<span class="i18n" name="sharder-entered-amount" style="display: none">你还没输入金额哦</span>
 <script src="${resSys}/resource/sharders/js/jquery.qrcode-0.12.0.min.js" type="text/javascript"></script>
 
 <script>

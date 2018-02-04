@@ -77,7 +77,7 @@
                         <option value="Awaed" selected="2">奖励</option>
                         <option value="Subscribe">白名单</option>
                         <option value="PhaseII">早鸟</option>
-                        <option value="PhaseIII">众筹</option>
+                        <option value="PhaseIII">众售</option>
                         <option value="Store">商城</option>
                     </select>
                 </div>

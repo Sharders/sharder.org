@@ -40,7 +40,7 @@
 </script>
 [#if user??]
 <div class="login-user">
-    <div><span class="i18n" name="account.welcome">欢迎您 </span><span class="username">${user.username}</span><a href="${base}/user_center/index.ss" class="user_center ss-hover-effect i18n" name="account.center">个人中心</a><a id="logout" class="logout ss-hover-effect i18n" name="account.safelogout">安全退出</a></div>
+    <div><span class="i18n" name="sharder-account-welcome">欢迎您 </span><span class="username">${user.username}</span><a href="${base}/user_center/index.ss" class="user_center ss-hover-effect i18n" name="account.center">个人中心</a><a id="logout" class="logout ss-hover-effect i18n" name="sharder-account-log-out">安全退出</a></div>
 </div>
 [#else]
 <div class="login i18n">

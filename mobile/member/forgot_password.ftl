@@ -48,7 +48,7 @@
                     <li class="ss-verification-code-li" >
                         <label for="captcha"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
                         <input id="captcha" type="text" placeholder="校验码" name="captcha" class="captcha i18n" />
-                        <input type="button"  class="i18n" name="fasong" onclick="forgotPwdVcode(this)" value="获取验证码"/>
+                        <input type="button"  class="i18n" name="sharder-send" onclick="forgotPwdVcode(this)" value="获取验证码"/>
                     </li>
                     <input type="hidden" name="captchaToken" value="">
                     <li>

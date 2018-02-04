@@ -6,11 +6,11 @@
 <div class="ss-container ss-theme-background-color" id="invest_item">
     <div class="invest ss-main ">
         <section>
-            <h1 class="ss-main-title invest-main-h1"><span class="i18n" name="sharder-invest-crowd-funding">豆匣协议众筹轮</span></h1>
+            <h1 class="ss-main-title invest-main-h1"><span class="i18n" name="sharder-invest-crowd-funding">豆匣协议众售轮</span></h1>
         </section>
         <#include "invest_timeline.ftl" />
         <section class="invest-item crowd-funding">
-            <h3 class="ss-sub-title i18n" name="sharder-crowd-funding">众筹轮</h3>
+            <h3 class="ss-sub-title i18n" name="sharder-crowd-funding">众售轮</h3>
             <p class="i18n" name="sharder-crowd-funding-time">2月23日9:00-3月23日23:59</p>
         <#--<div class="ss-row-timeline"></div>-->
             <div class="sharder-row-timeline">
@@ -21,7 +21,7 @@
                 <ul>
                     <li class="generalTextColor">
                         <span class="i18n title" name="sharder-start-time">1.开始时间:</span>
-                        <span class="i18n" name="sharder-crowd-funding-text1">
+                        <span class="i18n" name="sharder-crowd-funding-over-conditions">
                             北京时间2018年3月23日9:00，如下列任一目标达成则将立即停止早鸟轮。<br/>
                         &nbsp;&nbsp;&nbsp;&nbsp;A:7500000个SS全部售出。<br/>
                         &nbsp;&nbsp;&nbsp;&nbsp;B:SS售出超XX个并到达截止时间2018年3月23日。</span>
@@ -32,19 +32,19 @@
                     </li>
                     <li class="generalTextColor">
                         <span class="i18n title" name="sharder-investment-quota">3.参投限额:</span>
-                        <span class="i18n" name="sharder-crowd-funding-text3">≥1ETH/人，或等额BTC。</span>
+                        <span class="i18n" name="sharder-crowd-funding-more">≥1ETH/人，或等额BTC。</span>
                     </li>
                     <li class="generalTextColor">
                         <span class="i18n title" name="sharder-hair-tiem">4.发币时间:</span>
-                        <span class="i18n" name="sharder-crowd-funding-text4">众筹结束后一周以内。</span>
+                        <span class="i18n" name="sharder-crowd-funding-token-sale">众售结束后一周以内。</span>
                     </li>
                     <li class="generalTextColor">
                         <span class="i18n title" name="sharder-examine-time">5.审核时间</span>
-                        <span class="i18n" name="sharder-crowd-funding-text5">早鸟轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
+                        <span class="i18n" name="sharder-crowd-funding-audit">早鸟轮结束以后将进入审核阶段，并于72小时内公布认购结果。</span>
                     </li>
                     <li class="generalTextColor">
-                        <span class="i18n title" name="sharder-raise-time">6.众筹时间</span>
-                        <span class="i18n" name="sharder-crowd-funding-text6">早鸟轮结束以后，众筹将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
+                        <span class="i18n title" name="sharder-raise-time">6.众售时间</span>
+                        <span class="i18n" name="sharder-crowd-funding-after-presale">早鸟轮结束以后，众售将会在官网以及交易所进行公开IEO,具体信息以官方信息为准。</span>
                     </li>
                 </ul>
             </div>
@@ -52,9 +52,9 @@
         <#--<div class="participation">-->
         <#--<p class="ss-main-title invset-h4 i18n" name="sharder-participate">参与</p>-->
         <#--<div class="pay-text crowd-funding-text">-->
-        <#--<p class="generalTextColor i18n" name="sharder-crowd-funding-text7">感谢你参加豆匣早鸟轮，你可以直接从数字货币钱包发送ETH或BTC到以下地址。</p>-->
-        <#--<p class="generalTextColor i18n" name="sharder-crowd-funding-text7">感谢你参加豆匣早鸟轮，你可以直接从数字货币钱包发送ETH或BTC到以下地址。</p>-->
-        <#--<p class="generalTextColor i18n" name="sharder-crowd-funding-text7">感谢你参加豆匣早鸟轮，你可以直接从数字货币钱包发送ETH或BTC到以下地址。</p>-->
+        <#--<p class="generalTextColor i18n" name="sharder-crowd-funding-thank">感谢你参加豆匣早鸟轮，你可以直接从数字货币钱包发送ETH或BTC到以下地址。</p>-->
+        <#--<p class="generalTextColor i18n" name="sharder-crowd-funding-thank">感谢你参加豆匣早鸟轮，你可以直接从数字货币钱包发送ETH或BTC到以下地址。</p>-->
+        <#--<p class="generalTextColor i18n" name="sharder-crowd-funding-thank">感谢你参加豆匣早鸟轮，你可以直接从数字货币钱包发送ETH或BTC到以下地址。</p>-->
         <#--</div>-->
         <#--<div id="early-birdwalletAddr_qr_code"></div>-->
         <#--<div class="pay-addr">-->
@@ -66,8 +66,8 @@
             <div class="participation">
                 <form action="#" id="invest_form">
                     <div class="pay-text crowd-funding-text">
-                        <h3 name="Participatory-mode-1" class="i18n">参与方式一:官网直投</h3>
-                        <p class="generalTextColor i18n" name="sharder-crowd-funding-text7">此方式你可以使用拥有私钥的以太坊钱包以及从交易所直接提币转账</p>
+                        <h3 name="sharder-participatory-mode-one" class="i18n">参与方式一:官网直投</h3>
+                        <p class="generalTextColor i18n" name="sharder-token-sale">此方式你可以使用拥有私钥的以太坊钱包以及从交易所直接提币转账</p>
                     </div>
                     <ul class="pay-types">
                         <li><input type="radio" class="ss-radio-hidden" id="eth" value="ETH" checked="checked" name="payType"/><label for="eth" class="ss-label-btn" v-on:click="selectedPayType('ETH'),zero=''">
@@ -88,8 +88,8 @@
             </div>
             <div class="participation">
                 <div class="pay-text crowd-funding-text">
-                    <h3 name="Participatory-mode-2" class="i18n">参与方式二:智能合约</h3>
-                    <p class="generalTextColor i18n" name="sharder-crowd-funding-text7">此方式你必须使用拥有私钥的以太坊钱包地址进行转账(不能从交易所提币)</p>
+                    <h3 name="sharder-participatory-mode-two" class="i18n">参与方式二:智能合约</h3>
+                    <p class="generalTextColor i18n" name="sharder-token-sale-no-exchange">此方式你必须使用拥有私钥的以太坊钱包地址进行转账(不能从交易所提币)</p>
                 </div>
                 <div id="early-birdwalletAddr_qr_code"></div>
                 <div class="pay-addr">

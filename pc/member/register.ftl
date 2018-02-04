@@ -48,12 +48,12 @@
                     <input  type="hidden"  name="username" id="username"/>
                     <li >
                         <label for="identification"><i>*</i><span class="i18n" name="sharder-phone-emil">手机/邮箱:</span></label>
-                        <input type="text" id="identification" maxlength="30" vld="{remote:'/user_center/is_not_exist.ss',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱" class="register-input identification i18n sharder-user-emil"/>
+                        <input type="text" id="identification" maxlength="50" vld="{remote:'/user_center/is_not_exist.ss',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱" class="register-input identification i18n sharder-user-emil"/>
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="phone"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
                         <input id="phone" type="text"   placeholder="校验码" name="captcha" class="captcha i18n sharder-user-code-2" maxlength="6"/>
-                        <input type="button" class="i18n sharder-user-get-code-2" name="fasong" onclick="registerVcode('identification',this)" value="获取验证码"/>
+                        <input type="button" class="i18n sharder-user-get-code-2" name="sharder-send" onclick="registerVcode('identification',this)" value="获取验证码"/>
                     </li>
                     <li>
                         <label for="password"><i>*</i><span class="i18n" name="sharder-user-password">设置密码:</span></label>
@@ -69,7 +69,7 @@
                         <input id="referrer" type="text" name="inviterId" class="" value="${inviterId!}"/>
                     </li>
                     <li class="ss-verification-code-li">
-                        <label for="verification code"><i>*</i><span class="i18n" name="sharder-user-code-2">校验码:</span></label>
+                        <label for="verification code"><i>*</i><span class="i18n" name="sharder-check-code">校验码:</span></label>
                         <input id="verification_code" type="text" maxlength="20" name="imgCaptcha" class="imgCaptcha" />
                         <i class="code-img"><img id="guestbookCaptcha" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl"></i>
                     </li>

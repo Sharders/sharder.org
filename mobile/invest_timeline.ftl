@@ -11,21 +11,21 @@
     <li class="ss-line"></li>
     <li>
         <span class="ss-text i18n" name="sharder-subscribe-reserve">白名单预约</span>
-        <span class="ss-text i18n" name="sharder-angel-wheel">早鸟轮</span>
-        <span class="ss-text i18n" name="sharder-crowd-funding">众筹轮</span>
+        <span class="ss-text i18n" name="sharder-angel-wheels">早鸟轮</span>
+        <span class="ss-text i18n" name="sharder-crowd-funding">众售轮</span>
     </li>
 </ul>
 <div class="sharder-link">
-    <button class="i18n" name="canyubaimingdan">已结束</button>
-<#--<a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="canyubaimingdan">获得优惠</button></a>-->
+    <button class="i18n" name="sharder-ended">已结束</button>
+<#--<a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="sharder-ended">获得优惠</button></a>-->
 <#--<#if startNow?? && "false"==startNow >-->
-<#--<a href="javascript:void(0);"><button class="angel-btn i18n" name="canyutianshilun">参与早鸟</button></a>-->
+<#--<a href="javascript:void(0);"><button class="angel-btn i18n" name="sharder-participate-early-bird">参与早鸟</button></a>-->
 <#--<#else>-->
-<#--<a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="canyutianshilun">参与早鸟</button></a>-->
+<#--<a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="sharder-participate-early-bird">参与早鸟</button></a>-->
 <#--</#if>-->
-    <button class="i18n" name="canyubaimingdan">参与早鸟</button>
+    <button class="i18n" name="sharder-ended">参与早鸟</button>
 <#--<button class="i18n" name="">已结束</button>-->
-<#--<button class="angel-btn i18n" name="canyutianshilun">参与早鸟</button>-->
-<#--<a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="canyubaimingdan">正在进行</button></a>-->
-    <button class="crowd-funding-btn i18n" name="jinqingqidai">参与众筹</button>
+<#--<button class="angel-btn i18n" name="sharder-participate-early-bird">参与早鸟</button>-->
+<#--<a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="sharder-ended">正在进行</button></a>-->
+    <button class="crowd-funding-btn i18n" name="sharder-stay-tuned-for">参与众售</button>
 </div>

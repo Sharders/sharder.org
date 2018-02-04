@@ -46,12 +46,12 @@
                         </li>
                     </#if>
                     <li>
-                        <input type="submit" value="立即登录" name="account.lijidenglu" class="ss-main-btn theme i18n" />
+                        <input type="submit" value="立即登录" name="sharderf-user-sign-in" class="ss-main-btn theme i18n" />
                     </li>
 
                     <#if message??>
                         <#if message=="true">
-                            <span class="i18n" name="">您必须登录后才能继续刚才的操作</span>
+                            <span class="i18n" name="sharder-login-operation">您必须登录后才能继续刚才的操作</span>
                         <#else>
                         ${message}
                         </#if>
@@ -77,7 +77,7 @@
                     </#if>
                     <#if success??>
                         <#if success>
-                            <span class="i18n" name="">注册成功！</span>
+                            <span class="i18n" name="sharder-login-successfully">注册成功！</span>
                         </#if>
                     </#if>
                     <li class="forget-pwd">

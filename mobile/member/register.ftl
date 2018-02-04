@@ -52,12 +52,12 @@
                     <input  type="hidden"  name="username" id="username"/>
                     <li >
                         <label for="identification"><i>*</i><span class="i18n" name="sharder-account-number">手机/邮箱:</span></label>
-                        <input type="text" id="identification" maxlength="30" vld="{remote:'/user_center/is_not_exist.ss',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱"  class="register-input identification i18n" />
+                        <input type="text" id="identification" maxlength="50" vld="{remote:'/user_center/is_not_exist.ss',messages:{remote:'手机或邮箱已被使用！'}}" name="identification" placeholder="手机/邮箱"  class="register-input identification i18n" />
                     </li>
                     <li class="ss-verification-code-li" >
                         <label for="captcha"><i>*</i><span class="i18n" name="sharder-user-code">校验码:</span></label>
                         <input id="captcha" type="text"  name="captcha" class="captcha" maxlength="6"/>
-                        <input type="button"  class="i18n" name="fasong" onclick="registerVcode('identification',this)" value="获取验证码"/>
+                        <input type="button"  class="i18n" name="sharder-send" onclick="registerVcode('identification',this)" value="获取验证码"/>
                     </li>
                     <li>
                         <label for="password"><i>*</i><span class="i18n" name="sharder-user-password">设置密码:</span></label>
@@ -72,7 +72,7 @@
                         <input id="referrer" type="text" name="inviterId" class="" value="${inviterId!}"/>
                     </li>
                     <li class="ss-verification-code-li">
-                        <label for="verification code"><i>*</i><span class="i18n" name="sharder-user-code-2">校验码:</span></label>
+                        <label for="verification code"><i>*</i><span class="i18n" name="sharder-check-code">校验码:</span></label>
                         <input id="verification_code" type="text" maxlength="20" name="imgCaptcha" class="imgCaptcha" />
                         <i class="code-img"><img id="guestbookCaptcha" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl"></i>
                     </li>
@@ -82,7 +82,7 @@
                         <br><a id="mall-protocol" class="i18n underline mall" name="sharder-mall-protocol-is">《豆匣商城用户协议》</a>
                     </li>
                     <li>
-                        <input type="submit" value="立即注册" class="ss-main-btn theme i18n" name="lijizhuce"/>
+                        <input type="submit" value="立即注册" class="ss-main-btn theme i18n" name="sharder-register-immediately"/>
                     </li>
                 </ul>
                 <input type="hidden" name="captchaToken" value="">
