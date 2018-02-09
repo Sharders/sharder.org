@@ -24,11 +24,23 @@
                         <span class="i18n" name="sharder-crowd-funding-over-conditions">
                             北京时间2018年3月23日9:00，如下列任一目标达成则将立即停止早鸟轮。<br/>
                         &nbsp;&nbsp;&nbsp;&nbsp;A:7500000个SS全部售出。<br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;B:SS售出超XX个并到达截止时间2018年3月23日。</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;B:SS售出超1950个ETH并到达截止时间2018年3月23日。</span>
                     </li>
                     <li class="generalTextColor">
                         <span class="i18n title" name="sharder-subscription-ratio">2.兑换比例:</span>
-                        <span class="i18n" name="sharder-crowd-funding-t">北京时间2018年2月23日9:00起</span>,1 BTC = ${BTC_A_PRICE!}SS,1 ETH = ${ETH_B_PRICE!} SS
+                        <span class="i18n" name="sharder-crowd-funding-t">北京时间2018年2月23日9:00起</span>
+                        ETH=
+                        <#if ETH_LOCK_PRICE ?? && ETH_LOCK_PRICE gt 0>
+                            <span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>
+                        <#else >
+                            <span class="i18n" name="daiding">待定</span>
+                        </#if> ,
+                        BTC=
+                        <#if BTC_LOCK_PRICE ?? && BTC_LOCK_PRICE gt 0>
+                            <span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
+                        <#else >
+                            <span class="i18n" name="daiding">待定</span>
+                        </#if>
                     </li>
                     <li class="generalTextColor">
                         <span class="i18n title" name="sharder-investment-quota">3.参投限额:</span>
@@ -49,18 +61,6 @@
                 </ul>
             </div>
 
-        <#--<div class="participation">-->
-        <#--<p class="ss-main-title invset-h4 i18n" name="sharder-participate">参与</p>-->
-        <#--<div class="pay-text crowd-funding-text">-->
-        <#--<p class="generalTextColor i18n" name="sharder-crowd-funding-thank">感谢你参加豆匣早鸟轮，你可以直接从数字货币钱包发送ETH或BTC到以下地址。</p>-->
-        <#--<p class="generalTextColor i18n" name="sharder-crowd-funding-thank">感谢你参加豆匣早鸟轮，你可以直接从数字货币钱包发送ETH或BTC到以下地址。</p>-->
-        <#--<p class="generalTextColor i18n" name="sharder-crowd-funding-thank">感谢你参加豆匣早鸟轮，你可以直接从数字货币钱包发送ETH或BTC到以下地址。</p>-->
-        <#--</div>-->
-        <#--<div id="early-birdwalletAddr_qr_code"></div>-->
-        <#--<div class="pay-addr">-->
-        <#--<span class="i18n" name="sharder-wallet-addr">钱包地址:</span><span id="sharder-addr">0xd63F6D2f8cC2D166c43f9c82595af9498132fe32</span><button onclick="jsCopy()" class="i18n" name="sharder-copy">复制</button>-->
-        <#--</div>-->
-        <#--</div>-->
         </section>
         <section class="sharder-top-up" >
             <div class="participation">
@@ -82,7 +82,7 @@
                         <li><input type="number" oninput="investTransition(app.payType,this)" input-type="cny" :value="zero" maxlength="10"><span class="sign">&yen;</span></li>
                         <li><input type="number" oninput="investTransition(app.payType,this)" input-type="ss" :value="zero" maxlength="12"><span class="sign">SS</span></li>
                     </ul>
-                    <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-transfer" v-on:click="transfer()" id="transfer">获取转账地址</button>
+                    <button type="button" class="ss-main-btn pay-btn i18n" name="sharder-transfer" v-on:click="transfer()" id="transfer">转账地址</button>
                     <#include  'invest_investment.ftl'/>
                 </form>
             </div>

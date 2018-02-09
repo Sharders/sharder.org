@@ -27,7 +27,18 @@
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-subscription-ratio">2.兑换比例:</span>
                 <span class="i18n" name="sharder-crowd-funding-t">北京时间2018年3月23日9:00起</span><br />
-                1 BTC = ${BTC_A_PRICE}SS,1 ETH = ${ETH_B_PRICE} SS
+                ETH=
+                <#if ETH_LOCK_PRICE ?? && ETH_LOCK_PRICE gt 0>
+                    <span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>
+                <#else >
+                    <span class="i18n" name="daiding">待定</span>
+                </#if> ,
+                BTC=
+                <#if BTC_LOCK_PRICE ?? && BTC_LOCK_PRICE gt 0>
+                    <span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
+                <#else >
+                    <span class="i18n" name="daiding">待定</span>
+                </#if>
             </li>
             <li class="generalTextColor">
                 <span class="crude i18n" name="sharder-investment-quota">3.参投限额:</span>
@@ -54,15 +65,16 @@
     <section class="sharder-pay">
         <div class="main-participate-in" id="">
             <h2 class="i18n" name="sharder-participatory-mode-one">参与方式一:官网直投</h2>
-            <ul>
+            <form id="invest_form">
+                <ul>
                 <li class="main-participate-head-title i18n" name="sharder-exchange-transfer">此方式你可以使用拥有私钥的以太坊钱包以及从交易所直接转账</li>
                 <li class="button">
 
-                    <input type="radio" id="eth" name="SS" checked="checked" style="display: none">
+                    <input type="radio" id="eth" value="ETH" name="payType" checked="checked" style="display: none">
                     <label for="eth" v-on:click="selectedPayType('ETH'),zero=''">
                         <img src="/r/cms/resource/sharders/img/ETH.png"  class="btn-eth">ETH
                     </label>
-                    <input type="radio" id="btc" name="SS"  style="display: none">
+                    <input type="radio" id="btc" value="BTC"  name="payType" style="display: none">
                     <label for="btc" v-on:click="selectedPayType('BTC'),zero=''">
                         <img src="/r/cms/resource/sharders/img/BTC.png" class="btn-btc">BTC
                     </label>
@@ -80,6 +92,7 @@
                 <li id="transfer"><button class="complete-transfer i18n" name="sharder-transfer" v-on:click="transfer()">获得转账地址</button></li>
                 <#include  'invest_investment.ftl'/>
             </ul>
+            </form>
         </div>
     </section>
     <section class="walletAddr_qr_codes">

@@ -28,23 +28,16 @@
 <#--功能描述
     账单列表，查看用户的投资记录
 -->
-    <div class="layui-row" style="margin-top: 50px;">
-        <div class="demoTable layui-col-xs6">
-            搜索账户：
-            <div class="layui-inline">
-                <input class="layui-input" name="id" id="demoReload" autocomplete="off">
-            </div>
-            <button class="layui-btn" data-type="reload">搜索</button>
-        </div>
-        <div class="layui-col-xs2">
-            <button class="layui-btn layui-btn-normal add-bill-btn" data-type="addBill" >添加交易</button>
-        </div>
+    <#include "/WEB-INF/ftl/sharders/pc/admin/bill_filtrate.ftl">
 
-    </div>
 
 
     <table class="layui-hide" id="bill_list" lay-filter="bill_list"></table>
-
+    <div class="layui-row" style="margin-top: 50px;">
+        <div class="layui-col-xs12">
+            <button style="float: right" class="layui-btn layui-btn-normal add-bill-btn" data-type="addBill" >添加交易</button>
+        </div>
+    </div>
     <div class="layui-row" id="add_bill" style="display: none">
         <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
             <legend>添加交易</legend>
@@ -160,90 +153,12 @@
         </form>
     </div>
 <div>
-<#--修改账单的模板 start-->
-<script id="edit_bill" type="text/html">
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-        <legend>提示：状态1为已支付，2为待审核，3为未支付 已支付的不能修改</legend>
-    </fieldset>
-    <form class="layui-form" action="">
-        <div class="layui-form-item" style="display: none;">
-            <label class="layui-form-label">账单ID</label>
-            <div class="layui-input-inline">
-                <input type="text" name="id"  autocomplete="off" class="layui-input" value="{{d.id}}" disabled>
-                <input type="hidden" name="userId"  autocomplete="off" class="layui-input" value="{{d.userId}}" disabled>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">状态</label>
-            <div class="layui-input-inline">
-                <input type="text" class="layui-input" value="{{d.status ||''}}"name="status">
-            </div>
-        </div>
 
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">来源</label>
-            <div class="layui-input-inline">
-                <input type="text" name="source"  class="layui-input" value="{{d.source}}">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">总额</label>
-            <div class="layui-input-inline">
-                <input type="text" name="amount"  class="layui-input layui-disabled" value="{{d.amount||''}}" disabled>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">原本金额</label>
-            <div class="layui-input-inline">
-                <input type="text" name="originalAmount"  class="layui-input layui-disabled" value="{{d.originalAmount||''}}" disabled>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">奖励金额</label>
-            <div class="layui-input-inline">
-                <input type="text" name="awardAmount"  class="layui-input layui-disabled" value="{{d.awardAmount||''}}" disabled>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">支付类型</label>
-            <div class="layui-input-inline">
-                <input type="text" name="payType"  class="layui-input" value="{{d.payType||''}}">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">支付金额</label>
-            <div class="layui-input-inline">
-                <input type="text" name="payAmount"  class="layui-input" value="{{d.payAmount||''}}">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">额外奖励</label>
-            <div class="layui-input-inline">
-                <input type="text" name="extraAwardAmount"  class="layui-input" value="{{d.extraAwardAmount||''}}">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">备注</label>
-            <div class="layui-input-inline">
-                <input type="text" name="memo"  class="layui-input" value="{{d.memo||''}}">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-input-block">
-                <button class="layui-btn layui-bg-blue" lay-submit lay-filter="v_sumbit" >立即提交</button>
-                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            </div>
-        </div>
-    </form>
-</script>
-<#--修改账单的模板 end-->
-    <#--<div id="test">测试</div>-->
 <#--添加账单的模板 start-->
 <#--添加账单的模板 end-->
 <script type="text/html" id="barBtns">
     <#--<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>-->
-    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <#--<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>-->
     <a class="layui-btn layui-btn-xs" lay-event="look-img">查看交易图片</a>
     <#--<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>-->
 </script>
@@ -267,7 +182,7 @@
                     ,layer = layui.layer;
             table.render({
                 elem: '#bill_list'
-                ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                ,cellMinWidth: 80
                 ,cols: [[
                     {field:'id', width:80, title: '账单ID', sort: true,fixed: true}
                     ,{field:'pId', width:80, title: '父账单ID', sort: true}
@@ -288,7 +203,7 @@
                     ,{field:'memo', width:120, title: '备注'}
                     ,{fixed: 'right', width:178, align:'center', toolbar: '#barBtns'}
                 ]]
-                ,data:_result.result.userBills
+                ,data:_result.result.data.list
                     ,id: 'testReload'
                 ,page: true
             });
@@ -312,8 +227,6 @@
                     }else{
                         layer.msg("没有上传截图");
                     }
-
-                    
                 }  else if(obj.event === 'edit'){
                     layer.open({
                         title:'账单修改',
@@ -410,7 +323,6 @@
                 var type = $(this).data('type');
                 active[type] ? active[type].call(this) : '';
             });
-
             //监听选择来源
         });
 

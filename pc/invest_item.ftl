@@ -49,7 +49,20 @@
         <section class="invest-item">
             <h3 class="ss-sub-title i18n" name="sharder-angel-wheels">早鸟轮</h3>
             <#--<p class="i18n" name="sharder-invest-time-start-end">1月29日9:00-2月11日23:59</p>-->
-            <p>1ETH = ${ETH_B_PRICE!}SS , 1BTC = ${BTC_A_PRICE!}SS</p>
+            <p>
+                ETH=
+                <#if ETH_LOCK_PRICE ?? && ETH_LOCK_PRICE gt 0>
+                    <span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>
+                <#else >
+                    <span class="i18n" name="daiding">待定</span>
+                </#if> ,
+                BTC=
+                <#if BTC_LOCK_PRICE ?? && BTC_LOCK_PRICE gt 0>
+                    <span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
+                <#else >
+                    <span class="i18n" name="daiding">待定</span>
+                </#if>
+            </p>
         <#--<div class="ss-row-timeline"></div>-->
             <div class="sharder-row-timeline">
                 <#--<#if usePhaseIIAmount ?? && phaseIIAmount ??>-->
@@ -96,9 +109,6 @@
                     <p><span class="i18n" name="sharder-available-subscribe">可用的白名单额度: </span><span>{{available}}ETH</span>/<span>{{(available*currency.ETH/currency.BTC).toFixed(4)}}BTC</span>
                     <#--=<span>{{available*currency.ETH/currency.LTC}}LTC</span>-->
                     </p>
-
-
-
                     <ul class="pay-types">
                         <li><input type="radio" class="ss-radio-hidden" id="btc" value="BTC"  name="payType"/><label for="btc" class="ss-label-btn" v-on:click="selectedPayType('BTC'),zero=''">
                             <img src="/r/cms/resource/sharders/img/BTC.png"><span class="i18n" name="sharder-BTC">比特币(BTC)</span></label></li>

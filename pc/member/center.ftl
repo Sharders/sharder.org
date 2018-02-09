@@ -85,10 +85,16 @@
             <li><span class="user-title i18n" name="sharder-account-number">账号:</span><span class="user-value">${acconut!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-uid-code">UID:</span><span class="user-value">${inviterId!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-sgin-pwd">登录密码:</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">修改密码</span></li>
+            <#--<li>-->
+                <#--<span class="user-title i18n" name="">提币地址:</span>-->
+                <#--<#if user.purseAddress?? && user.purseAddress != ''>-->
+                        <#--<span>${user.purseAddress!}</span>-->
+                    <#--<#else >-->
+                        <#--<span class="user-value win-open"  v-on:click="winOpen('walletAddr')">设置提币地址</span>-->
+                <#--</#if>-->
+            <#--</li>-->
             <li>
                 <span class="user-title i18n" name="sharder-user-invitation-link">专属邀请链接:</span><span id="contents" >${invitePage!}?inviterId=${inviterId!}</span>
-
-
                 <div class="bdsharebuttonbox">
                     <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
                     <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
@@ -114,7 +120,7 @@
                     <div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>
                 <span class="currency">ETH</span>
                 <span class="quota used">${maxSubscribe!"0"}</span>
-                <span class="alreadyUsed"><span class="i18n" name="sharder-subscribe-income">已使用额度 :</span> ${nowSubscribe!"0"}ETH</span>
+                <span class="alreadyUsed"><span class="i18n" name="sharder-available-quota">已使用额度 :</span> ${nowSubscribe!"0"}ETH</span>
             <#--<span class="details" v-on:click="isLuck(1)">{{retruenTExt(isOff1)}}</span>-->
             <#--<span class="details" v-on:click="selectTmpl('fandian')">{{retruenTExt(isOff3)}}</span>-->
             </div>
@@ -180,10 +186,39 @@
         </div>
         <span class="close" v-on:click="winOpen()" >X</span>
     </div>
+    <div class="edit-wallet-addr">
+        <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
+            <h2 class="i18n" name="">设置提币地址</h2>
+            <p class="walletAddr">注意:提币地址设置以后将无法修改，请认真核对</p>
+            <div>
+                <label class="i18n" name="">设置地址:</label>
+                <input type="text" id="oldWalletAddr" name="walletAddr" maxlength="50" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
+            </div>
+            <div>
+                <label class="i18n" name="">再次输入:</label>
+                <input type="text" id="newWalletAddr" maxlength="50" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
+            </div>
+            <div>
+                <label class="i18n" name="">账户:</label>
+                <input class="user-phone" name="uid" value="${acconut!}" readonly="readonly" id="identification_forgot_pwd"/>
+                <input type="button" class="i18n button" name="sharder-send" onclick="forgotPwdVcode(this)" style="width: 100px"/>
+                <input type="hidden" name="captchaToken"/>
+            </div>
+            <div>
+                <label class="i18n" name="sharder-user-code">验证码:</label>
+                <input type="number" maxlength="6" minlength="6" name="verificationCode" id="verificationCode"/>
+            </div>
+            <button class="i18n submit"  name="the-next-step" v-on:click="sendSaveWalletAddr()">提交</button>
+        </form>
+        <div class="userWalletAddr" id="walletAddr">
+            <h2 class="i18n" name="sharder-operation-result">操作结果</h2>
+            <p class="walletAddr" v-if="saveWalletAddr.success" style="color: #0BA0D1">{{saveWalletAddr.instructions}}</p>
+            <p class="walletAddr" v-else  style="color: red">{{saveWalletAddr.instructions}}</p>
+        </div>
+        <span class="close" v-on:click="winOpen('walletAddr')" >X</span>
+    </div>
 </div>
-
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
-
 <div class="maker"></div>
 
 <script type="text/x-template" id="details-white-list">
@@ -311,6 +346,7 @@
                     isData:true,
                     showDetail:false,
                     showHint:false, //没有数据时是否显示提示
+                    saveWalletAddr:"",//
                 },
                 methods: {
                     //选择要显示的数据
@@ -411,24 +447,67 @@
                         pc.totalCount=params.totalCount;
                         pc.totalPage=params.totalPage;
                     },
-                    winOpen:function () {
+                    winOpen:function (name) {
                         pc.isOpenWindos = ! pc.isOpenWindos;
                         window.console.info(pc.isOpenWindos);
                         if(pc.isOpenWindos){
                             $(".maker").css("display","none");
-                            $(".edit-password").css("display","none");
+                            if(name == "walletAddr"){
+                                $(".edit-wallet-addr").css("display","none");
+                            }else {
+                                $(".edit-password").css("display","none");
+                            }
                         }else {
                             $(".maker").css("display","block");
-                            $(".edit-password").css("display","block");
+                            if(name == "walletAddr"){
+                                $(".edit-wallet-addr").css("display","block");
+                            }else {
+                                $(".edit-password").css("display","block");
+                            }
                         }
-                        pc.edit();
+                        pc.edit(name);
                     },
-                    edit:function () {
-                        $("input#oldPassWord").val('');
-                        $("input#newPassWord1").val('');
-                        $("input#newPassWord2").val('');
-                        $('#userPwd').css("display","block");
-                        $('.userPwd-div').css("display","none");
+                    edit:function (name) {
+                        $("#userPwd>div input").val('');
+                        $("#userWalletAddr input[type='number']").val('');
+                        $("#userWalletAddr input[type='text']").val('');
+                        if(name == "walletAddr"){
+                            $('#userWalletAddr').css("display","block");
+                            $('#walletAddr').css("display","none");
+                        }else {
+                            $('#userPwd').css("display","block");
+                            $('.userPwd-div').css("display","none");
+                        }
+                    },
+                    verificationAddr:function () {
+                        var oldWalletAddr=$("#oldWalletAddr");
+                        var newWalletAddr=$("#newWalletAddr");
+                        oldWalletAddr.css("box-shadow","");
+                        newWalletAddr.css("box-shadow","");
+                        if(oldWalletAddr.val() == newWalletAddr.val() && oldWalletAddr.val().match("^[A-Fa-f0-9]+$") && newWalletAddr.val().match("^[A-Fa-f0-9]+$")){
+                            pc.isSubmit = true;
+                        }else {
+                            $("#oldWalletAddr").css("box-shadow","0px 0px 6px red");
+                            $("#newWalletAddr").css("box-shadow","0px 0px 6px red");
+                            pc.isSubmit = false;
+                        }
+                    },
+                    sendSaveWalletAddr:function () {
+                        if($("#verificationCode").val() == "" || $("#verificationCode").val().length != 6){
+                            return ;
+                        }
+                        if(pc.isSubmit){
+                            var url = "/save/wallet/address.ss";
+                            var data= $("#userWalletAddr").serialize();
+                            commAjax(url,"get",data,function (result) {
+                                console.info(result);
+                                pc.saveWalletAddr =  result;
+                                $("#userWalletAddr").css("display","none");
+                                $("#walletAddr").css("display","block");
+                                pc.isSubmit=false;//使用完后还原状态
+                            });
+                        }
+
                     }
                     ,verification:function () {
                         var input1 = $("#oldPassWord");
@@ -538,9 +617,11 @@
                 })
             });
             window.clearInterval(timeid);
-            var  language = localStorage.getItem("userLanguage");
-            if(language == "en"){
+//            var  language = localStorage.getItem("userLanguage");
+            if(i18nLanguage == "en"){
                 $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_overPC_en.jpg");
+            }else if(i18nLanguage == "ko"){
+                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_koPC.png");
             }
         }
     },100);

@@ -14,11 +14,12 @@
                 <label for="user_wallet_addr" ><span class="i18n" name="sharder-invest-input">请填写</span><span style="color: red;" class="i18n" name="sharder-money-transfer">您转账</span><span class="i18n" name="sharder-invest-wallet-address">的钱包地址</span>:</label>
                 <input id="user_wallet_addr" name="payWalletAddr">
             </div>
-
-            <p class="hint-info"><span class="i18n" name="sharder-successful-screenshots">转币成功截图</span><span class="hint-info i18n" name="sharder-pay-attention">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>
-            <div id="add_img"></div>
+            <p>请在转账时填写你的账号ID,漏填或错填很可能导致你的ss无法导致</p>
+            ${UID!}
+            <#--<p class="hint-info"><span class="i18n" name="sharder-successful-screenshots">转币成功截图</span><span class="hint-info i18n" name="sharder-pay-attention">(注意：截图需包含转款地址，收款地址，转款金额等信息，可传多张截图)</span></p>-->
+            <#--<div id="add_img"></div>-->
         </div>
-        <input type="hidden" name="tradeImgAddr">
+        <#--<input type="hidden" name="tradeImgAddr">-->
     </li>
     <li>
         <button type="button" class="complete_transfer i18n" name="sharder-completed-transfer" v-on:click="prompt()">已完成转账</button>

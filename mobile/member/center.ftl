@@ -299,9 +299,11 @@
                 },
             });
             window.clearInterval(timeid);
-            var  language = localStorage.getItem("userLanguage");
-            if(language == "en"){
+//            var  language = localStorage.getItem("userLanguage");
+            if(i18nLanguage == "en"){
                 $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_en.jpg");
+            }else if(i18nLanguage == "ko"){
+                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_ko.png");
             }
 
         }

@@ -15,7 +15,20 @@
         <div class="sharder-line">
             <h3 class="sharder-early-bird i18n" name="sharder-early-bird">参与早鸟轮</h3>
             <#--<p  class="sharder-early-bird-text i18n" name="sharder-invest-time-start-end">1月29日9:00-2月11日23:59</p>-->
-            <p>1ETH = ${ETH_B_PRICE!}SS,1BTC = ${BTC_A_PRICE}SS</p>
+            <p>
+                ETH=
+                <#if ETH_LOCK_PRICE ?? && ETH_LOCK_PRICE gt 0>
+                    <span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>
+                <#else >
+                    <span class="i18n" name="daiding">待定</span>
+                </#if> ,
+                BTC=
+                <#if BTC_LOCK_PRICE ?? && BTC_LOCK_PRICE gt 0>
+                    <span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
+                <#else >
+                    <span class="i18n" name="daiding">待定</span>
+                </#if>
+            </p>
             <#--<#if usePhaseIIAmount ?? && phaseIIAmount ??>-->
                 <#--<p class="sharder-line-p"><span style=" width:${(usePhaseIIAmount/phaseIIAmount)*100}%;"></span><i>${(usePhaseIIAmount/phaseIIAmount)*100}%</i></p>-->
                 <#--<#else >-->

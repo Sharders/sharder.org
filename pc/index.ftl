@@ -7,6 +7,11 @@
 </@layout.htmlHead>
 
 <@layout.htmlBody>
+
+
+
+
+<#--${content}-->
 <div class="index" id="index" onload="showTeam('douxia')">
     <section class="ss-container home-page tail">
         <div class="ss-main">
@@ -239,12 +244,12 @@
                         </li>
                     </ul>
                 </li>
-
             </ul>
             <span class="span h1">2018</span>
             <span class="span h2">2017</span>
         </div>
     </section>
+    <#include "/WEB-INF/ftl/sharders/news_list_snippet.ftl">
     <section class="ss-container sharder-partner-main tail">
         <@indexTpl.sharderPartner/>
     </section>
@@ -253,20 +258,6 @@
     $(function () {
         showTeam("douxia");
     })
-    if(isNotempty("${user!}")){
-        layer.open({
-            type: 1,
-            shade: false,
-            title: false, //不显示标题
-            skin: 't-hint-info', //加上边框
-            area: ['700px',''], //宽高
-            content: "\n" +
-            "<p>各位豆匣支持者，谢谢您们的关注和支持。目前由于转账数量较多，我们的客服小伙伴需要一些时间逐一进行人工核对，请耐心等待我们的确认结果。我们最晚会于2月01号22:00前把2月01日09:00之前资料齐全的所有转账都完成核对和确认！</p>\n" +
-            "<p>Dear Sharder contributors, thank you for your support. Because of the high volume of transaction, we may need more time to confirm each transaction mannually. The transactions before Feb.1st 0:00 UTC and with complete proof documents will be confirmed no later than Feb.1st 30 14:00 UTC. Thank you!</p>\n" +
-            "<p>客服邮箱/Customer service email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;service@sharder.org</p>"
-
-        });
-    }
-
 </script>
+<#include "/WEB-INF/ftl/sharders/notice_txt.ftl">
 </@layout.htmlBody>

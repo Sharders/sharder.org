@@ -11,12 +11,37 @@
         <#include "invest_timeline.ftl" />
         <section class="distribution-program">
             <div class="price-conversion">
-                <span ><span class="i18n" name="crowd-step-earlybird">早鸟轮: 1ETH=</span>${ETH_B_PRICE!}SS</span>
-                <span><span class="i18n" name="crowd-step-crowd-1st">众售轮: 1ETH=</span>${ETH_D_PRICE!}SS</span>
+                <#--<span >-->
+                    <#--<span class="i18n" name="crowd-step-earlybird">早鸟轮: 1ETH=</span>-->
+                <#--<#if ETH_B_PRICE ?? && ETH_B_PRICE !="">-->
+                    <#--${ETH_B_PRICE!}SS-->
+                <#--<#else >-->
+                    <#--<span class="i18n"  name="sharder-ended">已结束</span>-->
+                <#--</#if>-->
+                <#--</span>-->
+                <span>
+                    <span class="i18n" name="crowd-step-crowd-1st">众售轮: 1ETH=</span>
+                    <#if ETH_D_PRICE ?? && ETH_D_PRICE !="">
+                    ${ETH_D_PRICE!}SS
+                    <#else >
+                        <span class="i18n" name="daiding">待定</span>
+                    </#if>
+                </span>
                 <div class="duihuan-jieshi-div">
                     <p class="duihuan-jieshi i18n">
-                        <span class="i18n" name="sharder-according-coinmarketcap">由于虚拟货币市场价格波动性，我们根据CoinMarketCap(https://coinmarketcap.com)1月22日到28日7天的市场收盘均价作为锁定价:</span>
-                        ETH=<span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>, BTC=<span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
+                        <span class="i18n" name="sharder-according-coinmarketcap">由于虚拟货币市场价格波动性，我们将根据CoinMarketCap(https://coinmarketcap.com)2月15日到21日7天的市场收盘均价作为众售轮锁定价:</span>
+                        ETH=
+                        <#if ETH_LOCK_PRICE ?? && ETH_LOCK_PRICE gt 0>
+                            <span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>
+                        <#else >
+                            <span class="i18n" name="daiding">待定</span>
+                        </#if> ,
+                        BTC=
+                        <#if BTC_LOCK_PRICE ?? && BTC_LOCK_PRICE gt 0>
+                            <span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
+                        <#else >
+                            <span class="i18n" name="daiding">待定</span>
+                        </#if>
                     </p>
                 </div>
             </div>

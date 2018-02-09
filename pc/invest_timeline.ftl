@@ -2,7 +2,7 @@
     <ul class="ss-row-timeline invest-timeline">
         <li class="ss-row-timeline-item">
             <h4 class="ss-sub-title up-title i18n" name="sharder-time-start-end">1月18日-1月28日</h4>
-            <p class="content i18n" name="sharder-subscribe-share">白名单</p>
+            <p class="content i18n" name="sharder-subscribe-reserve">白名单</p>
             <#--<a href="/user_center/index.ss"><button class="content-over subscribe-over ss-hover-effect i18n" name="sharder-ended">参与白名单</button></a>-->
             <button class="content-over angel-over i18n" name="sharder-ended">已结束</button>
         </li>

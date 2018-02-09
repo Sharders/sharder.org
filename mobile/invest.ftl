@@ -17,14 +17,38 @@
         <#include "invest_timeline.ftl" />
 
         <ul class="sharder-money">
-            <li><span class="i18n" name="crowd-step-earlybird">早鸟轮: 1ETH=</span>${ETH_B_PRICE}SS</li>
-            <li><span class="i18n" name="crowd-step-crowd-1st">众售轮: 1ETH=</span>${ETH_D_PRICE}SS</li>
+            <#--<li>-->
+                <#--<span class="i18n" name="crowd-step-earlybird">早鸟轮: 1ETH=</span>-->
+                <#--<#if ETH_B_PRICE !="">-->
+                    <#--${ETH_B_PRICE}SS-->
+                <#--<#else >-->
+                    <#--<span class="i18n" name="sharder-ended">已结束</span>-->
+                <#--</#if>-->
+            <#--</li>-->
+            <li>
+                <span class="i18n" name="crowd-step-crowd-1st">众售轮: 1ETH=</span>
+                <#if ETH_D_PRICE !="">
+                ${ETH_D_PRICE}SS
+                <#else >
+                    <span class="i18n" name="daiding">待定</span>
+                </#if>
+            </li>
         </ul>
         <p class="duihuan-jieshi">
-            <span class="i18n" name="sharder-according-coinmarketcap">
-                由于虚拟货币市场价格波动性，我们根据CoinMarketCap(https://coinmarketcap.com)1月22日到28日7天的市场收盘均价作为锁定价:
-            </span>
-            ETH=<span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>, BTC=<span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
+
+            <span class="i18n" name="sharder-according-coinmarketcap">由于虚拟货币市场价格波动性，我们将根据CoinMarketCap(https://coinmarketcap.com)2月15日到21日7天的市场收盘均价作为众售轮锁定价:</span>
+            ETH=
+            <#if ETH_LOCK_PRICE ?? && ETH_LOCK_PRICE gt 0>
+                <span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>
+            <#else >
+                <span class="i18n" name="daiding">待定</span>
+            </#if> ,
+            BTC=
+            <#if BTC_LOCK_PRICE ?? && BTC_LOCK_PRICE gt 0>
+                <span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
+            <#else >
+                <span class="i18n" name="daiding">待定</span>
+            </#if>
         </p>
     </section>
     <section class="ss-main-plan">
@@ -193,20 +217,19 @@
             });
             app.tabBtn(1);
             window.clearInterval(timeid);
+            if(i18nLanguage == "zh-CN"){
+                $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/distributionratio.png");
+            }else if(i18nLanguage == "en"){
+                $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/distributionratioen.png");
+                $(".ETH_LOCK_PRICE").html(convertUs($(".ETH_LOCK_PRICE").html())+"$");
+                $(".BTC_LOCK_PRICE").html(convertUs($(".BTC_LOCK_PRICE").html())+"$");
+            }else if(i18nLanguage == "ko"){
+                $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/korean.png");
+            }
         }
     },100);
     function tabOpenUrl() {
 //        window.location.href="/invest/invest_item.ss";
     }
-    setTimeout(function () {
-
-        if(i18nLanguage == "zh-CN"){
-            $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/distributionratio.png");
-        }else if(i18nLanguage == "en"){
-            $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/distributionratioen.png");
-            $(".ETH_LOCK_PRICE").html(convertUs($(".ETH_LOCK_PRICE").html())+"$");
-            $(".BTC_LOCK_PRICE").html(convertUs($(".BTC_LOCK_PRICE").html())+"$");
-        }
-    },100);
 </script>
 </@lay.htmlBody>
