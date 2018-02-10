@@ -9,15 +9,25 @@
         right: 90px;
         bottom: -1px;
     }
+    #userPwd div{
+        position: relative;
+    }
+    #userPwd label.error {
+        color: red !important;
+        font-size: 12px !important;
+        position: absolute;
+        bottom: -17px;
+        width: 100%;
+        left: 0;
+    }
 </style>
+
 </@layout.htmlHead>
 
 <@layout.htmlBody>
 
 
-<!-- JiaThis Button BEGIN -->
-
-<!-- JiaThis Button END -->
+<
 <div class="container ss-theme-background-color" id="member_center">
     <#--<div class="subscribe">-->
         <#--<div class="subscribe-share">-->
@@ -86,11 +96,11 @@
             <li><span class="user-title i18n" name="sharder-user-uid-code">UID:</span><span class="user-value">${inviterId!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-sgin-pwd">登录密码:</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">修改密码</span></li>
             <#--<li>-->
-                <#--<span class="user-title i18n" name="">提币地址:</span>-->
+                <#--<span class="user-title i18n" name="sharder-mention-token-address">提币地址:</span>-->
                 <#--<#if user.purseAddress?? && user.purseAddress != ''>-->
                         <#--<span>${user.purseAddress!}</span>-->
                     <#--<#else >-->
-                        <#--<span class="user-value win-open"  v-on:click="winOpen('walletAddr')">设置提币地址</span>-->
+                        <#--<span class="user-value win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">设置提币地址</span>-->
                 <#--</#if>-->
             <#--</li>-->
             <li>
@@ -171,7 +181,7 @@
                 <label class="i18n" name="sharder-old-password">请输入旧密码</label> <input type="password" id="oldPassWord" name="origPwd" v-on:keyup="verification()"/>
             </div>
             <div>
-                <label class="i18n" name="sharder-new-password">请输入新密码</label><input type="password" id="newPassWord1" v-on:keyup="verification()"/>
+                <label class="i18n" name="sharder-new-password">请输入新密码</label><input type="password" id="newPassWord1" v-on:keyup="verification()" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
             </div>
             <div>
                 <label class="i18n" name="sharder-again-password">再次输入密码</label><input type="password"  name="newPwd" id="newPassWord2" v-on:keyup="verification()"/>
@@ -188,18 +198,18 @@
     </div>
     <div class="edit-wallet-addr">
         <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
-            <h2 class="i18n" name="">设置提币地址</h2>
-            <p class="walletAddr">注意:提币地址设置以后将无法修改，请认真核对</p>
+            <h2 class="i18n" name="sharder-set-mention-token-address">设置提币地址</h2>
+            <p class="walletAddr i18n" name="sharder-mention-token-address-attention">注意:提币地址设置以后将无法修改，请认真核对</p>
             <div>
-                <label class="i18n" name="">设置地址:</label>
-                <input type="text" id="oldWalletAddr" name="walletAddr" maxlength="50" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
+                <label class="i18n" name="sharder-set-address">设置地址:</label>
+                <input type="text" id="oldWalletAddr" name="walletAddr" maxlength="50" minlength="10" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
             </div>
             <div>
-                <label class="i18n" name="">再次输入:</label>
-                <input type="text" id="newWalletAddr" maxlength="50" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
+                <label class="i18n" name="sharder-input-again">再次输入:</label>
+                <input type="text" id="newWalletAddr" maxlength="50" minlength="10" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
             </div>
             <div>
-                <label class="i18n" name="">账户:</label>
+                <label class="i18n" name="sharder-username">账户:</label>
                 <input class="user-phone" name="uid" value="${acconut!}" readonly="readonly" id="identification_forgot_pwd"/>
                 <input type="button" class="i18n button" name="sharder-send" onclick="forgotPwdVcode(this)" style="width: 100px"/>
                 <input type="hidden" name="captchaToken"/>
@@ -256,18 +266,18 @@
 </script>
 <script type="text/x-template" id="rebate-details">
     <div>
-        <span class="subscribe-title i18n" data-name="friend-invite-reward">邀请奖励</span>
+        <span data-name="sharder-subscribe-income" class="subscribe-title i18n">众售所得</span>
         <table class="ss-table defalut">
             <thead>
             <tr>
                 <th class="i18" name="friend-regid">{{parentData.title2.a}}</th>
                 <th class="i18" >{{parentData.title2.b}}</th>
-                <th class="i18" name="friend-whiteQuotal">{{parentData.title2.c}}</th>
-                <th class="i18" name="friend-whiteQuotal">{{parentData.title2.i}}</th>
-                <th class="i18" name="friend-backQuotal">{{parentData.title2.d}}</th>
-                <th class="i18" name="friend-backQuotal">{{parentData.title2.e}}</th>
-                <th class="i18" name="friend-backQuotal">{{parentData.title2.f}}</th>
-                <th class="i18" name="friend-backQuotal">{{parentData.title2.g}}</th>
+                <th class="i18" name="friend-whiteQuotal">{{parentData.title2.c}}</th><!--来源-->
+                <th class="i18" name="friend-whiteQuotal">{{parentData.title2.i}}</th><!--状态-->
+                <th class="i18" name="friend-backQuotal">{{parentData.title2.d}}</th><!--支持数量-->
+                <th class="i18" name="friend-backQuotal">{{parentData.title2.e}}</th><!--使用白名单额度-->
+                <th class="i18" name="friend-backQuotal">{{parentData.title2.f}}</th><!--白名单奖励-->
+                <th class="i18" name="friend-backQuotal">{{parentData.title2.g}}</th><!--获得豆匣(SS)-->
             </tr>
             </thead>
             <tbody>
@@ -291,11 +301,32 @@
                     <#--<span v-if="dealBase.status == '0'" data-name="sharder-my-info-referral-bonus" class="i18n">已发送奖励</span>-->
                 </td>
                 <td>
-                    <#--{{dealBase.payAmount || '0'}}-->
-                    <#--<span v-if="dealBase.payType == 'SYSTEM'" data-name="sharder-my-info-welfare" class="i18n">赠送</span><span v-else>{{dealBase.payType}}</span>-->
+                    <span v-if="dealBase.source != 'Store'">
+                        {{dealBase.payAmount || '0'}}
+                        <span v-if="dealBase.payType == 'SYSTEM'" data-name="sharder-my-info-welfare" class="i18n">赠送</span>
+                        <span v-else>{{dealBase.payType}}</span>
+                    </span>
                 </td>
-                <td>{{dealBase.useWhitelistsQuota || '0'}}</td>
-                <td>{{dealBase.whitelistAwardAmount || '0'}}</td>
+                <#--<td>{{dealBase.useWhitelistsQuota || '0'}}</td>-->
+                <#--<td>{{dealBase.whitelistAwardAmount || '0'}}</td>-->
+
+                <td>
+                    <span v-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="suocangjiangli" class="i18n">锁仓奖励</span>
+                    <span v-else-if="dealBase.awardType == 'SUOCANG'" data-name="kongtoujiangli" class="i18n">空投奖励</span>
+                    <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
+                    <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
+                    <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
+                    <span v-else data-name="wu" class="i18n">无</span>
+                </td>
+                <td>
+                    <span v-if="dealBase.useWhitelistsQuota != null && dealBase.useWhitelistsQuota != ''">
+                        <span>{{dealBase.whitelistAwardAmount || '0'}}</span>
+                    </span>
+                    <span v-else>
+                        {{dealBase.awardAmount || '无'}}
+                    </span>
+                </td>
+
                 <td>{{dealBase.amount || '0'}}</td>
             </tr>
             </tbody>
@@ -360,13 +391,14 @@
                             d:$("span[name='sharder-deal-base']").text(),
                             e:$("span[name='sharder-details-benefits']").text(),
                             f:$("span[name='sharder-details-immediately']").text()};
+
                         pc.title2={a:$("span[name='sharder-participation-time']").text(),
                             b:$("span[name='sharder-stage-participation']").text(),
                             c:$("span[name='sharder-source']").text(),
                             i:$("span[name='sharder-bill-status']").text(),
                             d:$("span[name='sahrder-support-quantity']").text(),
-                            e:$("span[name='sharder-use-white-list']").text(),
-                            f:$("span[name='sharder-white-list-award']").text(),
+                            e:$("span[name='sharder-award-type']").text(),
+                            f:$("span[name='sharder-award-amount']").text(),
                             g:$("span[name='sharder-get-ss']").text()
                         }
                         //设置选中的模板
@@ -423,7 +455,6 @@
                         },20000);
                     },
                     loadDealbaseResult:function (_result) {
-                        console.log(_result);
                         layer.closeAll('loading');
                         if (isTrue(_result.success)){
                             pc.dealBases = _result.result.data;
@@ -449,7 +480,6 @@
                     },
                     winOpen:function (name) {
                         pc.isOpenWindos = ! pc.isOpenWindos;
-                        window.console.info(pc.isOpenWindos);
                         if(pc.isOpenWindos){
                             $(".maker").css("display","none");
                             if(name == "walletAddr"){
@@ -532,20 +562,24 @@
                     },
 
                     editPwd:function () {
-                        if(pc.isSubmit){
-                            $.ajax({
-                                type: "post",
-                                url:"/passWord/edit.ss",
-                                data:$('#userPwd').serialize(),
-                                dataType: "json",
-                                success: function(data) {
-                                    console.info(data);
-                                    pc.Pwd = data;
-                                    $('#userPwd').css("display","none");
-                                    $('.userPwd-div').css("display","block");
-                                }
-                            });
+
+                        if($("#userPwd").valid()){
+                            if(pc.isSubmit){
+                                $.ajax({
+                                    type: "post",
+                                    url:"/passWord/edit.ss",
+                                    data:$('#userPwd').serialize(),
+                                    dataType: "json",
+                                    success: function(data) {
+                                        pc.Pwd = data;
+                                        $('#userPwd').css("display","none");
+                                        $('.userPwd-div').css("display","block");
+                                    }
+                                });
+                            }
                         }
+
+
                     },
                     retruenTExt:function (bool) {
                         if(bool){

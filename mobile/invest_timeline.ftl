@@ -1,17 +1,17 @@
-<ul>
-    <li>
+<ul class="invest-timeline">
+    <li class="time-node">
         <span class="ss-time i18n" name="sharder-time-start-end">1月18日-1月28日</span>
         <span class="ss-time i18n" name="sharder-angel-time-start-end">1月29日-2月11日</span>
         <span class="ss-time i18n" name="sharder-crowd-funding-time-start-end">2月23日-3月23</span></li>
-    <li>
+    <li class="time-node-icon">
         <img src="/r/cms/resource/sharders/img/yuan.png" class="ss-img">
         <img src="/r/cms/resource/sharders/img/yuan.png" class="ss-img sharder-img">
         <img src="/r/cms/resource/sharders/img/yuan.png" class="ss-img">
     </li>
     <li class="ss-line"></li>
     <li>
-        <span class="ss-text i18n" name="sharder-subscribe-reserve">白名单预约</span>
-        <span class="ss-text i18n" name="sharder-angel-wheels">早鸟轮</span>
+        <span class="ss-text i18n" name="sharder-subscribe-reserve" style="color: #999;">白名单预约</span>
+        <span class="ss-text i18n" name="sharder-angel-wheels" style="color: #999;">早鸟轮</span>
         <span class="ss-text i18n" name="sharder-crowd-funding">众售轮</span>
     </li>
 </ul>
