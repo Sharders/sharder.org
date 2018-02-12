@@ -225,6 +225,8 @@
                 $(".BTC_LOCK_PRICE").html(convertUs($(".BTC_LOCK_PRICE").html())+"$");
             }else if(i18nLanguage == "ko"){
                 $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/korean.png");
+            }else if(i18nLanguage == "ja"){
+                $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/japanese.png");
             }
         }
     },100);

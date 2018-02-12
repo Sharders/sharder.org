@@ -63,7 +63,13 @@
         </ul>
     </section>
 
-    <#include "/WEB-INF/ftl/sharders/invest_submit.ftl">
+    <#if user.userExtSet[0].memo ??>
+        <#if user.userExtSet[0].memo ?contains("approve")>
+            <#include "/WEB-INF/ftl/sharders/invest_submit.ftl">
+        <#else >
+            <#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_terms.ftl">
+        </#if>
+    </#if>
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl">
 </@lay.htmlBody>

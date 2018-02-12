@@ -27,7 +27,7 @@
 <@layout.htmlBody>
 
 
-<
+
 <div class="container ss-theme-background-color" id="member_center">
     <#--<div class="subscribe">-->
         <#--<div class="subscribe-share">-->
@@ -95,14 +95,14 @@
             <li><span class="user-title i18n" name="sharder-account-number">账号:</span><span class="user-value">${acconut!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-uid-code">UID:</span><span class="user-value">${inviterId!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-sgin-pwd">登录密码:</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">修改密码</span></li>
-            <#--<li>-->
-                <#--<span class="user-title i18n" name="sharder-mention-token-address">提币地址:</span>-->
-                <#--<#if user.purseAddress?? && user.purseAddress != ''>-->
-                        <#--<span>${user.purseAddress!}</span>-->
-                    <#--<#else >-->
-                        <#--<span class="user-value win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">设置提币地址</span>-->
-                <#--</#if>-->
-            <#--</li>-->
+            <li>
+                <span class="user-title i18n" name="sharder-mention-token-address">提币地址:</span>
+                <#if user.purseAddress?? && user.purseAddress != ''>
+                        <span>${user.purseAddress!}</span>
+                    <#else >
+                        <span class="user-value win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">设置提币地址</span>
+                </#if>
+            </li>
             <li>
                 <span class="user-title i18n" name="sharder-user-invitation-link">专属邀请链接:</span><span id="contents" >${invitePage!}?inviterId=${inviterId!}</span>
                 <div class="bdsharebuttonbox">
@@ -275,8 +275,8 @@
                 <th class="i18" name="friend-whiteQuotal">{{parentData.title2.c}}</th><!--来源-->
                 <th class="i18" name="friend-whiteQuotal">{{parentData.title2.i}}</th><!--状态-->
                 <th class="i18" name="friend-backQuotal">{{parentData.title2.d}}</th><!--支持数量-->
-                <th class="i18" name="friend-backQuotal">{{parentData.title2.e}}</th><!--使用白名单额度-->
-                <th class="i18" name="friend-backQuotal">{{parentData.title2.f}}</th><!--白名单奖励-->
+                <th class="i18" name="friend-backQuotal">{{parentData.title2.e}}</th><!--奖励类型-->
+                <th class="i18" name="friend-backQuotal">{{parentData.title2.f}}</th><!--奖励数量-->
                 <th class="i18" name="friend-backQuotal">{{parentData.title2.g}}</th><!--获得豆匣(SS)-->
             </tr>
             </thead>
@@ -656,6 +656,8 @@
                 $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_overPC_en.jpg");
             }else if(i18nLanguage == "ko"){
                 $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_koPC.png");
+            }else if(i18nLanguage == "ja"){
+                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_koPC.png");
             }
         }
     },100);

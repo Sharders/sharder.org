@@ -34,17 +34,16 @@
         <div class="crowd-funding-rebate">
                 <div class="crowd-funding details">
                     <p class="crowd-funding-title">
-                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img" v-on:click="tabMessage(true)">
+                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img crowd-funding-img1" v-on:click="tabMessage(true)">
                         <span class="details-title i18n" name="sharder-subscribe-income">众售所得</span>
                     </p>
                     <p class="crowd-funding quota ">${crowd_amount!'0'}SS</p>
                     <#--<p class="details-colse" >{{retruenTExts(!crowd)}}</p>-->
                     <p class="details-colse" v-on:click="tabBtn('zhongchou')">{{retruenTExts(!crowd)}}</p>
-
                 </div>
                 <div class="rebate details">
                     <p class="crowd-funding-title">
-                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img img" v-on:click="tabMessage(false)">
+                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img img crowd-funding-img2" v-on:click="tabMessage(false)">
                         <span class="details-title i18n" name="sharder-subscribe-rebate">邀请奖励</span>
                     </p>
                     <p class="rebate-quota quota">${invite_rewards_amount!'0'}SS</p>
@@ -117,19 +116,39 @@
     <table class="ss-table defalut">
         <thead>
         <tr>
-            <th class="i18n" data-name="sharder-participation-time">参与时间</th>
+            <#--<th class="i18n" data-name="sharder-participation-time">参与时间</th>-->
+            <th class="i18n" data-name="sharder-participation-time">时间</th>
             <th class="i18n" data-name="sahrder-support-quantity">支持数量</th>
-            <th class="i18n" data-name="sharder-use-white-list">使用白名单额度</th>
-            <th class="i18n" data-name="sharder-white-list-award">白名单奖励</th>
-            <th class="i18n" data-name="sharder-get-ss">获得token（SS）</th>
+            <#--<th class="i18n" data-name="sharder-use-white-list">使用白名单额度</th>-->
+            <th class="i18n" data-name="sharder-award-type">奖励类型</th>
+            <#--<th class="i18n" data-name="sharder-white-list-award">白名单奖励</th>-->
+            <th class="i18n" data-name="sharder-award-amount">奖励数量</th>
+            <th class="i18n" data-name="sharder-get-ss">获得（SS）</th>
         </tr>
         </thead>
         <tbody>
         <tr v-for="dealBase in parentData.dataList.list" >
             <td>{{dealBase.createDate}}</td>
             <td>{{dealBase.payAmount}}</td>
-            <td>{{dealBase.useWhitelistsQuota}}</td>
-            <td>{{dealBase.awardAmount}}</td>
+
+            <td>
+                <span v-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="suocangjiangli" class="i18n">锁仓奖励</span>
+                <span v-else-if="dealBase.awardType == 'SUOCANG'" data-name="kongtoujiangli" class="i18n">空投奖励</span>
+                <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
+                <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
+                <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
+                <span v-else data-name="wu" class="i18n">无</span>
+            </td>
+
+            <td>
+                    <span v-if="dealBase.useWhitelistsQuota != null && dealBase.useWhitelistsQuota != ''">
+                        <span>{{dealBase.whitelistAwardAmount || '0'}}</span>
+                    </span>
+                <span v-else>
+                        {{dealBase.awardAmount || '无'}}
+                    </span>
+            </td>
+
             <td>{{dealBase.amount}}</td>
         </tr>
         </tbody>
@@ -182,13 +201,19 @@
                         var text;
                         if(bool){
                             text = $("span[name='shader-storage-token']").text();
+                            layer.tips(text, '.crowd-funding-img1', {
+                                tips: [1, '#3595CC'],
+                                time: 40000
+                            });
                         }else{
                             text = $("span[name='sharder-rewarded-purchase-referred']").text();
+                            layer.tips(text, '.crowd-funding-img2', {
+                                tips: [1, '#3595CC'],
+                                time: 4000
+                            });
                         }
-                        layer.msg(text, {
-                            time: 50000, //5s后自动关闭
-                            btn: ['OK']
-                        });
+
+
                     },
                     paging:function () {
                         var url= "";
@@ -206,7 +231,9 @@
                         }
 
                         app.dataList = _result.result != null ? _result.result.data : "";
-                        executeDymaicI18n();
+                        setTimeout(function () {
+                            executeDymaicI18n();
+                        },100);
                     },
                     setPaging:function (_result) {
                         var  a = _result.result != null ? _result.result.data.totalCount : 0;
@@ -304,8 +331,9 @@
                 $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_en.jpg");
             }else if(i18nLanguage == "ko"){
                 $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_ko.png");
+            }else if(i18nLanguage == "ja"){
+                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_ko.png");
             }
-
         }
 
     },100);
