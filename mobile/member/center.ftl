@@ -10,8 +10,9 @@
 </@lay.htmlHead>
 
 <@lay.htmlBody>
+    <#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
 <div class="phone-center-main" id="member_center">
-    <div style="text-align: center;margin-bottom: 10px"><img src="/r/cms/resource/sharders/img/index/subscribe_over.jpg" width="100%" id="subscribe-over"></div>
+    <div style="text-align: center;margin-bottom: 10px"><img src="/r/cms/resource/sharders/img/index/subscribe_over.jpg" style="width: 100%;margin-top: 70px" id="subscribe-over"></div>
     <div class="user-information" >
         <h1 class="phone-center-information-title i18n" name="sharder-user-information">账户信息</h1>
         <ul class="user-information-text">
@@ -23,6 +24,7 @@
         <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="copyTextById('contents')">复制推广链接</button>
         <p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众售。</p>
         <p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众售获得豆匣(SS)总额度的5%作为返点奖励。</p>
+        <p class="text-color i18n" name="yaoqingtishi">推广奖励上限为100万SS，单人上限为1万SS。</p>
     </div>
     <div class="asset-information" id="center">
         <h1 class="phone-center-information-title i18n" name="asset-information">资产信息</h1>
@@ -137,7 +139,7 @@
                 <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
                 <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
                 <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
-                <span v-else data-name="wu" class="i18n">无</span>
+                <span v-else data-name="wu" class="i18n"></span>
             </td>
 
             <td>
@@ -145,11 +147,18 @@
                         <span>{{dealBase.whitelistAwardAmount || '0'}}</span>
                     </span>
                 <span v-else>
-                        {{dealBase.awardAmount || '无'}}
+                        {{dealBase.awardAmount || '0'}}
                     </span>
             </td>
 
-            <td>{{dealBase.amount}}</td>
+            <td>
+                    <span v-if="dealBase.status == '1' && dealBase.amount == '0'">
+                        {{parentData.daiding}}
+                        <img src="/r/cms/resource/sharders/img/gantanhao.png" class="personal-img daidingtishi" onmousemove="daidingtishi(true)" onmouseout="daidingtishi(false)" style="width:15px;height: 15px;float: left;cursor: pointer;"></span>
+                <span v-else>
+                        {{dealBase.amount || '0'}}
+                    </span>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -195,6 +204,7 @@
                     dataList:'',
                     template:'',
                     title:'',
+                    daiding:'',
                 },
                 methods:{
                     tabMessage:function(bool){
@@ -226,6 +236,7 @@
                         commAjax(url,"GET",data,app.pagingResult);
                     },
                     pagingResult:function (_result) {
+                        app.daiding = $("span[name='daiding']").html();
                         if(isEmpty(app.dataList)){
                             app.setPaging(_result);
                         }
@@ -332,10 +343,23 @@
             }else if(i18nLanguage == "ko"){
                 $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_ko.png");
             }else if(i18nLanguage == "ja"){
-                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_ko.png");
+                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_ko.jpg");
             }
         }
 
     },100);
+
+    var _tips;
+    function daidingtishi(_t) {
+
+        if(_t){
+            _tips  = layer.tips($("span[name='daidingtishi']").html(), '.daidingtishi', {
+                tips: [1, '#3595CC'],
+                skin:'huanhuangwenben'
+            });
+        }else{
+            layer.close(_tips);
+        }
+    }
 </script>
 </@lay.htmlBody>

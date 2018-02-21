@@ -1,5 +1,4 @@
 <@layout.htmlHead    pagename="crowd_funding">
-
 </@layout.htmlHead>
 
 <@layout.htmlBody>
@@ -14,9 +13,8 @@
             <h3 class="ss-sub-title i18n" name="sharder-crowd-funding">众售轮</h3>
             <p class="i18n" name="sharder-crowd-funding-time">2月23日9:00-3月23日23:59</p>
         <#--<div class="ss-row-timeline"></div>-->
-            <div class="sharder-row-timeline">
-                <span style="width: 10%"></span>
-            </div>
+            <#include "../zcjd.ftl" />
+
             <div class="clause">
                 <h4 class="invset-h4 i18n" name="sharder-rule">规则</h4>
                 <ul>
@@ -63,15 +61,19 @@
             </div>
 
         </section>
-        <#if user.userExtSet[0].memo ??>
-            <#if user.userExtSet[0].memo ?contains("approve")>
-                <#include "/WEB-INF/ftl/sharders/invest_submit.ftl">
-            <#else >
-                <#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_terms.ftl">
-            </#if>
-        </#if>
+        <#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_kyc.ftl">
+        <#--<#if user.userExtSet[0].memo ??>-->
+            <#--<#if user.userExtSet[0].memo ?contains("approve")>-->
+                <#--<#include "/WEB-INF/ftl/sharders/invest_submit.ftl">-->
+            <#--<#else >-->
+                <#--<#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_terms.ftl">-->
+            <#--</#if>-->
+        <#--<#else >-->
+            <#--<#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_terms.ftl">-->
+        <#--</#if>-->
 
     </div>
 </div>
+
 
 </@layout.htmlBody>

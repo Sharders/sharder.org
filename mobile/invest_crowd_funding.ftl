@@ -13,7 +13,8 @@
         <div class="sharder-line">
             <h3 class="sharder-early-bird i18n" name="sharder-crowd-funding">参与众售轮</h3>
             <p  class="sharder-early-bird-text i18n" name="sharder-crowd-funding-time">2月23日9:00-3月23日23:59</p>
-            <p class="sharder-line-p"><span style="width: 30%"></span><i>30%</i></p>
+            <#--<p class="sharder-line-p"><span style="width: 30%"></span><i>30%</i></p>-->
+            <#include "../zcjd.ftl" />
         </div>
         <ul class="ss-early-bird-text">
             <li class="generalTextColor">
@@ -62,14 +63,14 @@
             <#--</li>-->
         </ul>
     </section>
-
-    <#if user.userExtSet[0].memo ??>
-        <#if user.userExtSet[0].memo ?contains("approve")>
-            <#include "/WEB-INF/ftl/sharders/invest_submit.ftl">
-        <#else >
-            <#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_terms.ftl">
-        </#if>
-    </#if>
+    <#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_kyc.ftl">
+    <#--<#if user.userExtSet[0].memo ??>-->
+        <#--<#if user.userExtSet[0].memo ?contains("approve")>-->
+            <#--<#include "/WEB-INF/ftl/sharders/invest_submit.ftl">-->
+        <#--<#else >-->
+            <#--<#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_terms.ftl">-->
+        <#--</#if>-->
+    <#--</#if>-->
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl">
 </@lay.htmlBody>

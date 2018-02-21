@@ -95,14 +95,14 @@
             <li><span class="user-title i18n" name="sharder-account-number">账号:</span><span class="user-value">${acconut!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-uid-code">UID:</span><span class="user-value">${inviterId!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-sgin-pwd">登录密码:</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">修改密码</span></li>
-            <li>
-                <span class="user-title i18n" name="sharder-mention-token-address">提币地址:</span>
-                <#if user.purseAddress?? && user.purseAddress != ''>
-                        <span>${user.purseAddress!}</span>
-                    <#else >
-                        <span class="user-value win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">设置提币地址</span>
-                </#if>
-            </li>
+            <#--<li>-->
+                <#--<span class="user-title i18n" name="sharder-mention-token-address">提币地址:</span>-->
+                <#--<#if user.purseAddress?? && user.purseAddress != ''>-->
+                        <#--<span>${user.purseAddress!}</span>-->
+                    <#--<#else >-->
+                        <#--<span class="user-value win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">设置提币地址</span>-->
+                <#--</#if>-->
+            <#--</li>-->
             <li>
                 <span class="user-title i18n" name="sharder-user-invitation-link">专属邀请链接:</span><span id="contents" >${invitePage!}?inviterId=${inviterId!}</span>
                 <div class="bdsharebuttonbox">
@@ -116,7 +116,7 @@
 
         </ul>
     </div>
-    <div class="remarks i18n" name="sharder-invitation-register-sale-reward">如果所邀请好友参与早鸟轮或众售轮投资，邀请人可获得好友认购SS数量*5%的返点，该返点无上限。</div>
+    <div class="remarks"><span class="gantanhao" id="yaoqingtishi" onmousemove="yaoqingtishi(true)" onmouseout="yaoqingtishi(false)"></span><span class="i18n" name="sharder-invitation-register-sale-reward">如果所邀请好友参与早鸟轮或众售轮投资，邀请人可获得好友认购SS数量*5%的返点，该返点无上限。</span></div>
     <div class="assets">
         <span class="title i18n" name="sharder-my-assets">我的资产</span>
         <div class="total-assets">
@@ -291,13 +291,16 @@
                         众售
                     </span>
                 </td>
-                <td v-if="dealBase.source == 'Store'" data-name="sharder-my-info-mall" class="i18n">商城</td>
-                <td v-else data-name="sharder-my-info-official-website" class="i18n">官网</td>
+                <#--<td v-if="dealBase.source == 'Store'" data-name="sharder-my-info-mall" class="i18n">商城</td>-->
+                <#--<td v-else data-name="sharder-my-info-official-website" class="i18n">官网</td>-->
+                <td data-name="sharder-my-info-official-website" class="i18n">官网</td>
                 <td>
                     <span v-if="dealBase.status == '1'" data-name="sharder-my-info-confirmed" class="i18n">已确认</span>
                     <span v-if="dealBase.status == '0'" data-name="sharder-my-info-to-confirmed" class="i18n">待审核</span>
                     <#--<span v-if="dealBase.status == '0'">未支付</span>-->
                     <span v-if="dealBase.status == '-1'" data-name="sharder-my-info-invalid" class="i18n">失效</span>
+
+                    <span v-if="dealBase.status == '3'" data-name="yituihuan" class="i18n">已退还</span>
                     <#--<span v-if="dealBase.status == '0'" data-name="sharder-my-info-referral-bonus" class="i18n">已发送奖励</span>-->
                 </td>
                 <td>
@@ -316,18 +319,27 @@
                     <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
                     <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
                     <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
-                    <span v-else data-name="wu" class="i18n">无</span>
+                    <span v-else data-name="wu" class="i18n"></span>
                 </td>
                 <td>
                     <span v-if="dealBase.useWhitelistsQuota != null && dealBase.useWhitelistsQuota != ''">
                         <span>{{dealBase.whitelistAwardAmount || '0'}}</span>
                     </span>
                     <span v-else>
-                        {{dealBase.awardAmount || '无'}}
+                        {{dealBase.awardAmount || '0'}}
                     </span>
                 </td>
 
-                <td>{{dealBase.amount || '0'}}</td>
+                <#--<td>{{dealBase.amount || '0'}}</td>-->
+                <td>
+                    <span v-if="dealBase.status == '1' && dealBase.amount == '0'">
+                        {{parentData.daiding}}
+                        <img src="/r/cms/resource/sharders/img/gantanhao.png" style="width:15px;height: 15px;cursor: pointer;" class="personal-img daidingtishi" onmousemove="daidingtishi(true)" onmouseout="daidingtishi(false)">
+                    </span>
+                    <span v-else>
+                        {{dealBase.amount || '0'}}
+                    </span>
+                </td>
             </tr>
             </tbody>
             <p  v-if="parentData.showHint"><span style="color: red">{{parentData.title.e}}</span><a href="#member_center" >{{parentData.title.f}}</a></p>
@@ -378,6 +390,7 @@
                     showDetail:false,
                     showHint:false, //没有数据时是否显示提示
                     saveWalletAddr:"",//
+                    daiding:'',
                 },
                 methods: {
                     //选择要显示的数据
@@ -456,6 +469,7 @@
                     },
                     loadDealbaseResult:function (_result) {
                         layer.closeAll('loading');
+                        pc.daiding = $("span[name='daiding']").html();
                         if (isTrue(_result.success)){
                             pc.dealBases = _result.result.data;
                             pc.setPaging(pc.dealBases);
@@ -604,7 +618,8 @@
                             pc.showDetail =  true;
                             return true;
                         }
-                    }
+                    },
+
                 },
                 components:{
                     'baimingdan':{
@@ -657,13 +672,36 @@
             }else if(i18nLanguage == "ko"){
                 $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_koPC.png");
             }else if(i18nLanguage == "ja"){
-                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_koPC.png");
+                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_koPC.jpg");
             }
         }
     },100);
 
+var _tips;
+function daidingtishi(_t) {
 
+    if(_t){
+        _tips  = layer.tips($("span[name='daidingtishi']").html(), '.daidingtishi', {
+            tips: [1, '#3595CC'],
+            skin:'huanhuangwenben'
+        });
+    }else{
+        layer.close(_tips);
+    }
+}
 
+    //                    邀请提示
+    var _tips1;
+function yaoqingtishi(_t){
+    if(_t){
+        _tips1 = layer.tips($("span[name='yaoqingtishi']").html(), '#yaoqingtishi', {
+            tips: [1, '#3595CC'],
+            skin:'huanhuangwenben'
+        });
+    }else{
+        layer.close(_tips1);
+    }
+}
 </script>
 
 <script>

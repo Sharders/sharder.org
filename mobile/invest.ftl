@@ -70,8 +70,8 @@
         </div>
         <div class="ss-technological-process">
             <div class="technological-process-tab">
-                <button class="official-website-direct-investment i18n" name="sharder-public-network" v-on:click="tabBtn(1)">官网直投<div></div></button>
-                <button class="business-city i18n" name="sharder-business-city" v-on:click="tabBtn(0)">商城众售<div></div></button>
+                <button class="official-website-direct-investment i18n" name="sharder-public-network" v-on:click="tabBtn(1)">官网直投</button>
+                <button class="business-city i18n" name="sharder-business-city" v-on:click="tabBtn(0)">商城众售</button>
             </div>
             <div class="liucheng">
                 <ul class="ss-technological-step">

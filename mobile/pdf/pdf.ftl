@@ -15,6 +15,12 @@
     <script src="/r/cms/resource/js/jquery.cookie.js"></script>
 </head>
 
+<style>
+    .select_lang {
+        margin-top: 20px;
+    }
+</style>
+
 <body>
     <div class="container con2">
         <div class="fn-item">

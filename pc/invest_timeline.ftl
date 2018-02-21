@@ -21,8 +21,11 @@
             <h4 class="ss-sub-title up-title i18n" name="sharder-crowd-funding-time-start-end">2月23日-3月23</h4>
             <p class="content i18n" name="sharder-crowd-funding">众售</p>
             <#--<button class="content-over crowd-funding-over i18n" name="canyuzhongchoulun">参与众售</button>-->
-            <button class="content-over subscribe-over ss-hover-effect i18n" name="sharder-stay-tuned-for">敬请期待</button>
-            <#--<a href="//invest/invest_crowd_funding.ss"><button class="content-over crowd-funding-over">参与众售轮</button></a>-->
+            <#if exceptUser?? && exceptUser>
+                <a href="/invest/invest_crowd_funding.ss"><button class="content-over subscribe-over ss-hover-effect i18n" name="sharder-immediate-participation">立即参与</button></a>
+            <#else >
+                <button class="content-over subscribe-over ss-hover-effect i18n" name="sharder-stay-tuned-for">敬请期待</button>
+            </#if>
         </li>
     </ul>
 </section>

@@ -17,12 +17,12 @@
 </head>
 <body>
     <div class="container con2">
-        <div class="fn-item">
+        <div class="fn-item mobile-fn-item">
             <iframe width="100%" id="iframe1"  scrolling="auto" allowtransparency="yes" style="height: 100%"></iframe>
         </div>
         <div class="pdf-btn">
-            <button class="chakan i18m" name="down" onclick="PdffileList()">文件列表</button>
-            <button class="chakan i18n" name="down" onclick="openDown('${url!''}')">下载</button>
+            <button class="mobile-chakan i18m" name="down" onclick="PdffileList()">文件列表</button>
+            <button class="mobile-chakan i18n" name="down" onclick="openDown('${url!''}')">下载</button>
         </div>
     </div>
     <div class="flow-0">

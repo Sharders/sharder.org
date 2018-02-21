@@ -64,7 +64,7 @@
                     </li>
                 </ul>
 
-            <div/>
+            </div>
         </div>
     </section>
     <section class="ss-container sharder-definition-main tail">

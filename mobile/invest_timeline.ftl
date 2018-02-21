@@ -27,5 +27,10 @@
 <#--<button class="i18n" name="">已结束</button>-->
 <#--<button class="angel-btn i18n" name="sharder-participate-early-bird">参与早鸟</button>-->
 <#--<a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="sharder-ended">正在进行</button></a>-->
-    <button class="crowd-funding-btn i18n" name="sharder-stay-tuned-for">参与众售</button>
+
+<#if exceptUser?? && exceptUser>
+    <a href="/invest/invest_crowd_funding.ss"><button class="angel-btn subscribe-btn i18n" name="sharder-immediate-participation">立即参与</button></a>
+<#else >
+    <button class="i18n" name="sharder-stay-tuned-for">敬请期待</button>
+</#if>
 </div>
