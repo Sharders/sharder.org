@@ -1,3 +1,38 @@
+<style>
+    .invest-timeline .time-node{
+        display: flex;
+        justify-content: space-around;
+    }
+    .invest-timeline .time-node-icon{
+        display: flex;
+        justify-content: space-around;
+        z-index: 9;
+        position: relative;
+        top: 10px;
+    }
+    .invest-timeline .ss-stage{
+        display: flex;
+        justify-content: space-around;
+    }
+    .ss-main-title .ss-line{
+        position: relative;
+        display: inline-block;
+        border-radius: 20px;
+        width: 90%;
+        height: 4px;
+        border: 1px solid #0ba0d1;
+        bottom: 26px;
+    }
+    .ss-main-title .ss-line:after{
+        content: " ";
+        height: 100%;
+        width: 89%;
+        background-color: #0ba0d1;
+        border-radius: 20px;
+        float: left;
+    }
+</style>
+
 <ul class="invest-timeline">
     <li class="time-node">
         <span class="ss-time i18n" name="sharder-time-start-end">1月18日-1月28日</span>
@@ -9,7 +44,7 @@
         <img src="/r/cms/resource/sharders/img/yuan.png" class="ss-img">
     </li>
     <li class="ss-line"></li>
-    <li>
+    <li class="ss-stage">
         <span class="ss-text i18n" name="sharder-subscribe-reserve" style="color: #999;">白名单预约</span>
         <span class="ss-text i18n" name="sharder-angel-wheels" style="color: #999;">早鸟轮</span>
         <span class="ss-text i18n" name="sharder-crowd-funding">众售轮</span>

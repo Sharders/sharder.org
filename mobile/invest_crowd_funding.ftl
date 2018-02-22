@@ -12,19 +12,15 @@
     <section class="ss-main-early-bird">
         <div class="sharder-line">
             <h3 class="sharder-early-bird i18n" name="sharder-crowd-funding">参与众售轮</h3>
-            <p  class="sharder-early-bird-text i18n" name="sharder-crowd-funding-time">2月23日9:00-3月23日23:59</p>
+            <p  class="sharder-early-bird-text i18n" name="sharder-crowd-funding-time">2月23日8:00-3月23日23:59</p>
             <#include "../zcjd.ftl" />
         </div>
         <#include "/WEB-INF/ftl/sharders/zcsm.ftl" />
     </section>
 
-    <#if sharderCfg('is_start_kyc') == 'true'>
-        <#if user.userExtSet[0].memo ??>
-            <#if user.userExtSet[0].memo != "">
-                <#include "/WEB-INF/ftl/sharders/invest_submit.ftl">
-            <#else >
-                <#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_kyc.ftl">
-            </#if>
+    <#if sharderCfg('is_start_kyc') ?? && sharderCfg('is_start_kyc') == 'true'>
+        <#if user.userExtSet[0].memo ?? && user.userExtSet[0].memo ?contains("through")>
+            <#include "/WEB-INF/ftl/sharders/invest_submit.ftl">
         <#else >
             <#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_kyc.ftl">
         </#if>
@@ -32,13 +28,6 @@
         <#include "/WEB-INF/ftl/sharders/invest_submit.ftl">
     </#if>
 
-    <#--<#if user.userExtSet[0].memo ??>-->
-        <#--<#if user.userExtSet[0].memo ?contains("approve")>-->
-            <#--<#include "/WEB-INF/ftl/sharders/invest_submit.ftl">-->
-        <#--<#else >-->
-            <#--<#include "/WEB-INF/t/cms/www/sharder.org/crowdsale_terms.ftl">-->
-        <#--</#if>-->
-    <#--</#if>-->
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl">
 </@lay.htmlBody>

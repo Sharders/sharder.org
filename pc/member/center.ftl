@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/user_center.css" />
 <script src="/r/cms/resource/sharders/layui/lay/modules/layer.js" type="text/javascript" charset="utf-8"></script>
 
-<script src="https://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)" type="text/javascript" charset="utf-8"></script>
+<#--<script src="https://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)" type="text/javascript" charset="utf-8"></script>-->
 <style>
     .bdsharebuttonbox{
         position: absolute;
@@ -86,7 +86,7 @@
             <#--<a href="<#if startNow?? && "false"==startNow >javascript:void(0);<#else>/invest/invest_item.ss</#if>" style="border-bottom: 1px solid #fff;color: #fff;margin-left: -168px" class="i18n" name="sharder-early-bird">参与早鸟轮</a>-->
         <#--</div>-->
     <#--</div>-->
-        <div style="text-align: center"><img src="/r/cms/resource/sharders/img/index/subscribe_overPC.jpg" id="subscribe-over"></div>
+        <#--<div style="text-align: center"><img src="/r/cms/resource/sharders/img/index/subscribe_overPC.jpg" id="subscribe-over"></div>-->
     <div class="user">
         <span class="title i18n" name="sharder-user-information">账户信息</span>
         <ul>
@@ -100,7 +100,8 @@
                 <#if user.purseAddress?? && user.purseAddress != ''>
                         <span>${user.purseAddress!}</span>
                     <#else >
-                        <span class="user-value win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">设置提币地址</span>
+                        <span class="user-value"></span>
+                        <span class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">设置提币地址</span>
                 </#if>
             </li>
             <li>
@@ -176,7 +177,7 @@
     <#--</div>-->
     <div class="edit-password">
         <form method="post" id="userPwd">
-            <h2 class="i18n" name="sharder-user-edit-pwd">修改密码</h2>
+            <h2 class="i18n title" name="sharder-user-edit-pwd">修改密码</h2>
             <div>
                 <label class="i18n" name="sharder-old-password">请输入旧密码</label> <input type="password" id="oldPassWord" name="origPwd" v-on:keyup="verification()"/>
             </div>
@@ -200,24 +201,24 @@
         <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
             <h2 class="i18n" name="sharder-set-mention-token-address">设置提币地址</h2>
             <p class="walletAddr i18n" name="sharder-mention-token-address-attention">注意:提币地址设置以后将无法修改，请认真核对</p>
-            <div>
+            <div class="input-div">
                 <label class="i18n" name="sharder-set-address">设置地址:</label>
-                <input type="text" id="oldWalletAddr" name="walletAddr" maxlength="50" minlength="10" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
+                <input type="text" id="oldWalletAddr" name="walletAddr" maxlength="50" minlength="10" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()" />
             </div>
-            <div>
+            <div class="input-div">
                 <label class="i18n" name="sharder-input-again">再次输入:</label>
                 <input type="text" id="newWalletAddr" maxlength="50" minlength="10" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
             </div>
-            <div>
-                <label class="i18n" name="sharder-username">账户:</label>
-                <input class="user-phone" name="uid" value="${acconut!}" readonly="readonly" id="identification_forgot_pwd"/>
-                <input type="button" class="i18n button" name="sharder-send" onclick="forgotPwdVcode(this)" style="width: 100px"/>
-                <input type="hidden" name="captchaToken"/>
-            </div>
-            <div>
-                <label class="i18n" name="sharder-user-code">验证码:</label>
-                <input type="number" maxlength="6" minlength="6" name="verificationCode" id="verificationCode"/>
-            </div>
+            <#--<div class="input-div">-->
+                <#--<label class="i18n" name="sharder-username">账户:</label>-->
+                <#--<input class="user-phone" name="uid" value="${acconut!}" readonly="readonly" id="identification_forgot_pwd"/>-->
+                <#--<input type="button" class="i18n button" name="sharder-send" onclick="forgotPwdVcode(this)" style="width: 100px"/>-->
+                <#--<input type="hidden" name="captchaToken"/>-->
+            <#--</div>-->
+            <#--<div class="input-div">-->
+                <#--<label class="i18n" name="sharder-user-code">验证码:</label>-->
+                <#--<input type="number" maxlength="6" minlength="6" name="verificationCode" id="verificationCode"/>-->
+            <#--</div>-->
             <button class="i18n submit"  name="the-next-step" v-on:click="sendSaveWalletAddr()">提交</button>
         </form>
         <div class="userWalletAddr" id="walletAddr">
@@ -537,21 +538,30 @@
                         }
                     },
                     sendSaveWalletAddr:function () {
-                        if($("#verificationCode").val() == "" || $("#verificationCode").val().length != 6){
-                            return ;
-                        }
+//                        if($("#verificationCode").val() == "" || $("#verificationCode").val().length != 6){
+//                            return ;
+//                        }
                         if(pc.isSubmit){
+
+                             if($("#oldWalletAddr").val().length < 30 && $("#newWalletAddr").val().length < 30){
+                                layer.msg("钱包长度的长度必须大于30个字符串");
+                                return ;
+                            }
+
                             var url = "/save/wallet/address.ss";
                             var data= $("#userWalletAddr").serialize();
-                            commAjax(url,"get",data,function (result) {
+                            commAjax(url,"post",data,function (result) {
                                 console.info(result);
-                                pc.saveWalletAddr =  result;
-                                $("#userWalletAddr").css("display","none");
-                                $("#walletAddr").css("display","block");
-                                pc.isSubmit=false;//使用完后还原状态
+                                if(result.success){
+                                    pc.saveWalletAddr =  result;
+                                    $("#userWalletAddr").css("display","none");
+                                    $("#walletAddr").css("display","block");
+                                    pc.isSubmit=false;//使用完后还原状态
+                                }else{
+                                    layer.msg(result.instructions);
+                                }
                             });
                         }
-
                     }
                     ,verification:function () {
                         var input1 = $("#oldPassWord");
@@ -667,13 +677,13 @@
             });
             window.clearInterval(timeid);
 //            var  language = localStorage.getItem("userLanguage");
-            if(i18nLanguage == "en"){
-                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_overPC_en.jpg");
-            }else if(i18nLanguage == "ko"){
-                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_koPC.png");
-            }else if(i18nLanguage == "ja"){
-                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_koPC.jpg");
-            }
+//            if(i18nLanguage == "en"){
+//                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_overPC_en.jpg");
+//            }else if(i18nLanguage == "ko"){
+//                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_koPC.png");
+//            }else if(i18nLanguage == "ja"){
+//                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_koPC.jpg");
+//            }
         }
     },100);
 

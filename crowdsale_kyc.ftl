@@ -1,4 +1,9 @@
 <style>
+    #invest_protocol{
+        padding-left: 20px;
+        padding-right: 20px;
+        word-wrap: break-word;
+    }
     #crowdsale_terms{
         background-color: #ffffff;
         color: #333333;
@@ -82,10 +87,10 @@
         font-size: 20px;
         padding-bottom: 20px;
         text-align: left;
-        padding-left: 35%;
+        padding-left: 33%;
     }
     #crowdsale_terms #terms{
-        margin-left: -17%;
+        margin-left: -19%;
         margin-top: 3px;
         width: 18px;
         height: 18px;
@@ -155,7 +160,7 @@
             <input type="checkbox" id="terms" name="through" value="yes"/>
             <p class="info">
                 <span class="i18n" name="sharder-legitimate-users">我不是中国，美国及加拿大公民或居民</span><br  />
-                <span class="i18n" name="sharder-have-read">我已阅读并接受</span><a href="#" class="terms i18n" name="sharder-user-agreement" onclick="viewProtocol()">《Sharder Protocol 用户协议》</a><span class="i18n" name="sharder-terms-of">条款</span>
+                <span class="i18n" name="sharder-have-read">我已阅读并接受</span><a href="${sharderCfg('token_invest_protocol_url')!}" class="terms i18n" name="sharder-user-agreement" >《TOKEN SALE AGREEMENT》</a><span class="i18n" name="sharder-terms-of">条款</span>
             </p>
             <p class="kyc_title i18n" name="sharder-card-information">上传身份证信息</p>
             <div class="file_kyc_div">
@@ -184,7 +189,11 @@
     }
     function confirmProtocol() {
         if(!$("#terms").is(':checked') || $("#file_kyc").val() ==''){
-            layer.msg("请接受《Sharder Protocol 用户协议》条款，并上传身份证信息！");
+            if(i18nLanguage  = "en"){
+                layer.msg("Please accept the terms of the《TOKEN SALE AGREEMENT》and upload your id card information!");
+            }else {
+                layer.msg("请接受《TOKEN SALE AGREEMENT》条款，并上传身份证信息！");
+            }
             return false;
         }
         var url = "/user_center/kyc/certification.ss";
@@ -215,7 +224,7 @@
 
     function viewProtocol() {
         layer.open({
-            title:'Sharder Protocol 用户协议',
+            title:'TOKEN SALE AGREEMENT',
             type: 1,
             area: ['80%', '80%'],
             content: "<ul id='invest_protocol'></ul>",

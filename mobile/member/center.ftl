@@ -12,8 +12,8 @@
 <@lay.htmlBody>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
 <div class="phone-center-main" id="member_center">
-    <div style="text-align: center;margin-bottom: 10px"><img src="/r/cms/resource/sharders/img/index/subscribe_over.jpg" style="width: 100%;margin-top: 70px" id="subscribe-over"></div>
-    <div class="user-information" >
+    <#--<div style="text-align: center;margin-bottom: 10px"><img src="/r/cms/resource/sharders/img/index/subscribe_over.jpg" style="width: 100%;margin-top: 70px" id="subscribe-over"></div>-->
+    <div class="user-information" style="padding-top: 80px">
         <h1 class="phone-center-information-title i18n" name="sharder-user-information">账户信息</h1>
         <ul class="user-information-text">
             <li><labal class="user-title i18n" name="sharder-account-number">账号:</labal><span class="user-text">${acconut!}</span></li>
@@ -338,13 +338,13 @@
             });
             window.clearInterval(timeid);
 //            var  language = localStorage.getItem("userLanguage");
-            if(i18nLanguage == "en"){
-                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_en.jpg");
-            }else if(i18nLanguage == "ko"){
-                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_ko.png");
-            }else if(i18nLanguage == "ja"){
-                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_ko.jpg");
-            }
+//            if(i18nLanguage == "en"){
+//                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_en.jpg");
+//            }else if(i18nLanguage == "ko"){
+//                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_ko.png");
+//            }else if(i18nLanguage == "ja"){
+//                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_ko.jpg");
+//            }
         }
 
     },100);

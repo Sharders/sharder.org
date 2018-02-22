@@ -35,13 +35,14 @@
                             <span class="ETH_LOCK_PRICE">${ETH_LOCK_PRICE!}￥</span>
                         <#else >
                             <span class="i18n" name="daiding">待定</span>
-                        </#if> ,
-                        BTC=
-                        <#if BTC_LOCK_PRICE ?? && BTC_LOCK_PRICE gt 0>
-                            <span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>
-                        <#else >
-                            <span class="i18n" name="daiding">待定</span>
                         </#if>
+                        <#--,-->
+                        <#--BTC=-->
+                        <#--<#if BTC_LOCK_PRICE ?? && BTC_LOCK_PRICE gt 0>-->
+                            <#--<span class="BTC_LOCK_PRICE">${BTC_LOCK_PRICE!}￥</span>-->
+                        <#--<#else >-->
+                            <#--<span class="i18n" name="daiding">待定</span>-->
+                        <#--</#if>-->
                     </p>
                 </div>
             </div>
