@@ -115,7 +115,7 @@
         font-size: 12px;
         padding-bottom: 10px;
         text-align: left;
-        padding-left: 20%;
+        padding-left: 15%;
     }
     #crowdsale_terms .info input[type='checkbox']{
         width: 12px;
@@ -128,7 +128,7 @@
         margin-top: 20px;
     }
     #crowdsale_terms #terms{
-        margin-left: -33%;
+        margin-left: -39%;
     }
     #crowdsale_terms .file_kyc_div{
         width: 90%;
@@ -150,20 +150,24 @@
 <section id="crowdsale_terms">
     <div class="content">
         <form id="confirm_protocol_form" enctype="multipart/form-data">
-            <h2 class="title">敬告:中国、美国及加拿大公民或居民</h2>
-            <p class="text-info">如果您是中国公民、美国公民(美国绿卡持有者)或加拿大公民，则不得参与本次众售。</p>
-            <input type="checkbox" id="terms" name="approve" value="yes"/>
+            <h2 class="title i18n" name="sharder-to-inform">敬告:中国、美国及加拿大公民或居民</h2>
+            <p class="text-info i18n" name="sharder-to-inform-text">如果您是中国公民、美国公民(美国绿卡持有者)或加拿大公民，则不得参与本次众售。</p>
+            <input type="checkbox" id="terms" name="through" value="yes"/>
             <p class="info">
-                <span>我不是中国，美国及加拿大公民或居民</span><br  />
-                <span>我已阅读并接受</span><a href="#" class="terms" onclick="viewProtocol()">《Sharder Protocol 用户协议》</a><span>条款</span>
+                <span class="i18n" name="sharder-legitimate-users">我不是中国，美国及加拿大公民或居民</span><br  />
+                <span class="i18n" name="sharder-have-read">我已阅读并接受</span><a href="#" class="terms i18n" name="sharder-user-agreement" onclick="viewProtocol()">《Sharder Protocol 用户协议》</a><span class="i18n" name="sharder-terms-of">条款</span>
             </p>
-            <p class="kyc_title">上传身份证信息</p>
+            <p class="kyc_title i18n" name="sharder-card-information">上传身份证信息</p>
             <div class="file_kyc_div">
-                <input type="file" name="kyc" id="file_kyc" class="file_kyc" onchange="changImg(this)"/>
+                <input type="file" name="kyc_img" id="file_kyc" class="file_kyc" onchange="changImg(this)"/>
             </div>
-            <p class="kyc_info">您可以上传护照、驾驶执照及身份证照片(支持JPEG，PNG格式。大小5M以内)</p>
-            <input type="button" value="确认并参与众售" onclick="confirmProtocol()">
+            <p class="kyc_info i18n" name="sharder-inform-info">您可以上传护照、驾驶执照及身份证照片(支持JPEG，PNG格式。大小5M以内)</p>
+            <input type="button" value="确认并参与众售" class="i18n" name="sharder-participate-in" onclick="confirmProtocol()">
         </form>
+        <#--<form action="/user_center/kyc/certification.ss" method="post" enctype="multipart/form-data">-->
+             <#--选择文件:<input type="file" name="kyc_img">-->
+             <#--<input type="submit" value="上传">-->
+        <#--</form>-->
     </div>
 </section>
 
@@ -179,23 +183,34 @@
         }
     }
     function confirmProtocol() {
-        if(!$("input[name='approve']").is(':checked') || $("#file_kyc").val() ==''){
-            layer.msg("(┬＿┬)");
+        if(!$("#terms").is(':checked') || $("#file_kyc").val() ==''){
+            layer.msg("请接受《Sharder Protocol 用户协议》条款，并上传身份证信息！");
             return false;
         }
-//        layer.load();
-        var url = "/user_center/kyc.ss";
+        var url = "/user_center/kyc/certification.ss";
         var data = $("#confirm_protocol_form").serialize();
-        commAjax(url,"post",data,confirmProtocolResult);
-    }
-    function confirmProtocolResult(_result){
 
-       if(_result.approve == 'yes'){
-           location.reload();
-       }else{
-           layer.msg("(┬＿┬)");
-       }
+        var formData = new FormData();
+        formData.append("kyc_img",$("#file_kyc")[0].files[0]);
+        formData.append("through",$("#terms").val());
 
+        $.ajax({
+            url:url,
+            type: 'POST',
+            data:formData,
+            dataType:'json',
+            contentType: false, //禁止设置请求类型
+            processData: false, //禁止jquery对DAta数据的处理,默认会处理
+            //禁止的原因是,FormData已经帮我们做了处理
+            success: function (result) {
+                console.info(result);
+                if(result.through == 'yes'){
+                    location.reload();
+                }else{
+                    layer.msg("图片上传失败，图片必须jpg或png格式且小于5M");
+                }
+            }
+        });
     }
 
     function viewProtocol() {

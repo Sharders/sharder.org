@@ -44,6 +44,7 @@
         font-size: 13px;
         margin-left: 5px;
         color: #0BA0D1;
+        line-height: 13px;
     }
 </style>
 <div class="sharder-row-timeline">
@@ -55,11 +56,11 @@
     //查询众筹进度
     $(document).ready(function () {
 
-        commAjax("/api/sharder/current_progress.ss","get","",zcjdQueryResult);
+        commAjax("/api/crowdsaleInprogess.ss","get","",zcjdQueryResult);
 
         function zcjdQueryResult(_result) {
             if(isNotempty(_result)){
-                var bfb = (_result.result.paidAmount / _result.result.amount)*100;
+                var bfb = ((_result.result.paidAmount / _result.result.amount)*100).toFixed(2);
                 bfb = bfb > 100 ? 100:bfb;
                 $("#zhongshou_jindu").css("width",bfb+"%");
                 $("#zhongshou_jindu_bfb").html(bfb+"%");
