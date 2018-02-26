@@ -24,7 +24,7 @@
         <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="copyTextById('contents')">复制推广链接</button>
         <p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众售。</p>
         <p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众售获得豆匣(SS)总额度的5%作为返点奖励。</p>
-        <p class="text-color i18n" name="yaoqingtishi">推广奖励上限为100万SS，单人上限为1万SS。</p>
+        <p class="text-color i18n" name="yaoqingtishi">豆匣会不定期进行空投，邀请的好友越多获得的SS空投数量也会越多，请持续推广和积累好友哦。</p>
     </div>
     <div class="asset-information" id="center">
         <h1 class="phone-center-information-title i18n" name="asset-information">资产信息</h1>

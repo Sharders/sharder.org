@@ -60,66 +60,66 @@
                 </div>
             <@investTpl.investRules/>
         </div>
-        <section class="flow-path">
-            <@investTpl.investFlow />
-            <div  class="liucheng">
-                <button class="flow-button official-button" v-on:click="tabCrowdFunding(true)"><div v-if="!isOfficial"></div><span class="i18n" name="sharder-public-network">官方众售流程</span></button>
-                <button class="flow-button shopping-button" v-on:click="tabCrowdFunding(false)"><div v-if="isOfficial"></div><span class="i18n" name="sharder-business-city">商城众售流程</span></button>
-                <ul class="flow-path-ul flow-path-ul1">
-                    <li>
-                        <span class="step i18n" name="sharder-step-one">步骤一</span>
-                        <button class="item i18n" name="sharder-log-in-register"><span>登录注册</span></button>
-                    </li>
-                    <li>
-                        <span class="step i18n" name="sharder-step-second">步骤二</span>
-                        <button class="item">{{crowdFunding.a}}</button>
-                    </li>
-                    <li>
-                        <span class="step i18n" name="sharder-step-three">步骤三</span>
-                        <button class="item">{{crowdFunding.b}}</button>
-                    </li>
-                <#--<i class="fa fa-angle-double-left" aria-hidden="true"></i>-->
-                    <li>
-                        <span class="step i18n" name="sharder-step-four">步骤四</span>
-                        <button class="item">{{crowdFunding.c}}</button>
-                    </li>
-                </ul>
-                <div class="switch-div">
-                    <span class="step five i18n" name="sharder-step-seven">步骤七</span>
-                    <span class="step five i18n" name="sharder-step-six">步骤六</span>
-                    <span class="step five i18n" name="sharder-step-five">步骤五</span>
-                    <img src="/r/cms/resource/sharders/img/xian2.png" class="flow-img">
-                </div>
-                <ul class="flow-path-ul flow-path-ul2">
-                    <li>
-                        <button class="item">{{crowdFunding.a}}</button>
-                    </li>
-                    <li>
-                        <button class="item">{{crowdFunding.d}}</button>
-                    </li>
-                    <li>
-                        <button class="item">{{crowdFunding.e}}</button>
-                    </li>
-                    <li>
-                        <button class="item">{{crowdFunding.f}}</button>
-                    </li>
-                </ul>
-                <ul class="liuchengtu">
-                    <li>
-                        <img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img1">
-                        <img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img2">
-                        <img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img3">
-                    </li>
-                    <li>
-                        <img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img4">
-                        <img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img5">
-                        <img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img6">
-                    </li>
-                </ul>
-            </div>
-                <p class="generalText i18n" name="sharder-see-details">本流程仅适用于早鸟轮阶段。个人众售信息及兑换信息请登录进入个人中心查看详细说明。</p>
-                <p class="generalText i18n" name="sharder-mall-delivery">商城众售所购买商将于众售结束后7个工作日发货。</p>
-        </section>
+        <#--<section class="flow-path">-->
+            <#--<@investTpl.investFlow />-->
+            <#--<div  class="liucheng">-->
+                <#--<button class="flow-button official-button" v-on:click="tabCrowdFunding(true)"><div v-if="!isOfficial"></div><span class="i18n" name="sharder-public-network">官方众售流程</span></button>-->
+                <#--<button class="flow-button shopping-button" v-on:click="tabCrowdFunding(false)"><div v-if="isOfficial"></div><span class="i18n" name="sharder-business-city">商城众售流程</span></button>-->
+                <#--<ul class="flow-path-ul flow-path-ul1">-->
+                    <#--<li>-->
+                        <#--<span class="step i18n" name="sharder-step-one">步骤一</span>-->
+                        <#--<button class="item i18n" name="sharder-log-in-register"><span>登录注册</span></button>-->
+                    <#--</li>-->
+                    <#--<li>-->
+                        <#--<span class="step i18n" name="sharder-step-second">步骤二</span>-->
+                        <#--<button class="item">{{crowdFunding.a}}</button>-->
+                    <#--</li>-->
+                    <#--<li>-->
+                        <#--<span class="step i18n" name="sharder-step-three">步骤三</span>-->
+                        <#--<button class="item">{{crowdFunding.b}}</button>-->
+                    <#--</li>-->
+                <#--&lt;#&ndash;<i class="fa fa-angle-double-left" aria-hidden="true"></i>&ndash;&gt;-->
+                    <#--<li>-->
+                        <#--<span class="step i18n" name="sharder-step-four">步骤四</span>-->
+                        <#--<button class="item">{{crowdFunding.c}}</button>-->
+                    <#--</li>-->
+                <#--</ul>-->
+                <#--<div class="switch-div">-->
+                    <#--<span class="step five i18n" name="sharder-step-seven">步骤七</span>-->
+                    <#--<span class="step five i18n" name="sharder-step-six">步骤六</span>-->
+                    <#--<span class="step five i18n" name="sharder-step-five">步骤五</span>-->
+                    <#--<img src="/r/cms/resource/sharders/img/xian2.png" class="flow-img">-->
+                <#--</div>-->
+                <#--<ul class="flow-path-ul flow-path-ul2">-->
+                    <#--<li>-->
+                        <#--<button class="item">{{crowdFunding.a}}</button>-->
+                    <#--</li>-->
+                    <#--<li>-->
+                        <#--<button class="item">{{crowdFunding.d}}</button>-->
+                    <#--</li>-->
+                    <#--<li>-->
+                        <#--<button class="item">{{crowdFunding.e}}</button>-->
+                    <#--</li>-->
+                    <#--<li>-->
+                        <#--<button class="item">{{crowdFunding.f}}</button>-->
+                    <#--</li>-->
+                <#--</ul>-->
+                <#--<ul class="liuchengtu">-->
+                    <#--<li>-->
+                        <#--<img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img1">-->
+                        <#--<img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img2">-->
+                        <#--<img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img3">-->
+                    <#--</li>-->
+                    <#--<li>-->
+                        <#--<img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img4">-->
+                        <#--<img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img5">-->
+                        <#--<img src="/r/cms/resource/sharders/img/xian2.png" class="lujingtu-img6">-->
+                    <#--</li>-->
+                <#--</ul>-->
+            <#--</div>-->
+                <#--<p class="generalText i18n" name="sharder-see-details">本流程仅适用于早鸟轮阶段。个人众售信息及兑换信息请登录进入个人中心查看详细说明。</p>-->
+                <#--<p class="generalText i18n" name="sharder-mall-delivery">商城众售所购买商将于众售结束后7个工作日发货。</p>-->
+        <#--</section>-->
         <div id="test-text" style="display: none;">
             <span class="i18n" name="sharder-sale-information">进入官网页面查看众售信息</span>
             <span class="i18n" name="sharder-phase-sale">选择对应阶段开始众售</span>

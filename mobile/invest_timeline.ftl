@@ -26,7 +26,7 @@
     .ss-main-title .ss-line:after{
         content: " ";
         height: 100%;
-        width: 89%;
+        width: 100%;
         background-color: #0ba0d1;
         border-radius: 20px;
         float: left;
@@ -51,6 +51,7 @@
     </li>
 </ul>
 <div class="sharder-link">
+
     <button class="i18n" name="sharder-ended">已结束</button>
 <#--<a href="/user_center/index.ss"><button class="subscribe-btn i18n" name="sharder-ended">获得优惠</button></a>-->
 <#--<#if startNow?? && "false"==startNow >-->
@@ -58,14 +59,12 @@
 <#--<#else>-->
 <#--<a href="/invest/invest_item.ss"><button class="angel-btn subscribe-btn i18n" name="sharder-participate-early-bird">参与早鸟</button></a>-->
 <#--</#if>-->
+
     <button class="i18n" name="sharder-ended">参与早鸟</button>
 <#--<button class="i18n" name="">已结束</button>-->
 <#--<button class="angel-btn i18n" name="sharder-participate-early-bird">参与早鸟</button>-->
 <#--<a href="/invest/invest_crowd_funding.ss"><button class="crowd-funding-btn subscribe-btn i18n" name="sharder-ended">正在进行</button></a>-->
 
-<#if exceptUser?? && exceptUser>
-    <a href="/invest/invest_crowd_funding.ss"><button class="angel-btn subscribe-btn i18n" name="sharder-immediate-participation">立即参与</button></a>
-<#else >
-    <button class="i18n" name="sharder-stay-tuned-for">敬请期待</button>
-</#if>
+    <button class="i18n" name="sharder-ended">已结束</button>
+
 </div>

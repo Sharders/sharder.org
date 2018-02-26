@@ -11,7 +11,7 @@
         <#include "invest_timeline.ftl" />
         <section class="invest-item crowd-funding">
             <h3 class="ss-sub-title i18n" name="sharder-crowd-funding">众售轮</h3>
-            <p class="i18n" name="sharder-crowd-funding-time">2月23日8:00-3月23日23:59</p>
+            <p class="i18n" name="sharder-crowd-funding-time-start-end">北京时间2月23日8:00 - 3月23日8:00</p>
         <#--<div class="ss-row-timeline"></div>-->
             <#include "../zcjd.ftl" />
             <#include "/WEB-INF/ftl/sharders/zcsm.ftl" />

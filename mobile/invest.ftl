@@ -65,52 +65,52 @@
             <@investTpl.investRules/>
         </div>
     </section>
-    <section class="ss-main-participate">
-        <div class="ss-participate-info" >
-            <@investTpl.investFlow isMobile=true/>
-        </div>
-        <div class="ss-technological-process">
-            <div class="technological-process-tab">
-                <button class="official-website-direct-investment i18n" name="sharder-public-network" v-on:click="tabBtn(1)">官网直投</button>
-                <button class="business-city i18n" name="sharder-business-city" v-on:click="tabBtn(0)">商城众售</button>
-            </div>
-            <div class="liucheng">
-                <ul class="ss-technological-step">
-                    <li>
-                        <span class="i18n" name="sharder-step-one">步骤一</span>
-                        <button>{{!crowdFunding ? listDAta.g : listDAta.a}}</button>
-                        <span class="tesu i18n" name="sharder-step-four">步骤四</span>
-                        <button>{{!crowdFunding ? listDAta.i : listDAta.d}}</button>
-                    <#--<img src="/r/cms/resource/sharders/img/left.png" class="technological-img1">-->
-                        <span class="tesu i18n" name="sharder-step-five">步骤五</span>
-                        <button>{{!crowdFunding ? listDAta.k : listDAta.e}}</button>
-                    </li>
-                <#--<li>-->
+    <#--<section class="ss-main-participate">-->
+        <#--<div class="ss-participate-info" >-->
+            <#--<@investTpl.investFlow isMobile=true/>-->
+        <#--</div>-->
+        <#--<div class="ss-technological-process">-->
+            <#--<div class="technological-process-tab">-->
+                <#--<button class="official-website-direct-investment i18n" name="sharder-public-network" v-on:click="tabBtn(1)">官网直投</button>-->
+                <#--<button class="business-city i18n" name="sharder-business-city" v-on:click="tabBtn(0)">商城众售</button>-->
+            <#--</div>-->
+            <#--<div class="liucheng">-->
+                <#--<ul class="ss-technological-step">-->
+                    <#--<li>-->
+                        <#--<span class="i18n" name="sharder-step-one">步骤一</span>-->
+                        <#--<button>{{!crowdFunding ? listDAta.g : listDAta.a}}</button>-->
+                        <#--<span class="tesu i18n" name="sharder-step-four">步骤四</span>-->
+                        <#--<button>{{!crowdFunding ? listDAta.i : listDAta.d}}</button>-->
+                    <#--&lt;#&ndash;<img src="/r/cms/resource/sharders/img/left.png" class="technological-img1">&ndash;&gt;-->
+                        <#--<span class="tesu i18n" name="sharder-step-five">步骤五</span>-->
+                        <#--<button>{{!crowdFunding ? listDAta.k : listDAta.e}}</button>-->
+                    <#--</li>-->
+                <#--&lt;#&ndash;<li>&ndash;&gt;-->
+                <#--&lt;#&ndash;<img src="/r/cms/resource/sharders/img/left.png" class="technological-img2">&ndash;&gt;-->
+                <#--&lt;#&ndash;<img src="/r/cms/resource/sharders/img/left.png" class="technological-img3">&ndash;&gt;-->
+                <#--&lt;#&ndash;<img src="/r/cms/resource/sharders/img/left.png" class="technological-img4">&ndash;&gt;-->
+                <#--&lt;#&ndash;</li>&ndash;&gt;-->
+                    <#--<li>-->
+                        <#--<span class="i18n" name="sharder-step-second">步骤二</span>-->
+                        <#--<button>{{!crowdFunding ?  listDAta.h : listDAta.b}}</button>-->
+                    <#--&lt;#&ndash;<img src="/r/cms/resource/sharders/img/left.png" class="technological-img5">&ndash;&gt;-->
+                        <#--<span class="tesu i18n" name="sharder-step-three">步骤三</span>-->
+                        <#--<button>{{!crowdFunding ? listDAta.i : listDAta.c}}</button>-->
+                        <#--<span class="tesu i18n" name="sharder-step-six">步骤六</span>-->
+                        <#--<button class="i18n" name="sharder-payment-process-six">完成众售</button>-->
+                    <#--</li>-->
+                <#--</ul>-->
+                <#--<img src="/r/cms/resource/sharders/img/left.png" class="technological-img1">-->
                 <#--<img src="/r/cms/resource/sharders/img/left.png" class="technological-img2">-->
                 <#--<img src="/r/cms/resource/sharders/img/left.png" class="technological-img3">-->
                 <#--<img src="/r/cms/resource/sharders/img/left.png" class="technological-img4">-->
-                <#--</li>-->
-                    <li>
-                        <span class="i18n" name="sharder-step-second">步骤二</span>
-                        <button>{{!crowdFunding ?  listDAta.h : listDAta.b}}</button>
-                    <#--<img src="/r/cms/resource/sharders/img/left.png" class="technological-img5">-->
-                        <span class="tesu i18n" name="sharder-step-three">步骤三</span>
-                        <button>{{!crowdFunding ? listDAta.i : listDAta.c}}</button>
-                        <span class="tesu i18n" name="sharder-step-six">步骤六</span>
-                        <button class="i18n" name="sharder-payment-process-six">完成众售</button>
-                    </li>
-                </ul>
-                <img src="/r/cms/resource/sharders/img/left.png" class="technological-img1">
-                <img src="/r/cms/resource/sharders/img/left.png" class="technological-img2">
-                <img src="/r/cms/resource/sharders/img/left.png" class="technological-img3">
-                <img src="/r/cms/resource/sharders/img/left.png" class="technological-img4">
-                <img src="/r/cms/resource/sharders/img/left.png" class="technological-img5">
-            </div>
+                <#--<img src="/r/cms/resource/sharders/img/left.png" class="technological-img5">-->
+            <#--</div>-->
 
-            <p class="generalText i18n" name="sharder-see-details">注:本流程仅适用于早鸟轮阶段。个人众售信息及兑换信息请登录进入个人中心查看详细说明。</p>
-            <p class="generalText i18n" name="sharder-mall-sell">商城众售所购买商将于众售结束后7个工作日发货。</p>
-        </div>
-    </section>
+            <#--<p class="generalText i18n" name="sharder-see-details">注:本流程仅适用于早鸟轮阶段。个人众售信息及兑换信息请登录进入个人中心查看详细说明。</p>-->
+            <#--<p class="generalText i18n" name="sharder-mall-sell">商城众售所购买商将于众售结束后7个工作日发货。</p>-->
+        <#--</div>-->
+    <#--</section>-->
     <section class="sharder-info" style="display: none">
         <div class="sharder-line">
             <h3 class="sharder-early-bird i18n" name="">早鸟轮(已结束)</h3>
@@ -175,48 +175,48 @@
     timeid = window.setInterval(function () {
         var PieChart = localStorage.getItem("end-of-translation");
         if (PieChart) {
-            var app = new Vue({
-                el: ".ss-main-participate",
-                data: {
-                    crowdFunding:true,
-                    bool:-1,
-                    listDAta:'',
-                },
-                methods: {
-                    tabBtn:function (num) {
-                        if(app.bool == num){
-                            return ;
-                        }else {
-                            app.bool = num;
-                        }
-                        $(".business-city").css("background-color","#000000");
-                        $(".official-website-direct-investment").css("background-color","#000000");
-
-                        $(".official-website-direct-investment div").css("display","none");
-                        $(".business-city div").css("display","none");
-                        if(app.crowdFunding){
-                            $(".official-website-direct-investment").css("background-color","#0ba0d1");
-                            $(".official-website-direct-investment div").css("display","block");
-                        }else{
-                            $(".business-city").css("background-color","#0ba0d1");
-                            $(".business-city div").css("display","block");
-                        }
-                        app.crowdFunding = !app.crowdFunding;
-                        app.listDAta ={a:$(".text-text span[name='sharder-payment-process-one']").text(),
-                            b:$(".text-text span[name='sharder-payment-process-second']").text(),
-                            c:$(".text-text span[name='sharder-payment-process-three']").text(),
-                            d:$(".text-text span[name='sharder-payment-process-four']").text(),
-                            e:$(".text-text span[name='sharder-payment-process-five']").text(),
-                            f:$(".text-text span[name='sharder-payment-process-six']").text(),
-                            g:$(".text-text span[name='sharder-log-in-register']").text(),
-                            h:$(".text-text span[name='sharder-payment-process-eight']").text(),
-                            i:$(".text-text span[name='sharder-payment-process-nine']").text(),
-                            j:$(".text-text span[name='sharder-payment-process-ten']").text(),
-                            k:$(".text-text span[name='sharder-payment-process-eleven']").text()}
-                    },
-                }
-            });
-            app.tabBtn(1);
+//            var app = new Vue({
+//                el: ".ss-main-participate",
+//                data: {
+//                    crowdFunding:true,
+//                    bool:-1,
+//                    listDAta:'',
+//                },
+//                methods: {
+//                    tabBtn:function (num) {
+//                        if(app.bool == num){
+//                            return ;
+//                        }else {
+//                            app.bool = num;
+//                        }
+//                        $(".business-city").css("background-color","#000000");
+//                        $(".official-website-direct-investment").css("background-color","#000000");
+//
+//                        $(".official-website-direct-investment div").css("display","none");
+//                        $(".business-city div").css("display","none");
+//                        if(app.crowdFunding){
+//                            $(".official-website-direct-investment").css("background-color","#0ba0d1");
+//                            $(".official-website-direct-investment div").css("display","block");
+//                        }else{
+//                            $(".business-city").css("background-color","#0ba0d1");
+//                            $(".business-city div").css("display","block");
+//                        }
+//                        app.crowdFunding = !app.crowdFunding;
+//                        app.listDAta ={a:$(".text-text span[name='sharder-payment-process-one']").text(),
+//                            b:$(".text-text span[name='sharder-payment-process-second']").text(),
+//                            c:$(".text-text span[name='sharder-payment-process-three']").text(),
+//                            d:$(".text-text span[name='sharder-payment-process-four']").text(),
+//                            e:$(".text-text span[name='sharder-payment-process-five']").text(),
+//                            f:$(".text-text span[name='sharder-payment-process-six']").text(),
+//                            g:$(".text-text span[name='sharder-log-in-register']").text(),
+//                            h:$(".text-text span[name='sharder-payment-process-eight']").text(),
+//                            i:$(".text-text span[name='sharder-payment-process-nine']").text(),
+//                            j:$(".text-text span[name='sharder-payment-process-ten']").text(),
+//                            k:$(".text-text span[name='sharder-payment-process-eleven']").text()}
+//                    },
+//                }
+//            });
+//            app.tabBtn(1);
             window.clearInterval(timeid);
             if(i18nLanguage == "zh-CN"){
                 $("#distribution_ratio img").attr("src","/r/cms/resource/sharders/img/distributionratio.png");

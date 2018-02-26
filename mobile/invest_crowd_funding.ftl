@@ -12,7 +12,7 @@
     <section class="ss-main-early-bird">
         <div class="sharder-line">
             <h3 class="sharder-early-bird i18n" name="sharder-crowd-funding">参与众售轮</h3>
-            <p  class="sharder-early-bird-text i18n" name="sharder-crowd-funding-time">2月23日8:00-3月23日23:59</p>
+            <p  class="sharder-early-bird-text i18n" name="sharder-crowd-funding-time-start-end">北京时间2月23日8:00 - 3月23日8:00</p>
             <#include "../zcjd.ftl" />
         </div>
         <#include "/WEB-INF/ftl/sharders/zcsm.ftl" />

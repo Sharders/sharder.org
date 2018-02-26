@@ -100,8 +100,8 @@
                 <#if user.purseAddress?? && user.purseAddress != ''>
                         <span>${user.purseAddress!}</span>
                     <#else >
-                        <span class="user-value"></span>
-                        <span class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">设置提币地址</span>
+                        <span class="user-value i18n" name="wu" >无</span>
+                        <span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">设置提币地址</span>
                 </#if>
             </li>
             <li>
@@ -117,21 +117,36 @@
 
         </ul>
     </div>
-    <div class="remarks"><span class="gantanhao" id="yaoqingtishi" onmousemove="yaoqingtishi(true)" onmouseout="yaoqingtishi(false)"></span><span class="i18n" name="sharder-invitation-register-sale-reward">如果所邀请好友参与早鸟轮或众售轮投资，邀请人可获得好友认购SS数量*5%的返点，该返点无上限。</span></div>
+    <div class="remarks">
+        <span class="gantanhao" id="yaoqingtishi" onmousemove="yaoqingtishi(true)" onmouseout="yaoqingtishi(false)"></span>
+        <span class="i18n" name="sharder-invitation-register-sale-reward">邀请好友注册获取空投奖励！</span>
+    </div>
     <div class="assets">
         <span class="title i18n" name="sharder-my-assets">我的资产</span>
         <div class="total-assets">
             <span class="personal-total-assets i18n" name="sharsder-my-total-assets">总资产</span>
             <span class="sharder-ss i18n" name="sharder-SS">豆匣(SS)</span>
             <span class="shardr-assets">${amount!"0"}</span>
+            <div class="shardr-available-assets">
+                <span>可提币：</span><span class="color">10,000</span><span>SS</span>
+                <img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>
+                <div class="popup-suocang i18n" name="">除锁仓及锁仓奖励外你可提到以太坊钱包的豆匣SS数量。</div>
+            </div>
         </div>
         <div class="subscribe-crowd-funding">
-            <div class="personal white-list">
-                <span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>
-                <span class="currency">ETH</span>
-                <span class="quota used">${maxSubscribe!"0"}</span>
-                <span class="alreadyUsed"><span class="i18n" name="sharder-available-quota">已使用额度 :</span> ${nowSubscribe!"0"}ETH</span>
+            <div class="personal white-list applu-lock">
+                <span class="explain"><span class="i18n" name="">锁仓</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
+                    <div class="popup-subscribe i18n" name="">锁仓将根据您申请的锁仓数量及时间发放相应SS及奖励到您指定的以太坊账户。在锁仓期内此账户的豆匣SS将全部被限制转出。建议您自主申请新的以太坊地址，并做好相应备份。用于锁仓的豆匣SS接收存放。</div>
+                </span>
+                <button class="shengqingsuocang i18n" name="" onclick="shengqingsuocang()">申请锁仓</button>
+                <span class="details" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</span>
+
+                <#--<span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>-->
+                    <#--<div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>-->
+                <#--<span class="currency">ETH</span>-->
+                <#--<span class="quota used">${maxSubscribe!"0"}</span>-->
+                <#--<span class="alreadyUsed"><span class="i18n" name="sharder-available-quota">已使用额度 :</span> ${nowSubscribe!"0"}ETH</span>-->
+
             <#--<span class="details" v-on:click="isLuck(1)">{{retruenTExt(isOff1)}}</span>-->
             <#--<span class="details" v-on:click="selectTmpl('fandian')">{{retruenTExt(isOff3)}}</span>-->
             </div>
@@ -140,17 +155,19 @@
                     <div class="popup-crowd-funding i18n" name="shader-storage-token">获得的豆匣(SS)数量。</div></span>
                 <span class="currency i18n" name="sharder-SS-1">豆匣(SS)</span>
                 <span class="quota">${crowd_amount!'0'}</span>
-                <span class="details" v-on:click="selectTmpl('zhongchou')">{{retruenTExts(isOff2)}}</span>
+                <span class="details" v-on:click="selectTmpl('zhongchou')">{{isOffText.off2}}</span>
             </div>
             <div class="personal rebate">
 
-                <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">邀请奖励</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="poput-invitation i18n" name="sharder-rewarded-purchase-referred">邀请好友成功参与众售，您将获得其认购豆匣（SS）总额的5%作为邀请奖励。</div></span>
+                <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">空投奖励</span>
+                    <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
+                    <div class="poput-invitation i18n" name="sharder-rewarded-purchase-referred">根据对豆匣社区做出的贡献，会持续进行空投奖励！</div>
+                </span>
                 <span class="currency i18n" name="sharder-SS-1">豆匣(SS)</span>
                 <span class="quota">${invite_rewards_amount!'0'}</span>
             <#--<span class="details" >{{retruenTExt(isOff3)}}</span>-->
             <#--<span class="details" v-on:click="isLuck(3)">{{retruenTExt(isOff3)}}</span>-->
-                <span class="details" v-on:click="selectTmpl('fandian')">{{retruenTExt(isOff3)}}</span>
+                <span class="details" v-on:click="selectTmpl('fandian')">{{isOffText.off3}}</span>
             </div>
         </div>
         <div class="subscribe-list" id="subscribe-list" v-if="showDetail">
@@ -162,9 +179,23 @@
                 <!--<p>当前是第<span v-text="pageNo"></span>页</p>-->
             </div>
         </div>
-        <button class="currency-ss i18n" name="sharder-subscribe-currency">提币</button>
-        <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-        <div class="poput-extract i18n" name="sharder-website-direct-investment">通过官网直投的，将于公开众售结束后开始发放豆匣SS，七个工作日内发放到您提供的ETH钱包地址（锁仓者除外）。</div>
+        <#--<#if amount?? && amount gt 0>-->
+        <#if mentionMoney??>
+
+            <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">查看提币详情</button>
+            <#else >
+                <#if amount?? && user.purseAddress?? >
+                    <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">提币申请</button>
+                <#else >
+                    <button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>
+                </#if>
+        </#if>
+
+
+
+
+        <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
+        <div class="poput-extract i18n" name="sharder-website-direct-investment">通过官网直投的，将于公开众售结束后15个工作日内进行清算，清算完成后七个工作日内发放到您提供的ETH钱包地址（锁仓者除外）。</div>
 
     </div>
     <#--<div class="rule">-->
@@ -200,14 +231,15 @@
     <div class="edit-wallet-addr">
         <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
             <h2 class="i18n" name="sharder-set-mention-token-address">设置提币地址</h2>
-            <p class="walletAddr i18n" name="sharder-mention-token-address-attention">注意:提币地址设置以后将无法修改，请认真核对</p>
+            <#--<p class="walletAddr i18n" name="sharder-mention-token-address-attention">注意:提币地址设置以后将无法修改，请认真核对</p>-->
+            <p class="walletAddr i18n" name="sharder-mention-token-address-attention">3月1日正式开放</p>
             <div class="input-div">
                 <label class="i18n" name="sharder-set-address">设置地址:</label>
-                <input type="text" id="oldWalletAddr" name="walletAddr" maxlength="50" minlength="10" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()" />
+                <input type="text" id="oldWalletAddr" name="walletAddr"  v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()" />
             </div>
             <div class="input-div">
                 <label class="i18n" name="sharder-input-again">再次输入:</label>
-                <input type="text" id="newWalletAddr" maxlength="50" minlength="10" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
+                <input type="text" id="newWalletAddr"  v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
             </div>
             <#--<div class="input-div">-->
                 <#--<label class="i18n" name="sharder-username">账户:</label>-->
@@ -230,20 +262,66 @@
     </div>
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
+    <#include "/WEB-INF/ftl/sharders/tibi.ftl"/>
+    <#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>
 <div class="maker"></div>
 
-<script type="text/x-template" id="details-white-list">
-    <div class="details-white-list subscribe-body">
-        <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-registrant">注册人</span><span class="subscribe-table i18n" name="sharder-registrant-time">注册时间</span><span class="subscribe-table i18n" name="sharder-white-list-share">白名单份额</span></p>
-        <ul class="subscribe-ul">
-            <li class="subscribe-li" v-for="pd in parentData.dataList"><span class="subscribe-table">{{pd.id}}</span><span class="subscribe-table">{{pd.createDate}}</span><span class="subscribe-table">1TEH</span></li>
-            <li class="subscribe-li" v-if="parentData.dataList == ''"><span>No data is found！！！</span></li>
-        </ul>
+<script type="text/x-template" id="apply-lock">
+    <div class="apply-lock apply-lock-body">
+        <span class="apply-lock i18n" data-name="">锁仓详情</span>
+        <table class="ss-table">
+            <thead>
+                <tr>
+                    <th class="i18n" data-name="">申请时间</th>
+                    <th class="i18n" data-name="">锁仓时间(年)</th>
+                    <th class="i18n" data-name="">解锁时间</th>
+                    <th class="i18n" data-name="">锁仓数量</th>
+                    <th class="i18n" data-name="">获得奖励</th>
+                    <th class="i18n" data-name="">状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  >
+                    <td>2018-02-06</td>
+                    <td>1</td>
+                    <td>2019-02-06</td>
+                    <td>10,000SS</td>
+                    <td>10,000SS</td>
+                    <td>审核中</td>
+                </tr>
+                <tr  >
+                    <td>2018-02-06</td>
+                    <td>1</td>
+                    <td>2019-02-06</td>
+                    <td>10,000SS</td>
+                    <td>10,000SS</td>
+                    <td>审核中</td>
+                </tr>
+                <tr  >
+                    <td>2018-02-06</td>
+                    <td>1</td>
+                    <td>2019-02-06</td>
+                    <td>10,000SS</td>
+                    <td>10,000SS</td>
+                    <td>审核中</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </script>
+
+<#--<script type="text/x-template" id="details-white-list">-->
+    <#--<div class="details-white-list subscribe-body">-->
+        <#--<p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-registrant">注册人</span><span class="subscribe-table i18n" name="sharder-registrant-time">注册时间</span><span class="subscribe-table i18n" name="sharder-white-list-share">白名单份额</span></p>-->
+        <#--<ul class="subscribe-ul">-->
+            <#--<li class="subscribe-li" v-for="pd in parentData.dataList"><span class="subscribe-table">{{pd.id}}</span><span class="subscribe-table">{{pd.createDate}}</span><span class="subscribe-table">1TEH</span></li>-->
+            <#--<li class="subscribe-li" v-if="parentData.dataList == ''"><span>No data is found！！！</span></li>-->
+        <#--</ul>-->
+    <#--</div>-->
+<#--</script>-->
 <script type="text/x-template" id="public-information">
     <div>
-        <span class="subscribe-title i18n" data-name="friend-invite-reward">邀请奖励</span>
+        <span class="subscribe-title i18n" data-name="friend-invite-reward">空投奖励</span>
         <table class="ss-table defalut">
             <thead>
             <tr>
@@ -361,6 +439,7 @@
     }
     var pc;
     var timeid;
+    var a = 0;
     timeid = window.setInterval(function () {
         var PieChart = localStorage.getItem("end-of-translation");
         if (PieChart) {
@@ -374,6 +453,7 @@
                     totalPage:0, //总页数
                     /*分页参数end*/
                     dealBases:'',
+                    isOff1:true,
                     isOff2:true,    //是否已关闭
                     isOff3:true,
                     template:"",
@@ -392,16 +472,19 @@
                     showHint:false, //没有数据时是否显示提示
                     saveWalletAddr:"",//
                     daiding:'',
+                    isOffText:{off1:$("span[name='suocanglock']").text(),off2:$("span[name='sharder-details-info']").text(),off3:$("span[name='sharder-details']").text()},
                 },
                 methods: {
                     //选择要显示的数据
                     selectTmpl:function(_t){
+
                         $(".personal.crowd-funding").css("border-bottom","0px");
                         $(".personal.rebate").css("border-bottom","0px");
+                        $(".personal.applu-lock").css("border-bottom","0px");
                         pc.dealBases = "";
                         pc.title={a:$("span[name='sharder-registrant-uid']").text(),
                             b:$("span[name='sharder-registrant-time']").text(),
-                            c:$("div>span[name='sharder-subscribe-quota']").text(),
+                            c:$("div>span[name='sharder-award-type']").text(),
                             d:$("span[name='sharder-deal-base']").text(),
                             e:$("span[name='sharder-details-benefits']").text(),
                             f:$("span[name='sharder-details-immediately']").text()};
@@ -415,24 +498,49 @@
                             f:$("span[name='sharder-award-amount']").text(),
                             g:$("span[name='sharder-get-ss']").text()
                         }
-                        //设置选中的模板
-                        pc.template = _t;
+
                         if(_t == "fandian"){
-                            pc.isOff3 = pc.isOff3 ? false : true;
-                            pc.isOff2 = true;
-                            if(pc.isOff3){
-                                pc.template="";
-                            }
+                            console.info(_t);
+                            pc.isOff3=false;
+                            pc.isOff1=false;
+                            pc.isOff2 = !pc.isOff2;
                         }
                         if(_t == "zhongchou"){
-                            pc.isOff2 = pc.isOff2 ? false : true;
-                            pc.isOff3 = true;
-                            if(pc.isOff2){
-                                pc.template="";
-                            }
+                            console.info(_t);
+                            pc.isOff2=false;
+                            pc.isOff1=false;
+                            pc.isOff3 = !pc.isOff3;
                         }
+                        if(_t == "suocang"){
+                            console.info(_t);
+                            pc.isOff3=false;
+                            pc.isOff2=false;
+                            pc.isOff1 = !pc.isOff1;
+                        }
+
+                        if(a == 0){ //初始化
+                            a++;
+                            if(_t == "fandian"){
+                                pc.isOff2 = true;
+                            }else if(_t == "zhongchou"){
+                                pc.isOff3 = true;
+                            }else if(_t == "suocang"){
+                                pc.isOff1 = true;
+                            }
+                            pc.showDetail =true;
+                        }
+
+                        //设置选中的模板
+                        pc.template = _t;
+
+                        console.info(pc.isOff1+""+pc.isOff2+""+pc.isOff3);
+                        pc.detailsJudge();
+
                         if(!pc.isShowDetail()){
                             return;
+                        }
+                        if(pc.isOff1){
+                            $(".personal.applu-lock").css("border-bottom","2px solid #0ba0d1");
                         }
                         if(pc.isOff2){
                             $(".personal.rebate").css("border-bottom","2px solid #0ba0d1");
@@ -459,14 +567,18 @@
                         }else if(_t == "zhongchou"){
                             //备用
                             requestUrl = "/user_center/zhong_chou.ss";
+                        }else if(_t == "suocang"){
+                            //锁仓
+                            requestUrl = "";
                         }else{
 
                         }
                         var data = pageParams(pc.currentPage,pc.countOfCurrentPage);
                         commAjax(requestUrl,"get",data,pc.loadDealbaseResult);
-                        setTimeout(function () {
-                            layer.closeAll('loading');
-                        },20000);
+                        layer.closeAll('loading')
+//                        setTimeout(function () {
+//                            layer.closeAll('loading');
+//                        },20000);
                     },
                     loadDealbaseResult:function (_result) {
                         layer.closeAll('loading');
@@ -529,7 +641,7 @@
                         var newWalletAddr=$("#newWalletAddr");
                         oldWalletAddr.css("box-shadow","");
                         newWalletAddr.css("box-shadow","");
-                        if(oldWalletAddr.val() == newWalletAddr.val() && oldWalletAddr.val().match("^[A-Fa-f0-9]+$") && newWalletAddr.val().match("^[A-Fa-f0-9]+$")){
+                        if(oldWalletAddr.val() == newWalletAddr.val() && oldWalletAddr.val().match("^[A-Za-z0-9]+$") && newWalletAddr.val().match("^[A-Za-z0-9]+$")){
                             pc.isSubmit = true;
                         }else {
                             $("#oldWalletAddr").css("box-shadow","0px 0px 6px red");
@@ -544,21 +656,22 @@
                         if(pc.isSubmit){
 
                              if($("#oldWalletAddr").val().length < 30 && $("#newWalletAddr").val().length < 30){
-                                layer.msg("钱包长度的长度必须大于30个字符串");
+                                if(i18nLanguage = 'en'){
+                                    layer.msg("The length of the wallet must be greater than 30 strings.");
+                                }else {
+                                    layer.msg("钱包长度的长度必须大于30个字符串");
+                                }
                                 return ;
                             }
-
+                            var setAddrload = layer.load(2);
                             var url = "/save/wallet/address.ss";
                             var data= $("#userWalletAddr").serialize();
                             commAjax(url,"post",data,function (result) {
-                                console.info(result);
+                                layer.close(setAddrload);
                                 if(result.success){
-                                    pc.saveWalletAddr =  result;
-                                    $("#userWalletAddr").css("display","none");
-                                    $("#walletAddr").css("display","block");
-                                    pc.isSubmit=false;//使用完后还原状态
+                                    layer.msg($("span[name='sztbdzcg']").val());
                                 }else{
-                                    layer.msg(result.instructions);
+                                    layer.msg($("span[name='sztbdzsb']").val());
                                 }
                             });
                         }
@@ -619,15 +732,36 @@
                             return $("#guanbis").text();
                         }
                     },
+                    detailsJudge:function () {
+                       if(pc.isOff1){
+                            pc.isOffText.off1=$("span[name='suocangColes']").text();
+                       }else{
+                           pc.isOffText.off1=$("span[name='suocanglock']").text();
+                       }
+
+                        if(pc.isOff3){
+                            pc.isOffText.off2=$("span[name='sharder-details-info-close']").text();
+                        }else{
+                            pc.isOffText.off2=$("span[name='sharder-details-info']").text();
+                        }
+
+                        if(pc.isOff2){
+                            pc.isOffText.off3=$("span[name='sharder-close-details']").text();
+                        }else{
+                            pc.isOffText.off3=$("span[name='sharder-details']").text();
+                        }
+
+                    },
                     isShowDetail:function () {
                         //全部都关闭了
-                        if(pc.isOff2 && pc.isOff3){
-                            pc.showDetail =false;
-                            return false;
-                        }else{
-                            pc.showDetail =  true;
+                        if(pc.isOff2 || pc.isOff3 || pc.isOff1){
+                            pc.showDetail =true;
                             return true;
+                        }else{
+                            pc.showDetail =  false;
+                            return false;
                         }
+                        alert(pc.showDetail);
                     },
 
                 },
@@ -650,6 +784,14 @@
                     },
                     'zhongchou':{
                         template:'#rebate-details',
+                        data:function(){
+                            return{
+                                parentData:this.$parent.$data
+                            }
+                        }
+                    },
+                    'suocang':{
+                        template:'#apply-lock',
                         data:function(){
                             return{
                                 parentData:this.$parent.$data
