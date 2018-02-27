@@ -100,7 +100,7 @@
     <#--<span class="i18n" name="sharder-registrant-time">注册时间</span>-->
     <#--<span class="i18n" name="sharder-subscribe-quota">白名单额度</span>-->
     <#--<span class="i18n" name="sharder-deal-base">返点奖励/SS</span>-->
-    <span class="i18n"name="sharder-details-benefits">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>
+    <#--<span class="i18n"name="sharder-details-benefits">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>-->
     <span class="i18n"name="sharder-details-immediately">立刻邀请</span>
     <span class="i18n"name="layui-laypage-prev">上一页</span>
     <span class="i18n"name="layui-laypage-next">下一页</span>

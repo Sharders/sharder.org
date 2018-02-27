@@ -20,6 +20,11 @@
         width: 100%;
         left: 0;
     }
+    #userWalletAddr label.error{
+        width: initial;
+        padding-left: 156px;
+        margin-top: 5px;
+    }
 </style>
 
 </@layout.htmlHead>
@@ -121,25 +126,37 @@
         <span class="gantanhao" id="yaoqingtishi" onmousemove="yaoqingtishi(true)" onmouseout="yaoqingtishi(false)"></span>
         <span class="i18n" name="sharder-invitation-register-sale-reward">邀请好友注册获取空投奖励！</span>
     </div>
+        <#assign amountSuoCang = ssSuocangaAmount!0>
+        <#assign userAmount = amount!0>
+        <#assign usableBalance = userAmount - amountSuoCang/>
     <div class="assets">
         <span class="title i18n" name="sharder-my-assets">我的资产</span>
         <div class="total-assets">
             <span class="personal-total-assets i18n" name="sharsder-my-total-assets">总资产</span>
             <span class="sharder-ss i18n" name="sharder-SS">豆匣(SS)</span>
-            <span class="shardr-assets">${amount!"0"}</span>
-            <div class="shardr-available-assets">
-                <span>可提币：</span><span class="color">10,000</span><span>SS</span>
-                <img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>
-                <div class="popup-suocang i18n" name="">除锁仓及锁仓奖励外你可提到以太坊钱包的豆匣SS数量。</div>
-            </div>
+            <span class="shardr-assets">${userAmount}</span>
+            <#--<div class="shardr-available-assets">-->
+                <#--<span class="i18n" name="sharder-ss_is">可提币：</span><span class="color">${usableBalance}</span><span>SS</span>-->
+                <#--<img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>-->
+                <#--<div class="popup-suocang i18n" name="sharder-ss_is-text">除锁仓及锁仓奖励外你可转账到以太坊钱包的豆匣SS数量。</div>-->
+            <#--</div>-->
         </div>
         <div class="subscribe-crowd-funding">
             <div class="personal white-list applu-lock">
-                <span class="explain"><span class="i18n" name="">锁仓</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="popup-subscribe i18n" name="">锁仓将根据您申请的锁仓数量及时间发放相应SS及奖励到您指定的以太坊账户。在锁仓期内此账户的豆匣SS将全部被限制转出。建议您自主申请新的以太坊地址，并做好相应备份。用于锁仓的豆匣SS接收存放。</div>
+                <span class="explain"><span class="i18n" name="sharders-lock-title">锁仓</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
+                    <#--<div class="popup-subscribe i18n" name="sharders-lock-info-text">在锁仓期内此以太坊地址的SS(Sharder)将被限制转出,建议您做好相应备份。</div>-->
                 </span>
-                <button class="shengqingsuocang i18n" name="" onclick="shengqingsuocang()">申请锁仓</button>
-                <span class="details" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</span>
+                <#--<#if suoCangAddr?? && amountSuoCang gt 0>-->
+                    <#--<button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>-->
+                    <#--<#else >-->
+                        <#--<#if amount gt 0>-->
+                            <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">申请锁仓</button>-->
+                            <#--<#else >-->
+                                <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>-->
+                        <#--</#if>-->
+                <#--</#if>-->
+
+                <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>
 
                 <#--<span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>-->
                     <#--<div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>-->
@@ -184,7 +201,7 @@
 
             <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">查看提币详情</button>
             <#else >
-                <#if amount?? && user.purseAddress?? >
+                <#if amount?? && user.purseAddress?? && amount gt 0>
                     <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">提币申请</button>
                 <#else >
                     <button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>
@@ -235,11 +252,13 @@
             <p class="walletAddr i18n" name="sharder-mention-token-address-attention">3月1日正式开放</p>
             <div class="input-div">
                 <label class="i18n" name="sharder-set-address">设置地址:</label>
-                <input type="text" id="oldWalletAddr" name="walletAddr"  v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()" />
+                <input type="text" id="oldWalletAddr" name="walletAddr" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
             </div>
             <div class="input-div">
-                <label class="i18n" name="sharder-input-again">再次输入:</label>
+                <label class="i18n" name="sharder-input-again" for="newWalletAddr">再次输入:</label>
                 <input type="text" id="newWalletAddr"  v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
+                <label  style="display: none;" for="newWalletAddr" class="error error1" generated="true" name="sharder-tishi-one">你两次输入的地址不一样,请认真核对！！！</label>
+                <label  style="display: none;" for="newWalletAddr" class="error error2" generated="true" name="sharder-tishi-two">格式异常！！</label>
             </div>
             <#--<div class="input-div">-->
                 <#--<label class="i18n" name="sharder-username">账户:</label>-->
@@ -252,6 +271,8 @@
                 <#--<input type="number" maxlength="6" minlength="6" name="verificationCode" id="verificationCode"/>-->
             <#--</div>-->
             <button class="i18n submit"  name="the-next-step" v-on:click="sendSaveWalletAddr()">提交</button>
+
+            <#--<button class="i18n submit"  name="the-next-step" style="background-color: #999">提交</button>-->
         </form>
         <div class="userWalletAddr" id="walletAddr">
             <h2 class="i18n" name="sharder-operation-result">操作结果</h2>
@@ -263,47 +284,34 @@
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
     <#include "/WEB-INF/ftl/sharders/tibi.ftl"/>
-    <#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>
+    <#--<#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>-->
 <div class="maker"></div>
 
 <script type="text/x-template" id="apply-lock">
     <div class="apply-lock apply-lock-body">
-        <span class="apply-lock i18n" data-name="">锁仓详情</span>
+        <span class="apply-lock i18n" data-name="suocang-details">锁仓详情</span>
         <table class="ss-table">
             <thead>
                 <tr>
-                    <th class="i18n" data-name="">申请时间</th>
-                    <th class="i18n" data-name="">锁仓时间(年)</th>
-                    <th class="i18n" data-name="">解锁时间</th>
-                    <th class="i18n" data-name="">锁仓数量</th>
-                    <th class="i18n" data-name="">获得奖励</th>
-                    <th class="i18n" data-name="">状态</th>
+                    <th class="i18n" data-name="shengqingshijian">申请时间</th>
+                    <th class="i18n" data-name="suocangshijian">锁仓时间(年)</th>
+                    <th class="i18n" data-name="jiesuoshijian">解锁时间</th>
+                    <th class="i18n" data-name="suocangdizi">锁仓地址</th>
+                    <th class="i18n" data-name="suocangsuliang">锁仓数量</th>
+                    <th class="i18n" data-name="huodejiangli">获得奖励</th>
+                    <th class="i18n" data-name="sharder-bill-status">状态</th>
                 </tr>
             </thead>
             <tbody>
-                <tr  >
-                    <td>2018-02-06</td>
-                    <td>1</td>
-                    <td>2019-02-06</td>
-                    <td>10,000SS</td>
-                    <td>10,000SS</td>
-                    <td>审核中</td>
-                </tr>
-                <tr  >
-                    <td>2018-02-06</td>
-                    <td>1</td>
-                    <td>2019-02-06</td>
-                    <td>10,000SS</td>
-                    <td>10,000SS</td>
-                    <td>审核中</td>
-                </tr>
-                <tr  >
-                    <td>2018-02-06</td>
-                    <td>1</td>
-                    <td>2019-02-06</td>
-                    <td>10,000SS</td>
-                    <td>10,000SS</td>
-                    <td>审核中</td>
+                <tr v-for="dealBase in parentData.dealBases" >
+                    <td>{{dealBase.createDate}}</td>
+                    <td>{{dealBase.lockDate/12}}</td>
+                    <td>{{dealBase.unlockTime}}</td>
+                    <td>${suoCangAddr!}</td>
+                    <td>{{dealBase.originalAmount}}</td>
+                    <td>{{dealBase.awardAmount}}</td>
+                    <td class="i18n" v-if="dealBase.isLock == 'false'" data-name="sharder-shenghezhong">审核中</td>
+                    <td class="i18n" v-if="dealBase.isLock == 'true'"  data-name="sharder-yifafang">已发放</td>
                 </tr>
             </tbody>
         </table>
@@ -321,7 +329,7 @@
 <#--</script>-->
 <script type="text/x-template" id="public-information">
     <div>
-        <span class="subscribe-title i18n" data-name="friend-invite-reward">空投奖励</span>
+        <span class="subscribe-title i18n" data-name="sharder-subscribe-rebate">空投奖励</span>
         <table class="ss-table defalut">
             <thead>
             <tr>
@@ -500,19 +508,16 @@
                         }
 
                         if(_t == "fandian"){
-                            console.info(_t);
                             pc.isOff3=false;
                             pc.isOff1=false;
                             pc.isOff2 = !pc.isOff2;
                         }
                         if(_t == "zhongchou"){
-                            console.info(_t);
                             pc.isOff2=false;
                             pc.isOff1=false;
                             pc.isOff3 = !pc.isOff3;
                         }
                         if(_t == "suocang"){
-                            console.info(_t);
                             pc.isOff3=false;
                             pc.isOff2=false;
                             pc.isOff1 = !pc.isOff1;
@@ -569,18 +574,19 @@
                             requestUrl = "/user_center/zhong_chou.ss";
                         }else if(_t == "suocang"){
                             //锁仓
-                            requestUrl = "";
+                            requestUrl = "/userbill/suo_cang_record.ss";
                         }else{
 
                         }
                         var data = pageParams(pc.currentPage,pc.countOfCurrentPage);
                         commAjax(requestUrl,"get",data,pc.loadDealbaseResult);
-                        layer.closeAll('loading')
-//                        setTimeout(function () {
-//                            layer.closeAll('loading');
-//                        },20000);
+//                        layer.closeAll('loading')
+                        setTimeout(function () {
+                            layer.closeAll('loading');
+                        },20000);
                     },
                     loadDealbaseResult:function (_result) {
+                        console.info(_result);
                         layer.closeAll('loading');
                         pc.daiding = $("span[name='daiding']").html();
                         if (isTrue(_result.success)){
@@ -636,32 +642,33 @@
                             $('.userPwd-div').css("display","none");
                         }
                     },
-                    verificationAddr:function () {
-                        var oldWalletAddr=$("#oldWalletAddr");
-                        var newWalletAddr=$("#newWalletAddr");
-                        oldWalletAddr.css("box-shadow","");
-                        newWalletAddr.css("box-shadow","");
-                        if(oldWalletAddr.val() == newWalletAddr.val() && oldWalletAddr.val().match("^[A-Za-z0-9]+$") && newWalletAddr.val().match("^[A-Za-z0-9]+$")){
-                            pc.isSubmit = true;
-                        }else {
-                            $("#oldWalletAddr").css("box-shadow","0px 0px 6px red");
-                            $("#newWalletAddr").css("box-shadow","0px 0px 6px red");
+                    verificationAddr:function (_this) {
+                        var oldWalletAddr=$("#oldWalletAddr").val();
+                        var newWalletAddr=$("#newWalletAddr").val();
+
+                        $("label[for='newWalletAddr'].error").css("display","none");
+                        if(oldWalletAddr != newWalletAddr){
+                            $("label[for='newWalletAddr'].error1").css("display","block");
+                            return false;
                             pc.isSubmit = false;
                         }
+
+                        if(!isETHAddr(oldWalletAddr)){
+                            $("label[for='newWalletAddr'].error2").css("display","block");
+                            return false;
+                            pc.isSubmit = false;
+                        }
+                        pc.isSubmit = true;
                     },
                     sendSaveWalletAddr:function () {
+                        //短信验证码
 //                        if($("#verificationCode").val() == "" || $("#verificationCode").val().length != 6){
 //                            return ;
 //                        }
                         if(pc.isSubmit){
-
-                             if($("#oldWalletAddr").val().length < 30 && $("#newWalletAddr").val().length < 30){
-                                if(i18nLanguage = 'en'){
-                                    layer.msg("The length of the wallet must be greater than 30 strings.");
-                                }else {
-                                    layer.msg("钱包长度的长度必须大于30个字符串");
-                                }
-                                return ;
+                             if(!isETHAddr($("#oldWalletAddr").val())){
+                                 $("label[for='newWalletAddr'].error2").css("display","block");
+                                return false;
                             }
                             var setAddrload = layer.load(2);
                             var url = "/save/wallet/address.ss";
@@ -669,9 +676,10 @@
                             commAjax(url,"post",data,function (result) {
                                 layer.close(setAddrload);
                                 if(result.success){
-                                    layer.msg($("span[name='sztbdzcg']").val());
+                                    layer.msg($("span[name='sztbdzcg']").text());
+                                    location.reload();
                                 }else{
-                                    layer.msg($("span[name='sztbdzsb']").val());
+                                    layer.msg($("span[name='sztbdzsb']").text());
                                 }
                             });
                         }
