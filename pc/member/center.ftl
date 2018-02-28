@@ -110,7 +110,7 @@
                 </#if>
             </li>
             <li>
-                <span class="user-title i18n" name="sharder-user-invitation-link">专属邀请链接:</span><span id="contents" >${invitePage!}?inviterId=${inviterId!}</span>
+                <span class="user-title i18n" name="sharder-user-invitation-link">专属邀请链接:</span><span id="contents" >${invitePage!}?inviterId=${inviterId!}&language=${Request.language!}</span>
                 <div class="bdsharebuttonbox">
                     <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
                     <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
@@ -135,28 +135,28 @@
             <span class="personal-total-assets i18n" name="sharsder-my-total-assets">总资产</span>
             <span class="sharder-ss i18n" name="sharder-SS">豆匣(SS)</span>
             <span class="shardr-assets">${userAmount}</span>
-            <#--<div class="shardr-available-assets">-->
-                <#--<span class="i18n" name="sharder-ss_is">可提币：</span><span class="color">${usableBalance}</span><span>SS</span>-->
-                <#--<img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>-->
-                <#--<div class="popup-suocang i18n" name="sharder-ss_is-text">除锁仓及锁仓奖励外你可转账到以太坊钱包的豆匣SS数量。</div>-->
-            <#--</div>-->
+            <div class="shardr-available-assets">
+                <span class="i18n" name="sharder-ss_is">可提币：</span><span class="color">${usableBalance}</span><span>SS</span>
+                <img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>
+                <div class="popup-suocang i18n" name="sharder-ss_is-text">除锁仓及锁仓奖励外你可转账到以太坊钱包的豆匣SS数量。</div>
+            </div>
         </div>
         <div class="subscribe-crowd-funding">
             <div class="personal white-list applu-lock">
                 <span class="explain"><span class="i18n" name="sharders-lock-title">锁仓</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <#--<div class="popup-subscribe i18n" name="sharders-lock-info-text">在锁仓期内此以太坊地址的SS(Sharder)将被限制转出,建议您做好相应备份。</div>-->
+                    <div class="popup-subscribe i18n" name="sharders-lock-info-text">在锁仓期内此以太坊地址的SS(Sharder)将被限制转出,建议您做好相应备份。</div>
                 </span>
-                <#--<#if suoCangAddr?? && amountSuoCang gt 0>-->
-                    <#--<button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>-->
-                    <#--<#else >-->
-                        <#--<#if amount gt 0>-->
-                            <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">申请锁仓</button>-->
-                            <#--<#else >-->
-                                <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>-->
-                        <#--</#if>-->
-                <#--</#if>-->
+                <#if suoCangAddr?? && amountSuoCang gt 0>
+                    <button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>
+                    <#else >
+                        <#if amount gt 0>
+                            <button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">申请锁仓</button>
+                            <#else >
+                                <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>
+                        </#if>
+                </#if>
 
-                <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>
+                <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>-->
 
                 <#--<span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>-->
                     <#--<div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>-->
@@ -198,7 +198,6 @@
         </div>
         <#--<#if amount?? && amount gt 0>-->
         <#if mentionMoney??>
-
             <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">查看提币详情</button>
             <#else >
                 <#if amount?? && user.purseAddress?? && amount gt 0>
@@ -208,7 +207,7 @@
                 </#if>
         </#if>
 
-
+        <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>-->
 
 
         <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
@@ -224,16 +223,17 @@
         <#--</p>-->
     <#--</div>-->
     <div class="edit-password">
+        <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen()"/>
         <form method="post" id="userPwd">
             <h2 class="i18n title" name="sharder-user-edit-pwd">修改密码</h2>
-            <div>
-                <label class="i18n" name="sharder-old-password">请输入旧密码</label> <input type="password" id="oldPassWord" name="origPwd" v-on:keyup="verification()"/>
+            <div class="oldPassWord">
+                <label class="i18n" name="sharder-old-password">请输入旧密码</label><input type="password" id="oldPassWord" name="origPwd" v-on:input="verification()"/>
             </div>
-            <div>
-                <label class="i18n" name="sharder-new-password">请输入新密码</label><input type="password" id="newPassWord1" v-on:keyup="verification()" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
+            <div class="newPassWord1">
+                <label class="i18n" name="sharder-new-password">请输入新密码</label><input type="password" id="newPassWord1" v-on:input="verification()" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
             </div>
-            <div>
-                <label class="i18n" name="sharder-again-password">再次输入密码</label><input type="password"  name="newPwd" id="newPassWord2" v-on:keyup="verification()"/>
+            <div class="newPassWord2">
+                <label class="i18n" name="sharder-again-password">再次输入密码</label><input type="password"  name="newPwd" id="newPassWord2" v-on:input="verification()"/>
             </div>
 
             <input type="button" name="the-next-step" class="i18n" value="提交" v-on:click="editPwd()"/>
@@ -243,9 +243,10 @@
             <span>{{Pwd.message}}{{Pwd.error}}</span>
         <#--<input type="button" value="重新修改" v-on:click="edit()"/>-->
         </div>
-        <span class="close" v-on:click="winOpen()" >X</span>
+        <#--<span class="close" v-on:click="winOpen()" >X</span>-->
     </div>
     <div class="edit-wallet-addr">
+        <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen('walletAddr')"/>
         <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
             <h2 class="i18n" name="sharder-set-mention-token-address">设置提币地址</h2>
             <#--<p class="walletAddr i18n" name="sharder-mention-token-address-attention">注意:提币地址设置以后将无法修改，请认真核对</p>-->
@@ -257,9 +258,9 @@
             <div class="input-div">
                 <label class="i18n" name="sharder-input-again" for="newWalletAddr">再次输入:</label>
                 <input type="text" id="newWalletAddr"  v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
-                <label  style="display: none;" for="newWalletAddr" class="error error1" generated="true" name="sharder-tishi-one">你两次输入的地址不一样,请认真核对！！！</label>
-                <label  style="display: none;" for="newWalletAddr" class="error error2" generated="true" name="sharder-tishi-two">格式异常！！</label>
             </div>
+            <label  style="display: none;" for="newWalletAddr" class="error error1" generated="true" name="sharder-tishi-liangchisurubuyiyang">两次输入的地址不一致,请核对后填写！！!</label>
+            <label  style="display: none;" for="newWalletAddr" class="error error2" generated="true" name="sharder-tishi-geshiyichang">格式异常！！</label>
             <#--<div class="input-div">-->
                 <#--<label class="i18n" name="sharder-username">账户:</label>-->
                 <#--<input class="user-phone" name="uid" value="${acconut!}" readonly="readonly" id="identification_forgot_pwd"/>-->
@@ -271,20 +272,20 @@
                 <#--<input type="number" maxlength="6" minlength="6" name="verificationCode" id="verificationCode"/>-->
             <#--</div>-->
             <button class="i18n submit"  name="the-next-step" v-on:click="sendSaveWalletAddr()">提交</button>
-
             <#--<button class="i18n submit"  name="the-next-step" style="background-color: #999">提交</button>-->
+
         </form>
         <div class="userWalletAddr" id="walletAddr">
             <h2 class="i18n" name="sharder-operation-result">操作结果</h2>
             <p class="walletAddr" v-if="saveWalletAddr.success" style="color: #0BA0D1">{{saveWalletAddr.instructions}}</p>
             <p class="walletAddr" v-else  style="color: red">{{saveWalletAddr.instructions}}</p>
         </div>
-        <span class="close" v-on:click="winOpen('walletAddr')" >X</span>
+        <#--<span class="close" v-on:click="winOpen('walletAddr')" >X</span>-->
     </div>
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
     <#include "/WEB-INF/ftl/sharders/tibi.ftl"/>
-    <#--<#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>-->
+    <#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>
 <div class="maker"></div>
 
 <script type="text/x-template" id="apply-lock">
@@ -401,9 +402,9 @@
                 <#--<td>{{dealBase.whitelistAwardAmount || '0'}}</td>-->
 
                 <td>
-                    <span v-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="suocangjiangli" class="i18n">锁仓奖励</span>
-                    <span v-else-if="dealBase.awardType == 'SUOCANG'" data-name="kongtoujiangli" class="i18n">空投奖励</span>
-                    <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
+                    <span v-if="dealBase.awardType == 'SUOCANG'" data-name="suocangjiangli" class="i18n">锁仓奖励</span>
+                    <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="kongtoujiangli" class="i18n">空投奖励</span>
+                    <span v-else-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
                     <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
                     <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
                     <span v-else data-name="wu" class="i18n"></span>
@@ -688,20 +689,25 @@
                         var input1 = $("#oldPassWord");
                         var input2 = $("#newPassWord1");
                         var input3 = $("#newPassWord2");
-                        input1.css("box-shadow","");
-                        input2.css("box-shadow","");
-                        input3.css("box-shadow","");
+//                        input1.css("box-shadow","");
+//                        input2.css("box-shadow","");
+//                        input3.css("box-shadow","");
+                        $("#userPwd div").css("border-bottom","1px solid #d2d2d2");
+
                         if(input1.val() == ''||input2.val()== '' || input3.val() == ''){
                             pc.isSubmit = false;
                         }
                         if(input1.val() == ''){
-                            input1.css("box-shadow","0px 0px 6px red");
+//                            input1.css("box-shadow","0px 0px 6px red");
+                            $("#userPwd div.oldPassWord").css("border-bottom","1px solid red");
                         }
                         if(input2.val() == input3.val()){
                             pc.isSubmit = true;
                         }else{
-                            input2.css("box-shadow","0px 0px 6px red");
-                            input3.css("box-shadow","0px 0px 6px red");
+//                            input2.css("box-shadow","0px 0px 6px red");
+//                            input3.css("box-shadow","0px 0px 6px red");
+                            $("#userPwd div.newPassWord1").css("border-bottom","1px solid red");
+                            $("#userPwd div.newPassWord2").css("border-bottom","1px solid red");
                             pc.isSubmit = false;
                         }
                     },
@@ -710,6 +716,7 @@
 
                         if($("#userPwd").valid()){
                             if(pc.isSubmit){
+                                layer.load(2);
                                 $.ajax({
                                     type: "post",
                                     url:"/passWord/edit.ss",
@@ -719,8 +726,12 @@
                                         pc.Pwd = data;
                                         $('#userPwd').css("display","none");
                                         $('.userPwd-div').css("display","block");
+                                        layer.closeAll('loading');
                                     }
                                 });
+                                setTimeout(function () {
+                                    layer.closeAll('loading');
+                                },20000);
                             }
                         }
 

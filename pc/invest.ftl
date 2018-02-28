@@ -240,7 +240,7 @@
     },100);
 
     setTimeout(function () {
-        if(i18nLanguage == "en"){
+        if(i18nLanguage != "zh-CN"){
             $(".ETH_LOCK_PRICE").html(convertUs($(".ETH_LOCK_PRICE").html())+"$");
             $(".BTC_LOCK_PRICE").html(convertUs($(".BTC_LOCK_PRICE").html())+"$");
         }

@@ -132,16 +132,14 @@
         <tr v-for="dealBase in parentData.dataList.list" >
             <td>{{dealBase.createDate}}</td>
             <td>{{dealBase.payAmount}}</td>
-
             <td>
-                <span v-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="suocangjiangli" class="i18n">锁仓奖励</span>
-                <span v-else-if="dealBase.awardType == 'SUOCANG'" data-name="kongtoujiangli" class="i18n">空投奖励</span>
-                <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
+                <span v-if="dealBase.awardType == 'SUOCANG'" data-name="suocangjiangli" class="i18n">锁仓奖励</span>
+                <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="kongtoujiangli" class="i18n">空投奖励</span>
+                <span v-else-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
                 <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
                 <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
                 <span v-else data-name="wu" class="i18n"></span>
             </td>
-
             <td>
                     <span v-if="dealBase.useWhitelistsQuota != null && dealBase.useWhitelistsQuota != ''">
                         <span>{{dealBase.whitelistAwardAmount || '0'}}</span>
