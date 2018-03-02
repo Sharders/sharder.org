@@ -46,7 +46,7 @@
                 <div class="rebate details">
                     <p class="crowd-funding-title">
                         <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img img crowd-funding-img2" v-on:click="tabMessage(false)">
-                        <span class="details-title i18n" name="sharder-subscribe-rebate">邀请奖励</span>
+                        <span class="details-title i18n" name="dxjl">豆匣奖励</span>
                     </p>
                     <p class="rebate-quota quota">${invite_rewards_amount!'0'}SS</p>
                     <#--<p class="details-colse" >{{isRebate ? "关闭详情" : "查看详情"}}</p>-->

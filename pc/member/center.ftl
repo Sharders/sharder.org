@@ -23,7 +23,7 @@
     #userWalletAddr label.error{
         width: initial;
         padding-left: 156px;
-        margin-top: 5px;
+        margin-top: 13px !important;
     }
 </style>
 
@@ -125,6 +125,7 @@
     <div class="remarks">
         <span class="gantanhao" id="yaoqingtishi" onmousemove="yaoqingtishi(true)" onmouseout="yaoqingtishi(false)"></span>
         <span class="i18n" name="sharder-invitation-register-sale-reward">邀请好友注册获取空投奖励！</span>
+        <span class="i18n sharder-user-parent" name="sharder-user-parent">已邀请人数:</span>${inviteSum!0}
     </div>
         <#assign amountSuoCang = ssSuocangaAmount!0>
         <#assign userAmount = amount!0>
@@ -176,7 +177,7 @@
             </div>
             <div class="personal rebate">
 
-                <span class="explain"><span class="i18n" name="sharder-subscribe-rebate">空投奖励</span>
+                <span class="explain"><span class="i18n" name="dxjl">豆匣奖励</span>
                     <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
                     <div class="poput-invitation i18n" name="sharder-rewarded-purchase-referred">根据对豆匣社区做出的贡献，会持续进行空投奖励！</div>
                 </span>
@@ -200,7 +201,7 @@
         <#if mentionMoney??>
             <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">查看提币详情</button>
             <#else >
-                <#if amount?? && user.purseAddress?? && amount gt 0>
+                <#if amount?? && user.purseAddress?? && usableBalance gt 0>
                     <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">提币申请</button>
                 <#else >
                     <button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>
@@ -233,7 +234,7 @@
                 <label class="i18n" name="sharder-new-password">请输入新密码</label><input type="password" id="newPassWord1" v-on:input="verification()" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
             </div>
             <div class="newPassWord2">
-                <label class="i18n" name="sharder-again-password">再次输入密码</label><input type="password"  name="newPwd" id="newPassWord2" v-on:input="verification()"/>
+                <label class="i18n" name="sharder-again-password">再次输入密码</label><input type="password"  name="newPwd" id="newPassWord2" v-on:input="verification()"  vld="{rangelength:[6,20]}" autocomplete="off" disableautocomplete/>
             </div>
 
             <input type="button" name="the-next-step" class="i18n" value="提交" v-on:click="editPwd()"/>
@@ -249,8 +250,8 @@
         <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen('walletAddr')"/>
         <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
             <h2 class="i18n" name="sharder-set-mention-token-address">设置提币地址</h2>
-            <#--<p class="walletAddr i18n" name="sharder-mention-token-address-attention">注意:提币地址设置以后将无法修改，请认真核对</p>-->
-            <p class="walletAddr i18n" name="sharder-mention-token-address-attention">3月1日正式开放</p>
+            <p class="walletAddr i18n" name="sharder-mention-token-address-attention">注意:提币地址设置以后将无法修改，请认真核对</p>
+            <#--<p class="walletAddr i18n" name="sharder-mention-token-address-attention">3月1日正式开放</p>-->
             <div class="input-div">
                 <label class="i18n" name="sharder-set-address">设置地址:</label>
                 <input type="text" id="oldWalletAddr" name="walletAddr" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
@@ -259,8 +260,8 @@
                 <label class="i18n" name="sharder-input-again" for="newWalletAddr">再次输入:</label>
                 <input type="text" id="newWalletAddr"  v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
             </div>
-            <label  style="display: none;" for="newWalletAddr" class="error error1" generated="true" name="sharder-tishi-liangchisurubuyiyang">两次输入的地址不一致,请核对后填写！！!</label>
-            <label  style="display: none;" for="newWalletAddr" class="error error2" generated="true" name="sharder-tishi-geshiyichang">格式异常！！</label>
+            <label  style="display: none;" for="newWalletAddr" class="error error1 i18n" generated="true" name="sharder-tishi-liangchisurubuyiyang">两次输入的地址不一致,请核对后填写！！!</label>
+            <label  style="display: none;" for="newWalletAddr" class="error error2 i18n" generated="true" name="sharder-tishi-geshiyichang">格式异常！！</label>
             <#--<div class="input-div">-->
                 <#--<label class="i18n" name="sharder-username">账户:</label>-->
                 <#--<input class="user-phone" name="uid" value="${acconut!}" readonly="readonly" id="identification_forgot_pwd"/>-->
@@ -330,22 +331,31 @@
 <#--</script>-->
 <script type="text/x-template" id="public-information">
     <div>
-        <span class="subscribe-title i18n" data-name="sharder-subscribe-rebate">空投奖励</span>
+        <span class="subscribe-title i18n" data-name="dxjl">豆匣奖励</span>
         <table class="ss-table defalut">
             <thead>
             <tr>
-                <th class="i18" name="friend-regid">{{parentData.title.a}}</th>
-                <th class="i18" >{{parentData.title.b}}</th>
-                <th class="i18" name="friend-whiteQuotal">{{parentData.title.c}}</th>
-                <th class="i18" name="friend-backQuotal">{{parentData.title.d}}</th>
+                <#--<th class="i18" name="friend-regid">{{parentData.title.a}}</th>-->
+                <th >{{parentData.title.b}}</th>
+                <th >{{parentData.title.c}}</th>
+                <th >{{parentData.title.d}}</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="dealBase in parentData.dealBases.list" >
-                <td>{{dealBase.userId}}</td>
-                <td>{{dealBase.registerDate}}</td>
-                <td>{{dealBase.whitelistsQuota==(''||null)?'-':dealBase.whitelistsQuota}}</td>
-                <td>{{dealBase.dealBase==(''||null)?'-':dealBase.dealBase}}</td>
+                <#--<td>{{dealBase.userId}}</td>-->
+                <td>{{dealBase.createDate}}</td>
+                <td>
+                    <span v-if="dealBase.awardType == 'SUOCANG'" data-name="suocangjiangli" class="i18n">锁仓奖励</span>
+                    <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="kongtoujiangli" class="i18n">空投奖励</span>
+                    <span v-else-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
+                    <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
+                    <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
+                    <span v-else-if="dealBase.awardType == 'COMMUNITY_BUILDING'" data-name="sharder-referral-bonus" class="i18n">推广奖励</span>
+                    <span v-else-if="dealBase.awardType == 'INVITE_INVEST'" data-name="friend-invite-reward" class="i18n">邀请奖励</span>
+                    <span v-else data-name="wu" class="i18n"></span>
+                </td>
+                <td>{{dealBase.awardAmount || '0'}} (SS)</td>
             </tr>
             </tbody>
         </table>
@@ -358,14 +368,14 @@
         <table class="ss-table defalut">
             <thead>
             <tr>
-                <th class="i18" name="friend-regid">{{parentData.title2.a}}</th>
-                <th class="i18" >{{parentData.title2.b}}</th>
-                <th class="i18" name="friend-whiteQuotal">{{parentData.title2.c}}</th><!--来源-->
-                <th class="i18" name="friend-whiteQuotal">{{parentData.title2.i}}</th><!--状态-->
-                <th class="i18" name="friend-backQuotal">{{parentData.title2.d}}</th><!--支持数量-->
-                <th class="i18" name="friend-backQuotal">{{parentData.title2.e}}</th><!--奖励类型-->
-                <th class="i18" name="friend-backQuotal">{{parentData.title2.f}}</th><!--奖励数量-->
-                <th class="i18" name="friend-backQuotal">{{parentData.title2.g}}</th><!--获得豆匣(SS)-->
+                <th >{{parentData.title2.a}}</th>
+                <th >{{parentData.title2.b}}</th>
+                <th >{{parentData.title2.c}}</th><!--来源-->
+                <th >{{parentData.title2.i}}</th><!--状态-->
+                <th >{{parentData.title2.d}}</th><!--支持数量-->
+                <th >{{parentData.title2.e}}</th><!--奖励类型-->
+                <th >{{parentData.title2.f}}</th><!--奖励数量-->
+                <th >{{parentData.title2.g}}</th><!--获得豆匣(SS)-->
             </tr>
             </thead>
             <tbody>
@@ -407,6 +417,8 @@
                     <span v-else-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
                     <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
                     <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
+                    <span v-else-if="dealBase.awardType == 'COMMUNITY_BUILDING'" data-name="sharder-referral-bonus" class="i18n">推广奖励</span>
+                    <span v-else-if="dealBase.awardType == 'INVITE_INVEST'" data-name="friend-invite-reward" class="i18n">邀请奖励</span>
                     <span v-else data-name="wu" class="i18n"></span>
                 </td>
                 <td>
@@ -492,9 +504,9 @@
                         $(".personal.applu-lock").css("border-bottom","0px");
                         pc.dealBases = "";
                         pc.title={a:$("span[name='sharder-registrant-uid']").text(),
-                            b:$("span[name='sharder-registrant-time']").text(),
+                            b:$("span[name='sharder-participation-time']").text(),
                             c:$("div>span[name='sharder-award-type']").text(),
-                            d:$("span[name='sharder-deal-base']").text(),
+                            d:$("span[name='sharder-award-amount']").text(),
                             e:$("span[name='sharder-details-benefits']").text(),
                             f:$("span[name='sharder-details-immediately']").text()};
 
@@ -539,7 +551,6 @@
                         //设置选中的模板
                         pc.template = _t;
 
-                        console.info(pc.isOff1+""+pc.isOff2+""+pc.isOff3);
                         pc.detailsJudge();
 
                         if(!pc.isShowDetail()){
@@ -569,7 +580,9 @@
                         }
                         var requestUrl = "";
                         if(_t == "fandian"){
-                            requestUrl = "/user_center/invite_awaer.ss";
+//                            requestUrl = "/user_center/invite_awaer.ss";
+                            requestUrl = "/user_center/awaers.ss";
+
                         }else if(_t == "zhongchou"){
                             //备用
                             requestUrl = "/user_center/zhong_chou.ss";
@@ -581,7 +594,6 @@
                         }
                         var data = pageParams(pc.currentPage,pc.countOfCurrentPage);
                         commAjax(requestUrl,"get",data,pc.loadDealbaseResult);
-//                        layer.closeAll('loading')
                         setTimeout(function () {
                             layer.closeAll('loading');
                         },20000);
@@ -596,7 +608,6 @@
                             if(isEmpty(pc.dealBases)){
                                 pc.showHint = true;
                             }
-
                         }
                         setTimeout(function () {
                             executeDymaicI18n();
@@ -650,14 +661,14 @@
                         $("label[for='newWalletAddr'].error").css("display","none");
                         if(oldWalletAddr != newWalletAddr){
                             $("label[for='newWalletAddr'].error1").css("display","block");
-                            return false;
                             pc.isSubmit = false;
+                            return false;
                         }
 
                         if(!isETHAddr(oldWalletAddr)){
                             $("label[for='newWalletAddr'].error2").css("display","block");
-                            return false;
                             pc.isSubmit = false;
+                            return false;
                         }
                         pc.isSubmit = true;
                     },
@@ -678,6 +689,7 @@
                                 layer.close(setAddrload);
                                 if(result.success){
                                     layer.msg($("span[name='sztbdzcg']").text());
+                                    pc.winOpen('walletAddr');
                                     location.reload();
                                 }else{
                                     layer.msg($("span[name='sztbdzsb']").text());
@@ -692,24 +704,25 @@
 //                        input1.css("box-shadow","");
 //                        input2.css("box-shadow","");
 //                        input3.css("box-shadow","");
-                        $("#userPwd div").css("border-bottom","1px solid #d2d2d2");
+//                        $("#userPwd div").css("border-bottom","1px solid #d2d2d2");
 
                         if(input1.val() == ''||input2.val()== '' || input3.val() == ''){
                             pc.isSubmit = false;
                         }
-                        if(input1.val() == ''){
-//                            input1.css("box-shadow","0px 0px 6px red");
-                            $("#userPwd div.oldPassWord").css("border-bottom","1px solid red");
-                        }
+//                        if(input1.val() == ''){
+////                            input1.css("box-shadow","0px 0px 6px red");
+//                            $("#userPwd div.oldPassWord").css("border-bottom","1px solid red");
+//                        }
                         if(input2.val() == input3.val()){
                             pc.isSubmit = true;
                         }else{
 //                            input2.css("box-shadow","0px 0px 6px red");
 //                            input3.css("box-shadow","0px 0px 6px red");
-                            $("#userPwd div.newPassWord1").css("border-bottom","1px solid red");
-                            $("#userPwd div.newPassWord2").css("border-bottom","1px solid red");
+//                            $("#userPwd div.newPassWord1").css("border-bottom","1px solid red");
+//                            $("#userPwd div.newPassWord2").css("border-bottom","1px solid red");
                             pc.isSubmit = false;
                         }
+                        $("#userPwd").valid();
                     },
 
                     editPwd:function () {
@@ -723,15 +736,25 @@
                                     data:$('#userPwd').serialize(),
                                     dataType: "json",
                                     success: function(data) {
-                                        pc.Pwd = data;
-                                        $('#userPwd').css("display","none");
-                                        $('.userPwd-div').css("display","block");
                                         layer.closeAll('loading');
+//                                        pc.Pwd = data;
+                                        console.info(data);
+                                        if(data.success){
+                                            layer.msg($("#mimaxiugai_cenggong").text());
+                                            pc.winOpen();
+                                        }else {
+                                            layer.msg($("#mimaxiugai_shibai").text());
+                                        }
+//                                        $('#userPwd').css("display","none");
+//                                        $('.userPwd-div').css("display","block");
                                     }
                                 });
                                 setTimeout(function () {
                                     layer.closeAll('loading');
                                 },20000);
+                            }else {
+                                $("div.newPassWord2 label.error").css("display","block");
+                                $("div.newPassWord2 label.error").text($("#suocangMsg").text());
                             }
                         }
 
