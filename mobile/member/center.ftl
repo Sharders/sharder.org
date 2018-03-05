@@ -22,9 +22,11 @@
             <li><labal class="user-title tesu i18n" name="sharder-extension-link">推广链接:</labal><span class="user-text augoid" id="contents">${invitePage!}?inviterId=${inviterId!}</span></li>
         </ul>
         <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="copyTextById('contents')">复制推广链接</button>
-        <p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众售。</p>
-        <p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众售获得豆匣(SS)总额度的5%作为返点奖励。</p>
+    <#--<p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众售。</p>-->
+        <#--<p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众售获得豆匣(SS)总额度的5%作为返点奖励。</p>-->
         <p class="text-color i18n" name="yaoqingtishi">豆匣会不定期进行空投，邀请的好友越多获得的SS空投数量也会越多，请持续推广和积累好友哦。</p>
+        <p style="color: #0BA0D1 ; font-weight: bold"><span class="i18n sharder-user-parent" name="sharder-user-parent">已邀请人数:</span>${inviteSum!0}</p>
+
     </div>
     <div class="asset-information" id="center">
         <h1 class="phone-center-information-title i18n" name="asset-information">资产信息</h1>
@@ -163,10 +165,23 @@
 </script>
 <script type="text/x-template" id="rebate_details_mb">
     <div class="rebate-details subscribe-body">
-        <p class="subscribe-head"><span class="subscribe-table i18n" name="friend-regid">{{parentData.title.a}}</span><span class="subscribe-table i18n" >{{parentData.title.b}}</span><span class="subscribe-table i18n" >{{parentData.title.c}}</span><span class="subscribe-table i18n" name="friend-backQuotal">{{parentData.title.d}}</span></p>
+        <p class="subscribe-head">
+            <span class="subscribe-table">{{parentData.title.b}}</span>
+            <span class="subscribe-table">{{parentData.title.c}}</span>
+            <span class="subscribe-table">{{parentData.title.d}}</span>
+        </p>
+
         <ul class="subscribe-ul">
             <li class="subscribe-li" v-if="parentData.dataList == false"><span style="color: red;font-size: 11px;">{{parentData.title.e}}</span><a href="#member_center" style="font-size: 11px;">{{parentData.title.f}}</a></li>
-            <li class="subscribe-li" v-for="dealBase in parentData.dataList.list"><span class="subscribe-table">{{dealBase.userId}}</span><span class="subscribe-table">{{dealBase.registerDate}}</span><span class="subscribe-table special">{{dealBase.whitelistsQuota==(''||null)?'-':dealBase.whitelistsQuota}}</span><span class="subscribe-table">{{dealBase.dealBase==(''||null)?'-':dealBase.dealBase}}</span></li>
+            <li class="subscribe-li" v-for="dealBase in parentData.dataList.list">
+                <span class="subscribe-table">{{dealBase.createDate}}</span>
+                <span class="subscribe-table">
+                    <#include "/WEB-INF/ftl/sharders/award_type.ftl"/>
+                </span>
+
+                <span class="subscribe-table">{{dealBase.awardAmount || '0'}} (SS)</span>
+
+            </li>
         </ul>
     </div>
 </script>
@@ -226,7 +241,8 @@
                     paging:function () {
                         var url= "";
                         if(app.template=="fandian"){
-                            url= "/user_center/invite_awaer.ss";
+//                            url= "/user_center/invite_awaer.ss";
+                            url = "/user_center/awaers.ss";
                         }else if(app.template == "zhongchou"){
                             url= "/user_center/zhong_chou.ss";
                         }
@@ -265,17 +281,24 @@
                     }
                     ,tabBtn:function (_t) {
                         app.dataList = "";
-
-                        console.log(_t);
                         app.template = _t;
                         app.currentPage = 1; //每次打开新列表分页从1开始
 
+//                        app.title={a:$("span[name='sharder-registrant-uid']").text(),
+//                            b:$("span[name='sharder-registrant-time']").text(),
+//                            c:$("span[name='sharder-subscribe-quota']").text(),
+//                            d:$("span[name='sharder-deal-base']").text(),
+//                            e:$("span[name='sharder-details-benefits']").text(),
+//                            f:$("span[name='sharder-details-immediately']").text()};
+
                         app.title={a:$("span[name='sharder-registrant-uid']").text(),
-                            b:$("span[name='sharder-registrant-time']").text(),
-                            c:$("span[name='sharder-subscribe-quota']").text(),
-                            d:$("span[name='sharder-deal-base']").text(),
+                            b:$("span[name='sharder-participation-time']").text(),
+                            c:$("div>span[name='sharder-award-type']").text(),
+                            d:$("span[name='sharder-award-amount']").text(),
                             e:$("span[name='sharder-details-benefits']").text(),
                             f:$("span[name='sharder-details-immediately']").text()};
+
+
                         $(".paging-query").css("display","none");
                         $(".crowd-funding.details").css("border-bottom","0");
                         $(".rebate.details").css("border-bottom","0");

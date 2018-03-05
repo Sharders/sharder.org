@@ -1,0 +1,134 @@
+
+    <#if ua == 'pc'>
+        <#import "/WEB-INF/ftl/sharders/pc/layout.ftl" as lay/>
+    <#else >
+        <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
+    </#if>
+
+
+    <@lay.htmlHead    pagename="register">
+<style>
+.ss-container.home-page{
+    background-color: #f5f5f5;
+}
+.news-list-main{
+    background-color: #fff;
+    padding-top: 80px;
+}
+.news-list-main h1{
+    padding-left: 30px;
+    font-size: 24px;
+    color: #333;
+}
+.news-list-main .items{
+    border-top: 1px solid #d2d2d2;
+}
+
+.news-list-main .item-item{
+    display: flex;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 30px 0;
+    border-bottom: 1px dotted #eee;
+}
+.news-list-main .item-item h2{
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.news-list-main .item-item h2:hover{
+    color: #0ba0d1;
+}
+.news-list-main .item-item cite,.news-list-main .item-item .txt{
+    font-size: 14px;
+    line-height: 26px;
+    text-align: justify;
+    color: #666;
+    font-style: normal;
+}
+.news-list-main .item-item .txt{
+    margin-top: 10px;
+}
+.news-list-main .item-item .img-block{
+    width: 250px;
+    height: 166px;
+    margin-right: 20px;
+}
+.news-list-main img.pic{
+    height: 166px;
+}
+
+/*mobile*/
+@media (max-width: 640px) {
+    .news-list-main h1{
+        padding-bottom: 20px;
+        font-size: 20px;
+    }
+    .news-list-main .item-item .img-block {
+         width: initial;
+         height: initial;
+         margin-right:30px;
+    }
+    .news-list-main img.pic {
+        height: 60px!important;
+        width: 60px!important;
+    }
+    .ss-main.news-list-main .items .txt{
+        display: none;
+    }
+    .ss-container.home-page{
+        background-color: #ffffff!important;
+    }
+    .news-list-main{
+        padding-top: 30px!important;
+        font-weight: 600!important;
+    }
+    .news-list-main .item-item{
+        padding: 20px 10px!important;
+        margin-left:0px!important;
+        margin-right:0px!important;
+    }
+    .news-list-main .item-item h2{
+        font-size: 16px;
+    }
+}
+</style>
+</@lay.htmlHead>
+
+<@lay.htmlBody>
+<div>
+<section class="ss-container home-page tail">
+    <div class="ss-main news-list-main">
+        <h1>新闻中心</h1>
+        <@cms_content_list count='30' orderBy='2' channelId="${news_channelId!}" channelOption='0' dateFormat='yyyy-MM-dd'>
+
+            <ul class="items">
+                <#list tag_list as a>
+                    <a href="<#if a.url ??>${a.url!}<#else>${a.link}</#if>">
+                        <li class="item-item">
+                            <div class="img-block">
+                                <img src="${a.attr["neirong"]!"/r/cms/resource/sharders/img/news_def.png"}" class="pic">
+                            </div>
+
+                            <div>
+                                <h2>${a.contentExt.title!}</h2>
+
+                                <cite>
+                                    <span class="source">来源：${a.origin!}</span>|
+                                    <span class="news-date">${a.releaseDate?string('yyyy-MM-dd')}</span>
+                                </cite>
+                                <p class="txt">${a.contentExt.description!}</p>
+                            </div>
+                        </li>
+                    </a>
+                </#list>
+            </ul>
+        </@cms_content_list>
+    </div>
+</section>
+</div>
+
+
+
+</@lay.htmlBody>
+

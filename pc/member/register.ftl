@@ -9,8 +9,8 @@
         min-height: 100%;
     }
 </style>
-
 <script type="text/javascript">
+    console.log($("#abcd").text());
     $(function() {
         /*window.register =  */$("#register-form").validate({
             rules: {

@@ -346,14 +346,7 @@
                 <#--<td>{{dealBase.userId}}</td>-->
                 <td>{{dealBase.createDate}}</td>
                 <td>
-                    <span v-if="dealBase.awardType == 'SUOCANG'" data-name="suocangjiangli" class="i18n">锁仓奖励</span>
-                    <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="kongtoujiangli" class="i18n">空投奖励</span>
-                    <span v-else-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
-                    <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
-                    <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
-                    <span v-else-if="dealBase.awardType == 'COMMUNITY_BUILDING'" data-name="sharder-referral-bonus" class="i18n">推广奖励</span>
-                    <span v-else-if="dealBase.awardType == 'INVITE_INVEST'" data-name="friend-invite-reward" class="i18n">邀请奖励</span>
-                    <span v-else data-name="wu" class="i18n"></span>
+                    <#include "/WEB-INF/ftl/sharders/award_type.ftl"/>
                 </td>
                 <td>{{dealBase.awardAmount || '0'}} (SS)</td>
             </tr>
@@ -412,14 +405,7 @@
                 <#--<td>{{dealBase.whitelistAwardAmount || '0'}}</td>-->
 
                 <td>
-                    <span v-if="dealBase.awardType == 'SUOCANG'" data-name="suocangjiangli" class="i18n">锁仓奖励</span>
-                    <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="kongtoujiangli" class="i18n">空投奖励</span>
-                    <span v-else-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
-                    <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
-                    <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
-                    <span v-else-if="dealBase.awardType == 'COMMUNITY_BUILDING'" data-name="sharder-referral-bonus" class="i18n">推广奖励</span>
-                    <span v-else-if="dealBase.awardType == 'INVITE_INVEST'" data-name="friend-invite-reward" class="i18n">邀请奖励</span>
-                    <span v-else data-name="wu" class="i18n"></span>
+                    <#include "/WEB-INF/ftl/sharders/award_type.ftl"/>
                 </td>
                 <td>
                     <span v-if="dealBase.useWhitelistsQuota != null && dealBase.useWhitelistsQuota != ''">
