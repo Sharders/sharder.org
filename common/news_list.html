@@ -56,6 +56,12 @@
 }
 .news-list-main img.pic{
     height: 166px;
+    width: 250px;
+}
+@media (min-width: 640px) {
+    .news-list-main{
+        min-height:500px;
+    }
 }
 
 /*mobile*/
@@ -99,7 +105,7 @@
 <div>
 <section class="ss-container home-page tail">
     <div class="ss-main news-list-main">
-        <h1>新闻中心</h1>
+        <h1 class="i18n" name="sharder-news-centrality">新闻中心</h1>
         <@cms_content_list count='30' orderBy='2' channelId="${news_channelId!}" channelOption='0' dateFormat='yyyy-MM-dd'>
 
             <ul class="items">
@@ -114,7 +120,7 @@
                                 <h2>${a.contentExt.title!}</h2>
 
                                 <cite>
-                                    <span class="source">来源：${a.origin!}</span>|
+                                    <span class="source"><span class="i18n"  name="laiyuan">来源</span>：${a.origin!""}</span>|
                                     <span class="news-date">${a.releaseDate?string('yyyy-MM-dd')}</span>
                                 </cite>
                                 <p class="txt">${a.contentExt.description!}</p>

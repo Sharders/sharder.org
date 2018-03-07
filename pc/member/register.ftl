@@ -155,5 +155,23 @@
 
         }
     }
+
+
+    $(document).ready(function () {
+        setTimeout(function () {
+            if(i18nLanguage == "zh-CN"){
+                $("head").append("<script src='/r/cms/resource/js/messages_zh.js'/>");
+            }else if(i18nLanguage == "ja"){
+                $("head").append("<script src='/r/cms/resource/js/messages_ja.js'/>");
+            }else if(i18nLanguage == "ko"){
+                $("head").append("<script src='/r/cms/resource/js/messages_ko.js'/>");
+            }else{
+                $("head").append("<script src='/r/cms/resource/js/messages_eu.js'/>");
+            }
+
+
+
+        },200);
+    })
 </script>
 </@layout.htmlBody>

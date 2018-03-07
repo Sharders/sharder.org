@@ -136,28 +136,28 @@
             <span class="personal-total-assets i18n" name="sharsder-my-total-assets">总资产</span>
             <span class="sharder-ss i18n" name="sharder-SS">豆匣(SS)</span>
             <span class="shardr-assets">${userAmount}</span>
-            <div class="shardr-available-assets">
-                <span class="i18n" name="sharder-ss_is">可提币：</span><span class="color">${usableBalance}</span><span>SS</span>
-                <img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>
-                <div class="popup-suocang i18n" name="sharder-ss_is-text">除锁仓及锁仓奖励外你可转账到以太坊钱包的豆匣SS数量。</div>
-            </div>
+            <#--<div class="shardr-available-assets">-->
+                <#--<span class="i18n" name="sharder-ss_is">可提币：</span><span class="color">${usableBalance}</span><span>SS</span>-->
+                <#--<img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>-->
+                <#--<div class="popup-suocang i18n" name="sharder-ss_is-text">除锁仓及锁仓奖励外你可转账到以太坊钱包的豆匣SS数量。</div>-->
+            <#--</div>-->
         </div>
         <div class="subscribe-crowd-funding">
             <div class="personal white-list applu-lock">
                 <span class="explain"><span class="i18n" name="sharders-lock-title">锁仓</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="popup-subscribe i18n" name="sharders-lock-info-text">在锁仓期内此以太坊地址的SS(Sharder)将被限制转出,建议您做好相应备份。</div>
+                    <#--<div class="popup-subscribe i18n" name="sharders-lock-info-text">在锁仓期内此以太坊地址的SS(Sharder)将被限制转出,建议您做好相应备份。</div>-->
                 </span>
-                <#if suoCangAddr?? && amountSuoCang gt 0>
-                    <button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>
-                    <#else >
-                        <#if amount gt 0>
-                            <button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">申请锁仓</button>
-                            <#else >
-                                <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>
-                        </#if>
-                </#if>
+                <#--<#if suoCangAddr?? && amountSuoCang gt 0>-->
+                    <#--<button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>-->
+                    <#--<#else >-->
+                        <#--<#if amount gt 0>-->
+                            <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">申请锁仓</button>-->
+                            <#--<#else >-->
+                                <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>-->
+                        <#--</#if>-->
+                <#--</#if>-->
 
-                <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>-->
+                <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>
 
                 <#--<span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>-->
                     <#--<div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>-->
@@ -198,17 +198,17 @@
             </div>
         </div>
         <#--<#if amount?? && amount gt 0>-->
-        <#if mentionMoney??>
-            <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">查看提币详情</button>
-            <#else >
-                <#if amount?? && user.purseAddress?? && usableBalance gt 0>
-                    <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">提币申请</button>
-                <#else >
-                    <button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>
-                </#if>
-        </#if>
+        <#--<#if mentionMoney??>-->
+            <#--<button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">查看提币详情</button>-->
+            <#--<#else >-->
+                <#--<#if amount?? && user.purseAddress?? && usableBalance gt 0>-->
+                    <#--<button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">提币申请</button>-->
+                <#--<#else >-->
+                    <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>-->
+                <#--</#if>-->
+        <#--</#if>-->
 
-        <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>-->
+        <button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>
 
 
         <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
@@ -286,7 +286,7 @@
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
     <#include "/WEB-INF/ftl/sharders/tibi.ftl"/>
-    <#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>
+    <#--<#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>-->
 <div class="maker"></div>
 
 <script type="text/x-template" id="apply-lock">
