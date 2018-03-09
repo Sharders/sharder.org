@@ -100,6 +100,28 @@
             <li><span class="user-title i18n" name="sharder-account-number">账号:</span><span class="user-value">${acconut!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-uid-code">UID:</span><span class="user-value">${inviterId!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-sgin-pwd">登录密码:</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">修改密码</span></li>
+
+            <li>
+                <span class="user-title i18n" name="sharder_shimingrenzheng">实名认证</span>
+                <#if userMemo??>
+                    <#if userMemo?eval.state>
+                        <span class="user-value i18n" name="sharder_yirenzheng" >已认证</span>
+                        <#else >
+                            <span class="user-value i18n" name="sharder-shenghezhong" >审核中</span>
+                    </#if>
+                    <a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_chakanrenzheng">查看认证</span></a>
+                    <#else >
+                        <span class="user-value i18n" name="sharderweirenzheng" >未认证</span>
+                        <a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_lijirenzheng">立即认证</span></a>
+                </#if>
+
+                <#--<span class="user-value i18n" name="" >未认证</span>-->
+                <#--<span class="user-value i18n" name="" >审核中</span>-->
+                <#--<span class="user-value i18n" name="" >已认证</span>-->
+                <#--<a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="">立即认证</span></a>-->
+                <#--<a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="">查看认证</span></a>-->
+            </li>
+
             <li>
                 <span class="user-title i18n" name="sharder-mention-token-address">提币地址:</span>
                 <#if user.purseAddress?? && user.purseAddress != ''>
