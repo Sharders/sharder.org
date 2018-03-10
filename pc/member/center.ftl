@@ -93,17 +93,21 @@
     <#--</div>-->
         <#--<div style="text-align: center"><img src="/r/cms/resource/sharders/img/index/subscribe_overPC.jpg" id="subscribe-over"></div>-->
     <div class="user">
-        <span class="title i18n" name="sharder-user-information">账户信息</span>
+        <span class="title i18n" name="sharder-user-information">Account Information</span>
         <ul>
-            <li><span class="user-title i18n" name="sharder-sign-in-username">用户名:</span><span class="user-value"><#if user ??>${user.username!}</#if></span><span
+            <li><span class="user-title i18n" name="sharder-sign-in-username">Nickname</span><span class="user-value"><#if user ??>${user.username!}</#if></span><span
                     class="user-operation" ></span></li>
-            <li><span class="user-title i18n" name="sharder-account-number">账号:</span><span class="user-value">${acconut!}</span></li>
-            <li><span class="user-title i18n" name="sharder-user-uid-code">UID:</span><span class="user-value">${inviterId!}</span></li>
-            <li><span class="user-title i18n" name="sharder-user-sgin-pwd">登录密码:</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">修改密码</span></li>
+            <li><span class="user-title i18n" name="sharder-account-number">UID:</span><span class="user-value">${acconut!}</span></li>
+            <li><span class="user-title i18n" name="sharder-user-uid-code">User Code</span><span class="user-value">${inviterId!}</span></li>
+            <li><span class="user-title i18n" name="sharder-user-sgin-pwd">Password</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">Reset password</span></li>
 
             <li>
-                <span class="user-title i18n" name="sharder_shimingrenzheng">实名认证</span>
-                <#if userMemo??>
+                <span class="user-title">
+                    <span class="i18n" name="sharder_shimingrenzheng">实名认证</span>
+                    <span id="sharder_shimingrenzheng_info" onmousemove="sharderKycShuoming(true)" onmouseout="sharderKycShuoming(false)"></span>
+                <#--<img src="/r/cms/resource/sharders/img/index/wenhao.png" class="sharder_shimingrenzheng_img" onmousemove="yaoqingtishi(true)" onmouseout="yaoqingtishi(false)"/>-->
+                </span>
+                <#if userMemo?? && userMemo != ''>
                     <#if userMemo?eval.state>
                         <span class="user-value i18n" name="sharder_yirenzheng" >已认证</span>
                         <#else >
@@ -114,72 +118,66 @@
                         <span class="user-value i18n" name="sharderweirenzheng" >未认证</span>
                         <a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_lijirenzheng">立即认证</span></a>
                 </#if>
-
-                <#--<span class="user-value i18n" name="" >未认证</span>-->
-                <#--<span class="user-value i18n" name="" >审核中</span>-->
-                <#--<span class="user-value i18n" name="" >已认证</span>-->
-                <#--<a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="">立即认证</span></a>-->
-                <#--<a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="">查看认证</span></a>-->
             </li>
 
             <li>
-                <span class="user-title i18n" name="sharder-mention-token-address">提币地址:</span>
+                <span class="user-title i18n" name="sharder-mention-token-address">SS withdrawal address</span>
                 <#if user.purseAddress?? && user.purseAddress != ''>
                         <span>${user.purseAddress!}</span>
                     <#else >
-                        <span class="user-value i18n" name="wu" >无</span>
-                        <span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">设置提币地址</span>
+                        <span class="user-value i18n" name="wu" >no</span>
+                        <span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">Register receiving address</span>
                 </#if>
             </li>
             <li>
-                <span class="user-title i18n" name="sharder-user-invitation-link">专属邀请链接:</span><span id="contents" >${invitePage!}?inviterId=${inviterId!}&language=${Request.language!}</span>
+                <span class="user-title i18n" name="sharder-user-invitation-link">Invitation link: </span><span id="contents" >${invitePage!}?inviterId=${inviterId!}&language=${Request.language!}</span>
                 <div class="bdsharebuttonbox">
-                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="Share to WeChat."></a>
+                    <a href="#" class="bds_qzone" data-cmd="qzone" title="Sharing the QQ space"></a>
+                    <a href="#" class="bds_sqq" data-cmd="sqq" title="Share QQ friends"></a>
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="Share to sina weibo"></a>
                 </div>
-                <span class="user-operation i18n" name="sharder-copy-invitation-code" onClick="jsCopy();" >复制邀请码</span>
+                <span class="user-operation i18n" name="sharder-copy-invitation-code" onClick="jsCopy();" >Copy invitation link</span>
             </li>
 
         </ul>
     </div>
     <div class="remarks">
         <span class="gantanhao" id="yaoqingtishi" onmousemove="yaoqingtishi(true)" onmouseout="yaoqingtishi(false)"></span>
-        <span class="i18n" name="sharder-invitation-register-sale-reward">邀请好友注册获取空投奖励！</span>
-        <span class="i18n sharder-user-parent" name="sharder-user-parent">已邀请人数:</span>${inviteSum!0}
+        <span class="i18n" name="sharder-invitation-register-sale-reward"> Refer others to sign up Sharder and get airdrop. </span>
+        <span class="i18n sharder-user-parent" name="sharder-user-parent">Invitation</span>${inviteSum!0}
     </div>
         <#assign amountSuoCang = ssSuocangaAmount!0>
         <#assign userAmount = amount!0>
         <#assign usableBalance = userAmount - amountSuoCang/>
     <div class="assets">
-        <span class="title i18n" name="sharder-my-assets">我的资产</span>
+        <span class="title i18n" name="sharder-my-assets"> My Asset</span>
         <div class="total-assets">
-            <span class="personal-total-assets i18n" name="sharsder-my-total-assets">总资产</span>
-            <span class="sharder-ss i18n" name="sharder-SS">豆匣(SS)</span>
+            <span class="personal-total-assets i18n" name="sharsder-my-total-assets"> Total Asset</span>
+            <span class="sharder-ss i18n" name="sharder-SS">Sharder Token (SS)</span>
             <span class="shardr-assets">${userAmount}</span>
-            <#--<div class="shardr-available-assets">-->
-                <#--<span class="i18n" name="sharder-ss_is">可提币：</span><span class="color">${usableBalance}</span><span>SS</span>-->
-                <#--<img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>-->
-                <#--<div class="popup-suocang i18n" name="sharder-ss_is-text">除锁仓及锁仓奖励外你可转账到以太坊钱包的豆匣SS数量。</div>-->
-            <#--</div>-->
+            <div class="shardr-available-assets">
+                <span class="i18n" name="sharder-ss_is">Withdrawal available</span><span class="color">${usableBalance}</span><span>SS</span>
+                <img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>
+                <div class="popup-suocang i18n" name="sharder-ss_is-text">The token amount that could be withdrew to your ETH wallet.</div>
+            </div>
         </div>
         <div class="subscribe-crowd-funding">
             <div class="personal white-list applu-lock">
-                <span class="explain"><span class="i18n" name="sharders-lock-title">锁仓</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
+                <span class="explain"><span class="i18n" name="sharders-lock-title">Lock-up</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
                     <#--<div class="popup-subscribe i18n" name="sharders-lock-info-text">在锁仓期内此以太坊地址的SS(Sharder)将被限制转出,建议您做好相应备份。</div>-->
                 </span>
-                <#--<#if suoCangAddr?? && amountSuoCang gt 0>-->
-                    <#--<button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>-->
-                    <#--<#else >-->
-                        <#--<#if amount gt 0>-->
-                            <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">申请锁仓</button>-->
-                            <#--<#else >-->
-                                <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>-->
-                        <#--</#if>-->
-                <#--</#if>-->
+                <#if suoCangAddr?? && amountSuoCang gt 0>
+                    <button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>
+                    <#else >
+                        <#if amount gt 0>
+                            <button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">Apply for lock-up</button>
+                            <#else >
+                                <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">Apply for lock-up</button>
+                        </#if>
+                </#if>
 
-                <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>
+                <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>-->
 
                 <#--<span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>-->
                     <#--<div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>-->
@@ -191,19 +189,19 @@
             <#--<span class="details" v-on:click="selectTmpl('fandian')">{{retruenTExt(isOff3)}}</span>-->
             </div>
             <div class="personal crowd-funding">
-                <span class="explain"><span class="i18n" name="sharder-subscribe-income">众售所得</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="popup-crowd-funding i18n" name="shader-storage-token">获得的豆匣(SS)数量。</div></span>
-                <span class="currency i18n" name="sharder-SS-1">豆匣(SS)</span>
+                <span class="explain"><span class="i18n" name="sharder-subscribe-income"> SS purchased </span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
+                    <div class="popup-crowd-funding i18n" name="shader-storage-token">Sharder tokens that exchanged with other tokens, such as ETH and BTC.</div></span>
+                <span class="currency i18n" name="sharder-SS-1">SS</span>
                 <span class="quota">${crowd_amount!'0'}</span>
                 <span class="details" v-on:click="selectTmpl('zhongchou')">{{isOffText.off2}}</span>
             </div>
             <div class="personal rebate">
 
-                <span class="explain"><span class="i18n" name="dxjl">豆匣奖励</span>
+                <span class="explain"><span class="i18n" name="dxjl">Reward</span>
                     <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="poput-invitation i18n" name="sharder-rewarded-purchase-referred">根据对豆匣社区做出的贡献，会持续进行空投奖励！</div>
+                    <div class="poput-invitation i18n" name="sharder-rewarded-purchase-referred">We will keep airdropping those who significantly contribute to Sharder community.</div>
                 </span>
-                <span class="currency i18n" name="sharder-SS-1">豆匣(SS)</span>
+                <span class="currency i18n" name="sharder-SS-1">SS</span>
                 <span class="quota">${invite_rewards_amount!'0'}</span>
             <#--<span class="details" >{{retruenTExt(isOff3)}}</span>-->
             <#--<span class="details" v-on:click="isLuck(3)">{{retruenTExt(isOff3)}}</span>-->
@@ -220,21 +218,21 @@
             </div>
         </div>
         <#--<#if amount?? && amount gt 0>-->
-        <#--<#if mentionMoney??>-->
-            <#--<button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">查看提币详情</button>-->
-            <#--<#else >-->
-                <#--<#if amount?? && user.purseAddress?? && usableBalance gt 0>-->
-                    <#--<button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">提币申请</button>-->
-                <#--<#else >-->
-                    <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>-->
-                <#--</#if>-->
-        <#--</#if>-->
+        <#if mentionMoney??>
+            <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">Mention SS details</button>
+            <#else >
+                <#if amount?? && user.purseAddress?? && usableBalance gt 0>
+                    <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">Withdraw SS </button>
+                <#else >
+                    <button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>
+                </#if>
+        </#if>
 
-        <button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>
+        <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>-->
 
 
         <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
-        <div class="poput-extract i18n" name="sharder-website-direct-investment">通过官网直投的，将于公开众售结束后15个工作日内进行清算，清算完成后七个工作日内发放到您提供的ETH钱包地址（锁仓者除外）。</div>
+        <div class="poput-extract i18n" name="sharder-website-direct-investment">The contributions from channels other than crowdsale (smart contract) will be audited and the Sharder tokens will be delivered to your wallet by 0:00 UTC Mar. 18, 2018 (except for the lock-up).</div>
 
     </div>
     <#--<div class="rule">-->
@@ -248,21 +246,21 @@
     <div class="edit-password">
         <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen()"/>
         <form method="post" id="userPwd">
-            <h2 class="i18n title" name="sharder-user-edit-pwd">修改密码</h2>
+            <h2 class="i18n title" name="sharder-user-edit-pwd">Reset password</h2>
             <div class="oldPassWord">
-                <label class="i18n" name="sharder-old-password">请输入旧密码</label><input type="password" id="oldPassWord" name="origPwd" v-on:input="verification()"/>
+                <label class="i18n" name="sharder-old-password">old password</label><input type="password" id="oldPassWord" name="origPwd" v-on:input="verification()"/>
             </div>
             <div class="newPassWord1">
-                <label class="i18n" name="sharder-new-password">请输入新密码</label><input type="password" id="newPassWord1" v-on:input="verification()" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
+                <label class="i18n" name="sharder-new-password">new password</label><input type="password" id="newPassWord1" v-on:input="verification()" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
             </div>
             <div class="newPassWord2">
-                <label class="i18n" name="sharder-again-password">再次输入密码</label><input type="password"  name="newPwd" id="newPassWord2" v-on:input="verification()"  vld="{rangelength:[6,20]}" autocomplete="off" disableautocomplete/>
+                <label class="i18n" name="sharder-again-password">again password</label><input type="password"  name="newPwd" id="newPassWord2" v-on:input="verification()"  vld="{rangelength:[6,20]}" autocomplete="off" disableautocomplete/>
             </div>
 
-            <input type="button" name="the-next-step" class="i18n" value="提交" v-on:click="editPwd()"/>
+            <input type="button" name="the-next-step" class="i18n" value="Next" v-on:click="editPwd()"/>
         </form>
         <div class="userPwd-div">
-            <h2 class="i18n" name="sharder-operation-result">操作结果</h2>
+            <h2 class="i18n" name="sharder-operation-result"> Result </h2>
             <span>{{Pwd.message}}{{Pwd.error}}</span>
         <#--<input type="button" value="重新修改" v-on:click="edit()"/>-->
         </div>
@@ -271,19 +269,19 @@
     <div class="edit-wallet-addr">
         <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen('walletAddr')"/>
         <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
-            <h2 class="i18n" name="sharder-set-mention-token-address">设置提币地址</h2>
-            <p class="walletAddr i18n" name="sharder-mention-token-address-attention">注意:提币地址设置以后将无法修改，请认真核对</p>
+            <h2 class="i18n" name="sharder-set-mention-token-address">Register receiving address</h2>
+            <p class="walletAddr i18n" name="sharder-mention-token-address-attention">Note: once set, the SS withdrawal address can't be changed, please double check.</p>
             <#--<p class="walletAddr i18n" name="sharder-mention-token-address-attention">3月1日正式开放</p>-->
             <div class="input-div">
-                <label class="i18n" name="sharder-set-address">设置地址:</label>
+                <label class="i18n" name="sharder-set-address">Input address</label>
                 <input type="text" id="oldWalletAddr" name="walletAddr" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
             </div>
             <div class="input-div">
-                <label class="i18n" name="sharder-input-again" for="newWalletAddr">再次输入:</label>
+                <label class="i18n" name="sharder-input-again" for="newWalletAddr">Input again</label>
                 <input type="text" id="newWalletAddr"  v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
             </div>
-            <label  style="display: none;" for="newWalletAddr" class="error error1 i18n" generated="true" name="sharder-tishi-liangchisurubuyiyang">两次输入的地址不一致,请核对后填写！！!</label>
-            <label  style="display: none;" for="newWalletAddr" class="error error2 i18n" generated="true" name="sharder-tishi-geshiyichang">格式异常！！</label>
+            <label  style="display: none;" for="newWalletAddr" class="error error1 i18n" generated="true" name="sharder-tishi-liangchisurubuyiyang">Address doesn't match, please double check!</label>
+            <label  style="display: none;" for="newWalletAddr" class="error error2 i18n" generated="true" name="sharder-tishi-geshiyichang">Format error</label>
             <#--<div class="input-div">-->
                 <#--<label class="i18n" name="sharder-username">账户:</label>-->
                 <#--<input class="user-phone" name="uid" value="${acconut!}" readonly="readonly" id="identification_forgot_pwd"/>-->
@@ -294,12 +292,12 @@
                 <#--<label class="i18n" name="sharder-user-code">验证码:</label>-->
                 <#--<input type="number" maxlength="6" minlength="6" name="verificationCode" id="verificationCode"/>-->
             <#--</div>-->
-            <button class="i18n submit"  name="the-next-step" v-on:click="sendSaveWalletAddr()">提交</button>
+            <button class="i18n submit"  name="the-next-step" v-on:click="sendSaveWalletAddr()">Next</button>
             <#--<button class="i18n submit"  name="the-next-step" style="background-color: #999">提交</button>-->
 
         </form>
         <div class="userWalletAddr" id="walletAddr">
-            <h2 class="i18n" name="sharder-operation-result">操作结果</h2>
+            <h2 class="i18n" name="sharder-operation-result">  Result </h2>
             <p class="walletAddr" v-if="saveWalletAddr.success" style="color: #0BA0D1">{{saveWalletAddr.instructions}}</p>
             <p class="walletAddr" v-else  style="color: red">{{saveWalletAddr.instructions}}</p>
         </div>
@@ -308,22 +306,22 @@
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
     <#include "/WEB-INF/ftl/sharders/tibi.ftl"/>
-    <#--<#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>-->
+    <#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>
 <div class="maker"></div>
 
 <script type="text/x-template" id="apply-lock">
     <div class="apply-lock apply-lock-body">
-        <span class="apply-lock i18n" data-name="suocang-details">锁仓详情</span>
+        <span class="apply-lock i18n" data-name="suocang-details">Lock-up details</span>
         <table class="ss-table">
             <thead>
                 <tr>
-                    <th class="i18n" data-name="shengqingshijian">申请时间</th>
-                    <th class="i18n" data-name="suocangshijian">锁仓时间(年)</th>
-                    <th class="i18n" data-name="jiesuoshijian">解锁时间</th>
-                    <th class="i18n" data-name="suocangdizi">锁仓地址</th>
-                    <th class="i18n" data-name="suocangsuliang">锁仓数量</th>
-                    <th class="i18n" data-name="huodejiangli">获得奖励</th>
-                    <th class="i18n" data-name="sharder-bill-status">状态</th>
+                    <th class="i18n" data-name="shengqingshijian">Application time</th>
+                    <th class="i18n" data-name="suocangshijian">Lock-up period (year)</th>
+                    <th class="i18n" data-name="jiesuoshijian">Unlock time</th>
+                    <th class="i18n" data-name="suocangdizi">Lock-up address</th>
+                    <th class="i18n" data-name="suocangsuliang">Lock-up amount</th>
+                    <th class="i18n" data-name="huodejiangli">Bonus obtained</th>
+                    <th class="i18n" data-name="sharder-bill-status">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -334,8 +332,17 @@
                     <td>${suoCangAddr!}</td>
                     <td>{{dealBase.originalAmount}}</td>
                     <td>{{dealBase.awardAmount}}</td>
-                    <td class="i18n" v-if="dealBase.isLock == 'false'" data-name="sharder-shenghezhong">审核中</td>
-                    <td class="i18n" v-if="dealBase.isLock == 'true'"  data-name="sharder-yifafang">已发放</td>
+                    <td class="i18n" v-if="dealBase.isLock == 'false'" data-name="sharder-shenghezhong">In Rewarded</td>
+                    <td  v-if="dealBase.isLock == 'true'">
+                        <span class="i18n" data-name="sharder-yishenghe">The approved</span>
+                        <span v-if='dealBase.status== 4' class="i18n" data-name="has_been_issuing">
+                            In issuing
+                        </span>
+                        <span v-else  class="i18n" data-name="not_issuing">
+                            Not issuing
+                        </span>
+                    </td>
+
                 </tr>
             </tbody>
         </table>
@@ -353,7 +360,7 @@
 <#--</script>-->
 <script type="text/x-template" id="public-information">
     <div>
-        <span class="subscribe-title i18n" data-name="dxjl">豆匣奖励</span>
+        <span class="subscribe-title i18n" data-name="dxjl">Reward</span>
         <table class="ss-table defalut">
             <thead>
             <tr>
@@ -379,7 +386,7 @@
 </script>
 <script type="text/x-template" id="rebate-details">
     <div>
-        <span data-name="sharder-subscribe-income" class="subscribe-title i18n">众售所得</span>
+        <span data-name="sharder-subscribe-income" class="subscribe-title i18n">SS purchased </span>
         <table class="ss-table defalut">
             <thead>
             <tr>
@@ -398,28 +405,28 @@
                 <td>{{dealBase.createDate}}</td>
                 <td>
                     <span v-if="dealBase.source == 'PhaseII'" class="i18n" data-name="sharder-my-info-presale">
-                        早鸟
+                       Presale
                     </span>
                     <span v-if="dealBase.source == 'PhaseIII'" class="i18n" data-name="sharder-my-info-crowdsale">
-                        众售
+                        Crowdsale
                     </span>
                 </td>
                 <#--<td v-if="dealBase.source == 'Store'" data-name="sharder-my-info-mall" class="i18n">商城</td>-->
                 <#--<td v-else data-name="sharder-my-info-official-website" class="i18n">官网</td>-->
-                <td data-name="sharder-my-info-official-website" class="i18n">官网</td>
+                <td data-name="sharder-my-info-official-website" class="i18n">Official website</td>
                 <td>
-                    <span v-if="dealBase.status == '1'" data-name="sharder-my-info-confirmed" class="i18n">已确认</span>
-                    <span v-if="dealBase.status == '0'" data-name="sharder-my-info-to-confirmed" class="i18n">待审核</span>
+                    <span v-if="dealBase.status == '1'" data-name="sharder-my-info-confirmed" class="i18n">Confirmed</span>
+                    <span v-if="dealBase.status == '0'" data-name="sharder-my-info-to-confirmed" class="i18n">To be confirmed</span>
                     <#--<span v-if="dealBase.status == '0'">未支付</span>-->
-                    <span v-if="dealBase.status == '-1'" data-name="sharder-my-info-invalid" class="i18n">失效</span>
+                    <span v-if="dealBase.status == '-1'" data-name="sharder-my-info-invalid" class="i18n">Invalid</span>
 
-                    <span v-if="dealBase.status == '3'" data-name="yituihuan" class="i18n">已退还</span>
+                    <span v-if="dealBase.status == '3'" data-name="yituihuan" class="i18n">Refuned</span>
                     <#--<span v-if="dealBase.status == '0'" data-name="sharder-my-info-referral-bonus" class="i18n">已发送奖励</span>-->
                 </td>
                 <td>
                     <span v-if="dealBase.source != 'Store'">
                         {{dealBase.payAmount || '0'}}
-                        <span v-if="dealBase.payType == 'SYSTEM'" data-name="sharder-my-info-welfare" class="i18n">赠送</span>
+                        <span v-if="dealBase.payType == 'SYSTEM'" data-name="sharder-my-info-welfare" class="i18n">welfare</span>
                         <span v-else>{{dealBase.payType}}</span>
                     </span>
                 </td>
@@ -904,6 +911,16 @@ function yaoqingtishi(_t){
         layer.close(_tips1);
     }
 }
+    function sharderKycShuoming(_t){
+        if(_t){
+            _tips1 = layer.tips($("span[name='sharder-kyc-shuoming']").html(), '#sharder_shimingrenzheng_info', {
+                tips: [1, '#3595CC'],
+                skin:'sharder-kyc-shuoming'
+            });
+        }else{
+            layer.close(_tips1);
+        }
+    }
 </script>
 
 <script>

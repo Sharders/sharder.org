@@ -14,32 +14,32 @@
 <div class="phone-center-main" id="member_center">
     <#--<div style="text-align: center;margin-bottom: 10px"><img src="/r/cms/resource/sharders/img/index/subscribe_over.jpg" style="width: 100%;margin-top: 70px" id="subscribe-over"></div>-->
     <div class="user-information" style="padding-top: 80px">
-        <h1 class="phone-center-information-title i18n" name="sharder-user-information">账户信息</h1>
+        <h1 class="phone-center-information-title i18n" name="sharder-user-information">Account Information</h1>
         <ul class="user-information-text">
-            <li><labal class="user-title i18n" name="sharder-account-number">账号:</labal><span class="user-text">${acconut!}</span></li>
-            <li><labal class="user-title i18n" name="sharder-sign-in-username">用户名:</labal><span class="user-text">${user.username!}</span></li>
-            <li><labal class="user-title i18n" name="sharder-extension-code">推广码:</labal><span class="user-text">${inviterId!}</span></li>
-            <li><labal class="user-title tesu i18n" name="sharder-extension-link">推广链接:</labal><span class="user-text augoid" id="contents">${invitePage!}?inviterId=${inviterId!}</span></li>
+            <li><labal class="user-title i18n" name="sharder-account-number">UID:</labal><span class="user-text">${acconut!}</span></li>
+            <li><labal class="user-title i18n" name="sharder-sign-in-username">Nickname</labal><span class="user-text">${user.username!}</span></li>
+            <li><labal class="user-title i18n" name="sharder-extension-code">Extension code</labal><span class="user-text">${inviterId!}</span></li>
+            <li><labal class="user-title tesu i18n" name="sharder-extension-link">Extension link</labal><span class="user-text augoid" id="contents">${invitePage!}?inviterId=${inviterId!}</span></li>
         </ul>
-        <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="copyTextById('contents')">复制推广链接</button>
+        <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="copyTextById('contents')">Copy links</button>
     <#--<p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众售。</p>-->
         <#--<p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众售获得豆匣(SS)总额度的5%作为返点奖励。</p>-->
-        <p class="text-color i18n" name="yaoqingtishi">豆匣会不定期进行空投，邀请的好友越多获得的SS空投数量也会越多，请持续推广和积累好友哦。</p>
-        <p style="color: #0BA0D1 ; font-weight: bold"><span class="i18n sharder-user-parent" name="sharder-user-parent">已邀请人数:</span>${inviteSum!0}</p>
+        <p class="text-color i18n" name="yaoqingtishi">The more your refer, the more airdrop you will get.</p>
+        <p style="color: #0BA0D1 ; font-weight: bold"><span class="i18n sharder-user-parent" name="sharder-user-parent">Invitation</span>${inviteSum!0}</p>
 
     </div>
     <div class="asset-information" id="center">
-        <h1 class="phone-center-information-title i18n" name="asset-information">资产信息</h1>
+        <h1 class="phone-center-information-title i18n" name="asset-information">Asset information</h1>
         <div class="sharders-total-assets">
-            <p class="sharder-total-assets i18n" name="sharsder-my-total-assets">总资产</p>
-            <p class="sharder-sharder i18n" name="sharder-SS">豆匣(SS)</p>
+            <p class="sharder-total-assets i18n" name="sharsder-my-total-assets">Total Asset</p>
+            <p class="sharder-sharder i18n" name="sharder-SS">Sharder Token (SS)</p>
             <p class="sharder-quota">${amount!"0"}</p>
         </div>
         <div class="crowd-funding-rebate">
                 <div class="crowd-funding details">
                     <p class="crowd-funding-title">
                         <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img crowd-funding-img1" v-on:click="tabMessage(true)">
-                        <span class="details-title i18n" name="sharder-subscribe-income">众售所得</span>
+                        <span class="details-title i18n" name="sharder-subscribe-income">SS purchased </span>
                     </p>
                     <p class="crowd-funding quota ">${crowd_amount!'0'}SS</p>
                     <#--<p class="details-colse" >{{retruenTExts(!crowd)}}</p>-->
@@ -48,7 +48,7 @@
                 <div class="rebate details">
                     <p class="crowd-funding-title">
                         <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img img crowd-funding-img2" v-on:click="tabMessage(false)">
-                        <span class="details-title i18n" name="dxjl">豆匣奖励</span>
+                        <span class="details-title i18n" name="dxjl">Reward</span>
                     </p>
                     <p class="rebate-quota quota">${invite_rewards_amount!'0'}SS</p>
                     <#--<p class="details-colse" >{{isRebate ? "关闭详情" : "查看详情"}}</p>-->
@@ -92,24 +92,24 @@
     <#--</div>-->
 </div>
 <div style="display: none">
-    <span class="i18n" name="shader-storage-token">参与不同阶段所获得的豆匣（SS）数量</span>
-    <span class="i18n" name="sharder-rewarded-purchase-referred">邀请好友成功参与众售，您将获得其投资获得豆匣（SS）总额的5%作为返点奖励。</span>
-    <span id="chakans" class="i18n" name="sharder-details-info">查看众售详情</span>
-    <span id="guanbis" class="i18n" name="sharder-details-info-close">关闭众售详情</span>
-    <span id="chakan" class="i18n" name="sharder-details">查看邀请详情</span>
-    <span id="guanbi" class="i18n" name="sharder-close-details">关闭邀请详情</span>
+    <span class="i18n" name="shader-storage-token">Sharder tokens that exchanged with other tokens, such as ETH and BTC.</span>
+    <span class="i18n" name="sharder-rewarded-purchase-referred">We will keep airdropping those who significantly contribute to Sharder community.</span>
+    <span id="chakans" class="i18n" name="sharder-details-info">Details</span>
+    <span id="guanbis" class="i18n" name="sharder-details-info-close">Close the Details</span>
+    <span id="chakan" class="i18n" name="sharder-details">Details</span>
+    <span id="guanbi" class="i18n" name="sharder-close-details">Close the Details</span>
     <#--<span class="i18n" name="sharder-registrant-uid">注册人UID</span>-->
     <#--<span class="i18n" name="sharder-registrant-time">注册时间</span>-->
     <#--<span class="i18n" name="sharder-subscribe-quota">白名单额度</span>-->
     <#--<span class="i18n" name="sharder-deal-base">返点奖励/SS</span>-->
     <#--<span class="i18n"name="sharder-details-benefits">你还没有邀请好友，快去邀请好友投资返福利哦！！！</span>-->
-    <span class="i18n"name="sharder-details-immediately">立刻邀请</span>
-    <span class="i18n"name="layui-laypage-prev">上一页</span>
-    <span class="i18n"name="layui-laypage-next">下一页</span>
+    <span class="i18n"name="sharder-details-immediately">Immediately invited</span>
+    <span class="i18n"name="layui-laypage-prev">prev</span>
+    <span class="i18n"name="layui-laypage-next">next</span>
 </div>
 <script type="text/x-template" id="details-white-list">
     <div class="details-white-list subscribe-body">
-        <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-registrant">注册人</span><span class="subscribe-table i18n" name="sharder-registrant-time">注册时间</span><span class="subscribe-table i18n" name="sharder-white-list-share">白名单份额</span></p>
+        <p class="subscribe-head"><span class="subscribe-table i18n" name="sharder-registrant">Subscriber</span><span class="subscribe-table i18n" name="sharder-registrant-time"> Sign up time </span><span class="subscribe-table i18n" name="sharder-white-list-share">Whitelist quota </span></p>
         <ul class="subscribe-ul">
             <li class="subscribe-li" v-for="pd in parentData.dataList"><span class="subscribe-table">{{pd.id}}</span><span class="subscribe-table">{{pd.createDate}}</span><span class="subscribe-table">1TEH</span></li>
             <li class="subscribe-li" v-if="parentData.dataList == ''"><span>No data is found！！！</span></li>
@@ -121,13 +121,13 @@
         <thead>
         <tr>
             <#--<th class="i18n" data-name="sharder-participation-time">参与时间</th>-->
-            <th class="i18n" data-name="sharder-participation-time">时间</th>
-            <th class="i18n" data-name="sahrder-support-quantity">支持数量</th>
+            <th class="i18n" data-name="sharder-participation-time">Time</th>
+            <th class="i18n" data-name="sahrder-support-quantity">SS purchased</th>
             <#--<th class="i18n" data-name="sharder-use-white-list">使用白名单额度</th>-->
-            <th class="i18n" data-name="sharder-award-type">奖励类型</th>
+            <th class="i18n" data-name="sharder-award-type">Bonuses</th>
             <#--<th class="i18n" data-name="sharder-white-list-award">白名单奖励</th>-->
-            <th class="i18n" data-name="sharder-award-amount">奖励数量</th>
-            <th class="i18n" data-name="sharder-get-ss">获得（SS）</th>
+            <th class="i18n" data-name="sharder-award-amount">Bonus amount</th>
+            <th class="i18n" data-name="sharder-get-ss">Get (SS)</th>
         </tr>
         </thead>
         <tbody>
@@ -135,11 +135,11 @@
             <td>{{dealBase.createDate}}</td>
             <td>{{dealBase.payAmount}}</td>
             <td>
-                <span v-if="dealBase.awardType == 'SUOCANG'" data-name="suocangjiangli" class="i18n">锁仓奖励</span>
-                <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="kongtoujiangli" class="i18n">空投奖励</span>
-                <span v-else-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="jieduanjiangli" class="i18n">阶段奖励</span>
-                <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">额外奖励</span>
-                <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">白名单奖励</span>
+                <span v-if="dealBase.awardType == 'SUOCANG'" data-name="suocangjiangli" class="i18n">Lockup bonus</span>
+                <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="kongtoujiangli" class="i18n">Airdrop bonus</span>
+                <span v-else-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="jieduanjiangli" class="i18n">Stage of reward</span>
+                <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">Didcretionary bonus</span>
+                <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">Whitelist bonus</span>
                 <span v-else data-name="wu" class="i18n"></span>
             </td>
             <td>
@@ -311,7 +311,7 @@
                             app.crowd=false;
                             app.paging();
                         }else {
-                            layer.msg("无法识别的事件！！！");
+                            layer.msg("An event that cannot be identified.");
                             return;
                         }
                         if(app.crowd == true){
