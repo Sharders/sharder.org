@@ -8,7 +8,13 @@
     }
     .register-main{
         background-image: url("/r/cms/resource/sharders/img/background.png");
+
         min-height: 100%;
+    }
+    #sharder_captcha #Captcha{
+        width: 90px;
+        display: inline-block;
+        padding-left: 72px;
     }
 </style>
 <script>
@@ -34,10 +40,19 @@
                         <label for="username" class="i18n" name="sharder-account-number"> UID:</label>
                         <input id="username" type="text" placeholder="Nickname" name="username" class="required login-input i18n" />
                     </li>
-                    <li>
+
+                    <li id="sharder_password">
                         <label for="password" class="i18n" name="sharder-user-password">Password</label>
                         <input id="password" name="password" class="required password-input i18n" type="password" placeholder="password" />
                     </li>
+
+                    <li id="sharder_captcha" style="display: none">
+                        <label for="Captcha" class="i18n" name="sharder-user-code">Captcha</label>
+                        <input id="Captcha" name="userCaptcha" class="dengluyanzhenma" type="text" maxlength="6"/>
+                        <input type="button" class="fashongduanxin i18n" name="sharder-send" onclick="loginCaptcha('username',this)" value="Send" />
+                        <input type="hidden" name="captchaToken" />
+                    </li>
+
                     <#if (errorTimes??&&errorTimes<=0)||(errorRemaining?? && errorRemaining<=0)>
                         <li class="ss-verification-code-li">
                             <label for="verification code"><i>*</i><span class="i18n" name="sharder-user-code"> Captcha </span></label>
@@ -80,7 +95,21 @@
                             <span class="i18n" name="sharder-login-successfully">Register successfully!</span>
                         </#if>
                     </#if>
+
+                    <#if errorInfo??>
+                        <#if errorInfo == 'USER_NOT_EXIST'>
+                            <span class="i18n" name="user_not_exist" style="color: red">User doesn't exist</span>
+                        </#if>
+                        <#if errorInfo == 'VERIFICATION_CODE_ERROR'>
+                            <span class="i18n" name="verification_code_error" style="color: red">Wrong verification code</span>
+                        </#if>
+                        <#if errorInfo == 'SYSTEM_IS_BUSY'>
+                            <span class="i18n" name="xitongfanmang" style="color: red">System busy</span>
+                        </#if>
+                    </#if>
+
                     <li class="forget-pwd">
+                        <button type="button" class="dengluqiehuan" onclick="qiehuanFunc()" id="sharde_denglufangshi" name="">使用密码登陆</button>
                         <a class="i18n underline" name="sharder-forget-password" href="/passWord/forgotPwd.ss">Forget password?</a>
                     </li>
                 </ul>
@@ -88,4 +117,27 @@
         </section>
     </div>
 </div>
+<div style="display: none">
+    <span id="shiyongyanzhengma" class="i18n" name="shiyongyanzhengma">Log in with verification code</span>
+    <span id="shiyongmimadenglu" class="i18n" name="shiyongmimadenglu">Log in with password</span>
+</div>
+<script>
+    var qiehuan = false;
+    var loginUrl = "${base}/login.jspx?returnUrl=/login_success.ss&failureUrl=/login.ss";
+    function qiehuanFunc() {
+        $("#sharder_password").css("display","none");
+        $("#sharder_captcha").css("display","none");
+        if(qiehuan){
+            $("#sharder_password").css("display","block");
+            $("#sharde_denglufangshi").text($("#shiyongyanzhengma").text());
+            $("#login-form").attr("action",loginUrl);
+        }else {
+            $("#sharder_captcha").css("display","block");
+            $("#sharde_denglufangshi").text($("#shiyongmimadenglu").text());
+            $("#login-form").attr("action","/login_captcha.ss");
+        }
+        qiehuan = !qiehuan;
+    }
+
+</script>
 </@lay.htmlBody>

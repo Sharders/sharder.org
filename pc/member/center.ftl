@@ -101,24 +101,27 @@
             <li><span class="user-title i18n" name="sharder-user-uid-code">User Code</span><span class="user-value">${inviterId!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-sgin-pwd">Password</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">Reset password</span></li>
 
-            <li>
-                <span class="user-title">
-                    <span class="i18n" name="sharder_shimingrenzheng">实名认证</span>
-                    <span id="sharder_shimingrenzheng_info" onmousemove="sharderKycShuoming(true)" onmouseout="sharderKycShuoming(false)"></span>
-                <#--<img src="/r/cms/resource/sharders/img/index/wenhao.png" class="sharder_shimingrenzheng_img" onmousemove="yaoqingtishi(true)" onmouseout="yaoqingtishi(false)"/>-->
-                </span>
-                <#if userMemo?? && userMemo != ''>
-                    <#if userMemo?eval.state>
-                        <span class="user-value i18n" name="sharder_yirenzheng" >已认证</span>
-                        <#else >
-                            <span class="user-value i18n" name="sharder-shenghezhong" >审核中</span>
-                    </#if>
-                    <a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_chakanrenzheng">查看认证</span></a>
-                    <#else >
-                        <span class="user-value i18n" name="sharderweirenzheng" >未认证</span>
-                        <a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_lijirenzheng">立即认证</span></a>
-                </#if>
-            </li>
+            <#--<li>-->
+                <#--<span class="user-title">-->
+                    <#--<span class="i18n" name="sharder_shimingrenzheng">Authentication</span>-->
+                    <#--<span id="sharder_shimingrenzheng_info" onmousemove="sharderKycShuoming(true)" onmouseout="sharderKycShuoming(false)"></span>-->
+                <#--</span>-->
+                <#--<#if userMemo?? && userMemo != ''>-->
+                    <#--<#if userMemo?eval.state || userMemo?eval.status == "SUCCESS">-->
+                        <#--<span class="user-value i18n" name="sharder_yirenzheng" >In authentication</span>-->
+                        <#--<#else >-->
+                            <#--<#if userMemo?eval.status == "FAIL">-->
+                                <#--<span class="user-value i18n" name="sharder-kyc-rezhengshibai" style="color: red">Authentication failed, please resubmit</span>-->
+                                <#--<#else >-->
+                                    <#--<span class="user-value i18n" name="sharder-shenghezhong" >In Rewarded</span>-->
+                            <#--</#if>-->
+                    <#--</#if>-->
+                    <#--<a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_chakanrenzheng">Check authentication</span></a>-->
+                    <#--<#else >-->
+                        <#--<span class="user-value i18n" name="sharderweirenzheng" >Unauthenticated</span>-->
+                        <#--<a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_lijirenzheng">Authenticate now</span></a>-->
+                <#--</#if>-->
+            <#--</li>-->
 
             <li>
                 <span class="user-title i18n" name="sharder-mention-token-address">SS withdrawal address</span>
@@ -148,36 +151,52 @@
         <span class="i18n sharder-user-parent" name="sharder-user-parent">Invitation</span>${inviteSum!0}
     </div>
         <#assign amountSuoCang = ssSuocangaAmount!0>
+
+        <#assign amountSuoCang2 = ssSuocangaAmount2!0>
+
         <#assign userAmount = amount!0>
-        <#assign usableBalance = userAmount - amountSuoCang/>
+        <#assign mention = mentionAmount!0>
+
+
+        <#assign usableBalance = userAmount - amountSuoCang2 - mention/>
+        <#if usableBalance lt 0>
+            <#assign usableBalance = 0/>
+        </#if>
     <div class="assets">
         <span class="title i18n" name="sharder-my-assets"> My Asset</span>
         <div class="total-assets">
             <span class="personal-total-assets i18n" name="sharsder-my-total-assets"> Total Asset</span>
             <span class="sharder-ss i18n" name="sharder-SS">Sharder Token (SS)</span>
             <span class="shardr-assets">${userAmount}</span>
-            <div class="shardr-available-assets">
-                <span class="i18n" name="sharder-ss_is">Withdrawal available</span><span class="color">${usableBalance}</span><span>SS</span>
-                <img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>
-                <div class="popup-suocang i18n" name="sharder-ss_is-text">The token amount that could be withdrew to your ETH wallet.</div>
-            </div>
+            <#--<div class="shardr-available-assets">-->
+                <#--<span class="i18n" name="sharder-ss_is">Withdrawal available</span><span class="color">${usableBalance}</span><span>SS</span>-->
+                <#--<img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>-->
+                <#--<div class="popup-suocang i18n" name="sharder-ss_is-text">The token amount that could be withdrew to your ETH wallet.</div>-->
+            <#--</div>-->
         </div>
         <div class="subscribe-crowd-funding">
             <div class="personal white-list applu-lock">
                 <span class="explain"><span class="i18n" name="sharders-lock-title">Lock-up</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <#--<div class="popup-subscribe i18n" name="sharders-lock-info-text">在锁仓期内此以太坊地址的SS(Sharder)将被限制转出,建议您做好相应备份。</div>-->
+                    <#--<div class="popup-subscribe i18n" name="sharders-lock-info-text">During the lock-up period, the SS on this address will be held from sending out, please carefully store your key.</div>-->
                 </span>
-                <#if suoCangAddr?? && amountSuoCang gt 0>
-                    <button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>
-                    <#else >
-                        <#if amount gt 0>
-                            <button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">Apply for lock-up</button>
-                            <#else >
-                                <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">Apply for lock-up</button>
-                        </#if>
-                </#if>
 
-                <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>-->
+                <#--<#if userMemo?? && userMemo != '' && userMemo?eval.state>-->
+                    <#--<#if suoCangAddr?? && amountSuoCang gt 0>-->
+                        <#--<button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>-->
+                    <#--<#else >-->
+                        <#--<#if amount gt 0 && usableBalance gt 0>-->
+                            <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">Apply for lock-up</button>-->
+                        <#--<#else >-->
+                            <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">Apply for lock-up</button>-->
+                        <#--</#if>-->
+                    <#--</#if>-->
+                <#--<#else >-->
+                    <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2" title="Please complete the real-name authentication first.">Apply for lock-up</button>-->
+                <#--</#if>-->
+
+
+
+                <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>
 
                 <#--<span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>-->
                     <#--<div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>-->
@@ -217,23 +236,25 @@
                 <!--<p>当前是第<span v-text="pageNo"></span>页</p>-->
             </div>
         </div>
-        <#--<#if amount?? && amount gt 0>-->
-        <#if mentionMoney??>
-            <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">Mention SS details</button>
-            <#else >
-                <#if amount?? && user.purseAddress?? && usableBalance gt 0>
-                    <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">Withdraw SS </button>
-                <#else >
-                    <button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>
-                </#if>
-        </#if>
+        <#--<#if userMemo?? && userMemo != '' && userMemo?eval.state>-->
+            <#--<#if mentionMoney??>-->
+                <#--<button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">Mention SS details</button>-->
+            <#--<#else >-->
+                <#--<#if amount?? && user.purseAddress?? && usableBalance gt 0>-->
+                    <#--<button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">Withdraw SS </button>-->
+                <#--<#else >-->
+                    <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>-->
+                <#--</#if>-->
+            <#--</#if>-->
+        <#--<#else >-->
+            <#--<button class="currency-ss i18n" name="sharder-subscribe-currency" title="Please complete the real-name authentication first.">Withdraw SS</button>-->
+        <#--</#if>-->
 
-        <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>-->
 
+        <button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>
 
         <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
         <div class="poput-extract i18n" name="sharder-website-direct-investment">The contributions from channels other than crowdsale (smart contract) will be audited and the Sharder tokens will be delivered to your wallet by 0:00 UTC Mar. 18, 2018 (except for the lock-up).</div>
-
     </div>
     <#--<div class="rule">-->
         <#--<p class="text">-->
@@ -332,9 +353,8 @@
                     <td>${suoCangAddr!}</td>
                     <td>{{dealBase.originalAmount}}</td>
                     <td>{{dealBase.awardAmount}}</td>
-                    <td class="i18n" v-if="dealBase.isLock == 'false'" data-name="sharder-shenghezhong">In Rewarded</td>
-                    <td  v-if="dealBase.isLock == 'true'">
-                        <span class="i18n" data-name="sharder-yishenghe">The approved</span>
+
+                    <td>
                         <span v-if='dealBase.status== 4' class="i18n" data-name="has_been_issuing">
                             In issuing
                         </span>
@@ -342,7 +362,6 @@
                             Not issuing
                         </span>
                     </td>
-
                 </tr>
             </tbody>
         </table>
@@ -900,27 +919,39 @@ function daidingtishi(_t) {
 }
 
     //                    邀请提示
-    var _tips1;
+    var _tips1 = null;
 function yaoqingtishi(_t){
     if(_t){
-        _tips1 = layer.tips($("span[name='yaoqingtishi']").html(), '#yaoqingtishi', {
-            tips: [1, '#3595CC'],
-            skin:'huanhuangwenben'
-        });
+        if( _tips1 == null){
+            _tips1 = layer.tips($("span[name='yaoqingtishi']").html(), '#yaoqingtishi', {
+                tips: [1, '#3595CC'],
+                skin:'huanhuangwenben'
+            });
+        }
+
     }else{
+        _tips1 = null;
         layer.close(_tips1);
     }
 }
     function sharderKycShuoming(_t){
         if(_t){
-            _tips1 = layer.tips($("span[name='sharder-kyc-shuoming']").html(), '#sharder_shimingrenzheng_info', {
-                tips: [1, '#3595CC'],
-                skin:'sharder-kyc-shuoming'
-            });
+            if(_tips1 == null){
+                _tips1 = layer.tips($("span[name='sharder-kyc-shuoming']").html(), '#sharder_shimingrenzheng_info', {
+                    tips: [1, '#3595CC'],
+                    skin:'sharder-kyc-shuoming'
+                });
+            }else{
+//                layer.close(_tips1);
+            }
         }else{
+            _tips1 = null;
             layer.close(_tips1);
         }
+
     }
+
+
 </script>
 
 <script>
