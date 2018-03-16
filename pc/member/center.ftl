@@ -99,29 +99,38 @@
                     class="user-operation" ></span></li>
             <li><span class="user-title i18n" name="sharder-account-number">UID:</span><span class="user-value">${acconut!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-uid-code">User Code</span><span class="user-value">${inviterId!}</span></li>
-            <li><span class="user-title i18n" name="sharder-user-sgin-pwd">Password</span><span class="user-value">******</span><span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">Reset password</span></li>
+            <li>
+                <span class="user-title i18n" name="sharder-user-sgin-pwd">Password</span>
+                <#if isDefaultPWD!false>
+                    <span class="user-value i18n" name="sharder_no_set_password">Password not set</span>
+                    <span class="user-operation i18n" name="sharder_lijishezhimima" v-on:click="winOpen()">Set password now</span>
+                <#else >
+                        <span class="user-value">******</span>
+                        <span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">Reset password</span>
+                </#if>
+            </li>
 
-            <#--<li>-->
-                <#--<span class="user-title">-->
-                    <#--<span class="i18n" name="sharder_shimingrenzheng">Authentication</span>-->
-                    <#--<span id="sharder_shimingrenzheng_info" onmousemove="sharderKycShuoming(true)" onmouseout="sharderKycShuoming(false)"></span>-->
-                <#--</span>-->
-                <#--<#if userMemo?? && userMemo != ''>-->
-                    <#--<#if userMemo?eval.state || userMemo?eval.status == "SUCCESS">-->
-                        <#--<span class="user-value i18n" name="sharder_yirenzheng" >In authentication</span>-->
-                        <#--<#else >-->
-                            <#--<#if userMemo?eval.status == "FAIL">-->
-                                <#--<span class="user-value i18n" name="sharder-kyc-rezhengshibai" style="color: red">Authentication failed, please resubmit</span>-->
-                                <#--<#else >-->
-                                    <#--<span class="user-value i18n" name="sharder-shenghezhong" >In Rewarded</span>-->
-                            <#--</#if>-->
-                    <#--</#if>-->
-                    <#--<a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_chakanrenzheng">Check authentication</span></a>-->
-                    <#--<#else >-->
-                        <#--<span class="user-value i18n" name="sharderweirenzheng" >Unauthenticated</span>-->
-                        <#--<a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_lijirenzheng">Authenticate now</span></a>-->
-                <#--</#if>-->
-            <#--</li>-->
+            <li>
+                <span class="user-title">
+                    <span class="i18n" name="sharder_shimingrenzheng">Authentication</span>
+                    <span id="sharder_shimingrenzheng_info" onmousemove="sharderKycShuoming(true)" onmouseout="sharderKycShuoming(false)"></span>
+                </span>
+                <#if userMemo?? && userMemo != ''>
+                    <#if userMemo?eval.state || userMemo?eval.status == "SUCCESS">
+                        <span class="user-value i18n" name="sharder_yirenzheng" >In authentication</span>
+                        <#else >
+                            <#if userMemo?eval.status == "FAIL">
+                                <span class="user-value i18n" name="sharder-kyc-rezhengshibai" style="color: red">Authentication failed, please resubmit</span>
+                                <#else >
+                                    <span class="user-value i18n" name="sharder-shenghezhong" >In Rewarded</span>
+                            </#if>
+                    </#if>
+                    <a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_chakanrenzheng">Check authentication</span></a>
+                    <#else >
+                        <span class="user-value i18n" name="sharderweirenzheng" >Unauthenticated</span>
+                        <a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_lijirenzheng">Authenticate now</span></a>
+                </#if>
+            </li>
 
             <li>
                 <span class="user-title i18n" name="sharder-mention-token-address">SS withdrawal address</span>
@@ -168,35 +177,35 @@
             <span class="personal-total-assets i18n" name="sharsder-my-total-assets"> Total Asset</span>
             <span class="sharder-ss i18n" name="sharder-SS">Sharder Token (SS)</span>
             <span class="shardr-assets">${userAmount}</span>
-            <#--<div class="shardr-available-assets">-->
-                <#--<span class="i18n" name="sharder-ss_is">Withdrawal available</span><span class="color">${usableBalance}</span><span>SS</span>-->
-                <#--<img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>-->
-                <#--<div class="popup-suocang i18n" name="sharder-ss_is-text">The token amount that could be withdrew to your ETH wallet.</div>-->
-            <#--</div>-->
+            <div class="shardr-available-assets">
+                <span class="i18n" name="sharder-ss_is">Withdrawal available</span><span class="color">${usableBalance}</span><span>SS</span>
+                <img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>
+                <div class="popup-suocang i18n" name="sharder-ss_is-text">The token amount that could be withdrew to your ETH wallet.</div>
+            </div>
         </div>
         <div class="subscribe-crowd-funding">
             <div class="personal white-list applu-lock">
                 <span class="explain"><span class="i18n" name="sharders-lock-title">Lock-up</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <#--<div class="popup-subscribe i18n" name="sharders-lock-info-text">During the lock-up period, the SS on this address will be held from sending out, please carefully store your key.</div>-->
+                    <div class="popup-subscribe i18n" name="sharders-lock-info-text">Once locked-up, all the Sharder (SS) tokens on this address will be frozen and unable to transfer during the lock-up period. If you only intend to lock-up part of your tokens, it is recommeded that you create another address and seperate the lock-up tokens from the rest. </div>
                 </span>
 
-                <#--<#if userMemo?? && userMemo != '' && userMemo?eval.state>-->
-                    <#--<#if suoCangAddr?? && amountSuoCang gt 0>-->
-                        <#--<button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>-->
-                    <#--<#else >-->
-                        <#--<#if amount gt 0 && usableBalance gt 0>-->
-                            <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">Apply for lock-up</button>-->
-                        <#--<#else >-->
-                            <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">Apply for lock-up</button>-->
-                        <#--</#if>-->
-                    <#--</#if>-->
-                <#--<#else >-->
-                    <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2" title="Please complete the real-name authentication first.">Apply for lock-up</button>-->
-                <#--</#if>-->
+                <#if userMemo?? && userMemo != '' && userMemo?eval.state>
+                    <#if suoCangAddr?? && amountSuoCang gt 0>
+                        <button class="shengqingsuocang" v-on:click="selectTmpl('suocang')">{{isOffText.off1}}</button>
+                    <#else >
+                        <#if amount gt 0 && usableBalance gt 0>
+                            <button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="shengqingsuocang()">Apply for lock-up</button>
+                        <#else >
+                            <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">Apply for lock-up</button>
+                        </#if>
+                    </#if>
+                <#else >
+                    <button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="noKyc()">Apply for lock-up</button>
+                </#if>
 
 
 
-                <button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>
+                <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>-->
 
                 <#--<span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>-->
                     <#--<div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>-->
@@ -236,22 +245,22 @@
                 <!--<p>当前是第<span v-text="pageNo"></span>页</p>-->
             </div>
         </div>
-        <#--<#if userMemo?? && userMemo != '' && userMemo?eval.state>-->
-            <#--<#if mentionMoney??>-->
-                <#--<button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">Mention SS details</button>-->
-            <#--<#else >-->
-                <#--<#if amount?? && user.purseAddress?? && usableBalance gt 0>-->
-                    <#--<button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">Withdraw SS </button>-->
-                <#--<#else >-->
-                    <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>-->
-                <#--</#if>-->
-            <#--</#if>-->
-        <#--<#else >-->
-            <#--<button class="currency-ss i18n" name="sharder-subscribe-currency" title="Please complete the real-name authentication first.">Withdraw SS</button>-->
-        <#--</#if>-->
+        <#if userMemo?? && userMemo != '' && userMemo?eval.state>
+            <#if mentionMoney??>
+                <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">Mention SS details</button>
+            <#else >
+                <#if amount?? && user.purseAddress?? && usableBalance gt 0>
+                    <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">Withdraw SS </button>
+                <#else >
+                    <button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>
+                </#if>
+            </#if>
+        <#else >
+            <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="noKyc()">Withdraw SS</button>
+        </#if>
 
 
-        <button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>
+        <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>-->
 
         <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
         <div class="poput-extract i18n" name="sharder-website-direct-investment">The contributions from channels other than crowdsale (smart contract) will be audited and the Sharder tokens will be delivered to your wallet by 0:00 UTC Mar. 18, 2018 (except for the lock-up).</div>
@@ -268,9 +277,11 @@
         <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen()"/>
         <form method="post" id="userPwd">
             <h2 class="i18n title" name="sharder-user-edit-pwd">Reset password</h2>
-            <div class="oldPassWord">
-                <label class="i18n" name="sharder-old-password">old password</label><input type="password" id="oldPassWord" name="origPwd" v-on:input="verification()"/>
-            </div>
+            <#if !isDefaultPWD!false>
+                <div class="oldPassWord">
+                    <label class="i18n" name="sharder-old-password">old password</label><input type="password" id="oldPassWord" name="origPwd" v-on:input="verification()"/>
+                </div>
+            </#if>
             <div class="newPassWord1">
                 <label class="i18n" name="sharder-new-password">new password</label><input type="password" id="newPassWord1" v-on:input="verification()" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
             </div>
@@ -776,6 +787,7 @@
                                         if(data.success){
                                             layer.msg($("#mimaxiugai_cenggong").text());
                                             pc.winOpen();
+                                            location.reload();
                                         }else {
                                             layer.msg($("#mimaxiugai_shibai").text());
                                         }
@@ -951,6 +963,14 @@ function yaoqingtishi(_t){
 
     }
 
+
+    function noKyc() {
+        if(i18nLanguage == 'zh-CN'){
+            layer.msg("请先完成实名认证");
+        }else{
+            layer.msg("Please complete the real-name authentication first.");
+        }
+    }
 
 </script>
 
