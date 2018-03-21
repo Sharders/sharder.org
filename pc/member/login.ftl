@@ -31,7 +31,7 @@
                     <li>
                         <span class="i18n" name="sharderf-account-number">Don't have an account?</span>
                         <a class="in-login i18n ss-hover-effect underline"  href="/register.ss" name="sharder-register-immediately"> Sign up</a>
-                        <button type="button"  class="dengluqiehuan" onclick="qiehuanFunc()" id="sharde_denglufangshi">使用密码登陆</button>
+                        <button type="button"  class="dengluqiehuan i18n" name="shiyongyanzhengma" onclick="qiehuanFunc()" id="sharde_denglufangshi">Log in with verification code</button>
                     </li>
                     <li>
                         <label for="username" class="i18n" name="sharder-account-number">UID:</label>
@@ -45,7 +45,7 @@
 
                     <li id="sharder_captcha" style="display: none">
                         <label for="Captcha" class="i18n" name="sharder-user-code">Captcha</label>
-                        <input id="Captcha" name="userCaptcha" class="dengluyanzhenma" type="text" maxlength="6"/>
+                        <input id="Captcha" name="userCaptcha" class="dengluyanzhenma" type="text" maxlength="6" required/>
                         <input type="button" class="fashongduanxin i18n" name="sharder-send" onclick="loginCaptcha('username',this)" value="Send" />
                         <input type="hidden" name="captchaToken" />
                     </li>
@@ -135,6 +135,5 @@
        }
         qiehuan = !qiehuan;
     }
-
 </script>
 </@layout.htmlBody>

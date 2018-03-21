@@ -16,6 +16,9 @@
         display: inline-block;
         padding-left: 72px;
     }
+    .ss-form.default label.error{
+        left:0;
+    }
 </style>
 <script>
     $(function() {
@@ -48,7 +51,7 @@
 
                     <li id="sharder_captcha" style="display: none">
                         <label for="Captcha" class="i18n" name="sharder-user-code">Captcha</label>
-                        <input id="Captcha" name="userCaptcha" class="dengluyanzhenma" type="text" maxlength="6"/>
+                        <input id="Captcha" name="userCaptcha" class="dengluyanzhenma" type="text" maxlength="6" required/>
                         <input type="button" class="fashongduanxin i18n" name="sharder-send" onclick="loginCaptcha('username',this)" value="Send" />
                         <input type="hidden" name="captchaToken" />
                     </li>
@@ -109,7 +112,7 @@
                     </#if>
 
                     <li class="forget-pwd">
-                        <button type="button" class="dengluqiehuan" onclick="qiehuanFunc()" id="sharde_denglufangshi" name="">使用密码登陆</button>
+                        <button type="button" class="dengluqiehuan i18n" onclick="qiehuanFunc()" id="sharde_denglufangshi" name="shiyongyanzhengma">Log in with verification code</button>
                         <a class="i18n underline" name="sharder-forget-password" href="/passWord/forgotPwd.ss">Forget password?</a>
                     </li>
                 </ul>
@@ -138,6 +141,5 @@
         }
         qiehuan = !qiehuan;
     }
-
 </script>
 </@lay.htmlBody>

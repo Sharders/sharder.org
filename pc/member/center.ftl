@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/user_center.css" />
 <script src="/r/cms/resource/sharders/layui/lay/modules/layer.js" type="text/javascript" charset="utf-8"></script>
 
-<#--<script src="https://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)" type="text/javascript" charset="utf-8"></script>-->
 <style>
     .bdsharebuttonbox{
         position: absolute;
@@ -34,64 +33,7 @@
 
 
 <div class="container ss-theme-background-color" id="member_center">
-    <#--<div class="subscribe">-->
-        <#--<div class="subscribe-share">-->
-            <#--<span class="subscribe-make i18n" name="sharder-subscribe-share">白名单份额预约</span>-->
-            <#--<span class="subscribe-time i18n" name="sharder-subscribe-start-end">1月18日9:00-1月28日23:59</span>-->
-            <#--<div class="speed-progress">-->
-						<#--<span class="progress">-->
-                            <#--<#if subscribeNumber ??>-->
-                                <#--<#if subscribeNumber gt 1000 >-->
-                                    <#--<span class="line" style="width: 100%"></span>-->
-                                <#--<#else >-->
-                                    <#--<span class="line" style="width: ${subscribeNumber/10!}%"></span>-->
-                                <#--</#if>-->
-                            <#--</#if>-->
 
-
-						<#--</span>-->
-                <#--<span class="total-subscribe i18n" name="sharder-subscribe-total-share">总份额1000ETH(或等价的BTC)</span>-->
-                <#--<span class="subscribe-proportion">-->
-                    <#--<#if subscribeNumber ??>-->
-                        <#--${subscribeNumber/10!}%-->
-                    <#--</#if>-->
-                <#--</span>-->
-            <#--</div>-->
-            <#--<ul class="invitation">-->
-                    <#--<p style="text-align: center" class="i18n" name="subscribe-list">白名单额度排名</p>-->
-                    <#--<#if subscribe0 ??><li><span class="invitation-name"><span class="i18n" name="sharder-account-number">账户：</span>${userName0!}</span><span-->
-                            <#--class="invitation-quota"><span class="i18n" name="sharder-obtain-amount">获得额度:</span>${subscribe0.maxSubscribe!}ETH</span></li></#if>-->
-                    <#--<#if subscribe1 ??><li><span class="invitation-name"><span class="i18n" name="sharder-account-number">账户：</span>${userName1!}</span><span-->
-                            <#--class="invitation-quota"><span class="i18n" name="sharder-obtain-amount">获得额度:</span>${subscribe1.maxSubscribe!}ETH</span></li></#if>-->
-                    <#--<#if userName2 ??><li><span class="invitation-name"><span class="i18n" name="sharder-account-number">账户：</span>${userName2!}</span><span-->
-                            <#--class="invitation-quota"><span class="i18n" name="sharder-obtain-amount">获得额度:</span>${subscribe2.maxSubscribe!}ETH</span></li></#if>-->
-            <#--</ul>-->
-        <#--&lt;#&ndash;<#if !nowSubscribe ??> <button class="ss-main-btn i18n" title="点击成为白名单" id="applyFor" name="sharder-become-subscribe">成为白名单</button></#if>&ndash;&gt;-->
-        <#--</div>-->
-
-        <#--<div class="subscribe-rule">-->
-        <#--&lt;#&ndash;<span class="subscribe-detailed i18n" name="sharder-subscribe-fine">白名单解释</span>&ndash;&gt;-->
-            <#--<span class="title i18n" name="sharder-subscribe-one">白名单说明</span>-->
-            <#--<p class="text i18n" name="sharder-subscribe-second">-->
-                <#--在早鸟轮正式开始前成功注册账号都拥有1个ETH的基础白名单额度。-->
-            <#--</p>-->
-            <#--<span class="title i18n" name="sharder-subscribe-three">白名单额度</span>-->
-            <#--<p class="text i18n" name="sharder-subscribe-four">-->
-                <#--好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度。单个账户额度上限为100ETH。-->
-            <#--</p>-->
-            <#--<span class="title i18n" name="sharder-subscribe-five">白名单奖励:</span>-->
-            <#--<p class="text i18n" name="sharder-subscribe-six">-->
-                <#--早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。-->
-            <#--</p>-->
-            <#--<p class="text i18n" name="sharder-subscribe-seven">-->
-                <#--如拥有1ETH白名单额度，认购总额为3ETH，则换币的计算公式为:1*ETH锁定价/SS单价*(1+20%)+2*ETH锁定价/SS单价。-->
-            <#--</p>-->
-        <#--</div>-->
-        <#--<div class="user-subscribe" style="text-align: center"><span  style="float: left"><span class="i18n" name="sharder-user-subscribe-quota" style="margin-right: 10px">您当前的白名单额度 :</span>${maxSubscribe!"0"}ETH</span>-->
-            <#--<a href="<#if startNow?? && "false"==startNow >javascript:void(0);<#else>/invest/invest_item.ss</#if>" style="border-bottom: 1px solid #fff;color: #fff;margin-left: -168px" class="i18n" name="sharder-early-bird">参与早鸟轮</a>-->
-        <#--</div>-->
-    <#--</div>-->
-        <#--<div style="text-align: center"><img src="/r/cms/resource/sharders/img/index/subscribe_overPC.jpg" id="subscribe-over"></div>-->
     <div class="user">
         <span class="title i18n" name="sharder-user-information">Account Information</span>
         <ul>
@@ -117,7 +59,7 @@
                 </span>
                 <#if userMemo?? && userMemo != ''>
                     <#if userMemo?eval.state || userMemo?eval.status == "SUCCESS">
-                        <span class="user-value i18n" name="sharder_yirenzheng" >In authentication</span>
+                        <span class="user-value i18n" name="sharder_yirenzheng" >Authenticated</span>
                         <#else >
                             <#if userMemo?eval.status == "FAIL">
                                 <span class="user-value i18n" name="sharder-kyc-rezhengshibai" style="color: red">Authentication failed, please resubmit</span>
@@ -133,7 +75,7 @@
             </li>
 
             <li>
-                <span class="user-title i18n" name="sharder-mention-token-address">SS withdrawal address</span>
+                <span class="user-title i18n" name="sharder-mention-token-address">Withdrawal Address</span>
                 <#if user.purseAddress?? && user.purseAddress != ''>
                         <span>${user.purseAddress!}</span>
                     <#else >
@@ -202,19 +144,6 @@
                 <#else >
                     <button class="shengqingsuocang i18n" name="sharders-application-lock" onclick="noKyc()">Apply for lock-up</button>
                 </#if>
-
-
-
-                <#--<button class="shengqingsuocang i18n" name="sharders-application-lock" style="background: #d2d2d2">申请锁仓</button>-->
-
-                <#--<span class="explain"><span class="i18n" name="sharder-subscribe-quota">白名单额度</span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>-->
-                    <#--<div class="popup-subscribe i18n" name="sharder-subscribe-whitelist">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度，单个账户额度上限为100ETH。白名单额度在早鸟轮认购豆匣(SS)时，系统会自动赠送20%的豆匣(SS)。</div></span>-->
-                <#--<span class="currency">ETH</span>-->
-                <#--<span class="quota used">${maxSubscribe!"0"}</span>-->
-                <#--<span class="alreadyUsed"><span class="i18n" name="sharder-available-quota">已使用额度 :</span> ${nowSubscribe!"0"}ETH</span>-->
-
-            <#--<span class="details" v-on:click="isLuck(1)">{{retruenTExt(isOff1)}}</span>-->
-            <#--<span class="details" v-on:click="selectTmpl('fandian')">{{retruenTExt(isOff3)}}</span>-->
             </div>
             <div class="personal crowd-funding">
                 <span class="explain"><span class="i18n" name="sharder-subscribe-income"> SS purchased </span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
@@ -247,7 +176,7 @@
         </div>
         <#if userMemo?? && userMemo != '' && userMemo?eval.state>
             <#if mentionMoney??>
-                <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">Mention SS details</button>
+                <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">Withdraw details</button>
             <#else >
                 <#if amount?? && user.purseAddress?? && usableBalance gt 0>
                     <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">Withdraw SS </button>
@@ -265,14 +194,7 @@
         <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
         <div class="poput-extract i18n" name="sharder-website-direct-investment">The contributions from channels other than crowdsale (smart contract) will be audited and the Sharder tokens will be delivered to your wallet by 0:00 UTC Mar. 18, 2018 (except for the lock-up).</div>
     </div>
-    <#--<div class="rule">-->
-        <#--<p class="text">-->
-            <#--<span class="title i18n" name="sharder-subscribe-eight">返点奖励</span><span class="i18n" name="sharder-subscribe-nine">邀请的好友参与早鸟投资后，您可获得好友认购SS数量*5%的返点，返点无上限。</span>-->
-        <#--</p>-->
-        <#--<p class="text">-->
-            <#--<span class="title i18n" name="sharder-subscribe-ten">空投红利</span><span class="i18n" name="sharder-subscribe-eleven">成功邀请10个以上好友能享受特殊空投红利，具体数量以官网和社区公告为准，符合要求者系统会自动空投到您的豆匣账户。</span>-->
-        <#--</p>-->
-    <#--</div>-->
+
     <div class="edit-password">
         <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen()"/>
         <form method="post" id="userPwd">
@@ -347,7 +269,7 @@
         <table class="ss-table">
             <thead>
                 <tr>
-                    <th class="i18n" data-name="shengqingshijian">Application time</th>
+                    <th class="i18n" data-name="shengqingshijian">Application Time</th>
                     <th class="i18n" data-name="suocangshijian">Lock-up period (year)</th>
                     <th class="i18n" data-name="jiesuoshijian">Unlock time</th>
                     <th class="i18n" data-name="suocangdizi">Lock-up address</th>
@@ -524,7 +446,6 @@
                     isOff3:true,
                     template:"",
                     dataList:"",
-//                    name:"",
                     id:${user.id!},
                     number:10,
                     isOpenWindos:true,
@@ -558,7 +479,7 @@
                         pc.title2={a:$("span[name='sharder-participation-time']").text(),
                             b:$("span[name='sharder-stage-participation']").text(),
                             c:$("span[name='sharder-source']").text(),
-                            i:$("span[name='sharder-bill-status']").text(),
+                            i:$("span[name='sharder-bill-status']:eq(0)").text(),
                             d:$("span[name='sahrder-support-quantity']").text(),
                             e:$("span[name='sharder-award-type']").text(),
                             f:$("span[name='sharder-award-amount']").text(),
@@ -906,14 +827,7 @@
                 })
             });
             window.clearInterval(timeid);
-//            var  language = localStorage.getItem("userLanguage");
-//            if(i18nLanguage == "en"){
-//                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_overPC_en.jpg");
-//            }else if(i18nLanguage == "ko"){
-//                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/subscribe_over_koPC.png");
-//            }else if(i18nLanguage == "ja"){
-//                $("#subscribe-over").attr("src","/r/cms/resource/sharders/img/index/japanese_over_koPC.jpg");
-//            }
+
         }
     },100);
 

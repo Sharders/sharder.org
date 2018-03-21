@@ -50,7 +50,6 @@
     </div>
     <script>
         $(function() {
-
             $('#login #password').focus(function() {
                 $('#owl-login').addClass('password');
             }).blur(function() {

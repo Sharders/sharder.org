@@ -33,7 +33,8 @@
     </fieldset>
     <#include "/WEB-INF/ftl/sharders/pc/admin/bill_filtrate.ftl">
     <table class="layui-hide" id="bill_list" lay-filter="bill_list"></table>
-
+    <#--  分页  -->
+    <div id="page"></div>
 <div>
 
 <#--添加账单的模板 start-->
@@ -48,6 +49,8 @@
 
     var pageNo = 1;  //当前页
     var pageSize = 10;  //每页大小
+
+    var isPaging = false;
     loadDate();
     function loadDate(_data) {
         if(isEmpty(_data)){
@@ -94,15 +97,20 @@
                     ,{fixed: 'right', width:178, align:'center', toolbar: '#barBtns'}
                 ]]
                 ,data:_result.result.data.list
-                    ,id: 'testReload'
-                ,page: true
+                ,limit:pageSize
             });
+
+                if(!isPaging){
+                    isPaging = true;
+                    setPaging(_result.result.data.totalCount);
+                }
+
+
             //监听工具条
             table.on('tool(bill_list)', function(obj){
                 var data = obj.data;
                 if(obj.event === 'look-img'){
                    var arr = sSplit(data.tradeImgAddr);
-
                     if(isNotempty(arr)){
                         layer.open({
                             title:'转账截图',
@@ -110,7 +118,6 @@
                             maxmin: true, //开启最大化最小化按钮
                             content: "<ul id='look_img'></ul>",
                         });
-
                         $.each(arr,function (index,item) {
                             $("#look_img").append("<li class='item'><img class='trade-img' src="+item+"></li>");
                         })
@@ -134,7 +141,27 @@
                 var _data = $("#filtrate-form").serialize();
                 loadDate(_data);
             });
+
+            //generate paging
+            function setPaging(_count) {
+                laypage.render({
+                    elem: 'page'
+                    ,count: _count
+                    ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                    ,jump: function(obj,first){
+                        pageNo = obj.curr;
+                        pageSize = obj.limit;
+                        console.log(obj);
+                        if(!first){
+                            var _data = $("#filtrate-form").serialize();
+                            loadDate(_data);
+                        }
+                    }
+                });
+            }
+
         });
+
 
 
     }

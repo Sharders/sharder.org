@@ -194,8 +194,6 @@
 </script>
 <script>
 
-
-
     var timeid;
     timeid = window.setInterval(function () {
         var PieChart = localStorage.getItem("end-of-translation");

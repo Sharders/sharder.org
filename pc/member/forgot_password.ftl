@@ -92,11 +92,12 @@
 //                alert("执行了");
                 var requestUrl = "/user_center/verification_code.ss";
                 var data = $("#forgot-pwd-form").serialize();
-
+                layer.load(2);
                 commAjax(requestUrl,"post",data,pc.verifyIdentityReuslt);
+
             },
             verifyIdentityReuslt:function(_result){
-
+                layer.closeAll('loading');
                 if (!isTrue(_result.success)){
                     layer.msg(_result.message);
                 }else{
