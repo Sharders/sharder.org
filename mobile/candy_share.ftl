@@ -23,9 +23,9 @@
         <img src="/r/cms/resource/sharders/img/mobile/candyshare/head.png" class="head-img">
         <div class="content">
             <p class="i18n" name="sendCandy">糖果大放送</p>
-            <p><span class="i18n" name="freeGet">免费领取</span>${param.SSOnePrice!'0'}<span class="i18n" name="SSsharder">SS豆匣</span></p>
+            <p><span class="freeget i18n" name="freeGet">免费领取</span>${param.SSOnePrice!'0'}<span class="i18n" name="SSsharder">SS豆匣</span></p>
             <div class="content-data">
-                <label class="label-data i18n" name="sharder-phone-emil">手机/邮箱：</label>
+                <label class="label-data label-data-email i18n" name="sharder-phone-emil">手机/邮箱：</label>
                 <input type="text" name="account" class="info">
             </div>
             <div class="content-data">
@@ -37,7 +37,7 @@
                 <p class="i18n" name="nowget">立即领取</p>
             </div>
             <p class="activity i18n" name="activety-desc">本次活动数量有限，领完即止，豆匣协议保留最终解释权</p>
-            <p class="activity-time i18n" name="time">活动倒计时：<span class="time"></span></p>
+            <p class="activity-time"><span  class="i18n" name="time">活动倒计时：</span> <span class="time"></span></p>
             <div class="foot">
                 <a href="http://www.sharder.org">www.sharder.org</a>
             </div>
@@ -51,13 +51,23 @@
             <div class="cowling-close"> <img src="/r/cms/resource/sharders/img/mobile/candyshare/close.svg"></div>
             <img class="cowling-img" src="/r/cms/resource/sharders/img/mobile/candyshare/reward.png" >
             <p class="cowling-text i18n" name="get-success">领取成功！请使用领取的手机或邮箱账号登录豆匣官网查看奖励。（未在官网注册用户请使用验证码登录）</p>
-            <a class="cowling-chakan i18n" name="now-chakan" href="/login_success.ss">立即查看<a/>
+            <a class="cowling-chakan i18n" name="now-chakan" href="/login.ss">立即查看<a/>
             <a class="cowling-chakan share2 i18n" id="share" name="share-url">分享链接<a/>
-                <p class="cowling-shuoming"><span class="i18n" name="copy-share">复制链接分享给好友,好友领取后您将再获得</span>${param.SSTwoPrice!'0'}<span class="i18n" name="dxjl">豆匣奖励</span></p>
+                <p class="cowling-shuoming"><span class="i18n" name="copy-share">复制链接分享给好友,好友领取后您将再获得</span>${param.SSTwoPrice!'0'}<span class="i18n" name="sharder-dxjl">SS豆匣奖励</span></p>
         </div>
     </div>
 </body>
 <script>
+    var i18nLanguage = localStorage.getItem("userLanguage");
+    var pic =  setLangage("图片","pic","pic","pic");
+    if(pic == "图片"){
+        $(".head-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/head.png");
+        $(".cowling-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/reward.png");
+    }else {
+        $(".cowling-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/reward-english.png");
+        $(".head-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/english-head.png");
+    }
+
     layer = layui.layer;
     layui.use(['util', 'laydate', 'layer','form'], function(){
         var util = layui.util;
@@ -66,7 +76,7 @@
             var endTime = new Date(y, M||0, d||1, H||0, m||0, s||0);//结束日期
             clearTimeout(thisTimer);
             util.countdown(endTime, serverTime, function(date, serverTime, timer){
-                var str = date[0] + '天' + date[1] + '时' +  date[2] + '分' + date[3] + '秒';
+                var str = date[0] +  setLangage("天","d ","d ","d ")  + date[1] + setLangage("时","h ","h ","h ") +  date[2] + setLangage("分","m ","m ","m ") + date[3] + setLangage("秒","s","s","s");
                 lay('.time').html(str);
                 thisTimer = timer;
             });
@@ -87,21 +97,40 @@
     });
 
     function setCloseMsg(msg) {
-        msg =  setLangage(msg);
-        layer.msg(msg, {
+        layer.msg(setCloseMsgLang(msg), {
             shade: [0.5, '#393D49'],
             time:0,
             area: ['166px;', 'auto']
         });
-        $(".time").html("${msg!''}");
+        $(".time").html(setCloseMsgLang(msg));
         $("input").attr("disabled","disabled");
         if(msg=="糖果发放已结束"){
-            $(".time").html("活动结束");
+            $(".time").html(setLangage("活动结束","Closed","Closed","Closed"));
         }
     }
 
-    function setLangage(msg) {
+    function setCloseMsgLang(msg) {
+        if (msg == "活动已关闭") {
+            return setLangage("活动已关闭", "Closed", "Closed", "Closed");
+        } else if (msg == "活动已结束") {
+            return setLangage("活动已结束", "Closed", "Closed", "Closed");
+        } else if (msg == "活动未开始") {
+            return setLangage("活动未开始", "Coming Soon", "Coming Soon", "Coming Soon");
+        } else if (msg == "糖果发放已结束") {
+            return setLangage("活动已结束", "Closed", "Closed", "Closed");
+        }
+    }
 
+    function setLangage(ZhMsg,EmMsg,koMsg,jaMsg) {
+        if(i18nLanguage == "en"){
+            return EmMsg;
+        }else if(i18nLanguage == "ko"){
+            return koMsg;
+        }else if(i18nLanguage == "ja"){
+            return jaMsg;
+        }else {
+            return ZhMsg;
+        }
     }
 </script>
 </html>

@@ -20,9 +20,10 @@
         left: 0;
     }
     #userWalletAddr label.error{
-        width: initial;
-        padding-left: 156px;
-        margin-top: 13px !important;
+        /*width: initial;*/
+        /*padding-left: 156px;*/
+        /*margin-top: 13px !important;*/
+        margin-top: -22px !important;
     }
 </style>
 
@@ -76,12 +77,18 @@
 
             <li>
                 <span class="user-title i18n" name="sharder-mention-token-address">Withdrawal Address</span>
+                <#--<#if user.purseAddress?? && user.purseAddress != ''>-->
+                        <#--<span>${user.purseAddress!}</span>-->
+                    <#--<#else >-->
+                        <#--<span class="user-value i18n" name="wu" >no</span>-->
+                        <#--<span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">Register receiving address</span>-->
+                <#--</#if>-->
                 <#if user.purseAddress?? && user.purseAddress != ''>
                         <span>${user.purseAddress!}</span>
                     <#else >
                         <span class="user-value i18n" name="wu" >no</span>
-                        <span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">Register receiving address</span>
                 </#if>
+                <span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">Register receiving address</span>
             </li>
             <li>
                 <span class="user-title i18n" name="sharder-user-invitation-link">Invitation link: </span><span id="contents" >${invitePage!}?inviterId=${inviterId!}&language=${Request.language!}</span>
@@ -174,25 +181,32 @@
                 <!--<p>当前是第<span v-text="pageNo"></span>页</p>-->
             </div>
         </div>
-        <#if userMemo?? && userMemo != '' && userMemo?eval.state>
-            <#if mentionMoney??>
-                <button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">Withdraw details</button>
-            <#else >
-                <#if amount?? && user.purseAddress?? && usableBalance gt 0>
-                    <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">Withdraw SS </button>
-                <#else >
-                    <button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>
-                </#if>
-            </#if>
-        <#else >
-            <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="noKyc()">Withdraw SS</button>
-        </#if>
-
+        <#--<#if userMemo?? && userMemo != '' && userMemo?eval.state>-->
+            <#--<#if mentionMoney??>-->
+                <#--<button class="currency-ss kedian i18n" name="chakantibixiangqing" onclick="tibixq()">Withdraw details</button>-->
+            <#--<#else >-->
+                <#--<#if amount?? && user.purseAddress?? && usableBalance gt 0>-->
+                    <#--<button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="tibiPopup()">Withdraw SS </button>-->
+                <#--<#else >-->
+                    <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>-->
+                <#--</#if>-->
+            <#--</#if>-->
+        <#--<#else >-->
+            <#--<button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="noKyc()">Withdraw SS</button>-->
+        <#--</#if>-->
 
         <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>-->
 
-        <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
-        <div class="poput-extract i18n" name="sharder-website-direct-investment">The contributions from channels other than crowdsale (smart contract) will be audited and the Sharder tokens will be delivered to your wallet by 0:00 UTC Mar. 18, 2018 (except for the lock-up).</div>
+        <div class="withdraw-ss">
+            <#if usableBalance gt 0>
+                <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="mentionSSfunc()">Withdraw SS</button>
+            <#else >
+                <button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>
+            </#if>
+            <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
+            <div class="poput-extract i18n" name="sharder-website-direct-investment">The contributions from channels other than crowdsale (smart contract) will be audited and the Sharder tokens will be delivered to your wallet by 0:00 UTC Mar. 18, 2018 (except for the lock-up).</div>
+        </div>
+
     </div>
 
     <div class="edit-password">
@@ -224,7 +238,7 @@
         <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen('walletAddr')"/>
         <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
             <h2 class="i18n" name="sharder-set-mention-token-address">Register receiving address</h2>
-            <p class="walletAddr i18n" name="sharder-mention-token-address-attention">Note: once set, the SS withdrawal address can't be changed, please double check.</p>
+            <#--<p class="walletAddr i18n" name="sharder-mention-token-address-attention">Note: once set, the SS withdrawal address can't be changed, please double check.</p>-->
             <#--<p class="walletAddr i18n" name="sharder-mention-token-address-attention">3月1日正式开放</p>-->
             <div class="input-div">
                 <label class="i18n" name="sharder-set-address">Input address</label>
@@ -261,6 +275,7 @@
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
     <#include "/WEB-INF/ftl/sharders/tibi.ftl"/>
     <#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>
+    <#include "/WEB-INF/t/cms/www/sharder.org/pc/member/mentionSS.ftl" />
 <div class="maker"></div>
 
 <script type="text/x-template" id="apply-lock">
@@ -434,6 +449,7 @@
             pc = new Vue({
                 el: "#member_center",
                 data: {
+                    notesDAta:'',//提币记录数据
                     /*默认分页参数 start*/
                     countOfCurrentPage:10, //每页条数
                     currentPage:1, //当前第几页
@@ -464,6 +480,7 @@
                 methods: {
                     //选择要显示的数据
                     selectTmpl:function(_t){
+                        closeMention();//关闭提币记录详情
 
                         $(".personal.crowd-funding").css("border-bottom","0px");
                         $(".personal.rebate").css("border-bottom","0px");
