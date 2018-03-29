@@ -76,7 +76,7 @@
                     <li class="register-protocol">
                         <input type="checkbox" name="protocol" checked><label><span class="i18n" name="sharder-user-protocol">I have read and agree</span>
                         <a id="protocol" class="i18n underline" name="sharder-user-protocol-is">《Terms of Service》</a>
-                        <a id="mallprotocol" class="i18n underline" name="sharder-mall-protocol-is">《Terms of Mall》</a>
+                        <#--<a id="mallprotocol" class="i18n underline" name="sharder-mall-protocol-is">《Terms of Mall》</a>-->
                     </label>
                     </li>
                     <li>

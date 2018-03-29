@@ -50,7 +50,7 @@
                     </li>
 
                     <li id="sharder_captcha" style="display: none">
-                        <label for="Captcha" class="i18n" name="sharder-user-code">Captcha</label>
+                        <label for="Captcha" class="i18n" name="sharder-check-code">Ver. Code</label>
                         <input id="Captcha" name="userCaptcha" class="dengluyanzhenma" type="text" maxlength="6" required/>
                         <input type="button" class="fashongduanxin i18n" name="sharder-send" onclick="loginCaptcha('username',this)" value="Send" />
                         <input type="hidden" name="captchaToken" />

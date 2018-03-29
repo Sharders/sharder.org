@@ -36,7 +36,7 @@
     <#--  分页  -->
     <div id="page"></div>
 <div>
-
+<a href="javascript:;" id="downExcel" onclick="downExcel()">下载Excel文档</a>
 <#--添加账单的模板 start-->
 <#--添加账单的模板 end-->
 <script type="text/html" id="barBtns">
@@ -166,6 +166,11 @@
 
     }
 
+    function downExcel() {
+        var data = $("#filtrate-form").serialize();
+        var url = "/admin/user/bill/serveice/excel.ss";
+        window.location.href = url+"?"+data;
+    }
 </script>
 
 </@layout.htmlBody>

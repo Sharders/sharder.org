@@ -25,6 +25,10 @@
         /*margin-top: 13px !important;*/
         margin-top: -22px !important;
     }
+    button.kedian{
+        background-color: #0BA0D1!important;
+        cursor: pointer!important;
+    }
 </style>
 
 </@layout.htmlHead>
@@ -198,8 +202,12 @@
         <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>-->
 
         <div class="withdraw-ss">
-            <#if usableBalance gt 0>
-                <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="mentionSSfunc()">Withdraw SS</button>
+            <#if usableBalance gt 0 && user.purseAddress?? && user.purseAddress != '' && userMemo?? && userMemo != ''>
+                <#if userMemo?eval.state || userMemo?eval.status == "SUCCESS">
+                    <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="mentionSSfunc()">Withdraw SS</button>
+                <#else >
+                <button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>
+                </#if>
             <#else >
                 <button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>
             </#if>
@@ -273,7 +281,7 @@
     </div>
 </div>
     <#include "/WEB-INF/ftl/sharders/hint/hint.ftl" >
-    <#include "/WEB-INF/ftl/sharders/tibi.ftl"/>
+    <#--<#include "/WEB-INF/ftl/sharders/tibi.ftl"/>-->
     <#include "/WEB-INF/t/cms/www/sharder.org/pc/member/apply_lock.ftl"/>
     <#include "/WEB-INF/t/cms/www/sharder.org/pc/member/mentionSS.ftl" />
 <div class="maker"></div>
@@ -335,6 +343,10 @@
                 <th >{{parentData.title.b}}</th>
                 <th >{{parentData.title.c}}</th>
                 <th >{{parentData.title.d}}</th>
+                <#--{{#if dealBase.awardType == 'TCC_CONVERT'}}-->
+                <#--<td>explain</td>-->
+                <#--{{/if}}-->
+                <th data-name="beizhu" class="i18n">备注</th>
             </tr>
             </thead>
             <tbody>
@@ -345,6 +357,8 @@
                     <#include "/WEB-INF/ftl/sharders/award_type.ftl"/>
                 </td>
                 <td>{{dealBase.awardAmount || '0'}} (SS)</td>
+
+                <td><span  v-if="dealBase.awardType == 'TCC_CONVERT'">{{dealBase.memo}}</span></td>
             </tr>
             </tbody>
         </table>
@@ -562,10 +576,12 @@
                             pc.asset_template = _t;
                         }
                         var requestUrl = "";
+                        var data = pageParams(pc.currentPage,pc.countOfCurrentPage);
                         if(_t == "fandian"){
 //                            requestUrl = "/user_center/invite_awaer.ss";
-                            requestUrl = "/user_center/awaers.ss";
-
+//                            requestUrl = "/user_center/awaers.ss";
+                            requestUrl = "/user_center/bills.ss";
+                            data +="&type=JL"
                         }else if(_t == "zhongchou"){
                             //备用
                             requestUrl = "/user_center/zhong_chou.ss";
@@ -575,7 +591,7 @@
                         }else{
 
                         }
-                        var data = pageParams(pc.currentPage,pc.countOfCurrentPage);
+
                         commAjax(requestUrl,"get",data,pc.loadDealbaseResult);
                         setTimeout(function () {
                             layer.closeAll('loading');
@@ -764,7 +780,6 @@
                        }else{
                            pc.isOffText.off1=$("span[name='suocanglock']").text();
                        }
-
                         if(pc.isOff3){
                             pc.isOffText.off2=$("span[name='sharder-details-info-close']").text();
                         }else{
@@ -776,7 +791,6 @@
                         }else{
                             pc.isOffText.off3=$("span[name='sharder-details']").text();
                         }
-
                     },
                     isShowDetail:function () {
                         //全部都关闭了
@@ -789,7 +803,6 @@
                         }
                         alert(pc.showDetail);
                     },
-
                 },
                 components:{
                     'baimingdan':{

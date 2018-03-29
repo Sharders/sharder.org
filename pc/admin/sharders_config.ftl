@@ -12,7 +12,7 @@
     -->
 
 <table class="layui-hide" id="sharders_config" lay-filter="config"></table>
-
+<a href="/admin/config/excel.ss">下载Excel文档</a>
 <script id="edit_config" type="text/html">
     <form class="layui-form" action="">
         <div class="layui-form-item">

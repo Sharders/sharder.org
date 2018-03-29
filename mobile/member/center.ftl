@@ -169,6 +169,7 @@
             <span class="subscribe-table">{{parentData.title.b}}</span>
             <span class="subscribe-table">{{parentData.title.c}}</span>
             <span class="subscribe-table">{{parentData.title.d}}</span>
+            <span data-name="beizhu" class="subscribe-table i18n">备注</span>
         </p>
 
         <ul class="subscribe-ul">
@@ -180,7 +181,7 @@
                 </span>
 
                 <span class="subscribe-table">{{dealBase.awardAmount || '0'}} (SS)</span>
-
+                <span class="subscribe-table" v-if="dealBase.awardType == 'TCC_CONVERT'">{{dealBase.memo}}</span>
             </li>
         </ul>
     </div>
@@ -238,13 +239,14 @@
                     },
                     paging:function () {
                         var url= "";
+                        var data = "pageNo="+app.currentPage;
                         if(app.template=="fandian"){
 //                            url= "/user_center/invite_awaer.ss";
-                            url = "/user_center/awaers.ss";
+                            url = "/user_center/bills.ss";
+                            data +="&type=JL";
                         }else if(app.template == "zhongchou"){
                             url= "/user_center/zhong_chou.ss";
                         }
-                        var data = "pageNo="+app.currentPage;
                         commAjax(url,"GET",data,app.pagingResult);
                     },
                     pagingResult:function (_result) {
