@@ -12,7 +12,9 @@
     -->
 
 <table class="layui-hide" id="sharders_config" lay-filter="config"></table>
-<a href="/admin/config/excel.ss">下载Excel文档</a>
+<div style="text-align: center">
+    <button class="layui-btn layui-btn-warm layui-btn-radius" onclick="downExcel()">下载Excel文档</button>
+</div>
 <script id="edit_config" type="text/html">
     <form class="layui-form" action="">
         <div class="layui-form-item">
@@ -115,6 +117,18 @@
             }
         }
     });
+
+    function downExcel() {
+        layer.msg('确认下载Excel文档吗?', {
+            time: 20000, //20s后自动关闭
+            btn: ['确定', '取消'],
+            yes:function () {
+                layer.close(layer.index);
+                window.open("/admin/config/excel.ss");
+            }
+        });
+    }
+
 </script>
 <script type="text/html" id="barBtns">
     <a class="layui-btn layui-btn-xs layui-bg-blue" lay-event="edit">编辑</a>

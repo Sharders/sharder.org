@@ -35,8 +35,10 @@
     <table class="layui-hide" id="bill_list" lay-filter="bill_list"></table>
     <#--  分页  -->
     <div id="page"></div>
+    <div style="text-align: center">
+        <button class="layui-btn layui-btn-warm layui-btn-radius" onclick="downExcel()">下载Excel文档</button>
+    </div>
 <div>
-<a href="javascript:;" id="downExcel" onclick="downExcel()">下载Excel文档</a>
 <#--添加账单的模板 start-->
 <#--添加账单的模板 end-->
 <script type="text/html" id="barBtns">
@@ -167,9 +169,16 @@
     }
 
     function downExcel() {
-        var data = $("#filtrate-form").serialize();
-        var url = "/admin/user/bill/serveice/excel.ss";
-        window.location.href = url+"?"+data;
+        layer.msg('确认下载Excel文档吗?', {
+            time: 20000, //20s后自动关闭
+            btn: ['确定', '取消'],
+            yes:function () {
+                var data = $("#filtrate-form").serialize();
+                var url = "/admin/user/bill/serveice/excel.ss";
+                layer.close(layer.index);
+                window.open(url+"?"+data);
+            }
+        });
     }
 </script>
 
