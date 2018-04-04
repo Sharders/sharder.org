@@ -579,7 +579,6 @@
                         var data = pageParams(pc.currentPage,pc.countOfCurrentPage);
                         if(_t == "fandian"){
 //                            requestUrl = "/user_center/invite_awaer.ss";
-//                            requestUrl = "/user_center/awaers.ss";
                             requestUrl = "/user_center/bills.ss";
                             data +="&type=JL"
                         }else if(_t == "zhongchou"){
