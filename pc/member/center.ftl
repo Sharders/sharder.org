@@ -92,7 +92,11 @@
                     <#else >
                         <span class="user-value i18n" name="wu" >no</span>
                 </#if>
-                <span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">Register receiving address</span>
+                <#if !user.purseAddress??>
+                    <span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">Register receiving address</span>
+                <#else >
+                    <span id="sztbdz" class="user-operation win-open i18n" name="sharder-edit-mention-token-address"  v-on:click="winOpen('walletAddr')">修改提币地址</span>
+                </#if>
             </li>
             <li>
                 <span class="user-title i18n" name="sharder-user-invitation-link">Invitation link: </span><span id="contents" >${invitePage!}?inviterId=${inviterId!}&language=${Request.language!}</span>
@@ -245,7 +249,12 @@
     <div class="edit-wallet-addr">
         <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen('walletAddr')"/>
         <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
-            <h2 class="i18n" name="sharder-set-mention-token-address">Register receiving address</h2>
+            <#if !user.purseAddress??>
+                    <h2 class="i18n" name="sharder-set-mention-token-address">Register receiving address</h2>
+            <#else >
+                   <h2 class="i18n" name="sharder-edit-mention-token-address">修改提币地址</h2>
+            </#if>
+
             <#--<p class="walletAddr i18n" name="sharder-mention-token-address-attention">Note: once set, the SS withdrawal address can't be changed, please double check.</p>-->
             <#--<p class="walletAddr i18n" name="sharder-mention-token-address-attention">3月1日正式开放</p>-->
             <div class="input-div">
@@ -681,17 +690,26 @@
                                 return false;
                             }
                             var setAddrload = layer.load(2);
-                            var url = "/save/wallet/address.ss";
+                            var url = "/user_center/save/wallet/address.ss";
                             var data= $("#userWalletAddr").serialize();
                             commAjax(url,"post",data,function (result) {
                                 layer.close(setAddrload);
+                                console.info(result);
                                 if(result.success){
                                     layer.msg($("span[name='sztbdzcg']").text());
                                     pc.winOpen('walletAddr');
                                     location.reload();
-                                }else{
+                                    return;
+                                }
+
+                                if(result.code == "INVALID_FORMAT"){
+                                    layer.msg($("labal[name='sharder-tishi-geshiyichang']").text());
+                                }else if(result.code == "SET_NUMBER_OVER"){
+                                    layer.msg($("span[name='sharder-set-addr-number-over']").text());
+                                }else {
                                     layer.msg($("span[name='sztbdzsb']").text());
                                 }
+
                             });
                         }
                     }

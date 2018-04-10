@@ -1,6 +1,7 @@
 <@layout.htmlHead title="白名单列表"  >
 <link rel="stylesheet" href="/r/cms/resource/sharders/admin/css/subscribe_list.css" />
 </@layout.htmlHead>
+
 <@layout.htmlBody>
 <#--功能描述
     查询白名单，修改单个人的白名单额度
@@ -171,20 +172,20 @@
             localStorage.setItem("subscribeData",JSON.stringify(data));
 //            layer.alert('编辑行：<br>'+ JSON.stringify(data));
             var index = layer.open({
-                title: "修改用户信息",
-                type: 2,
-                offset: 'auto',
-                area: ['720px', '560px'],
-                content: "/r/cms/resource/sharders/admin/html/subscribe_list.html",
-            });
-            myData=data;
-        });
-        layui.select = function() {
-            var url = "/subscribe/conditional_query.ss";
-            var _data = $("form.layui-form").serialize();
-            AsynchronousRequest("POST",url,_data,callback);
-        };
-    });
+title: "修改用户信息",
+type: 2,
+offset: 'auto',
+area: ['720px', '560px'],
+content: "/r/cms/resource/sharders/admin/html/subscribe_list.html",
+});
+myData=data;
+});
+layui.select = function() {
+var url = "/subscribe/conditional_query.ss";
+var _data = $("form.layui-form").serialize();
+AsynchronousRequest("POST",url,_data,callback);
+};
+});
 </script>
 
 
