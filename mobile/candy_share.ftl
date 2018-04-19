@@ -74,139 +74,140 @@
         <img src="/r/cms/resource/sharders/img/mobile/candyshare/jiantou.png" class="jiantou">
     </div>
 </div>
-</body>
-<script>
-    var pic =  setLangage("图片","pic","pic","pic");
-    if(pic == "图片"){
-        $(".head-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/head.png");
-        $(".cowling-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/reward.png");
-    }else {
-        $(".cowling-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/reward-english.png");
-        $(".head-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/english-head.png");
-    }
+    <script type="text/javascript">
+        var pic =  setLangage("图片","pic","pic","pic");
+        if(pic == "图片"){
+            $(".head-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/head.png");
+            $(".cowling-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/reward.png");
+        }else {
+            $(".cowling-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/reward-english.png");
+            $(".head-img").attr("src","/r/cms/resource/sharders/img/mobile/candyshare/english-head.png");
+        }
 
-    layer = layui.layer;
-    layui.use(['util', 'laydate', 'layer','form'], function(){
-        var util = layui.util;
-        //倒计时
-        var thisTimer, setActiveCountdown = function(y, M, d, H, m, s,serverTime){
-            var endTime = new Date(y, M||0, d||1, H||0, m||0, s||0);//结束日期
-            clearTimeout(thisTimer);
-            util.countdown(endTime, serverTime, function(date, serverTime, timer){
-                var str = date[0] +  setLangage("天","d ","d ","d ")  + date[1] + setLangage("时","h ","h ","h ") +  date[2] + setLangage("分","m ","m ","m ") + date[3] + setLangage("秒","s","s","s");
-                lay('.time').html(str);
-                thisTimer = timer;
-            });
-        };
+        layer = layui.layer;
+        layui.use(['util', 'laydate', 'layer','form'], function(){
+            var util = layui.util;
+            //倒计时
+            var thisTimer, setActiveCountdown = function(y, M, d, H, m, s,serverTime){
+                var endTime = new Date(y, M||0, d||1, H||0, m||0, s||0);//结束日期
+                clearTimeout(thisTimer);
+                util.countdown(endTime, serverTime, function(date, serverTime, timer){
+                    var str = date[0] +  setLangage("天","d ","d ","d ")  + date[1] + setLangage("时","h ","h ","h ") +  date[2] + setLangage("分","m ","m ","m ") + date[3] + setLangage("秒","s","s","s");
+                    lay('.time').html(str);
+                    thisTimer = timer;
+                });
+            };
         <#if flag??>
             setCloseMsg("${msg!''}");
         <#else >
             setTime();
         </#if>
 
-    <#if json??>
-        <#if json.code==1>
-            getSuccess("${json.userId!""}");   //第一次领取
-        <#elseif json.code==2>
-            getAgainSuccess("${json.userId!""}");  //第二次领取
-        <#else>
-            layer.msg("${json.msg!''}");
+        <#if json??>
+            <#if json.code==1>
+                getSuccess("${json.userId!""}");   //第一次领取
+            <#elseif json.code==2>
+                getAgainSuccess("${json.userId!""}");  //第二次领取
+            <#else>
+                layer.msg("${json.msg!''}");
+            </#if>
         </#if>
-    </#if>
 
-        function setTime() {
-            var systemTime="${systemTime?string("yyyy-MM-dd HH:mm:ss")}";
-            var aEndTime = "${param.endTime!'0'}";
-            var end = new Date(Date.parse(aEndTime.replace(/-/g, "/")));
-            var systime = new Date(Date.parse(systemTime.replace(/-/g, "/")));
-            setActiveCountdown(end.getFullYear(),end.getMonth(),end.getDate(),end.getHours(),end.getMinutes(),end.getSeconds(),systime);
-        }
-    });
-
-    function getAgainSuccess(id) {
-        $('.cowling-text').css("min-height","100px").css("line-height","29px").html( setLangage( "您已经领取过奖励了，请点击下面分享链接给好友，获取更多奖励!",
-                "Reward granted. More reward available if you share the referral link below with others.",
-                "Reward granted. More reward available if you share the referral link below with others.",
-                "Reward granted. More reward available if you share the referral link below with others."));
-        if(i18nLanguage != "zh-CN"){
-            $('.cowling-text').css("line-height","18px")
-        }
-        getSuccess(id);
-    }
-
-    function getSuccess(id){
-        var url = "http://"+window.location.host + "/candy/share.ss?inviterId="+id;
-        $('.cowling').show("fast");
-        $('#share').click(function () {
-            if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {   //如果是移动端的分享,就提示用浏览器自带的分享进行操作
-                if(is_weixn_qq()){
-                    $(".cowling-share").show("fast").click(function () {
-                        $(".cowling-share").hide("fast");
-                        move();
-                    }).find(".uprow").show("fast").parent(".cowling-share").find(".sharetips").hide();
-                    stop();
-                }else {
-                    $(".cowling-share").show("fast").click(function () {
-                        $(".cowling-share").hide("fast");
-                        move();
-                    }).find(".sharetips").show("fast").parent(".cowling-share").find(".uprow").hide();
-                    stop();
-                }
-            } else {
-                jsCopy(url);
-            };
-
+            function setTime() {
+                var systemTime="${systemTime?string("yyyy-MM-dd HH:mm:ss")}";
+                var aEndTime = "${param.endTime!'0'}";
+                var end = new Date(Date.parse(aEndTime.replace(/-/g, "/")));
+                var systime = new Date(Date.parse(systemTime.replace(/-/g, "/")));
+                setActiveCountdown(end.getFullYear(),end.getMonth(),end.getDate(),end.getHours(),end.getMinutes(),end.getSeconds(),systime);
+            }
         });
-    }
 
-    var mo=function(e){e.preventDefault();};
-
-    /***禁止滑动***/
-    function stop(){
-        document.body.style.overflow='hidden';
-        document.addEventListener("touchmove",mo,false);//禁止页面滑动
-    }
-
-    /***取消滑动限制***/
-    function move(){
-        document.body.style.overflow='';//出现滚动条
-        document.removeEventListener("touchmove",mo,false);
-    }
-
-    function setCloseMsg(msg) {
-        layer.msg(setCloseMsgLang(msg), {
-            shade: [0.5, '#393D49'],
-            time:0,
-            area: ['166px;', 'auto']
-        });
-        $(".time").html(setCloseMsgLang(msg));
-        $("input").attr("disabled","disabled");
-        if(msg=="糖果发放已结束"){
-            $(".time").html(setLangage("活动结束","Closed","Closed","Closed"));
+        function getAgainSuccess(id) {
+            $('.cowling-text').css("min-height","100px").css("line-height","29px").html( setLangage( "您已经领取过奖励了，请点击下面分享链接给好友，获取更多奖励!",
+                    "Reward granted. More reward available if you share the referral link below with others.",
+                    "Reward granted. More reward available if you share the referral link below with others.",
+                    "Reward granted. More reward available if you share the referral link below with others."));
+            if(i18nLanguage != "zh-CN"){
+                $('.cowling-text').css("line-height","18px")
+            }
+            getSuccess(id);
         }
-    }
 
-    function setCloseMsgLang(msg) {
-        if (msg == "活动已关闭") {
-            return setLangage("活动已关闭", "Closed", "Closed", "Closed");
-        } else if (msg == "活动已结束") {
-            return setLangage("活动已结束", "Closed", "Closed", "Closed");
-        } else if (msg == "活动未开始") {
-            return setLangage("活动未开始", "Coming Soon", "Coming Soon", "Coming Soon");
-        } else if (msg == "糖果发放已结束") {
-            return setLangage("活动已结束", "Closed", "Closed", "Closed");
+        function getSuccess(id){
+            var url = "http://"+window.location.host + "/candy/share.ss?inviterId="+id;
+            $('.cowling').show("fast");
+            $('#share').click(function () {
+                if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {   //如果是移动端的分享,就提示用浏览器自带的分享进行操作
+                    if(is_weixn_qq()){
+                        $(".cowling-share").show("fast").click(function () {
+                            $(".cowling-share").hide("fast");
+                            move();
+                        }).find(".uprow").show("fast").parent(".cowling-share").find(".sharetips").hide();
+                        stop();
+                    }else {
+                        $(".cowling-share").show("fast").click(function () {
+                            $(".cowling-share").hide("fast");
+                            move();
+                        }).find(".sharetips").show("fast").parent(".cowling-share").find(".uprow").hide();
+                        stop();
+                    }
+                } else {
+                    jsCopy(url);
+                };
+
+            });
         }
-    }
 
-    function is_weixn_qq(){
-        var ua = navigator.userAgent.toLowerCase();
-        if(ua.match(/MicroMessenger/i)=="micromessenger") {
-            return true;
-        } else if (ua.match(/qq\//i) == "qq/") {
-            return true;
+        var mo=function(e){e.preventDefault();};
+
+        /***禁止滑动***/
+        function stop(){
+            document.body.style.overflow='hidden';
+            document.addEventListener("touchmove",mo,false);//禁止页面滑动
         }
-        return false;
-    }
 
-</script>
+        /***取消滑动限制***/
+        function move(){
+            document.body.style.overflow='';//出现滚动条
+            document.removeEventListener("touchmove",mo,false);
+        }
+
+        function setCloseMsg(msg) {
+            layer.msg(setCloseMsgLang(msg), {
+                shade: [0.5, '#393D49'],
+                time:0,
+                area: ['166px;', 'auto']
+            });
+            $(".time").html(setCloseMsgLang(msg));
+            $("input").attr("disabled","disabled");
+            if(msg=="糖果发放已结束"){
+                $(".time").html(setLangage("活动结束","Closed","Closed","Closed"));
+            }
+        }
+
+        function setCloseMsgLang(msg) {
+            if (msg == "活动已关闭") {
+                return setLangage("活动已关闭", "Closed", "Closed", "Closed");
+            } else if (msg == "活动已结束") {
+                return setLangage("活动已结束", "Closed", "Closed", "Closed");
+            } else if (msg == "活动未开始") {
+                return setLangage("活动未开始", "Coming Soon", "Coming Soon", "Coming Soon");
+            } else if (msg == "糖果发放已结束") {
+                return setLangage("活动已结束", "Closed", "Closed", "Closed");
+            }
+        }
+
+        function is_weixn_qq(){
+            var ua = navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                return true;
+            } else if (ua.match(/qq\//i) == "qq/") {
+                return true;
+            }
+            return false;
+        }
+
+    </script>
+</body>
+
 </html>

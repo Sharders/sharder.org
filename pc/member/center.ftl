@@ -349,13 +349,15 @@
             <thead>
             <tr>
                 <#--<th class="i18" name="friend-regid">{{parentData.title.a}}</th>-->
-                <th >{{parentData.title.b}}</th>
-                <th >{{parentData.title.c}}</th>
-                <th >{{parentData.title.d}}</th>
-                <#--{{#if dealBase.awardType == 'TCC_CONVERT'}}-->
-                <#--<td>explain</td>-->
-                <#--{{/if}}-->
-                <th data-name="beizhu" class="i18n">备注</th>
+                <#--<th >{{parentData.title.b}}</th>-->
+                <#--<th >{{parentData.title.c}}</th>-->
+                <#--<th >{{parentData.title.d}}</th>-->
+                <th data-name="sharder-participation-time" class="i18n">Time</th>
+                <th data-name="sharder-award-type" class="i18n">Reward type</th>
+                <th data-name="sharder-award-amount" class="i18n">Bonus amount</th>
+                <th data-name="sharder-bill-status" class="i18n">Status</th>
+                <th data-name="beizhu" class="i18n">Remark</th>
+
             </tr>
             </thead>
             <tbody>
@@ -366,6 +368,13 @@
                     <#include "/WEB-INF/ftl/sharders/award_type.ftl"/>
                 </td>
                 <td>{{dealBase.awardAmount || '0'}} (SS)</td>
+
+                <td>
+                    <span v-if="dealBase.status == 1">
+                        normal
+                    </span>
+                    <span v-else>failure</span>
+                </td>
 
                 <td><span  v-if="dealBase.awardType == 'TCC_CONVERT'">{{dealBase.memo}}</span></td>
             </tr>
@@ -509,12 +518,12 @@
                         $(".personal.rebate").css("border-bottom","0px");
                         $(".personal.applu-lock").css("border-bottom","0px");
                         pc.dealBases = "";
-                        pc.title={a:$("span[name='sharder-registrant-uid']").text(),
-                            b:$("span[name='sharder-participation-time']").text(),
-                            c:$("div>span[name='sharder-award-type']").text(),
-                            d:$("span[name='sharder-award-amount']").text(),
-                            e:$("span[name='sharder-details-benefits']").text(),
-                            f:$("span[name='sharder-details-immediately']").text()};
+//                        pc.title={a:$("span[name='sharder-registrant-uid']").text(),
+//                            b:$("span[name='sharder-participation-time']").text(),
+//                            c:$("div>span[name='sharder-award-type']").text(),
+//                            d:$("span[name='sharder-award-amount']").text(),
+//                            e:$("span[name='sharder-details-benefits']").text(),
+//                            f:$("span[name='sharder-details-immediately']").text()};
 
                         pc.title2={a:$("span[name='sharder-participation-time']").text(),
                             b:$("span[name='sharder-stage-participation']").text(),

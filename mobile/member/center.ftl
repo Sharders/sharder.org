@@ -6,6 +6,15 @@
     .language-icon{
         top: 0px !important;
     }
+    .subscribe-body .subscribe-head , .subscribe-body .subscribe-ul li{
+        display: flex;
+        justify-content:space-around ;
+    }
+    .subscribe-body .subscribe-head span{
+        display: inline-block;
+        width: 100%;
+    }
+
 </style>
 </@lay.htmlHead>
 
@@ -60,36 +69,7 @@
             <div id="page"></div>
         </div>
     </div>
-    <#--<div class="subscribe-information">-->
-        <#--<h1 class="phone-center-information-title i18n" name="white-list-reservation">白名单额度预约</h1>-->
-        <#--<p class="subscribe-start-end-time i18n" name="white-list-time">时间1月18日9:00-1月28日23.59</p>-->
-        <#--<span class="subscribe-line">-->
-            <#--<#if subscribeNumber gt 1000 >-->
-                <#--<span style="width: 100%"></span>-->
-            <#--<#else >-->
-                <#--<span style="width: ${subscribeNumber/10!}%"></span>-->
-            <#--</#if>-->
-        <#--</span>-->
-        <#--<p class="subscribe-line-text"><span class="i18n" name="total-share">总份额: <span>1000</span></span><span class="i18n" name="dengjia">ETH(或等价的BTC)</span><span class="line-number">${subscribeNumber/10!}%</span></p>-->
-        <#--<ul class="subscribe-user-list">-->
-            <#--<#if userName0??><li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName0!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span><#if subscribe0 ??>${subscribe0.maxSubscribe!}</#if></span><span>ETH</span></li></#if>-->
-            <#--<#if userName1??><li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName1!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span><#if subscribe1 ??>${subscribe1.maxSubscribe!}</#if></span><span>ETH</span></li></#if>-->
-            <#--<#if userName2??> <li><span class="username-list"><span class="i18n" name="sharder-account-number">账户:</span>${userName2!}</span><span class="i18n" name="sharder-obtain-amount">获得额度:</span><span><#if subscribe2 ??>${subscribe2.maxSubscribe!}</#if></span><span>ETH</span></li></#if>-->
-        <#--</ul>-->
-        <#--<p class="subscribe-quota">-->
-            <#--<span class="i18n" name="sharder-you-subscribe-is">你当前的白名单额度为:</span><span>${maxSubscribe!}ETH</span><span class="subscribe-quota-info"><span class="i18n" name="nowsubscribe-total">已经使用额度:</span>${nowSubscribe!"0"}ETH</span>-->
-        <#--</p>-->
-        <#--<div class="subscribe-info-text">-->
-            <#--<p  class="subscribe-info-title i18n" name="sharder-subscribe-fine">白名单解释</p>-->
-            <#--<p class="subscribe-information-title i18n" name="sharder-subscribe-one">白名单说明</p>-->
-            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-second">在早鸟轮正式开始前成功注册账号都拥有1个ETH的基础白名单额度</p>-->
-            <#--<p class="subscribe-information-title i18n" name="sharder-subscribe-three">白名单额度</p>-->
-            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-four">好友通过您分享的专属链接或邀请码注册，每注册成功1人会增加1个ETH的白名单额度。单个账户额度上限为100ETH。</p>-->
-            <#--<p class="subscribe-information-title i18n" name="sharder-subscribe-five">白名单奖励</p>-->
-            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-six">早鸟轮认购豆匣币(SS)时，系统会自动赠送20%的豆匣币(SS)。</p>-->
-            <#--<p class="subscribe-information-text i18n" name="sharder-subscribe-seven"> 如拥有1ETH白名单额度，认购总额为3ETH，则换币的计算公式为:1*ETH锁定价/SS单价*(1+20%)+2*ETH锁定价/SS单价。</p>-->
-        <#--</div>-->
-    <#--</div>-->
+
 </div>
 <div style="display: none">
     <span class="i18n" name="shader-storage-token">Sharder tokens that exchanged with other tokens, such as ETH and BTC.</span>
@@ -166,10 +146,11 @@
 <script type="text/x-template" id="rebate_details_mb">
     <div class="rebate-details subscribe-body">
         <p class="subscribe-head">
-            <span class="subscribe-table">{{parentData.title.b}}</span>
-            <span class="subscribe-table">{{parentData.title.c}}</span>
-            <span class="subscribe-table">{{parentData.title.d}}</span>
-            <span data-name="beizhu" class="subscribe-table i18n">备注</span>
+            <span data-name="sharder-participation-time" class="i18n">Time</span>
+            <span data-name="sharder-award-type" class="i18n">Reward type</span>
+            <span data-name="sharder-award-amount" class="i18n">Bonus amount</span>
+            <span  data-name="sharder-bill-status" class="i18n">Status</span>
+            <span data-name="beizhu" class="i18n">Remark</span>
         </p>
 
         <ul class="subscribe-ul">
@@ -181,7 +162,14 @@
                 </span>
 
                 <span class="subscribe-table">{{dealBase.awardAmount || '0'}} (SS)</span>
-                <span class="subscribe-table" v-if="dealBase.awardType == 'TCC_CONVERT'">{{dealBase.memo}}</span>
+
+                <span class="subscribe-table">
+                    <span v-if="dealBase.status == 1">
+                        normal
+                    </span>
+                    <span v-else>failure</span>
+                </span>
+                <span class="subscribe-table"><span  v-if="dealBase.awardType == 'TCC_CONVERT'">{{dealBase.memo}}</span>sss</span>
             </li>
         </ul>
     </div>

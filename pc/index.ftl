@@ -4,12 +4,11 @@
     <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/index.css">
     <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/common.css">
     <script src="${resSys}/resource/sharders/js/unslider.min.js" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/video-js.css">
+
 </@layout.htmlHead>
 
 <@layout.htmlBody>
-
-
-
 
 <#--${content}-->
 <div class="index" id="index" onload="showTeam('douxia')">
@@ -149,6 +148,7 @@
        <@indexTpl.sharderDApp/>
     </section>
 
+    <@indexTpl.introduceVido/>
     <section class="ss-container sharder-team-main tail">
         <div class="ss-main">
             <div class="ss-main-title ss-main-btn theme">

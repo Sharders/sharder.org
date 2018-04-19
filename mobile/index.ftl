@@ -133,7 +133,7 @@
     <section class="ss-container sharder-use-main">
         <@indexTpl.sharderDApp/>
     </section>
-
+    <@indexTpl.introduceVido/>
     <section class="ss-container sharder-team-main">
         <div class="ss-main">
             <div class="ss-main-title ss-main-btn theme">
