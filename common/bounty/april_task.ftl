@@ -80,39 +80,37 @@
 </div>
     <div class="sharder_main">
         <div class="sharder_bounty_banner">
-            <h2 class="bounty_banner_titel i18n" name="sharder_activity">豆匣活动进行中!</h2>
-            <p class="bounty_banner_info i18n" name="sharder_activity_reward">参与活动免费获得豆匣SS奖励</p>
+            <h2 class="bounty_banner_titel i18n" name="sharder_activity">Sharder events on</h2>
+            <p class="bounty_banner_info i18n" name="sharder_activity_reward">Join and get SS for free</p>
         </div>
         <div class="sharder_invitation">
             <h3 class="sharder_invitation_title">
-                <span class="i18n" name="sharder_invitation_activity_reward">邀请好友参与活动得返利</span><br>
-                <span class="i18n info" name="sharder_invitation_activity_reward_info">（好友参与活动完成“任务2”后你将获得30SS奖励）</span>
+                <span class="i18n" name="sharder_invitation_activity_reward">Invite friends and get reward</span><br>
+                <span class="i18n info" name="sharder_invitation_activity_reward_info">（Friends join official Telegram and you’ll get 30 SS）</span>
             </h3>
             <div class="sharder_copy_link">
                 <span class="copy_link"
                       id="copy_link">${invitePage!}?inviterId=${inviterId!}&language=${Request.language!}</span>
                 <button type="button" class="btn_copy_link i18n" name="sharder-copy"
-                        onclick="copyTextById('copy_link')">复制链接
+                        onclick="copyTextById('copy_link')">Copy
                 </button>
             </div>
             <p class="sharder_user_invitation">
                 <span class="sharder_invite_number i18n"
-                      name="sharder-user-parent">活动邀请请人数</span><span>${inviteSum!0}</span>
+                      name="sharder-user-parent">Invitation</span><span>${inviteSum!0}</span>
             </p>
             <span class="april_onclilke i18n" name="sharder_details_april_task_user"
-                  onclick="bountyUser()">查看邀请详情</span>
+                  onclick="bountyUser()">Find details</span>
             <table class="april_task_table" id="april_task_table" style="display: none">
                 <tr class="april_task_table_title">
-                    <th class="i18n" name="sharder-registrant-time">注册时间</th>
-                    <th class="i18n" name="sharder-sign-in-username">用户名</th>
-                <#--<th class="i18n" name="friend-invite-reward">邀请奖励</th>-->
-                    <th class="i18n" name="sharder-deal-base">任务奖励</th>
+                    <th class="i18n" name="sharder-registrant-time">Sign up time </th>
+                    <th class="i18n" name="sharder-sign-in-username">Nickname</th>
+                    <th class="i18n" name="sharder-deal-base">Bonus</th>
                 </tr>
                 <tr class="april_task_table_info" v-for="data in ssCandy">
                     <td>{{data.createTime}}</td>
                     <td v-if="data.email != ''">{{data.email}}</td>
                     <td v-else>{{data.phone}}</td>
-                <#--<td>{{data.oneCandyNum}}</td>-->
                     <td>{{data.twoCandyNum}}</td>
                 </tr>
             </table>
@@ -120,7 +118,7 @@
         </div>
         <button class="sharder_task_pane">
             <img src="/r/cms/resource/sharders/img/index/task_pane.png" class="task_pane_img">
-            <span class="task_pane_title i18n" name="sharder_activity_details">活动列表</span>
+            <span class="task_pane_title i18n" name="sharder_activity_details">Events list</span>
         </button>
         <ul class="sharder_bounty">
 
@@ -129,19 +127,19 @@
                 <p class="bounty_task_title">
                     <button class="number_img">1</button>
                     <label class="bounty_task_line" for="sharder_drop">
-                        <span class="title_text"><span class="i18n" name="airspace_for_sharder">免费领空投</span>(<span
-                                class="sharder_number"><span class="i18n" name="sharder_reward">奖励</span>+<span
+                        <span class="title_text"><span class="i18n" name="airspace_for_sharder">Withdraw airdropped SS</span>(<span
+                                class="sharder_number"><span class="i18n" name="sharder_reward">Reward</span>+<span
                                 class="sharder_activity_reward">30</span>SS</span>)</span>
                     </label>
                 </p>
                 <ul class="bouty_task_main">
-                    <li class="link_info i18n" name="sharder_a_reward_title">点击下方链接免费豆匣领空投</li>
+                    <li class="link_info i18n" name="sharder_a_reward_title">Click the link below and withdraw airdropped SS</li>
                     <li class="task_core">
                         <button><a href="/candy/share.ss">https://sharder.org/candy/share.ss</a></button>
                     </li>
                 <#--<li class="task_input_info">-->
-                <#--<span class="i18n" name="sharder_reward_invitation">邀请好友注册领取后你将再次获得</span>-->
-                <#--<span class="sharder_activity_reward">50</span>SS<span class="i18n" name="sharder_reward">奖励</span>-->
+                <#--<span class="i18n" name="sharder_reward_invitation">Invite friends to register and you’ll get</span>-->
+                <#--<span class="sharder_activity_reward">50</span>SS<span class="i18n" name="sharder_reward">Reward</span>-->
                 <#--</li>-->
                 </ul>
             </li>
@@ -171,20 +169,20 @@
         <#--<p class="bounty_task_title">-->
         <#--<button class="number_img">2</button>-->
         <#--<label class="bounty_task_line" for="sharder_telegraph">-->
-        <#--<span class="title_text"><span class="i18n" name="sharder_telegraph_input">加入官方电报群</span>(<span-->
-        <#--class="sharder_number"><span class="i18n" name="sharder_reward">奖励</span>+<span class="sharder_activity_reward">30</span>SS</span>)</span>-->
+        <#--<span class="title_text"><span class="i18n" name="sharder_telegraph_input">Join official Telegram</span>(<span-->
+        <#--class="sharder_number"><span class="i18n" name="sharder_reward">Reward</span>+<span class="sharder_activity_reward">30</span>SS</span>)</span>-->
         <#--</label>-->
         <#--</p>-->
         <#--<ul class="bouty_task_main">-->
-        <#--<li class="link_info i18n" name="sharder_input_telegraph_title">点击下方链接验证并加入电报群</li>-->
-        <#--<span class="i18n info" name="sharder_activity_reward_search">币用用户请使用币用APP搜索“XXX”进行验证</span>-->
+        <#--<li class="link_info i18n" name="sharder_input_telegraph_title">Click the link below to join official Telegram and get identified.</li>-->
+        <#--<span class="i18n info" name="sharder_activity_reward_search"> </span>-->
         <#--<li class="task_core">-->
         <#--<button>-->
         <#--<a href="https://t.me/sharder_talk">https://t.me/sharder_talk</a><br />-->
         <#--</button>-->
         <#--</li>-->
-        <#--<li class="task_input_info i18n" name="sharder_input_telegraph">已验证并加入电报群请点击提交领取奖励</li>-->
-        <#--<li class="task_input"><input type="button" value="提交" class="btn_submit i18n" name="sharder_btn_submit" onclick="sendActivity('telegraph')"></li>-->
+        <#--<li class="task_input_info i18n" name="sharder_input_telegraph">Identified. Click to get SS</li>-->
+        <#--<li class="task_input"><input type="button" value="Withdraw" class="btn_submit i18n" name="sharder_btn_submit" onclick="sendActivity('telegraph')"></li>-->
         <#--</ul>-->
         <#--</li>-->
         <#--<li class="bounty_task twitter" >-->
@@ -192,17 +190,17 @@
         <#--<p class="bounty_task_title">-->
         <#--<button class="number_img">3</button>-->
         <#--<label class="bounty_task_line" for="sharder_twitter">-->
-        <#--<span class="title_text"><span class="i18n" name="sharder_twitter">关注Twitter</span>(<span-->
-        <#--class="sharder_number"><span class="i18n" name="sharder_reward">奖励</span>+<span class="sharder_activity_reward">30</span>SS</span>)</span>-->
+        <#--<span class="title_text"><span class="i18n" name="sharder_twitter">Follow official Twitter</span>(<span-->
+        <#--class="sharder_number"><span class="i18n" name="sharder_reward">Reward</span>+<span class="sharder_activity_reward">30</span>SS</span>)</span>-->
         <#--</label>-->
         <#--</p>-->
         <#--<ul class="bouty_task_main">-->
-        <#--<li class="link_info i18n" name="sharder_twitter_focus">点击下方链接关注Twitter</li>-->
+        <#--<li class="link_info i18n" name="sharder_twitter_focus">Click the link below and follow official Twitter</li>-->
         <#--<li class="task_core">-->
         <#--<button><a href="https://twitter.com/SharderChain">https://twitter.com/SharderChain</a></button>-->
         <#--</li>-->
-        <#--<li class="task_input_info i18n" name="sharder_twitter_focus_name">请在下方填入你的Twitter用户名领取奖励</li>-->
-        <#--<li class="task_input"><input type="text" id="follow_twitter" class="input_user_info"><input type="button" value="提交"-->
+        <#--<li class="task_input_info i18n" name="sharder_twitter_focus_name">Input your Twitter UID to get SS</li>-->
+        <#--<li class="task_input"><input type="text" id="follow_twitter" class="input_user_info"><input type="button" value="Withdraw"-->
         <#--class="btn_submit i18n" name="sharder_btn_submit" onclick="sendActivity('twitter')"></li>-->
         <#--</ul>-->
         <#--</li>-->
@@ -211,58 +209,57 @@
         <#--<p class="bounty_task_title">-->
         <#--<button class="number_img">4</button>-->
         <#--<label class="bounty_task_line" for="sharder_video_answer">-->
-        <#--<span class="title_text"><span class="i18n" name="sharder_video_answer_title">视频问答</span>(<span-->
-        <#--class="sharder_number"><span class="i18n" name="sharder_reward">奖励</span>+<span class="sharder_activity_reward">30</span>SS</span>)</span>-->
+        <#--<span class="title_text"><span class="i18n" name="sharder_video_answer_title">Watch videos and answer questions</span>(<span-->
+        <#--class="sharder_number"><span class="i18n" name="sharder_reward">Reward</span>+<span class="sharder_activity_reward">30</span>SS</span>)</span>-->
         <#--</label>-->
         <#--</p>-->
         <#--<ul class="bouty_task_main fqa">-->
         <#--<form id="answer" onsubmit="return false;">-->
         <#--<li class="task_core">-->
         <#--<div class="video-div">-->
-        <#--<video id="my-video" class="video-js" controls preload="auto" width="80%" height="80%"-->
-        <#--poster="/r/cms/resource/sharders/img/video-cover.png" data-setup="{}">-->
-        <#--<source src="http://ugcbsy.qq.com/c0631ma7wgr.m701.mp4?vkey=FE16CF748646D61AF97A74A0BBB62A4DCB27A660EAED92C56A3A319A4F3E077C056B530A553270F14790FA5411BBF230491D7FE3A2ED0A3741FFB5EF82FAF3B4E722040C85318597CDBE705657C571FB04464735990E9E781866721AC87130FB5C2416BD0A9629650A9112DD472CD5E397CBB2DA38E66365&br=28&platform=2&fmt=auto&level=0&sdtfrom=v3010&guid=030efd52cd997f4d4a3951d02458b119" type="video/mp4">-->
-        <#--<p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a> </p>-->
-        <#--</video>-->
+            <#--<video id="my-video" class="video-js" controls preload="auto" width="80%" height="80%">-->
+                <#--<source src="http://www.w3school.com.cn/i/movie.mp4" type="video/mp4">-->
+                <#--<p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a> </p>-->
+            <#--</video>-->
         <#--</div>-->
         <#--</li>-->
         <#--<li class="task_text">-->
-        <#--<p class="task_text_title i18n" name="video_answer_website">1、豆匣协议的官网是sharder.com</p>-->
+        <#--<p class="task_text_title i18n" name="video_answer_website">1、The official website of Sharder is sharder.com?</p>-->
         <#--<p class="task_text_radio">-->
-        <#--<input type="radio" value="true" id="answer-1-1" name="answer-1"/><label for="answer-1-1" class="text_radio i18n" name="sharder_video_answer_ok">正确</label>-->
-        <#--<input type="radio" value="false" id="answer-1-2" name="answer-1"/><label for="answer-1-2" class="i18n" name="sharder_video_answer_erre">错误</label>-->
+        <#--<input type="radio" value="true" id="answer-1-1" name="answer-1"/><label for="answer-1-1" class="text_radio i18n" name="sharder_video_answer_ok">Yes</label>-->
+        <#--<input type="radio" value="false" id="answer-1-2" name="answer-1"/><label for="answer-1-2" class="i18n" name="sharder_video_answer_erre">No</label>-->
         <#--</p>-->
         <#--</li>-->
         <#--<li class="task_text">-->
-        <#--<p class="task_text_title i18n" name="video_answer_storage_agreement">2、豆匣协议是开源可跨链部署的分布式存储协议，为用户提供安全、便捷、便宜的永久存储服务，用户可以分享富余的存储空间并获取报酬。</p>-->
+        <#--<p class="task_text_title i18n" name="video_answer_storage_agreement">2、Sharder Protocol is a cross-chain distributed storage protocol that provides secure, convenient, and inexpensive storage service, where users could share their storage space and get rewarded SS.</p>-->
         <#--<p class="task_text_radio">-->
-        <#--<input type="radio" value="true" id="answer-2-1" name="answer-2"/><label for="answer-2-1" class="text_radio i18n" name="sharder_video_answer_ok">正确</label>-->
-        <#--<input type="radio" value="false" id="answer-2-2" name="answer-2"/><label for="answer-2-2" class="i18n" name="sharder_video_answer_erre">错误</label>-->
+        <#--<input type="radio" value="true" id="answer-2-1" name="answer-2"/><label for="answer-2-1" class="text_radio i18n" name="sharder_video_answer_ok">Yes</label>-->
+        <#--<input type="radio" value="false" id="answer-2-2" name="answer-2"/><label for="answer-2-2" class="i18n" name="sharder_video_answer_erre">No</label>-->
         <#--</p>-->
         <#--</li>-->
         <#--<li class="task_text">-->
-        <#--<p class="task_text_title i18n" name="video_answer_compatible_with">3、豆匣链可兼容任何部署了豆匣协议的公链、私链、存储网络。在豆匣网络的基础架构上可开发出海量区块链应用，例如定制化云存储、人工智能、数据资产交易等。</p>-->
+        <#--<p class="task_text_title i18n" name="video_answer_compatible_with">3、Sharder Chain is compatible to any public chains, private chains and storage networks that deploys Sharder Protocol. Sharder share economy is incubating more blockchain data applications and constructing a mutually beneficial Sharder Matrix.</p>-->
         <#--<p class="task_text_radio">-->
-        <#--<input type="radio" value="true" id="answer-3-1" name="answer-3"/><label for="answer-3-1" class="text_radio i18n" name="sharder_video_answer_ok">正确</label>-->
-        <#--<input type="radio" value="false" id="answer-3-2" name="answer-3"/><label for="answer-3-2" class="i18n" name="sharder_video_answer_erre">错误</label>-->
+        <#--<input type="radio" value="true" id="answer-3-1" name="answer-3"/><label for="answer-3-1" class="text_radio i18n" name="sharder_video_answer_ok">Yes</label>-->
+        <#--<input type="radio" value="false" id="answer-3-2" name="answer-3"/><label for="answer-3-2" class="i18n" name="sharder_video_answer_erre">No</label>-->
         <#--</p>-->
         <#--</li>-->
         <#--<li class="task_text">-->
-        <#--<p class="task_text_title i18n" name="video_answer_mill">4、豆匣将会发布两种矿机，分别是微节点矿机Sharder Box和拥有强大算力及存储空间的Sharder Hub.</p>-->
+        <#--<p class="task_text_title i18n" name="video_answer_mill">4、Sharder is releasing two miner models – micro-node miner Sharder Hub, and Sharder Box with super computing power and storage space.</p>-->
         <#--<p class="task_text_radio">-->
-        <#--<input type="radio" value="true" id="answer-4-1" name="answer-4"/><label for="answer-4-1" class="text_radio i18n" name="sharder_video_answer_ok">正确</label>-->
-        <#--<input type="radio" value="false" id="answer-4-2" name="answer-4"/><label for="answer-4-2" class="i18n" name="sharder_video_answer_erre">错误</label>-->
+        <#--<input type="radio" value="true" id="answer-4-1" name="answer-4"/><label for="answer-4-1" class="text_radio i18n" name="sharder_video_answer_ok">Yes</label>-->
+        <#--<input type="radio" value="false" id="answer-4-2" name="answer-4"/><label for="answer-4-2" class="i18n" name="sharder_video_answer_erre">No</label>-->
         <#--</p>-->
         <#--</li>-->
         <#--<li class="task_text">-->
-        <#--<p class="task_text_title i18n" name="video_answer_cloud_storage">5、豆匣的首个商业应用-云存，是为电商、金融、政府、医疗等行业提供数据存证与保全服务。</p>-->
+        <#--<p class="task_text_title i18n" name="video_answer_cloud_storage">5、The first commercial application on Shader Chain – Bean Cloud, provides data storage, evidence, and security services for industries including finance, e-commerce, governments, and health care.</p>-->
         <#--<p class="task_text_radio">-->
-        <#--<input type="radio" value="true" id="answer-5-1" name="answer-5"/><label for="answer-5-1" class="text_radio i18n" name="sharder_video_answer_ok">正确</label>-->
-        <#--<input type="radio" value="false" id="answer-5-2" name="answer-5"/><label for="answer-5-2" class="i18n" name="sharder_video_answer_erre">错误</label>-->
+        <#--<input type="radio" value="true" id="answer-5-1" name="answer-5"/><label for="answer-5-1" class="text_radio i18n" name="sharder_video_answer_ok">Yes</label>-->
+        <#--<input type="radio" value="false" id="answer-5-2" name="answer-5"/><label for="answer-5-2" class="i18n" name="sharder_video_answer_erre">No</label>-->
         <#--</p>-->
         <#--</li>-->
 
-        <#--<li class="task_input"><input type="button" value="提交" class="btn_submit i18n" name="sharder_btn_submit" onclick="sendActivity('video_answer')"></li>-->
+        <#--<li class="task_input"><input type="button" value="Withdraw" class="btn_submit i18n" name="sharder_btn_submit" onclick="sendActivity('video_answer')"></li>-->
         <#--</form>-->
         <#--</ul>-->
         <#--</li>-->
