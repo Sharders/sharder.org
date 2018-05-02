@@ -64,10 +64,10 @@
 
                         <input id="confirm_password" type="password" equalto="#password" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
                     </li>
-                    <li>
-                        <label for="verification code"><span class="i18n" name="sharder-sign-recommend">Inviter ID (Optional)</span></label>
-                        <input id="referrer" type="text" name="inviterId" class="" value="${inviterId!}"/>
-                    </li>
+                    <#--<li>-->
+                        <#--<label for="verification code"><span class="i18n" name="sharder-sign-recommend">Inviter ID (Optional)</span></label>-->
+                        <#--<input id="referrer" type="text" name="inviterId" class="" value="${inviterId!}"/>-->
+                    <#--</li>-->
                     <li class="ss-verification-code-li">
                         <label for="verification code"><i>*</i><span class="i18n" name="sharder-check-code">Ver. Code</span></label>
                         <input id="verification_code" type="text" maxlength="20" name="imgCaptcha" class="imgCaptcha" />
@@ -156,22 +156,8 @@
         }
     }
 
-
-    $(document).ready(function () {
-        setTimeout(function () {
-            if(i18nLanguage == "zh-CN"){
-                $("head").append("<script src='/r/cms/resource/js/messages_zh.js'/>");
-            }else if(i18nLanguage == "ja"){
-                $("head").append("<script src='/r/cms/resource/js/messages_ja.js'/>");
-            }else if(i18nLanguage == "ko"){
-                $("head").append("<script src='/r/cms/resource/js/messages_ko.js'/>");
-            }else{
-                $("head").append("<script src='/r/cms/resource/js/messages_eu.js'/>");
-            }
+    jquery_validate_info();
 
 
-
-        },200);
-    })
 </script>
 </@layout.htmlBody>

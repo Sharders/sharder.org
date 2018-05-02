@@ -20,7 +20,7 @@
     }
 </style>
 </@layout.htmlHead>
-
+<#import "/WEB-INF/ftl/sharders/pc/admin/bill_filtrate.ftl" as b_filter>
 
 <#--<div id="edit_view"></div>-->
 <@layout.htmlBody>
@@ -28,10 +28,12 @@
 <#--功能描述
     账单列表，查看用户的投资记录
 -->
+
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
         <legend>筛选--账单查看</legend>
     </fieldset>
-    <#include "/WEB-INF/ftl/sharders/pc/admin/bill_filtrate.ftl">
+
+    <@b_filter.filter useraddr=false hash=false />
     <table class="layui-hide" id="bill_list" lay-filter="bill_list"></table>
     <#--  分页  -->
     <div id="page"></div>
@@ -42,15 +44,14 @@
 <#--添加账单的模板 start-->
 <#--添加账单的模板 end-->
 <script type="text/html" id="barBtns">
-    <#--<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>-->
-    <#--<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>-->
     <a class="layui-btn layui-btn-xs" lay-event="look-img">查看交易图片</a>
-    <#--<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>-->
 </script>
+
+
 <script>
 
     var pageNo = 1;  //当前页
-    var pageSize = 10;  //每页大小
+    var pageSize = 50;  //每页大小
 
     var isPaging = false;
     loadDate();
@@ -83,7 +84,8 @@
                     ,{field:'pId', width:80, title: '父账单ID', sort: true}
                     ,{field:'pUserId', width:80, title: '父账单用户ID', sort: true}
                     ,{field:'userId', width:80, title: '用户ID', sort: true}
-                    ,{field:'status', width:80, title: '状态', sort: true}
+                    ,{field:'status', width:80, title: '状态', templet: '#scr_status'}
+
                     ,{field:'source', width:80, title: '来源', sort: true}
                     ,{field:'amount', width:80, title: '总额', sort: true}
                     ,{field:'originalAmount', width:80, title: '原本金额', sort: true}
@@ -149,6 +151,7 @@
                 laypage.render({
                     elem: 'page'
                     ,count: _count
+                    ,limit:pageSize
                     ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
                     ,jump: function(obj,first){
                         pageNo = obj.curr;

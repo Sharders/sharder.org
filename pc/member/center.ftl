@@ -1,13 +1,14 @@
 <@layout.htmlHead    pagename="center">
+    <#import "/WEB-INF/ftl/sharders/editPwd.ftl" as editPwd/>
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/user_center.css" />
 <script src="/r/cms/resource/sharders/layui/lay/modules/layer.js" type="text/javascript" charset="utf-8"></script>
 
 <style>
-    .bdsharebuttonbox{
-        position: absolute;
-        right: 90px;
-        bottom: -1px;
-    }
+    /*.bdsharebuttonbox{*/
+        /*position: absolute;*/
+        /*right: 90px;*/
+        /*bottom: -1px;*/
+    /*}*/
     #userPwd div{
         position: relative;
     }
@@ -20,9 +21,7 @@
         left: 0;
     }
     #userWalletAddr label.error{
-        /*width: initial;*/
-        /*padding-left: 156px;*/
-        /*margin-top: 13px !important;*/
+
         margin-top: -22px !important;
     }
     button.kedian{
@@ -46,36 +45,21 @@
                     class="user-operation" ></span></li>
             <li><span class="user-title i18n" name="sharder-account-number">UID:</span><span class="user-value">${acconut!}</span></li>
             <li><span class="user-title i18n" name="sharder-user-uid-code">User Code</span><span class="user-value">${inviterId!}</span></li>
-            <li>
-                <span class="user-title i18n" name="sharder-user-sgin-pwd">Password</span>
-                <#if isDefaultPWD!false>
-                    <span class="user-value i18n" name="sharder_no_set_password">Password not set</span>
-                    <span class="user-operation i18n" name="sharder_lijishezhimima" v-on:click="winOpen()">Set password now</span>
-                <#else >
-                        <span class="user-value">******</span>
-                        <span class="user-operation i18n" name="sharder-user-edit-pwd" v-on:click="winOpen()">Reset password</span>
-                </#if>
-            </li>
 
+            <@editPwd.operation/>
             <li>
                 <span class="user-title">
                     <span class="i18n" name="sharder_shimingrenzheng">Authentication</span>
                     <span id="sharder_shimingrenzheng_info" onmousemove="sharderKycShuoming(true)" onmouseout="sharderKycShuoming(false)"></span>
                 </span>
-                <#if userMemo?? && userMemo != ''>
-                    <#if userMemo?eval.state || userMemo?eval.status == "SUCCESS">
-                        <span class="user-value i18n" name="sharder_yirenzheng" >Authenticated</span>
-                        <#else >
-                            <#if userMemo?eval.status == "FAIL">
-                                <span class="user-value i18n" name="sharder-kyc-rezhengshibai" style="color: red">Authentication failed, please resubmit</span>
-                                <#else >
-                                    <span class="user-value i18n" name="sharder-shenghezhong" >In Rewarded</span>
-                            </#if>
-                    </#if>
+                <#if userKYCStatus??>
+                    <#if userKYCStatus == "SUCCESS"><span class="user-value i18n" name="sharder_yirenzheng" >Authenticated</span></#if>
+                    <#if userKYCStatus == "FAIL"><span class="user-value i18n" name="sharder-kyc-rezhengshibai" style="color: red">Authentication failed, please resubmit</span></#if>
+                    <#if userKYCStatus == "WAIT"><span class="user-value i18n" name="sharder-shenghezhong" >In Rewarded</span></#if>
                     <a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_chakanrenzheng">Check authentication</span></a>
-                    <#else >
-                        <span class="user-value i18n" name="sharderweirenzheng" >Unauthenticated</span>
-                        <a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_lijirenzheng">Authenticate now</span></a>
+                <#else>
+                    <span class="user-value i18n" name="sharderweirenzheng" >Unauthenticated</span>
+                    <a href="/user_center/sharder/kyc.ss"><span class="user-operation i18n" name="sharder_lijirenzheng">Authenticate now</span></a>
                 </#if>
             </li>
 
@@ -95,27 +79,28 @@
                 <#if !user.purseAddress??>
                     <span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">Register receiving address</span>
                 <#else >
-                    <span id="sztbdz" class="user-operation win-open i18n" name="sharder-edit-mention-token-address"  v-on:click="winOpen('walletAddr')">修改提币地址</span>
+                    <span id="sztbdz" class="user-operation win-open i18n" name="sharder-edit-mention-token-address"  v-on:click="winOpen('walletAddr')">Change withdrawal address</span>
                 </#if>
             </li>
-            <li>
-                <span class="user-title i18n" name="sharder-user-invitation-link">Invitation link: </span><span id="contents" >${invitePage!}?inviterId=${inviterId!}&language=${Request.language!}</span>
-                <div class="bdsharebuttonbox">
-                    <a href="#" class="bds_weixin" data-cmd="weixin" title="Share to WeChat."></a>
-                    <a href="#" class="bds_qzone" data-cmd="qzone" title="Sharing the QQ space"></a>
-                    <a href="#" class="bds_sqq" data-cmd="sqq" title="Share QQ friends"></a>
-                    <a href="#" class="bds_tsina" data-cmd="tsina" title="Share to sina weibo"></a>
-                </div>
-                <span class="user-operation i18n" name="sharder-copy-invitation-code" onClick="jsCopy();" >Copy invitation link</span>
-            </li>
+            <#--<li>-->
+                <#--<span class="user-title i18n" name="sharder-user-invitation-link">Invitation link: </span><span id="contents" >${invitePage!}?inviterId=${inviterId!}&language=${Request.language!}</span>-->
+                <#--<div class="bdsharebuttonbox">-->
+                    <#--<a href="#" class="bds_weixin" data-cmd="weixin" title="Share to WeChat."></a>-->
+                    <#--<a href="#" class="bds_qzone" data-cmd="qzone" title="Sharing the QQ space"></a>-->
+                    <#--<a href="#" class="bds_sqq" data-cmd="sqq" title="Share QQ friends"></a>-->
+                    <#--<a href="#" class="bds_tsina" data-cmd="tsina" title="Share to sina weibo"></a>-->
+                <#--</div>-->
+                <#--<span class="user-operation i18n" name="sharder-copy-invitation-code" onClick="jsCopy();" >Copy invitation link</span>-->
+            <#--</li>-->
 
         </ul>
     </div>
-    <div class="remarks">
-        <span class="gantanhao" id="yaoqingtishi" onmousemove="yaoqingtishi(true)" onmouseout="yaoqingtishi(false)"></span>
-        <span class="i18n" name="sharder-invitation-register-sale-reward"> Refer others to sign up Sharder and get airdrop. </span>
-        <span class="i18n sharder-user-parent" name="sharder-user-parent">Invitation</span>${inviteSum!0}
-    </div>
+    <#--<div class="remarks">-->
+        <#--<span class="gantanhao" id="yaoqingtishi" onmousemove="yaoqingtishi(true)" onmouseout="yaoqingtishi(false)"></span>-->
+        <#--<span class="i18n" name="sharder-invitation-register-sale-reward"> Refer others to sign up Sharder and get airdrop. </span>-->
+        <#--<span class="i18n sharder-user-parent" name="sharder-user-parent">Invitation</span>${inviteSum!0}-->
+    <#--</div>-->
+
         <#assign amountSuoCang = ssSuocangaAmount!0>
 
         <#assign amountSuoCang2 = ssSuocangaAmount2!0>
@@ -206,13 +191,9 @@
         <#--<button class="currency-ss i18n" name="sharder-subscribe-currency">提币申请</button>-->
 
         <div class="withdraw-ss">
-            <#if usableBalance gt 0 && user.purseAddress?? && user.purseAddress != '' && userMemo?? && userMemo != ''>
-                <#if userMemo?eval.state || userMemo?eval.status == "SUCCESS">
-                    <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="mentionSSfunc()">Withdraw SS</button>
+            <#if isWithdrawSS!false>
+                <button class="currency-ss kedian i18n" name="sharder-subscribe-currency" onclick="mentionSSfunc()">Withdraw SS</button>
                 <#else >
-                <button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>
-                </#if>
-            <#else >
                 <button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>
             </#if>
             <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
@@ -220,39 +201,14 @@
         </div>
 
     </div>
-
-    <div class="edit-password">
-        <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen()"/>
-        <form method="post" id="userPwd">
-            <h2 class="i18n title" name="sharder-user-edit-pwd">Reset password</h2>
-            <#if !isDefaultPWD!false>
-                <div class="oldPassWord">
-                    <label class="i18n" name="sharder-old-password">old password</label><input type="password" id="oldPassWord" name="origPwd" v-on:input="verification()"/>
-                </div>
-            </#if>
-            <div class="newPassWord1">
-                <label class="i18n" name="sharder-new-password">new password</label><input type="password" id="newPassWord1" v-on:input="verification()" vld="{rangelength:[6,20]}" class="password" autocomplete="off" disableautocomplete/>
-            </div>
-            <div class="newPassWord2">
-                <label class="i18n" name="sharder-again-password">again password</label><input type="password"  name="newPwd" id="newPassWord2" v-on:input="verification()"  vld="{rangelength:[6,20]}" autocomplete="off" disableautocomplete/>
-            </div>
-
-            <input type="button" name="the-next-step" class="i18n" value="Next" v-on:click="editPwd()"/>
-        </form>
-        <div class="userPwd-div">
-            <h2 class="i18n" name="sharder-operation-result"> Result </h2>
-            <span>{{Pwd.message}}{{Pwd.error}}</span>
-        <#--<input type="button" value="重新修改" v-on:click="edit()"/>-->
-        </div>
-        <#--<span class="close" v-on:click="winOpen()" >X</span>-->
-    </div>
+    <@editPwd.main/>
     <div class="edit-wallet-addr">
         <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen('walletAddr')"/>
         <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
             <#if !user.purseAddress??>
                     <h2 class="i18n" name="sharder-set-mention-token-address">Register receiving address</h2>
             <#else >
-                   <h2 class="i18n" name="sharder-edit-mention-token-address">修改提币地址</h2>
+                   <h2 class="i18n" name="sharder-edit-mention-token-address">Change withdrawal address</h2>
             </#if>
 
             <#--<p class="walletAddr i18n" name="sharder-mention-token-address-attention">Note: once set, the SS withdrawal address can't be changed, please double check.</p>-->
@@ -518,13 +474,6 @@
                         $(".personal.rebate").css("border-bottom","0px");
                         $(".personal.applu-lock").css("border-bottom","0px");
                         pc.dealBases = "";
-//                        pc.title={a:$("span[name='sharder-registrant-uid']").text(),
-//                            b:$("span[name='sharder-participation-time']").text(),
-//                            c:$("div>span[name='sharder-award-type']").text(),
-//                            d:$("span[name='sharder-award-amount']").text(),
-//                            e:$("span[name='sharder-details-benefits']").text(),
-//                            f:$("span[name='sharder-details-immediately']").text()};
-
                         pc.title2={a:$("span[name='sharder-participation-time']").text(),
                             b:$("span[name='sharder-stage-participation']").text(),
                             c:$("span[name='sharder-source']").text(),
@@ -567,7 +516,6 @@
                         pc.template = _t;
 
                         pc.detailsJudge();
-
                         if(!pc.isShowDetail()){
                             return;
                         }
@@ -608,7 +556,6 @@
                         }else{
 
                         }
-
                         commAjax(requestUrl,"get",data,pc.loadDealbaseResult);
                         setTimeout(function () {
                             layer.closeAll('loading');
@@ -721,71 +668,8 @@
 
                             });
                         }
-                    }
-                    ,verification:function () {
-                        var input1 = $("#oldPassWord");
-                        var input2 = $("#newPassWord1");
-                        var input3 = $("#newPassWord2");
-//                        input1.css("box-shadow","");
-//                        input2.css("box-shadow","");
-//                        input3.css("box-shadow","");
-//                        $("#userPwd div").css("border-bottom","1px solid #d2d2d2");
-
-                        if(input1.val() == ''||input2.val()== '' || input3.val() == ''){
-                            pc.isSubmit = false;
-                        }
-//                        if(input1.val() == ''){
-////                            input1.css("box-shadow","0px 0px 6px red");
-//                            $("#userPwd div.oldPassWord").css("border-bottom","1px solid red");
-//                        }
-                        if(input2.val() == input3.val()){
-                            pc.isSubmit = true;
-                        }else{
-//                            input2.css("box-shadow","0px 0px 6px red");
-//                            input3.css("box-shadow","0px 0px 6px red");
-//                            $("#userPwd div.newPassWord1").css("border-bottom","1px solid red");
-//                            $("#userPwd div.newPassWord2").css("border-bottom","1px solid red");
-                            pc.isSubmit = false;
-                        }
-                        $("#userPwd").valid();
                     },
 
-                    editPwd:function () {
-
-                        if($("#userPwd").valid()){
-                            if(pc.isSubmit){
-                                layer.load(2);
-                                $.ajax({
-                                    type: "post",
-                                    url:"/passWord/edit.ss",
-                                    data:$('#userPwd').serialize(),
-                                    dataType: "json",
-                                    success: function(data) {
-                                        layer.closeAll('loading');
-//                                        pc.Pwd = data;
-                                        console.info(data);
-                                        if(data.success){
-                                            layer.msg($("#mimaxiugai_cenggong").text());
-                                            pc.winOpen();
-                                            location.reload();
-                                        }else {
-                                            layer.msg($("#mimaxiugai_shibai").text());
-                                        }
-//                                        $('#userPwd').css("display","none");
-//                                        $('.userPwd-div').css("display","block");
-                                    }
-                                });
-                                setTimeout(function () {
-                                    layer.closeAll('loading');
-                                },20000);
-                            }else {
-                                $("div.newPassWord2 label.error").css("display","block");
-                                $("div.newPassWord2 label.error").text($("#suocangMsg").text());
-                            }
-                        }
-
-
-                    },
                     retruenTExt:function (bool) {
                         if(bool){
                             return $("#chakan").text();
@@ -865,23 +749,7 @@
                     },
                 }
             });
-            //申请成为白名单
-            $(document).ready(function () {
-                $("#applyFor").click(function () {
-                    $("#applyFor").attr("disabled",true);
-                    layer.load(2);
-                    $.ajax({
-                        url:"/subscribe/apply.ss",
-                        dataType:"json",
-                        success:function (result) {
-                            layer.closeAll('loading');
-                            layer.msg(result.result,function () {
-                                location.reload();
-                            });
-                        }
-                    })
-                })
-            });
+
             window.clearInterval(timeid);
 
         }
@@ -941,27 +809,6 @@ function yaoqingtishi(_t){
             layer.msg("Please complete the real-name authentication first.");
         }
     }
-
 </script>
 
-<script>
-    window._bd_share_config = {
-        "common": {
-            bdText :"立即注册豆匣 享受白名单优惠",
-            bdDesc : "注册即享白名单优惠 邀请好友还可获得返点奖励",
-            bdUrl: "${invitePage!}?inviterId=${inviterId!}",
-            bdPic: 'https://sharder.org/r/cms/resource/sharders/img/teamphoto/share-background.png',
-        },
-        "share": {"bdSize" : 32},
-        "image": {
-            "viewList": ["weixin", "qzone", "sqq", "tsina"],
-            "viewText": "来自豆匣的白名单优惠",
-            "viewSize": "24"
-        },
-        "selectShare": {
-            "bdContainerClass": null,
-            "bdSelectMiniList": ["weixin", "qzone", "sqq", "tsina"]
-        }
-    };
-</script>
 </@layout.htmlBody>

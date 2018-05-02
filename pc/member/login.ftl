@@ -135,5 +135,8 @@
        }
         qiehuan = !qiehuan;
     }
+
+
+    jquery_validate_info();
 </script>
 </@layout.htmlBody>

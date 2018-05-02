@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title class="i18n" name="candyShare">糖果分享</title>
     <meta id="i18n_pagename" content="message">
+    <meta class="i18n" name="keywords" content="豆匣 sharder SS 豆匣协议 豆荚 区块链存储 豆匣矿机 重庆区块链 领取空投"/>
+    <meta class="i18n" name="description" content="豆匣协议是国内首个跨链分布式存储协议，豆匣将改变整个存储世界和人类数据价值融通交换的方式."/>
     <link rel="stylesheet"  href="/r/cms/resource/sharders/css/mobile/candyShare.css?v=${version!}">
     <link rel="shortcut icon" href="https://oss.sharder.org/sharder/favicon.ico" />
     <script src="/r/cms/jquery.js" type="text/javascript"></script>
@@ -23,7 +25,7 @@
         <img src="/r/cms/resource/sharders/img/mobile/candyshare/head.png" class="head-img">
         <div class="content">
             <p class="i18n" name="sendCandy">糖果大放送</p>
-            <p><span class="freeget i18n" name="freeGet">免费领取</span>${param.SSOnePrice!'0'}<span class="i18n" name="SSsharder">SS豆匣</span></p>
+            <p><span class="freeget i18n" name="freeGet">免费领取</span>55<span class="i18n" name="SSsharder">SS豆匣</span></p>
             <form action="/api/activity/airdrop.ss" method="post" id="airdrop-from">
                 <div class="content-data">
                     <label class="label-data label-data-email i18n" name="sharder-phone-emil">手机/邮箱：</label>
@@ -56,9 +58,9 @@
                 <img class="cowling-img" src="/r/cms/resource/sharders/img/mobile/candyshare/reward.png" >
                 <div class="w2">
                     <p class="cowling-text i18n" name="get-success">领取成功！请使用领取的手机或邮箱账号登录豆匣官网查看奖励。（未在官网注册用户请使用验证码登录）</p>
-                    <a class="cowling-chakan i18n" name="now-chakan" href="/login_success.ss">立即查看</a>
+                    <a class="cowling-chakan i18n" name="now-chakan" href="/user_center/bounty/april.ss">立即查看</a>
                     <a class="cowling-chakan share2 i18n" id="share" name="share-url">分享链接</a>
-                    <p class="cowling-shuoming"><span class="i18n" name="copy-share">复制链接分享给好友,好友领取后您将再获得</span>${param.SSTwoPrice!'0'}<span class="i18n" name="sharder-dxjl">SS豆匣奖励</span></p>
+                    <p class="cowling-shuoming"><span class="i18n" name="copy-share">复制链接分享给好友,好友领取后您将再获得100%返利</span></p>
                 </div>
         </div>
     </div>

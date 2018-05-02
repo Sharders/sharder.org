@@ -67,10 +67,10 @@
                         <label for="confirm_password"><i>*</i><span class="i18n" name="sharder-user-pwd">Confirm password</span></label>
                         <input type="password" equalto="#password" vld="{rangelength:[6,20]}" class="password password" autocomplete="off" disableautocomplete/>
                     </li>
-                    <li>
-                        <label for="verification code"><span class="i18n" name="sharder-sign-recommend">Inviter ID (Optional)</span></label>
-                        <input id="referrer" type="text" name="inviterId" class="" value="${inviterId!}"/>
-                    </li>
+                    <#--<li>-->
+                        <#--<label for="verification code"><span class="i18n" name="sharder-sign-recommend">Inviter ID (Optional)</span></label>-->
+                        <#--<input id="referrer" type="text" name="inviterId" class="" value="${inviterId!}"/>-->
+                    <#--</li>-->
                     <li class="ss-verification-code-li">
                         <label for="verification code"><i>*</i><span class="i18n" name="sharder-check-code">Ver. Code</span></label>
                         <input id="verification_code" type="text" maxlength="20" name="imgCaptcha" class="imgCaptcha" />
@@ -142,7 +142,6 @@
         var _data = _form.serialize();
         commAjax(reqeustUrl,"post",_data,registerResult);
     }
-
     function registerResult(result) {
         layer.closeAll('loading');
         $("#guestbookCaptcha").click();
@@ -158,5 +157,6 @@
         }
     }
 
+    jquery_validate_info();
 </script>
 </@lay.htmlBody>

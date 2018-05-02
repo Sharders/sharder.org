@@ -1,4 +1,5 @@
 <#import "/WEB-INF/ftl/sharders/pc/mobile/layout.ftl" as lay/>
+<#import "/WEB-INF/ftl/sharders/editPwd.ftl" as editPwd/>
 <@lay.htmlHead    pagename="center">
 <link rel="stylesheet" href="/r/cms/resource/sharders/css/mobile/center.css">
 <link rel="stylesheet" href="/r/cms/resource/sharders/layui/css/layui.css">
@@ -28,15 +29,17 @@
             <li><labal class="user-title i18n" name="sharder-account-number">UID:</labal><span class="user-text">${acconut!}</span></li>
             <li><labal class="user-title i18n" name="sharder-sign-in-username">Nickname</labal><span class="user-text">${user.username!}</span></li>
             <li><labal class="user-title i18n" name="sharder-extension-code">Extension code</labal><span class="user-text">${inviterId!}</span></li>
-            <li><labal class="user-title tesu i18n" name="sharder-extension-link">Extension link</labal><span class="user-text augoid" id="contents">${invitePage!}?inviterId=${inviterId!}</span></li>
+            <#--<li><labal class="user-title tesu i18n" name="sharder-extension-link">Extension link</labal><span class="user-text augoid" id="contents">${invitePage!}?inviterId=${inviterId!}</span></li>-->
+            <@editPwd.operation/>
         </ul>
-        <button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="copyTextById('contents')">Copy links</button>
-    <#--<p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众售。</p>-->
-        <#--<p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众售获得豆匣(SS)总额度的5%作为返点奖励。</p>-->
-        <p class="text-color i18n" name="yaoqingtishi">The more your refer, the more airdrop you will get.</p>
-        <p style="color: #0BA0D1 ; font-weight: bold"><span class="i18n sharder-user-parent" name="sharder-user-parent">Invitation</span>${inviteSum!0}</p>
+        <#--<button class="copy-link i18n" name="sharder-copy-ectension-link" onclick="copyTextById('contents')">Copy links</button>-->
+    <#--&lt;#&ndash;<p class="text-color i18n" name="sharder-you-link-subscribe">通你的专属链接/邀请码注册并成功参与众售。</p>&ndash;&gt;-->
+        <#--&lt;#&ndash;<p class="text-color i18n" name="sharder-you-subscrie-reward">你可以获得其众售获得豆匣(SS)总额度的5%作为返点奖励。</p>&ndash;&gt;-->
+        <#--<p class="text-color i18n" name="yaoqingtishi">The more your refer, the more airdrop you will get.</p>-->
+        <#--<p style="color: #0BA0D1 ; font-weight: bold"><span class="i18n sharder-user-parent" name="sharder-user-parent">Invitation</span>${inviteSum!0}</p>-->
 
     </div>
+
     <div class="asset-information" id="center">
         <h1 class="phone-center-information-title i18n" name="asset-information">Asset information</h1>
         <div class="sharders-total-assets">
@@ -71,6 +74,8 @@
     </div>
 
 </div>
+<@editPwd.main/>
+
 <div style="display: none">
     <span class="i18n" name="shader-storage-token">Sharder tokens that exchanged with other tokens, such as ETH and BTC.</span>
     <span class="i18n" name="sharder-rewarded-purchase-referred">We will keep airdropping those who significantly contribute to Sharder community.</span>
@@ -169,7 +174,7 @@
                     </span>
                     <span v-else>failure</span>
                 </span>
-                <span class="subscribe-table"><span  v-if="dealBase.awardType == 'TCC_CONVERT'">{{dealBase.memo}}</span>sss</span>
+                <span class="subscribe-table"><span  v-if="dealBase.awardType == 'TCC_CONVERT'">{{dealBase.memo}}</span></span>
             </li>
         </ul>
     </div>

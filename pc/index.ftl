@@ -4,7 +4,7 @@
     <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/index.css">
     <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/common.css">
     <script src="${resSys}/resource/sharders/js/unslider.min.js" type="text/javascript"></script>
-    <link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/video-js.css">
+    <#--<link type="text/css" rel="stylesheet" href="${resSys}/resource/sharders/css/video-js.css">-->
 
 </@layout.htmlHead>
 
@@ -81,15 +81,15 @@
             <ul class="items">
                 <li class="item item1">
                     <span class="bps-icon"><i class="fa fa-download" aria-hidden="true"></i></span>
-                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlTechZh" title="See the technology white paper" target="_blank"><span class="i18n" name="sharder-technical-white-paper">Technical White Paper</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlTechZh" id="a_technology_white_paper" title="See the technology white paper" target="_blank"><span class="i18n" name="sharder-technical-white-paper">Technical White Paper</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlTechZh')}">
                         <button class="down-btn zh " >
                             <span class="i18n" name="btn.cn">Chinese</span>
                             <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
                         </button>
                     </a>
-                    <a href="javascript:void(0);">
-                        <button class="down-btn en closed">
+                    <a href="${sharderCfg('urlTechEn')}">
+                        <button class="down-btn en">
                             <span class="i18n" name="btn.en">English</span>
                             <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
                         </button>
@@ -97,7 +97,7 @@
                 </li>
                 <li class="item item2">
                     <span class="bps-icon"><i class="fa fa-file-code-o" aria-hidden="true"></i></span>
-                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlEncoZh" title="See the technology white paper" target="_blank"><span class="i18n" name="sharder-look-whitepaper">Business White Paper</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlEncoZh" id="a_user_white_paper" title="See the business white paper" target="_blank"><span class="i18n" name="sharder-look-whitepaper">Business White Paper</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlEncoZh')}">
                         <button class="down-btn zh " >
                             <span class="i18n" name="btn.cn">Chinese</span>
@@ -113,7 +113,7 @@
                 </li>
                 <li class="item item3">
                     <span class="bps-icon"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i></span>
-                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss" title="See the technology white paper" target="_blank"><span class="i18n" name="User-Manual">User Manual</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss" id="a_user_info" title="See the user manual" target="_blank"><span class="i18n" name="User-Manual">User Manual</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
 
                     <a href="javascript:void(0);">
                         <button class="down-btn zh" >
@@ -257,6 +257,11 @@
 <script>
     $(function () {
         showTeam("douxia");
+        if(i18nLanguage != 'zh-CN'){
+            $("#a_technology_white_paper").attr("title","查看技术白皮书");
+            $("#a_user_white_paper").attr("title","查看商业白皮书");
+            $("#a_user_info").attr("title","查看用户手册");
+        }
     })
 </script>
 <#include "/WEB-INF/ftl/sharders/notice_txt.ftl">

@@ -91,8 +91,8 @@
                         <button>
                             <a href="/whitepaper/preview.ss?type=urlTechZh" class="i18n" name="btn.cn">Chinese</a>
                         </button>
-                       <button class="tesu" >
-                           <a class="i18n" name="btn.en">English</a>
+                       <button>
+                           <a href="/whitepaper/preview.ss?type=urlEncoEn" class="i18n" name="btn.en">English</a>
                        </button>
                 </li>
                 <li class="item item2">
@@ -109,10 +109,10 @@
                     <span class="bps-icon"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i></span>
                     <p class="ss-sub-title zh i18n" name="User-Manual">User Manual</p>
                     <button class=" tesu" >
-                        <a  class="i18n" name="btn.cn">Chinese</a>
+                        <a href="#" class="i18n" name="btn.cn">Chinese</a>
                     </button>
                     <button class=" tesu" >
-                        <a class="i18n" name="btn.en">English</a>
+                        <a href="#" class="i18n" name="btn.en">English</a>
                     </button>
                 </li>
             </ul>

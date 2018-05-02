@@ -89,8 +89,8 @@
                 <span class="i18n info" name="sharder_invitation_activity_reward_info">（Friends join official Telegram and you’ll get 30 SS）</span>
             </h3>
             <div class="sharder_copy_link">
-                <span class="copy_link"
-                      id="copy_link">${invitePage!}?inviterId=${inviterId!}&language=${Request.language!}</span>
+                <#--<span class="copy_link" id="copy_link">${invitePage!}?inviterId=${inviterId!}&language=${Request.language!}</span>-->
+                <span class="copy_link" id="copy_link">${invitePage!}?inviterId=${user.id!}&language=${Request.language!}</span>
                 <button type="button" class="btn_copy_link i18n" name="sharder-copy"
                         onclick="copyTextById('copy_link')">Copy
                 </button>
@@ -120,6 +120,7 @@
             <img src="/r/cms/resource/sharders/img/index/task_pane.png" class="task_pane_img">
             <span class="task_pane_title i18n" name="sharder_activity_details">Events list</span>
         </button>
+        <p class="activity_help"><a href="/r/cms/www/www/img/download/sharder.pdf" target="_blank" class="i18n" name="activity_help_regulations">Regulations</a></p>
         <ul class="sharder_bounty">
 
             <li class="bounty_task reward">
@@ -135,7 +136,7 @@
                 <ul class="bouty_task_main">
                     <li class="link_info i18n" name="sharder_a_reward_title">Click the link below and withdraw airdropped SS</li>
                     <li class="task_core">
-                        <button><a href="/candy/share.ss">https://sharder.org/candy/share.ss</a></button>
+                        <button><a href="/candy/share.ss" target="_blank">https://sharder.org/candy/share.ss</a></button>
                     </li>
                 <#--<li class="task_input_info">-->
                 <#--<span class="i18n" name="sharder_reward_invitation">Invite friends to register and you’ll get</span>-->
@@ -156,9 +157,9 @@
                     <#if code == "ACTIVITY_OVER" || code == "ACTIVITY_CLOSED" || code == "ACTIVITY_CANDY_OUT" || code == "ACTIVITY_NOT_AT_THE">
                         userInReceive(kong);
                         if(localStorage.getItem("userLanguage") == 'zh-CN'){
-                            $(sharder_boutu).css("background-image", "url('/r/cms/resource/sharders/img/index/over_activity.png')");
+                            kong.css("background-image", "url('/r/cms/resource/sharders/img/index/over_activity.png')");
                         }else {
-                            $(sharder_boutu).css("background-image", "url('/r/cms/resource/sharders/img/index/over_activity_en.png')");
+                            kong.css("background-image", "url('/r/cms/resource/sharders/img/index/over_activity_en.png')");
                         }
                     </#if>
                 </#if>
@@ -178,13 +179,14 @@
         <#--<span class="i18n info" name="sharder_activity_reward_search"> </span>-->
         <#--<li class="task_core">-->
         <#--<button>-->
-        <#--<a href="https://t.me/sharder_talk">https://t.me/sharder_talk</a><br />-->
+        <#--<a href="https://t.me/SharderBot" target="_blank">https://t.me/SharderBot</a><br />-->
         <#--</button>-->
         <#--</li>-->
         <#--<li class="task_input_info i18n" name="sharder_input_telegraph">Identified. Click to get SS</li>-->
         <#--<li class="task_input"><input type="button" value="Withdraw" class="btn_submit i18n" name="sharder_btn_submit" onclick="sendActivity('telegraph')"></li>-->
         <#--</ul>-->
         <#--</li>-->
+
         <#--<li class="bounty_task twitter" >-->
         <#--<input type="checkbox" id="sharder_twitter">-->
         <#--<p class="bounty_task_title">-->
@@ -197,7 +199,7 @@
         <#--<ul class="bouty_task_main">-->
         <#--<li class="link_info i18n" name="sharder_twitter_focus">Click the link below and follow official Twitter</li>-->
         <#--<li class="task_core">-->
-        <#--<button><a href="https://twitter.com/SharderChain">https://twitter.com/SharderChain</a></button>-->
+        <#--<button><a href="https://twitter.com/SharderChain" target="_blank">https://twitter.com/SharderChain</a></button>-->
         <#--</li>-->
         <#--<li class="task_input_info i18n" name="sharder_twitter_focus_name">Input your Twitter UID to get SS</li>-->
         <#--<li class="task_input"><input type="text" id="follow_twitter" class="input_user_info"><input type="button" value="Withdraw"-->
@@ -216,12 +218,19 @@
         <#--<ul class="bouty_task_main fqa">-->
         <#--<form id="answer" onsubmit="return false;">-->
         <#--<li class="task_core">-->
-        <#--<div class="video-div">-->
-            <#--<video id="my-video" class="video-js" controls preload="auto" width="80%" height="80%">-->
-                <#--<source src="http://www.w3school.com.cn/i/movie.mp4" type="video/mp4">-->
-                <#--<p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a> </p>-->
-            <#--</video>-->
-        <#--</div>-->
+            <#--<div class="video-div" id="video_div">-->
+                <#--<iframe frameborder="0" width="724.33" height="410" src="https://www.youtube.com/embed/cM_2tfLnuwo" allowfullscreen></iframe>-->
+            <#--</div>-->
+
+            <#--<script>-->
+                <#--areaIsChain(function (is_cn) {-->
+                    <#--if(is_cn){-->
+                        <#--$("#video_div iframe").attr("src","https://v.qq.com/iframe/player.html?vid=c0631ma7wgr&tiny=0&auto=0");-->
+                    <#--}else{-->
+                        <#--$("#video_div iframe").attr("src","https://www.youtube.com/embed/9Ca0x6THTAE?ecver=2");-->
+                    <#--}-->
+                <#--})-->
+            <#--</script>-->
         <#--</li>-->
         <#--<li class="task_text">-->
         <#--<p class="task_text_title i18n" name="video_answer_website">1、The official website of Sharder is sharder.com?</p>-->
@@ -263,7 +272,6 @@
         <#--</form>-->
         <#--</ul>-->
         <#--</li>-->
-
 
             <#if activitys??>
                 <#list activitys as activity>
@@ -361,5 +369,15 @@
                 layuiPage(_data.total);
             })
         }
+
+        $(document).ready(function () {
+            var lang = localStorage.getItem("userLanguage");
+
+            if(lang == 'zh-CN'){
+                $("a[name='activity_help_regulations']").attr("href","/r/cms/www/www/img/download/sharder.pdf");
+            }else{
+                $("a[name='activity_help_regulations']").attr("href","/r/cms/www/www/img/download/sharder_en.pdf");
+            }
+        })
     </script>
 </@layout.htmlBody>
