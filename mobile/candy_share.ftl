@@ -32,10 +32,17 @@
                     <input type="text" name="account" class="info">
                 </div>
                 <div class="content-data">
-                    <label class="label-data i18n"  name="sharder-user-code" >校验码:</label>
+                    <label class="label-data i18n"  name="ver-code">验证码:</label>
                     <input type="text" name="code" class="input-code">
                     <a class="code i18n" name="getCode">获取验证码</a>
                 </div>
+
+                <div class="content-data">
+                    <label class="label-data" for="verification code"><span class="i18n" name="sec-code">校验码:</span></label>
+                    <input id="verification_code" type="text" maxlength="20" name="imgCaptcha" class="imgCaptcha" style="width: 140px"/>
+                    <img class="guestbook-captcha" onclick="this.src='/captcha.svl?d='+new Date()" alt="" src="/captcha.svl">
+                </div>
+
                 <div class="now-get">
                     <p class="i18n" name="nowget">立即领取</p>
                 </div>

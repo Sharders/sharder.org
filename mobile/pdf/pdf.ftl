@@ -55,7 +55,7 @@
             </div>
             <div class="col-xs-4 col">
                 <div class="right-2">
-                    <div class="tech i18n" name="white-book">白皮书</div>
+                    <div class="tech i18n" name="sharder-look-whitepaper">白皮书</div>
                     <div  class="zh-en">
                         <a  <#if encoCh??> href="/whitepaper/preview.ss?type=${encoCh!''}" <#else> href="javaScript:void('')"</#if> >
                             <button class="down-btn <#if encoCh??><#if flag?? &&  "encoCh"==flag>active</#if><#else>closed</#if> i18n" name="ch">中文<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></button></a>

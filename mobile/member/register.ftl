@@ -43,7 +43,7 @@
             <div class="ss-in-login"><span class="i18n" name="sharderf-account-number-exist">Have an account?</span><a class="in-login i18n" href="/login.ss" name="sharderf-user-sign-in"> Log in</a></div>
         </section>
         <section class="register-form register_login">
-            <form action="${base}/register_.ss?returnUrl=/login.ss" method="post"  class="ss-form default" id="register-form">
+            <form action="${base}/register_.ss" method="post"  class="ss-form default" id="register-form">
                 <ul>
                 <#--<li>-->
                 <#--<label for="username"><i>*</i><span class="i18n" name="sharder-sign-in-username">用户名:</span></label>-->

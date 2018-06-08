@@ -42,23 +42,23 @@
                         </div>
                         <div class="item item2">
                             <h4 class="ss-sub-title i18n" name="sharder-credit-model">Credential Model</h4>
-                            <div class="ss-content i18n" name="sharder-credit-model-en">The initiative Sharder-UTXO and Sharder-Keypair models ensure that data could not be accessed without credentials. The absolute ownership and privacy is guaranteed.</div>
+                            <div class="ss-content i18n" name="sharder-credit-model-en">The initiative Sharder-UTXO and Sharder-Keypair models ensure that data could not be accessed without credentials. Absolute ownership and privacy is guaranteed.</div>
                         </div>
                     </li>
                     <li class="ss-describe ss-describe2">
                         <div class="item item3">
                             <h4 class="ss-sub-title i18n" name="sharder-decentralized">Decentralization</h4>
-                            <div class="ss-content i18n" name="sharder-decentralized-body">Limitless extendibility, permanent storage, all-time online. In real time, the Watchers synchronize the full network data objects, dynamically adjust the data distribution, reduce redundant copies, increase space utilization, and guarantee .999 security and availability.</div>
+                            <div class="ss-content i18n" name="sharder-decentralized-body">Limitless expandability, permanent storage, online 24/7. In real time, the Watchers synchronize the ful network data objects, dynamically adjust the data distribution, reduce redundant copies, increase space utilization, and guaranteed 99.9% security and availability.</div>
                         </div>
                         <div class="item item4">
                             <h4 class="ss-sub-title i18n" name="sharder-bean-cartridge-mining">Sharder Miner Machine </h4>
-                            <div class="ss-content i18n" name="sharder-bean-cartridge-mining-body">No more arms race, no more first-comers-take-them-all, Sharder subscribers are welcome to get a Sharder Hub and start to earn mining reward, or get a Sharder Box and earn threefold rewards (mining, storage, watcher).</div>
+                            <div class="ss-content i18n" name="sharder-bean-cartridge-mining-body">No more arms race, no more “first-comers-take-all,” Sharder subscribers are welcome to get a Sharder Hub and start earning mining rewards or get a Sharder Box and earn multifold rewards (mining, storage, watcher).</div>
                         </div>
                     </li>
                     <li class="ss-describe ss-describe3">
                         <div class="item item5">
                             <h4 class="ss-sub-title i18n" name="sharder-shared-economic">Ownership and Privacy</h4>
-                            <div class="ss-content i18n" name="sharder-shared-economic-body">Subscribers are able to open their idle storage space to Sharder Network to get financial reward. It’s a transparent, open-source, peer-to-peer free market without any monopoly, the price is decided only by demand and supply of the market. The cross-chain architecture ensures that Sharder Chain is unlimitedly extendible to any other public chains and traditional internet.</div>
+                            <div class="ss-content i18n" name="sharder-shared-economic-body">Subscribers are able to share their idle storage space to Sharder Network for financial rewards. It's a transparent, open-source, peer-to-peer free market without any monopoly, and the price is decided by the market supply and demand. The cross-chain architecture ensures that Sharder Chain is limitlessly expandable to any other public chains and the internet.</div>
                         </div>
                     </li>
                 </ul>
@@ -81,7 +81,7 @@
             <ul class="items">
                 <li class="item item1">
                     <span class="bps-icon"><i class="fa fa-download" aria-hidden="true"></i></span>
-                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlTechZh" id="a_technology_white_paper" title="See the technology white paper" target="_blank"><span class="i18n" name="sharder-technical-white-paper">Technical White Paper</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=techEn" id="a_technology_white_paper" title="See the technology white paper" target="_blank"><span class="i18n" name="sharder-technical-white-paper">Technical White Paper</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlTechZh')}">
                         <button class="down-btn zh " >
                             <span class="i18n" name="btn.cn">Chinese</span>
@@ -89,15 +89,22 @@
                         </button>
                     </a>
                     <a href="${sharderCfg('urlTechEn')}">
-                        <button class="down-btn en">
+                        <button class="down-btn zh " >
                             <span class="i18n" name="btn.en">English</span>
                             <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
                         </button>
                     </a>
+
+                    <#--<a href="javascript:;">-->
+                        <#--<button class="down-btn zh closed" >-->
+                            <#--<span class="i18n" name="btn.en">English</span>-->
+                            <#--<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>-->
+                        <#--</button>-->
+                    <#--</a>-->
                 </li>
                 <li class="item item2">
                     <span class="bps-icon"><i class="fa fa-file-code-o" aria-hidden="true"></i></span>
-                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=urlEncoZh" id="a_user_white_paper" title="See the business white paper" target="_blank"><span class="i18n" name="sharder-look-whitepaper">Business White Paper</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
+                    <p class="ss-sub-title en"><a href="https://sharder.org/whitepaper/preview.ss?type=encoEn" id="a_user_white_paper" title="See the business white paper" target="_blank"><span class="i18n" name="sharder-look-whitepaper">Business White Paper</span><i class="fa fa-eye" aria-hidden="true"></i></a></p>
                     <a href="${sharderCfg('urlEncoZh')}">
                         <button class="down-btn zh " >
                             <span class="i18n" name="btn.cn">Chinese</span>
@@ -250,6 +257,10 @@
         </div>
     </section>
     <#include "/WEB-INF/ftl/sharders/news_list_snippet.ftl">
+
+
+    <#--<#include "/WEB-INF/ftl/sharders/bourse_list.ftl">-->
+    <@indexTpl.bourse_list />
     <section class="ss-container sharder-partner-main tail">
         <@indexTpl.sharderPartner/>
     </section>

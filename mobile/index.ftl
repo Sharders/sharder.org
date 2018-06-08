@@ -41,7 +41,7 @@
                     <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                 </dt>
                 <dd class="detail i18n" name="sharder-credit-model-en">
-                    The initiative Sharder-UTXO and Sharder-Keypair models ensure that data could not be accessed without credentials. The absolute ownership and privacy is guaranteed.
+                    The initiative Sharder-UTXO and Sharder-Keypair models ensure that data could not be accessed without credentials. Absolute ownership and privacy is guaranteed.
                 </dd>
                 <dt class="item">
                     <span><i class="fa fa-puzzle-piece" aria-hidden="true"></i></span>
@@ -49,7 +49,7 @@
                     <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                 </dt>
                 <dd class="detail i18n" name="sharder-decentralized-body">
-                    Limitless extendibility, permanent storage, all-time online. In real time, the Watchers synchronize the full network data objects, dynamically adjust the data distribution, reduce redundant copies, increase space utilization, and guarantee .999 security and availability.
+                    Limitless expandability, permanent storage, online 24/7. In real time, the Watchers synchronize the ful network data objects, dynamically adjust the data distribution, reduce redundant copies, increase space utilization, and guaranteed 99.9% security and availability.
                 </dd>
                 <dt class="item">
                     <span><i class="fa fa-microchip" aria-hidden="true"></i></span>
@@ -57,7 +57,7 @@
                     <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                 </dt>
                 <dd class="detail i18n" name="sharder-bean-cartridge-mining-body">
-                    No more arms race, no more first-comers-take-them-all, Sharder subscribers are welcome to get a Sharder Hub and start to earn mining reward, or get a Sharder Box and earn threefold rewards (mining, storage, watcher).
+                    No more arms race, no more “first-comers-take-all,” Sharder subscribers are welcome to get a Sharder Hub and start earning mining rewards or get a Sharder Box and earn multifold rewards (mining, storage, watcher).
                 </dd>
                 <dt class="item">
                     <span><i class="fa fa-braille" style="margin-left: -3px;" aria-hidden="true"></i></span>
@@ -65,7 +65,7 @@
                     <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                 </dt>
                 <dd class="detail i18n" name="sharder-shared-economic-body">
-                    Subscribers are able to open their idle storage space to Sharder Network to get financial reward. It’s a transparent, open-source, peer-to-peer free market without any monopoly, the price is decided only by demand and supply of the market. The cross-chain architecture ensures that Sharder Chain is unlimitedly extendible to any other public chains and traditional internet.
+                    Subscribers are able to share their idle storage space to Sharder Network for financial rewards. It's a transparent, open-source, peer-to-peer free market without any monopoly, and the price is decided by the market supply and demand. The cross-chain architecture ensures that Sharder Chain is limitlessly expandable to any other public chains and the internet.
                 </dd>
             </dl>
         </div>
@@ -89,20 +89,20 @@
                     <span class="bps-icon"><i class="fa fa-download" aria-hidden="true"></i></span>
                     <p class="ss-sub-title zh i18n" name="sharder-technical-white-paper">Technical White Paper</p>
                         <button>
-                            <a href="/whitepaper/preview.ss?type=urlTechZh" class="i18n" name="btn.cn">Chinese</a>
+                            <a href="/whitepaper/preview.ss?type=techCh" class="i18n" name="btn.cn">Chinese</a>
                         </button>
                        <button>
-                           <a href="/whitepaper/preview.ss?type=urlEncoEn" class="i18n" name="btn.en">English</a>
+                           <a href="/whitepaper/preview.ss?type=techEn" class="i18n" name="btn.en">English</a>
                        </button>
                 </li>
                 <li class="item item2">
                     <span class="bps-icon"><i class="fa fa-file-code-o" aria-hidden="true"></i></span>
                     <p class="ss-sub-title zh i18n" name="sharder-look-whitepaper">Business White Paper</p>
                     <button>
-                        <a href="/whitepaper/preview.ss?type=urlEncoZh" class="i18n" name="btn.cn">Chinese</a>
+                        <a href="/whitepaper/preview.ss?type=encoCh" class="i18n" name="btn.cn">Chinese</a>
                     </button>
                     <button >
-                        <a href="/whitepaper/preview.ss?type=urlEncoEn" class="i18n" name="btn.en">English</a>
+                        <a href="/whitepaper/preview.ss?type=encoEn" class="i18n" name="btn.en">English</a>
                     </button>
                 </li>
                 <li class="item item3">
@@ -275,6 +275,7 @@
         </div>
     </section>
     <#include "/WEB-INF/ftl/sharders/news_list_snippet.ftl">
+     <@indexTpl.bourse_list isMobile=true />
     <section class="sharder-partner-main">
         <@indexTpl.sharderPartner isMobile=true />
     </section>

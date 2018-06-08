@@ -61,8 +61,8 @@
 
         //用户已经领取
         function userInReceive(sharder_boutu) {
-            sharder_boutu.find("input[type='checkbox']").remove();
-            sharder_boutu.find(".bouty_task_main").remove();
+//            sharder_boutu.find("input[type='checkbox']").remove();
+//            sharder_boutu.find(".bouty_task_main").remove();
             if(localStorage.getItem("userLanguage") == 'zh-CN'){
                 $(sharder_boutu).css("background-image", "url('/r/cms/resource/sharders/img/index/received.png')");
             }else {
@@ -70,6 +70,7 @@
             }
             sharder_boutu.css("background-repeat", "no-repeat");
             sharder_boutu.css("background-color", "#f9f9f9");
+            sharder_boutu.css("background-position-y", "25px");
             sharder_boutu.find(".bounty_task_title .bounty_task_line").addClass("hide");
             sharder_boutu.find(".bounty_task_title .bounty_task_line").css("color", "#999999");
             sharder_boutu.find(".bounty_task_title .number_img").css("background-color", "#999999");

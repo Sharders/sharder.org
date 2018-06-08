@@ -51,7 +51,7 @@
                 <div class="crowd-funding details">
                     <p class="crowd-funding-title">
                         <img src="/r/cms/resource/sharders/img/gantanhao.png" class="crowd-funding-img crowd-funding-img1" v-on:click="tabMessage(true)">
-                        <span class="details-title i18n" name="sharder-subscribe-income">SS purchased </span>
+                        <span class="details-title i18n" name="sharder-subscribe-income">SS Purchased </span>
                     </p>
                     <p class="crowd-funding quota ">${crowd_amount!'0'}SS</p>
                     <#--<p class="details-colse" >{{retruenTExts(!crowd)}}</p>-->
@@ -77,12 +77,12 @@
 <@editPwd.main/>
 
 <div style="display: none">
-    <span class="i18n" name="shader-storage-token">Sharder tokens that exchanged with other tokens, such as ETH and BTC.</span>
-    <span class="i18n" name="sharder-rewarded-purchase-referred">We will keep airdropping those who significantly contribute to Sharder community.</span>
+    <span class="i18n" name="shader-storage-token">Sharder tokens acquired.</span>
+    <span class="i18n" name="sharder-rewarded-purchase-referred">Airdrops are in correlation with community contributions.</span>
     <span id="chakans" class="i18n" name="sharder-details-info">Details</span>
     <span id="guanbis" class="i18n" name="sharder-details-info-close">Close the Details</span>
     <span id="chakan" class="i18n" name="sharder-details">Details</span>
-    <span id="guanbi" class="i18n" name="sharder-close-details">Close the Details</span>
+    <span id="guanbi" class="i18n" name="sharder-close-details">Close Details</span>
     <#--<span class="i18n" name="sharder-registrant-uid">注册人UID</span>-->
     <#--<span class="i18n" name="sharder-registrant-time">注册时间</span>-->
     <#--<span class="i18n" name="sharder-subscribe-quota">白名单额度</span>-->
@@ -107,12 +107,12 @@
         <tr>
             <#--<th class="i18n" data-name="sharder-participation-time">参与时间</th>-->
             <th class="i18n" data-name="sharder-participation-time">Time</th>
-            <th class="i18n" data-name="sahrder-support-quantity">SS purchased</th>
+            <th class="i18n" data-name="sahrder-support-quantity">Amount</th>
             <#--<th class="i18n" data-name="sharder-use-white-list">使用白名单额度</th>-->
             <th class="i18n" data-name="sharder-award-type">Bonuses</th>
             <#--<th class="i18n" data-name="sharder-white-list-award">白名单奖励</th>-->
-            <th class="i18n" data-name="sharder-award-amount">Bonus amount</th>
-            <th class="i18n" data-name="sharder-get-ss">Get (SS)</th>
+            <th class="i18n" data-name="sharder-award-amount">Reward Amount</th>
+            <th class="i18n" data-name="sharder-get-ss">Earned (SS)</th>
         </tr>
         </thead>
         <tbody>
@@ -121,7 +121,7 @@
             <td>{{dealBase.payAmount}}</td>
             <td>
                 <span v-if="dealBase.awardType == 'SUOCANG'" data-name="suocangjiangli" class="i18n">Lockup bonus</span>
-                <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="kongtoujiangli" class="i18n">Airdrop bonus</span>
+                <span v-else-if="dealBase.awardType == 'AIR_DROP'" data-name="kongtoujiangli" class="i18n">Airdrop</span>
                 <span v-else-if="dealBase.awardType == 'LIMIT_QUOTA'" data-name="jieduanjiangli" class="i18n">Stage of reward</span>
                 <span v-else-if="dealBase.awardType == 'EXTRA'" data-name="ewaijiangli" class="i18n">Didcretionary bonus</span>
                 <span v-else-if="dealBase.awardType == 'WHITELIST'" data-name="baimingdanjiangli" class="i18n">Whitelist bonus</span>
@@ -153,7 +153,7 @@
         <p class="subscribe-head">
             <span data-name="sharder-participation-time" class="i18n">Time</span>
             <span data-name="sharder-award-type" class="i18n">Reward type</span>
-            <span data-name="sharder-award-amount" class="i18n">Bonus amount</span>
+            <span data-name="sharder-award-amount" class="i18n">Reward Amount</span>
             <span  data-name="sharder-bill-status" class="i18n">Status</span>
             <span data-name="beizhu" class="i18n">Remark</span>
         </p>

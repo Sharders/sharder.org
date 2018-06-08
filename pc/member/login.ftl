@@ -25,7 +25,7 @@
         </section>
 
         <section class="register-form"><!--invest/invest.do-->
-            <form action="${base}/login.jspx?returnUrl=/login_success.ss&failureUrl=/login.ss" method="post" class="ss-form default" id="login-form">
+            <form action="${base}/login.jspx" method="post" class="ss-form default" id="login-form">
                 <ul>
 
                     <li>
@@ -49,14 +49,13 @@
                         <input type="button" class="fashongduanxin i18n" name="sharder-send" onclick="loginCaptcha('username',this)" value="Send" />
                         <input type="hidden" name="captchaToken" />
                     </li>
-
-                    <#if (errorTimes??&&errorTimes<=0)||(errorRemaining?? && errorRemaining<=0)>
-                        <li class="ss-verification-code-li">
-                            <label for="verification code"><i>*</i><span class="i18n" name="sharder-user-code">Captcha</span></label>
-                            <input id="verification_code" type="text" maxlength="20" name="captcha"  class="imgCaptcha"/>
-                            <i class="code-img"><img id="guestbookCaptcha" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl"></i>
-                        </li>
-                    </#if>
+                    <#--<#if (errorTimes??&&errorTimes<=0)||(errorRemaining?? && errorRemaining<=0)>-->
+                        <#--<li class="ss-verification-code-li">-->
+                            <#--<label for="verification code"><i>*</i><span class="i18n" name="sharder-user-code">Captcha</span></label>-->
+                            <#--<input id="verification_code" type="text" maxlength="20" name="captcha"  class="imgCaptcha"/>-->
+                            <#--<i class="code-img"><img id="guestbookCaptcha" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl"></i>-->
+                        <#--</li>-->
+                    <#--</#if>-->
                     <li>
                         <input type="submit" value="Log in" class="ss-main-btn theme ss-hover-effect i18n" name="sharderf-user-sign-in" />
                     </li>
@@ -75,15 +74,17 @@
                     <#if error??>
                         <div class="error-message">
                             <#if error=="org.apache.shiro.authc.IncorrectCredentialsException">
-                            <@s.m "error.invalidPassword"/>
+                            <@s.ma code="error.userPasswordInfo" args=[Request.errorRemaining!"0"]/>
                             <#elseif error=="org.apache.shiro.authc.UnknownAccountException">
-                                <@s.m "error.usernameNotExist"/>
+                                <@s.m "error.badCredentials"/>
                             <#elseif error=="com.jeecms.common.security.CaptchaErrorException">
                                 <@s.m "error.invalidCaptcha"/>
                             <#elseif error=="com.jeecms.common.security.DisabledException">
                                 <@s.m "error.userDisabled"/>
                             <#elseif error=="com.jeecms.common.security.InactiveException">
                                 <@s.m "error.userInActive"/>
+                            <#elseif error=="org.apache.shiro.authc.LockedAccountException">
+                                <@s.ma code="error.userDisabledLogin" args=["30"]/>
                             </#if>
                         </div>
                     </#if>
@@ -120,7 +121,7 @@
 </div>
 <script>
     var qiehuan = false;
-    var loginUrl = "${base}/login.jspx?returnUrl=/login_success.ss&failureUrl=/login.ss";
+    var loginUrl = "${base}/login.jspx";
     function qiehuanFunc() {
         $("#sharder_password").css("display","none");
         $("#sharder_captcha").css("display","none");

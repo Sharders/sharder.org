@@ -36,7 +36,7 @@
             <h1 class="ss-main-title i18n" name="welcome-registration-sharderf">Welcome to Sharder!</h1>
         </section>
         <section class="register-form">
-            <form action="${base}/register_.ss?returnUrl=/login.ss" method="post"  class="ss-form default" id="register-form">
+            <form action="${base}/register_.ss" method="post"  class="ss-form default" id="register-form">
                 <ul>
                     <li>
                         <span class="i18n" name="sharderf-account-number-exist">Have an account?</span><a class="in-login i18n underline" href="/login.ss" name="sharderf-user-sign-in">Log in</a>

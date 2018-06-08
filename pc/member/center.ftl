@@ -48,8 +48,8 @@
 
             <@editPwd.operation/>
             <li>
-                <span class="user-title">
-                    <span class="i18n" name="sharder_shimingrenzheng">Authentication</span>
+                <span class="user-title" style="width: 160px">
+                    <span class="i18n" name="sharder_shimingrenzheng">Identity Authentication</span>
                     <span id="sharder_shimingrenzheng_info" onmousemove="sharderKycShuoming(true)" onmouseout="sharderKycShuoming(false)"></span>
                 </span>
                 <#if userKYCStatus??>
@@ -77,7 +77,7 @@
                         <span class="user-value i18n" name="wu" >no</span>
                 </#if>
                 <#if !user.purseAddress??>
-                    <span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">Register receiving address</span>
+                    <span id="sztbdz" class="user-operation win-open i18n" name="sharder-set-mention-token-address"  v-on:click="winOpen('walletAddr')">Register Withdrawal Address</span>
                 <#else >
                     <span id="sztbdz" class="user-operation win-open i18n" name="sharder-edit-mention-token-address"  v-on:click="winOpen('walletAddr')">Change withdrawal address</span>
                 </#if>
@@ -120,9 +120,9 @@
             <span class="sharder-ss i18n" name="sharder-SS">Sharder Token (SS)</span>
             <span class="shardr-assets">${userAmount}</span>
             <div class="shardr-available-assets">
-                <span class="i18n" name="sharder-ss_is">Withdrawal available</span><span class="color">${usableBalance}</span><span>SS</span>
+                <span class="i18n" name="sharder-ss_is">Available SS</span><span class="color">${usableBalance}</span><span>SS</span>
                 <img src="/r/cms/resource/sharders/img/index/wenhao.png"  class="personal-img"/>
-                <div class="popup-suocang i18n" name="sharder-ss_is-text">The token amount that could be withdrew to your ETH wallet.</div>
+                <div class="popup-suocang i18n" name="sharder-ss_is-text">The token amount that could be withdrewn to your ETH wallet.</div>
             </div>
         </div>
         <div class="subscribe-crowd-funding">
@@ -146,8 +146,8 @@
                 </#if>
             </div>
             <div class="personal crowd-funding">
-                <span class="explain"><span class="i18n" name="sharder-subscribe-income"> SS purchased </span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="popup-crowd-funding i18n" name="shader-storage-token">Sharder tokens that exchanged with other tokens, such as ETH and BTC.</div></span>
+                <span class="explain"><span class="i18n" name="sharder-subscribe-income"> SS Purchased </span><img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
+                    <div class="popup-crowd-funding i18n" name="shader-storage-token">Sharder tokens acquired.</div></span>
                 <span class="currency i18n" name="sharder-SS-1">SS</span>
                 <span class="quota">${crowd_amount!'0'}</span>
                 <span class="details" v-on:click="selectTmpl('zhongchou')">{{isOffText.off2}}</span>
@@ -156,7 +156,7 @@
 
                 <span class="explain"><span class="i18n" name="dxjl">Reward</span>
                     <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img"/>
-                    <div class="poput-invitation i18n" name="sharder-rewarded-purchase-referred">We will keep airdropping those who significantly contribute to Sharder community.</div>
+                    <div class="poput-invitation i18n" name="sharder-rewarded-purchase-referred">Airdrops are in correlation with community contributions.</div>
                 </span>
                 <span class="currency i18n" name="sharder-SS-1">SS</span>
                 <span class="quota">${invite_rewards_amount!'0'}</span>
@@ -196,8 +196,8 @@
                 <#else >
                 <button class="currency-ss i18n" name="sharder-subscribe-currency">Withdraw SS</button>
             </#if>
-            <img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>
-            <div class="poput-extract i18n" name="sharder-website-direct-investment">The contributions from channels other than crowdsale (smart contract) will be audited and the Sharder tokens will be delivered to your wallet by 0:00 UTC Mar. 18, 2018 (except for the lock-up).</div>
+            <#--<img src="/r/cms/resource/sharders/img/index/wenhao.png" class="personal-img tibi"/>-->
+            <#--<div class="poput-extract i18n" name="sharder-website-direct-investment">The contributions from channels other than crowdsale (smart contract) will be audited and the Sharder tokens will be delivered to your wallet by 0:00 UTC Mar. 18, 2018 (except for the lock-up).</div>-->
         </div>
 
     </div>
@@ -206,7 +206,7 @@
         <img src="/r/cms/adf/adf/images/login-close-on.png" class="close_userPwd" v-on:click="winOpen('walletAddr')"/>
         <form method="post" id="userWalletAddr" class="userWalletAddr" onsubmit="return false">
             <#if !user.purseAddress??>
-                    <h2 class="i18n" name="sharder-set-mention-token-address">Register receiving address</h2>
+                    <h2 class="i18n" name="sharder-set-mention-token-address">Register Withdrawal Address</h2>
             <#else >
                    <h2 class="i18n" name="sharder-edit-mention-token-address">Change withdrawal address</h2>
             </#if>
@@ -218,7 +218,7 @@
                 <input type="text" id="oldWalletAddr" name="walletAddr" v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
             </div>
             <div class="input-div">
-                <label class="i18n" name="sharder-input-again" for="newWalletAddr">Input again</label>
+                <label class="i18n" name="sharder-input-again" for="newWalletAddr">Confirm Address</label>
                 <input type="text" id="newWalletAddr"  v-on:keyup="verificationAddr()" v-on:paste="verificationAddr()"/>
             </div>
             <label  style="display: none;" for="newWalletAddr" class="error error1 i18n" generated="true" name="sharder-tishi-liangchisurubuyiyang">Address doesn't match, please double check!</label>
@@ -310,7 +310,7 @@
                 <#--<th >{{parentData.title.d}}</th>-->
                 <th data-name="sharder-participation-time" class="i18n">Time</th>
                 <th data-name="sharder-award-type" class="i18n">Reward type</th>
-                <th data-name="sharder-award-amount" class="i18n">Bonus amount</th>
+                <th data-name="sharder-award-amount" class="i18n">Reward Amount</th>
                 <th data-name="sharder-bill-status" class="i18n">Status</th>
                 <th data-name="beizhu" class="i18n">Remark</th>
 
@@ -341,7 +341,7 @@
 </script>
 <script type="text/x-template" id="rebate-details">
     <div>
-        <span data-name="sharder-subscribe-income" class="subscribe-title i18n">SS purchased </span>
+        <span data-name="sharder-subscribe-income" class="subscribe-title i18n">SS Purchased </span>
         <table class="ss-table defalut">
             <thead>
             <tr>
@@ -389,7 +389,7 @@
                 <#--<td>{{dealBase.whitelistAwardAmount || '0'}}</td>-->
 
                 <td>
-                    <#include "/WEB-INF/ftl/sharders/award_type.ftl"/>
+                    <#include "/WEB-INF/ftl/sharders/award_type.ftl" />
                 </td>
                 <td>
                     <span v-if="dealBase.useWhitelistsQuota != null && dealBase.useWhitelistsQuota != ''">
